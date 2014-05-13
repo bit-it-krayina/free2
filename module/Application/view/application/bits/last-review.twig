@@ -1,0 +1,13 @@
+{% if last_review %}
+<div class="panel panel-success bl-well-semi-transparent">
+    <div class="panel-body">
+
+	<h4>Last Review</h4>
+	<blockquote class="pull-right">
+	    <p>	{{last_review.reviewContent}} </p>
+	    <small>{{last_review.Reviewer | raw}} -- {{last_review.reviewDate.date|date('Y-m-d H:i:s')}} </small>
+	</blockquote>
+    </div>
+</div>
+{% endif %}
+

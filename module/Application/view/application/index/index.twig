@@ -1,0 +1,50 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+<div class="row">
+    <div class="bc-main-content-section col-lg-8">
+	<div class="row">
+	    <div class="col-lg-12">
+		<div class="list-group bl-green-list bl-well-semi-transparent">
+		    <span class="list-group-item active">
+			<h4>Почему стоит учить немецкий с нами: {{someVar}} !</h4>
+		    </span>
+		    <span class="list-group-item">Наши преподаватели аттестованы по уровню С2!</span>
+		    <span class="list-group-item">Нам нравится наша работа!</span>
+		    <span class="list-group-item">Мы предлагаем индивидуальный подход к каждому студенту!</span>
+		    <span class="list-group-item">В качестве бонуса мы предоставляем бесплатные консультации по программе Au-pair!</span>
+		    <span class="list-group-item">Мы практикуем on-line уроки. Больше никаких пробок!</span>
+		</div>
+	    </div>
+	    <div class=" col-lg-12">
+		<div class="list-group bl-green-list bl-well-semi-transparent">
+		    <span class="list-group-item active">
+			<h4>Наши услуги:</h4>
+		    </span>
+		    <span class="list-group-item">Индивидуальные уроки он-лайн</span>
+		    <span class="list-group-item">Подготовка студентов к аттестации</span>
+		    <span class="list-group-item">Технические переводы</span>
+		    <span class="list-group-item">Ведение переписки, документооборот</span>
+		    <a  href="{{ url('services') }}" class="list-group-item">Еще...</a>
+		</div>
+	    </div>
+
+	</div>
+    </div>
+    <div class="bc-sidebar-section col-lg-4">
+	<div class="row">
+	    <div class="col-lg-12">
+		{% include 'application/bits/last-review' %}
+	    </div>
+	</div>
+	{#
+	<div class="row">
+	    <div class="col-lg-12">
+		{% include 'application/adv/vacancy' %}
+	    </div>
+	</div>
+#}
+    </div>
+    </div>
+
+{% endblock content %}

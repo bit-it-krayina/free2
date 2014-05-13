@@ -1,0 +1,7 @@
+{% if error %}
+	{{ error }}
+{% elseif loggedUser %}
+	User logged as <b>{{loggedUser.username}}</b>
+{% elseif form %}
+	{{ form(form) }}
+{% endif %}

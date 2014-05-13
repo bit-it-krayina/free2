@@ -1,0 +1,135 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-image: url("/img/bg1.png");
+}
+
+.zf-green {
+    color: #68b604;
+}
+
+.btn-success {
+  background-color: #57a900;
+  background-image: -moz-linear-gradient(top, #70d900, #57a900);
+  background-image: -ms-linear-gradient(top, #70d900, #57a900);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+  background-image: -o-linear-gradient(top, #70d900, #57a900);
+  background-image: linear-gradient(top, #70d900, #57a900);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+  background-color: #57a900;
+}
+
+div.container a.brand {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+}
+
+.bl-green-bg {
+    background-color: #D6E9C6;
+    color: #468847;
+}
+
+.bl-margin-bottom-minus {
+    margin-bottom: 0;
+}
+
+a.el-none-decoration, a.el-none-decoration:hover, a.el-none-decoration:focus {
+    text-decoration: none;
+    color: #57a900;
+}
+
+.bl-green-list {
+    /*border-color: ;*/
+    border: 1px solid #D6E9C6;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 18px;
+}
+
+.bl-green-list a.list-group-item.active, 
+.bl-green-list  a.list-group-item.active:hover, 
+.bl-green-list  a.list-group-item.active:focus {
+    background-color: #DFF0D8;
+    border-color: #DFF0D8;
+    color: #468847;
+}
+
+.bl-green-list span.list-group-item
+{
+    border-color: #DFF0D8;
+    
+}
+
+.bl-green-list span.list-group-item.active
+{
+    background-color: #DFF0D8;
+    color: #32841A;
+}
+
+
+.bl-well-semi-transparent, 
+.bl-well-semi-transparent span,
+.bl-well-semi-transparent a,  
+.bl-well-semi-transparent li{
+   background-color: rgba(245, 245, 245, 0.6);
+}
+
+.bl-logo-well {
+    margin-top: 10%;
+    /*background-image:  url('/img/6-flags-germany-1.jpg');*/
+}
+
+
+.btn-light-success {
+  color: #ffffff;
+  background-color: #C8E9C5;
+  border-color: #C8E9C5;
+}
+
+.btn-light-success:hover,
+.btn-light-success:focus,
+.btn-light-success:active,
+.btn-light-success.active,
+.open .dropdown-toggle.btn-light-success {
+  color: #ffffff;
+  background-color: #70d900;
+  border-color: #57a900;
+}
+
+.btn-light-success:active,
+.btn-light-success.active,
+.open .dropdown-toggle.btn-light-success {
+  background-image: none;
+}
+
+.btn-light-success.disabled,
+.btn-light-success[disabled],
+fieldset[disabled] .btn-light-success,
+.btn-light-success.disabled:hover,
+.btn-light-success[disabled]:hover,
+fieldset[disabled] .btn-light-success:hover,
+.btn-light-success.disabled:focus,
+.btn-light-success[disabled]:focus,
+fieldset[disabled] .btn-light-success:focus,
+.btn-light-success.disabled:active,
+.btn-light-success[disabled]:active,
+fieldset[disabled] .btn-light-success:active,
+.btn-light-success.disabled.active,
+.btn-light-success[disabled].active,
+fieldset[disabled] .btn-light-success.active {
+  background-color: #C8E9C5;
+  border-color: #C8E9C5;
+}

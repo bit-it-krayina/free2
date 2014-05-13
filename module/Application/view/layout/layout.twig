@@ -1,0 +1,59 @@
+{{ docType() }}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            {% block title %}Биржа воллонтеров{% endblock title %}
+	    </title>
+
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block meta %}{% endblock meta %}
+
+	    <!-- Le styles -->
+	    <link href="/css/bootstrap-simplex.css" media="screen" rel="stylesheet" type="text/css">
+	    <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css">
+	    <link href="/css/csn-user-style.css" media="screen" rel="stylesheet" type="text/css">
+	    <link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	{#<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />#}
+        {% block style %}{% endblock style %}
+
+	    <!-- Scripts -->
+	    <script type="text/javascript" src="/js/jquery.min.js"></script>
+	    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="/js/mine/contact.js"></script>
+	    <!--[if lt IE 9]><script type="text/javascript" src="/js/html5.js"></script><![endif]-->
+        {% block script %}{% endblock script %}
+	</head>
+	<body>
+
+	    <div class="container">
+	    {% include 'application/bits/menu.twig' %}
+		{% block header %}
+		    <div class="row">
+			<div class="col-lg-4">
+			    {% include 'application/bits/logo.twig' %}
+			</div>
+			<div class="col-lg-4 col-lg-offset-4">
+			    {# include 'application/bits/contact_block' #}
+			</div>
+
+		    </div>
+		{% endblock header %}
+		    <!-- content|raw is required for phtml fallback -->
+		    <div class="bl-page-content">
+		{% block content %}{{ content|raw }}{% endblock content %}
+		    </div>
+		    <hr>
+		    <footer >
+			<div class="container">
+			    <div class="row">
+				<div class="bsa well bl-well-semi-transparent ">
+				    <p class="bl-margin-bottom-minus">&copy; 2014 - 2015 {{ translate('Разработка Mice\'Studio') }}</p>
+				</div>
+			    </div>
+			</div>
+		    </footer>
+	    </div> <!-- /container -->
+        {% block inline %}{% endblock inline %}
+    </body>
+</html>

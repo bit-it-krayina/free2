@@ -1,0 +1,19 @@
+<div class="panel panel-success bl-well-semi-transparent">
+    <div class="panel-heading">
+	<h3 class="panel-title">Заказать уроки:</h3>
+    </div>
+    <form class="form-horizontal" name="small_contact_form" action="{{ url('contact_form') }}" method="POST">
+	<fieldset>
+	    <div class="panel-body">
+		<input id="inputEmail" name="inputEmail" class="form-control" type="text" placeholder="Email">
+		<input id="inputName" name="inputName" class="form-control" type="text" placeholder="Name">
+		<textarea id="textArea" name="inputMessage" class="form-control" rows="3"></textarea>
+
+	    </div>
+	    <div class="panel-footer">
+		<a class="btn btn-default" href="{{ url('services') }}" type="cancel">Отменить</a>
+		<button class="btn  btn-success" type="submit">Заказать</button>
+	    </div>
+	</fieldset>
+    </form>
+</div>

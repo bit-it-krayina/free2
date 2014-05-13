@@ -1,0 +1,14 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+    <h2>List of teachers</h2>
+    <div class="list-group">
+	{% for teacher in teachers %}
+	<a href="#" class="list-group-item">
+	    <h4 class="list-group-item-heading">{{teacher.name}}</h4>
+	    <p class="list-group-item-text">{{teacher.description}}</p>
+	</a>
+	{% endfor %}
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,21 @@
+{% if contact.name is not empty %}
+<div class="bsa well bl-well-semi-transparent">
+    <a class="el-none-decoration" href="{{ url('contacts') }}">
+    <ul class="list-group bl-margin-bottom-minus bl-well-semi-transparent">
+	<li class="list-group-item">
+	    <label for='id-name'>Name:</label>
+	    <span id="id-name"> {{ contact.Name }}</span>
+	</li>
+	<li class="list-group-item">
+	    <label for='id-mts'>MTS:</label>
+	    <span id="id-mts"> {{ contact.phones.mts }}</span>
+	</li>
+	<li class="list-group-item">
+	    <label for='id-life'>Life:</label>
+	    <span id="id-life"> {{ contact.phones.life }}</span>
+	</li>
+    </ul>
+    </a>
+</div>
+
+{% endif %}

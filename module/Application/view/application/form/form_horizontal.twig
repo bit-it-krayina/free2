@@ -1,0 +1,13 @@
+<form class="form-inline" role="form" method="{{form.getAttribute('method')}}" action="{{form.getAttribute('action')}}">
+	{% for element in form.elements %}
+		{% if element.getAttribute('type') == 'submit' %}
+			<button type="submit" class="btn btn-default">{{element.getValue()}}</button>
+		{% else %}
+			<div class="form-group">
+				<label class="sr-only" for="{{element.name}}">{{element.name}}</label>
+				<input type="{{element.getAttribute('type')}}" name="{{element.getAttribute('name')}}" class="form-control {{element.getAttribute('class')}}" id="{{element.getAttribute('id')}}" placeholder="{{element.getAttribute('placeholder')}}">
+			</div>
+		{% endif %}
+	{% endfor %}
+</form>
+
