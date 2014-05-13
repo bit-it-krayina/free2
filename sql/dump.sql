@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 13, 2014 at 08:50 AM
+-- Generation Time: May 13, 2014 at 11:19 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -18,6 +18,105 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `yas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article`
+--
+
+CREATE TABLE IF NOT EXISTS `article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
+  `language_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `resource_id` int(11) DEFAULT NULL,
+  `vote_id` int(11) DEFAULT NULL,
+  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `intro_text` longtext COLLATE utf8_unicode_ci,
+  `full_text` longtext COLLATE utf8_unicode_ci,
+  `created` datetime DEFAULT NULL,
+  `allow_comments` tinyint(1) DEFAULT NULL,
+  `view_count` int(11) NOT NULL,
+  `layout` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_23A0E6672DCDAFC` (`vote_id`),
+  KEY `IDX_23A0E66727ACA70` (`parent_id`),
+  KEY `IDX_23A0E6682F1BAF4` (`language_id`),
+  KEY `IDX_23A0E66A76ED395` (`user_id`),
+  KEY `IDX_23A0E6689329D25` (`resource_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `article`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_categories`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_categories` (
+  `article_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`category_id`),
+  KEY `IDX_DE004A0E7294869C` (`article_id`),
+  KEY `IDX_DE004A0E12469DE2` (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `articles_categories`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_64C19C1A76ED395` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `user_id`, `name`) VALUES
+(1, NULL, 'Programming');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `language_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `article_id` int(11) DEFAULT NULL,
+  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `text` longtext COLLATE utf8_unicode_ci,
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_9474526C82F1BAF4` (`language_id`),
+  KEY `IDX_9474526CA76ED395` (`user_id`),
+  KEY `IDX_9474526C7294869C` (`article_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `comment`
+--
+
 
 -- --------------------------------------------------------
 
@@ -291,15 +390,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `IDX_8D93D6495D83CC1` (`state_id`),
   KEY `IDX_8D93D6491E27F6BF` (`question_id`),
   KEY `search_idx` (`username`,`first_name`,`last_name`,`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`) VALUES
-(1, 2, 1, 1, 3, 'testuser', 'test', 'test', 'imychkova@gmail.com', '$2y$10$Of/HbsCWhZEEzMU4A9TFR.ZqyCXWl5Rdw6Pm4kbmBTTZlHx8iB7VK', 'testtest', NULL, '2014-05-13 15:34:36', '56c87345d56bd242f498b14219655eb5', 0),
-(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1);
+(1, 3, 1, 2, 3, 'admin', 'test', 'test', 'imychkova@gmail.com', '$2y$10$Of/HbsCWhZEEzMU4A9TFR.ZqyCXWl5Rdw6Pm4kbmBTTZlHx8iB7VK', 'testtest', NULL, '2014-05-13 15:34:36', '56c87345d56bd242f498b14219655eb5', 1),
+(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1),
+(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1);
 
 -- --------------------------------------------------------
 
@@ -321,6 +421,43 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (1, 'testuser', 'e16b2ab8d12314bf4efbd6203906ea6c'),
 (2, 'new1', '202cb962ac59075b964b07152d234b70');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vote`
+--
+
+CREATE TABLE IF NOT EXISTS `vote` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `likes_count` int(11) NOT NULL,
+  `dislikes_count` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `vote`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `votes_users`
+--
+
+CREATE TABLE IF NOT EXISTS `votes_users` (
+  `vote_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`vote_id`,`user_id`),
+  KEY `IDX_9A4168C772DCDAFC` (`vote_id`),
+  KEY `IDX_9A4168C7A76ED395` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `votes_users`
+--
+
 
 -- --------------------------------------------------------
 
@@ -418,8 +555,7 @@ CREATE TABLE IF NOT EXISTS `yas_teacher` (
   `description` varchar(255) NOT NULL,
   `imageUrl` varchar(255) NOT NULL,
   `urlName` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `urlName` (`urlName`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
@@ -433,6 +569,37 @@ INSERT INTO `yas_teacher` (`id`, `name`, `description`, `imageUrl`, `urlName`) V
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `article`
+--
+ALTER TABLE `article`
+  ADD CONSTRAINT `FK_23A0E6672DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`),
+  ADD CONSTRAINT `FK_23A0E66727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `article` (`id`),
+  ADD CONSTRAINT `FK_23A0E6682F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`),
+  ADD CONSTRAINT `FK_23A0E6689329D25` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`id`),
+  ADD CONSTRAINT `FK_23A0E66A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `articles_categories`
+--
+ALTER TABLE `articles_categories`
+  ADD CONSTRAINT `FK_DE004A0E12469DE2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
+  ADD CONSTRAINT `FK_DE004A0E7294869C` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`);
+
+--
+-- Constraints for table `category`
+--
+ALTER TABLE `category`
+  ADD CONSTRAINT `FK_64C19C1A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `FK_9474526C7294869C` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
+  ADD CONSTRAINT `FK_9474526C82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`),
+  ADD CONSTRAINT `FK_9474526CA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `friends`
@@ -463,3 +630,10 @@ ALTER TABLE `user`
   ADD CONSTRAINT `FK_8D93D6495D83CC1` FOREIGN KEY (`state_id`) REFERENCES `state` (`id`),
   ADD CONSTRAINT `FK_8D93D64982F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`),
   ADD CONSTRAINT `FK_8D93D649D60322AC` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
+
+--
+-- Constraints for table `votes_users`
+--
+ALTER TABLE `votes_users`
+  ADD CONSTRAINT `FK_9A4168C7A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_9A4168C772DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`);

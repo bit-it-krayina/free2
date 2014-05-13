@@ -58,7 +58,7 @@ return array(
 					'editProfile' => 'member',
 					'changeEmail' => 'member',
 					'forgottenPassword' => 'guest',
-					'confirmEmail' => 'guest',
+					'confirm-email' => 'guest',
 					'registrationSuccess' => 'guest',
 				),
 				'CsnUser\Controller\Index' => array(
