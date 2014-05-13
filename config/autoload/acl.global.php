@@ -66,6 +66,9 @@ return array(
 					'logout'  => 'member',
 					'index' => 'guest',
 				),
+				'CsnUser\Controller\Admin' => array(
+					'all' => 'admin',
+				),
 				'CsnCms\Controller\Index' => array(
 						'all' => 'guest'
 				),
