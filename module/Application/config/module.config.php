@@ -22,40 +22,7 @@ return array (
 					),
 				),
 			),
-//			'login' => array (
-//				'type' => 'Zend\Mvc\Router\Http\Literal',
-//				'options' => array (
-//					'route' => '/login',
-//					'defaults' => array (
-//						'controller' => 'Application\Controller\Auth',
-//						'action' => 'login',
-//					),
-//				),
-//			),
-//
-//			'registration' => array (
-//				'type' => 'Zend\Mvc\Router\Http\Literal',
-//				'options' => array (
-//					'route' => '/registration',
-//					'defaults' => array (
-//						'controller' => 'Application\Controller\Auth',
-//						'action' => 'registration',
-//					),
-//				),
-//			),
-//
-//
-//			'logout' => array (
-//				'type' => 'Zend\Mvc\Router\Http\Literal',
-//				'options' => array (
-//					'route' => '/logout',
-//					'defaults' => array (
-//						'controller' => 'Application\Controller\Auth',
-//						'action' => 'logout',
-//					),
-//				),
-//			),
-//
+
 
 			'project' => array (
 				'type' => 'Segment',
@@ -70,96 +37,8 @@ return array (
 					),
 				),
 			),
-			/**
-			 * OLD
-			 */
-			'users' => array (
-				'type' => 'Zend\Mvc\Router\Http\Literal',
-				'options' => array (
-					'route' => '/users',
-					'defaults' => array (
-						'controller' => 'Application\Controller\Auth',
-						'action' => 'users',
-					),
-				),
-			),
-			'contacts' => array (
-				'type' => 'Zend\Mvc\Router\Http\Literal',
-				'options' => array (
-					'route' => '/contacts',
-					'defaults' => array (
-						'controller' => 'Application\Controller\Index',
-						'action' => 'contacts',
-					),
-				),
-			),
-			'services' => array (
-				'type' => 'Zend\Mvc\Router\Http\Literal',
-				'options' => array (
-					'route' => '/services',
-					'defaults' => array (
-						'controller' => 'Application\Controller\Index',
-						'action' => 'services',
-					),
-				),
-			),
-			'contact_form' => array (
-				'type' => 'Zend\Mvc\Router\Http\Literal',
-				'options' => array (
-					'route' => '/contact-me',
-					'defaults' => array (
-						'controller' => 'Application\Controller\Ajax',
-						'action' => 'contactMe',
-					),
-				),
-			),
-			'contact_thanks' => array (
-				'type' => 'Segment',
-				'options' => array (
-					'route' => '/thanks/[:result]/[:order_id]',
-					'constraints' => array (
-						'result' => '[a-zA-Z][a-zA-Z0-9_-]*',
-						'order_id' => '[0-9_-]*',
-					),
-					'defaults' => array (
-						'controller' => 'Application\Controller\Index',
-						'action' => 'thanks',
-					),
-				),
-			),
-			'about' => array (
-				'type' => 'Zend\Mvc\Router\Http\Literal',
-				'options' => array (
-					'route' => '/about',
-					'defaults' => array (
-						'controller' => 'Application\Controller\Index',
-						'action' => 'about',
-					),
-				),
-			),
-			'teachers' => array (
-				'type' => 'Zend\Mvc\Router\Http\Literal',
-				'options' => array (
-					'route' => '/teachers',
-					'defaults' => array (
-						'controller' => 'Application\Controller\Teachers',
-						'action' => 'index',
-					),
-				),
-			),
-			'teacher' => array (
-				'type' => 'Segment',
-				'options' => array (
-					'route' => '/teachers/[:teacher]',
-					'constraints' => array (
-						'teacher' => '[a-zA-Z][a-zA-Z0-9_-]*',
-					),
-					'defaults' => array (
-						'controller' => 'Application\Controller\Teachers',
-						'action' => 'preview',
-					),
-				),
-			),
+
+
 			// The following is a route to simplify getting started creating
 			// new controllers and actions without needing to create a new
 			// module. Simply drop new controllers in, and you can access them
