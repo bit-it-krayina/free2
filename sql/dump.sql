@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 13, 2014 at 11:19 AM
+-- Generation Time: May 14, 2014 at 02:57 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -314,8 +314,10 @@ CREATE TABLE IF NOT EXISTS `role` (
 
 INSERT INTO `role` (`id`, `name`) VALUES
 (1, 'guest'),
-(2, 'member'),
-(3, 'admin');
+(2, 'volunteer'),
+(3, 'admin'),
+(4, 'project manager'),
+(5, 'coordinator');
 
 -- --------------------------------------------------------
 
@@ -574,8 +576,8 @@ INSERT INTO `yas_teacher` (`id`, `name`, `description`, `imageUrl`, `urlName`) V
 -- Constraints for table `article`
 --
 ALTER TABLE `article`
-  ADD CONSTRAINT `FK_23A0E6672DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`),
   ADD CONSTRAINT `FK_23A0E66727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `article` (`id`),
+  ADD CONSTRAINT `FK_23A0E6672DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`),
   ADD CONSTRAINT `FK_23A0E6682F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`),
   ADD CONSTRAINT `FK_23A0E6689329D25` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`id`),
   ADD CONSTRAINT `FK_23A0E66A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
@@ -612,8 +614,8 @@ ALTER TABLE `friends`
 -- Constraints for table `privilege`
 --
 ALTER TABLE `privilege`
-  ADD CONSTRAINT `FK_87209A87D60322AC` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`),
-  ADD CONSTRAINT `FK_87209A8789329D25` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`id`);
+  ADD CONSTRAINT `FK_87209A8789329D25` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`id`),
+  ADD CONSTRAINT `FK_87209A87D60322AC` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 
 --
 -- Constraints for table `roles_parents`
@@ -635,5 +637,5 @@ ALTER TABLE `user`
 -- Constraints for table `votes_users`
 --
 ALTER TABLE `votes_users`
-  ADD CONSTRAINT `FK_9A4168C7A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `FK_9A4168C772DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`);
+  ADD CONSTRAINT `FK_9A4168C772DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`),
+  ADD CONSTRAINT `FK_9A4168C7A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);

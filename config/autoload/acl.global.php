@@ -33,7 +33,7 @@ return array(
 				// There should be a rule in the Acl allowing every role access to the action and controller
 				// Usually this is the homepage action in our case CsnCms\Controller\Index action frontPageAction
 				// the route 'home' = '/' should be overriden by CsnCms
-				// In the case we are using login we enter an endless redirect. If you are loged in in the system as a member
+				// In the case we are using login we enter an endless redirect. If you are loged in in the system as a volunteer
 				// to hide from the navigation the login action the coleagues are using Acl to deny access to login.
 				// The CsnAuthorisation trys to redirect to not accessable action loginAction and it gets redirected back to it.
 				// Much better is to redirect to an action for sure accessable from everyone and there is no better candidate than the homepage
@@ -47,23 +47,25 @@ return array(
          */
         'roles' => array(
             'guest'   => null,
-            'member'  => 'guest',
-            'admin'  => 'member',
+            'volunteer'  => 'guest',
+            'coordinator'  => 'volunteer',
+            'project manager'  => 'coordinator',
+            'admin'  => 'project manager',
         ),
         'resources' => array(
             'allow' => array(
 				'CsnUser\Controller\Registration' => array(
 					'index'	=> 'guest',
-					'changePassword' => 'member',
-					'editProfile' => 'member',
-					'changeEmail' => 'member',
+					'changePassword' => 'volunteer',
+					'editProfile' => 'volunteer',
+					'changeEmail' => 'volunteer',
 					'forgottenPassword' => 'guest',
 					'confirm-email' => 'guest',
 					'registrationSuccess' => 'guest',
 				),
 				'CsnUser\Controller\Index' => array(
 					'login'   => 'guest',
-					'logout'  => 'member',
+					'logout'  => 'volunteer',
 					'index' => 'guest',
 				),
 				'CsnUser\Controller\Admin' => array(
@@ -74,7 +76,7 @@ return array(
 				),
 				'CsnCms\Controller\Article' => array(
 					'view'	=> 'guest',
-					'vote'  => 'member',
+					'vote'  => 'volunteer',
 					'index' => 'admin',
 					'add'	=> 'admin',
 					'edit'  => 'admin',
@@ -87,10 +89,10 @@ return array(
 					'delete'=> 'admin',
 				),
 				'CsnCms\Controller\Comment' => array(
-					'index' => 'member',
-					'add'	=> 'member',
-					'edit'  => 'member',
-					'delete'=> 'member',
+					'index' => 'volunteer',
+					'add'	=> 'volunteer',
+					'edit'  => 'volunteer',
+					'delete'=> 'volunteer',
 				),
 				'CsnCms\Controller\Category' => array(
 					'index' => 'admin',
@@ -99,10 +101,10 @@ return array(
 					'delete'=> 'admin',
 				),
 				'CsnFileManager\Controller\Index' => array(
-					'all' => 'member',
+					'all' => 'volunteer',
 				),
 				'Zend' => array(
-					'uri'   => 'member'
+					'uri'   => 'volunteer'
 				),
 				'Application\Controller\Index' => array(
 					'index'   => 'guest',
@@ -119,7 +121,7 @@ return array(
 					'view'	=> 'guest',
 				),
 				'Private Resource' => array(
-					'view'	=> 'member',
+					'view'	=> 'volunteer',
 				),
 				'admin Resource' => array(
 					'view'	=> 'admin',
@@ -127,10 +129,10 @@ return array(
             ),
             'deny' => array(
 				'CsnUser\Controller\Index' => array (
-					'login' => 'member'
+					'login' => 'volunteer'
 				),
 				'CsnUser\Controller\Registration' => array (
-					'index' => 'member',
+					'index' => 'volunteer',
 				),
             )
         )
