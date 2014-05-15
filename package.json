@@ -1,0 +1,13 @@
+{
+  "name": "FrontendByMirantel",
+  "version": "0.1.1",
+  "description": "Version by 14.05.14",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-autoprefixer": "~0.7.2",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-csso": "^0.6.1"
+  }
+}

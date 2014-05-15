@@ -8,4 +8,5 @@ nbproject
 .settings
 composer.lock
 /vendor
+/node_modules
 
