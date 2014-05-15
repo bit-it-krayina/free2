@@ -12,6 +12,19 @@ namespace Application;
 return array (
 	'router' => array (
 		'routes' => array (
+			'static' => array (
+				'type' => 'Zend\Mvc\Router\Http\Segment',
+				'options' => array (
+					'route' => '/static/:action',
+					'constraints' => array (
+						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+					),
+					'defaults' => array (
+						'controller' => 'Application\Controller\Index',
+						'action' => 'index',
+					),
+				),
+			),
 			'home' => array (
 				'type' => 'Zend\Mvc\Router\Http\Literal',
 				'options' => array (

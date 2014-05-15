@@ -109,8 +109,9 @@ return array(
 				'Application\Controller\Index' => array(
 					'index'   => 'guest',
 					'home'   => 'guest',
+					'all' => 'guest',
 				),
-				'Application\Controller\Teachers' => array(
+				'Application\Controller\Projects' => array(
 					'all'   => 'guest',
 				),
 				// for CMS articles

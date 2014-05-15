@@ -12,5 +12,19 @@
  */
 
 return array(
-    // ...
+    'doctrine' => array (
+		'connection' => array (
+			'orm_default' => array (
+				'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+				'params' => array (
+					'host' => '10.0.3.3',
+					'port' => '3306',
+					'user' => 'free',
+					'password' => 'pass',
+					'dbname' => 'free',
+					'charset' => 'utf8',
+					'driverOptions' => array(
+							1002=>'SET NAMES utf8'
+					)
+		) ) ) )
 );

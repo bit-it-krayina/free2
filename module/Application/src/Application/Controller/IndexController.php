@@ -80,4 +80,13 @@ class IndexController extends AbstractActionController implements EntityManagerA
 		) );
 	}
 
+	public function profileAction ()
+	{
+		return new ViewModel();
+	}
+
+	public function userManagementAction ()
+	{
+		return new ViewModel();
+	}
 }
