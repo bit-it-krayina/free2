@@ -1,0 +1,74 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+{% include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} %}
+
+<div class="jumbotron">
+  <h2>{{ translate('Edit Profile') }}</h2>
+    <div class="container" id="wrap">
+	  <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          {{ form().openTag(form) | raw }}
+            <div class="row">
+              <div class="col-sm-12"> 
+                {{ messages }}
+              </div>
+            </div>
+			<div>
+              <span class="zf-green" style="font-size: 24px;">
+				  {{ translate('Your Username') }}: </span>{{ username }}
+            </div>
+			<div>
+              <span class="zf-green" style="font-size: 24px;">
+				  {{ translate('Your Password') }}: </span>: </span>******
+              <br />
+              <a href="{{ url('user-register', {'action' : 'change-password'})}}">
+                {{ translate('Change Password') }}
+              </a>
+            </div>
+			<div>
+              <span class="zf-green" style="font-size: 24px;">
+				  {{ translate('Your Email') }}: </span>{{ email }}
+              <br />
+              <a href="{{ url('user-register', {'action' : 'change-email'})}}">
+                {{translate('Change Email')}}
+              </a>
+            </div>
+			<div>
+              <span class="zf-green" style="font-size: 24px;">
+				  {{ translate('Your Security Question') }}: </span>
+              {{ securityQuestion }}
+              <br/>
+              <a href="{{ url('user-register', {'action' : 'change-security-question'})}}">
+                {{ translate('Change Security Question') }}
+              </a>
+            </div>	
+			<div>
+              <span class="zf-green" style="font-size: 24px;">
+				  {{ translate('Your First/Last Name') }}:</span>
+              <br/>
+	          <div class="row">
+                <div class="col-md-6">
+					{{ formElement(form.get('firstName'))| raw }}
+                </div>
+                <div class="col-md-6">
+					{{ formElement(form.get('lastName'))| raw }}
+                </div>
+              </div>
+              <span class="zf-green" style="font-size: 24px;">{{ translate('Your Language') }}:</span>
+              <br/>
+			  {{ formElement(form.get('language'))| raw }}
+
+            <div class="row">
+              <div class="col-sm-12"> 
+				  {{ formRow(form.get('submit'))| raw }}
+              </div>
+            </div>
+				{{ formElement(form.get('csrf'))| raw }}
+				{{ form().closeTag(form) | raw}}
+        </div>
+      </div>            
+    </div>
+</div>
+
+{% endblock content %}

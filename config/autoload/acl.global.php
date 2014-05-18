@@ -56,12 +56,12 @@ return array(
             'allow' => array(
 				'CsnUser\Controller\Registration' => array(
 					'index'	=> 'guest',
-					'changePassword' => 'volunteer',
-					'editProfile' => 'volunteer',
-					'changeEmail' => 'volunteer',
-					'forgottenPassword' => 'guest',
+					'change-password' => 'volunteer',
+					'edit-profile' => 'volunteer',
+					'change-email' => 'volunteer',
+					'forgotten-password' => 'guest',
 					'confirm-email' => 'guest',
-					'registrationSuccess' => 'guest',
+					'registration-success' => 'guest',
 				),
 				'CsnUser\Controller\Index' => array(
 					'login'   => 'guest',

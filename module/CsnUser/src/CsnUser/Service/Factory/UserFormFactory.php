@@ -91,6 +91,33 @@ class UserFormFactory implements FactoryInterface
               break;
 
           case 'EditProfile':
+			  
+				$this->form->setAttributes(array(
+					'class' => 'form'
+				));
+
+				$this->form->get('firstName')->setAttributes(array(
+					'required' => 'false',
+					'class' => 'form-control input-lg', 
+					'placeholder' => $this->getTranslatorHelper()->translate('First Name')
+				));
+
+				$this->form->get('lastName')->setAttributes(array(
+					'required' => 'false',
+					'class' => 'form-control input-lg', 
+					'placeholder' => $this->getTranslatorHelper()->translate('Last Name')
+				));
+
+				$this->form->get('language')->setAttributes(array(
+					'required' => 'true',
+					'class' => 'form-control input-lg',
+				));
+
+				$this->form->get('submit')->setAttributes(array(
+					'class' => 'btn btn btn-success btn-lg', 
+					'value' => $this->getTranslatorHelper()->translate('Update Profile')
+				));							
+
               $this->form->setAttributes(array(
                   'action' => $this->getUrlPlugin()->fromRoute('user-register', array('action' => 'edit-profile')),
                   'name' => 'edit-profile'
