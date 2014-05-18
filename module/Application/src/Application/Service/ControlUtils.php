@@ -41,6 +41,7 @@ trait ControlUtils
 					$view = $event -> getViewModel ();
 
 					$view -> setVariables ( array (
+						'user' => $this -> getAuthenticationService () -> getIdentity (),
 						'someVar' => 'yoyoyo',
 						'loginForm' => $this -> getLoginForm (),
 						'identity' => $this -> getAuthenticationService () -> getIdentity (),
@@ -77,5 +78,16 @@ trait ControlUtils
 	{
 		return $this -> loginForm;
 	}
+	
+	public function getLoggedUser ()
+	{
+		if ( $this -> getAuthenticationService () -> hasIdentity () )
+		{
+			return $this -> getAuthenticationService () -> getIdentity ();
+		}
+		
+		return ['username' => 'Guest'];
+	}
+
 
 }

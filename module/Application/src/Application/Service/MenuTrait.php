@@ -17,14 +17,5 @@ trait MenuTrait
 						-> findAll ();
 	}
 
-	public function getLoggedUser ()
-	{
-		if ( $this -> getAuthenticationService () -> hasIdentity () )
-		{
-			return $this -> getAuthenticationService () -> getIdentity ();
-		}
-		
-		return ['username' => 'Guest'];
-	}
-
+	
 }
