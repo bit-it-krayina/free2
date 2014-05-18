@@ -1,0 +1,62 @@
+{% extends 'layout/layout' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12">
+		{{ flashMessenger().render('error',   ['alert', 'alert-dismissable', 'alert-danger']) | raw }}
+		{{ flashMessenger().render('info',   ['alert', 'alert-dismissable', 'alert-info']) | raw }}
+		{{ flashMessenger().render('default',   ['alert', 'alert-dismissable', 'alert-default']) | raw }}
+		{{ flashMessenger().render('success',   ['alert', 'alert-dismissable', 'alert-success']) | raw }}
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<h1>{{ translate('Users Admin Table') }}</h1>
+			{% include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} %}
+			<a class="btn btn-success" href="{{ url('user-admin', {'action' : 'create-user'}) }}">
+				{{ translate('Create User') }}
+			</a>
+			<hr />
+			<div class="table-responsive">
+				<table class="users-list table table-striped table-condensed table-hover">
+					<thead>
+						<tr>
+							<th>Id </th>
+							<th>{{ translate('Name') }}</th>
+							<th>{{ translate('Email') }}</th>
+							<th>{{ translate('State') }}</th>
+							<th>{{ translate('Actions') }}</th>
+						</tr>
+					</thead>
+					{% for user in users %}
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>
+							<a class="name" href="{{ url('user-admin', {'action' : 'edit-user', 'id' : user.id } ) }}">
+								{{ user.firstName ~ ' ' ~ user. lastName }}
+							</a>
+							<span class="subtext">({{ user.getRole().getName() }})</span>
+						</td>
+						<td>{{ user.getEmail() }}</td>
+						<td>
+							{{ translate(user.getState().getState()) }}
+						</td> 
+						<td class="delete-cell">
+							<a href="{{ url('user-admin', {'action' : 'set-user-state', 'id' : user.getId(), 'state' : (user.getState().getId() == 1) ? 2 : 1}) }}">
+								{{ translate((user.getState().getId() == 1) ? 'Enable' : 'Disable') }}
+							</a> | 
+							<a href="{{ url('user-admin', {'action' : 'edit-user', 'id' : user.getId()}) }}">
+								{{ translate('Edit') }}
+							</a> | 
+							<a href="{{ url('user-admin', {'action' : 'delete-user', 'id' : user.getId()}) }}" 
+							   onclick="return confirm('{{ translate('Do you really want to delete this user?') }}')">
+									{{ translate('Delete') }}
+							</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
