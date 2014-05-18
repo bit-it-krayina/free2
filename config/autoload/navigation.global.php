@@ -25,6 +25,27 @@ return array(
 				 'resource'	  => 'CsnUser\Controller\Index',
 				 'privilege'  => 'login',
              ),
+			 array(
+				 'label' => 'Manage Users',
+				 'uri'	=> '#',
+				 'class' => '',
+				 'pages' => array(
+					 array (
+						 'label' => 'List',
+						 'route' => 'user-admin',
+						 'controller' => 'Admin',
+						 'action' => 'index',
+//						 'resource' => 'CsnUser\Controller\Admin',
+//						 'privilege' => 'index',
+					),
+					 array (
+						 'label' => 'Add',
+						 'route' => 'user-admin',
+						 'controller' => 'Admin',
+						 'action' => 'create-user',
+					),
+				 ),
+			 ),
 //			 array(
 //                 'label' => 'User',
 //                 'route' => 'user',
@@ -33,15 +54,15 @@ return array(
 //				 'resource'	  => 'CsnUser\Controller\Index',
 //				 'privilege'  => 'index',
 //             ),
-             array(
-                 'label' => 'Registration',
-                 'route' => 'user-register',
-				 'controller' => 'Registration',
-				 'action'     => 'index',
-				 'resource'	  => 'CsnUser\Controller\Registration',
-				 'privilege'  => 'index',
-				 'title'	  => 'Registration Form'
-             ),
+//             array(
+//                 'label' => 'Registration',
+//                 'route' => 'user-register',
+//				 'controller' => 'Registration',
+//				 'action'     => 'index',
+//				 'resource'	  => 'CsnUser\Controller\Registration',
+//				 'privilege'  => 'index',
+//				 'title'	  => 'Registration Form'
+//             ),
 //             array(
 //                 'label' => 'Edit profile',
 //                 'route' => 'editProfile',
@@ -50,12 +71,12 @@ return array(
 //				 'resource'	  => 'CsnUser\Controller\Registration',
 //				 'privilege'  => 'editProfile',
 //             ),
-			array(
-				'label' => 'Zend',
-				'uri'   => 'http://framework.zend.com/',
-				'resource' => 'Zend',
-				'privilege'	=>	'uri'
-			),
+//			array(
+//				'label' => 'Zend',
+//				'uri'   => 'http://framework.zend.com/',
+//				'resource' => 'Zend',
+//				'privilege'	=>	'uri'
+//			),
 			/*
 			// uncomment if you have the CsnCms module installed
 			array(
@@ -67,14 +88,14 @@ return array(
 				 'privilege'  => 'index'
              ),
 			 */
-            array(
-                 'label' => 'Logout',
-                 'route' => 'user-index',
-				 'controller' => 'Index',
-				 'action'     => 'logout',
-				 'resource'	  => 'CsnUser\Controller\Index',
-				 'privilege'  => 'logout'
-             ),
+//            array(
+//                 'label' => 'Logout',
+//                 'route' => 'user-index',
+//				 'controller' => 'Index',
+//				 'action'     => 'logout',
+//				 'resource'	  => 'CsnUser\Controller\Index',
+//				 'privilege'  => 'logout'
+//             ),
 
 		 ),
 	 ),

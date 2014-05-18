@@ -22,7 +22,7 @@ trait ControlUtils
 		if ( empty ( $this -> authService ) )
 		{
 			$this -> authService = $this -> getServiceLocator ()
-					-> get ( 'Application\Service\AuthService' );
+					-> get ( 'Zend\Authentication\AuthenticationService' );
 		}
 
 		return $this -> authService;

@@ -130,7 +130,7 @@ return array(
             ),
             'deny' => array(
 				'CsnUser\Controller\Index' => array (
-					'login' => 'volunteer'
+					'login' => 'volunteer',
 				),
 				'CsnUser\Controller\Registration' => array (
 					'index' => 'volunteer',

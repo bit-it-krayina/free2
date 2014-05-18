@@ -91,7 +91,7 @@ return array (
 		),
 		'factories' => array (
 			'mailer' => 'Application\Service\EmailSenderFactory',
-			'Application\Service\AuthService' => 'Application\Service\AuthServiceFactory'
+			'Zend\Authentication\AuthenticationService' => 'Application\Service\AuthServiceFactory'
 		),
 		'aliases' => array (
 			'translator' => 'MvcTranslator',
@@ -127,6 +127,8 @@ return array (
 		'not_found_template' => 'error/404',
 		'exception_template' => 'error/index',
 		'template_map' => array (
+//			'csn-user/index/login' =>__DIR__ . '/../view/csn-user/index/login.twig', 
+//			'csn-user/layout/nav-menu' =>__DIR__ . '/../view/csn-user/layout/nav-menu.twig', 
 			'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
 			'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
 			'error/404' => __DIR__ . '/../view/error/404.phtml',

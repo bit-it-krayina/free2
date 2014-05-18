@@ -17,7 +17,7 @@ return array(
 			'orm_default' => array (
 				'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
 				'params' => array (
-					'host' => '10.0.3.3',
+					'host' => 'localhost',
 					'port' => '3306',
 					'user' => 'free',
 					'password' => 'pass',

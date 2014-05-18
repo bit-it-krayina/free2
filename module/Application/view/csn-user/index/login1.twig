@@ -1,0 +1,6 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+{% include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} %}
+
+{% endblock content %}

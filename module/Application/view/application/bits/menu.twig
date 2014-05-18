@@ -18,8 +18,8 @@
 						<li><a  class="text-success" href="{{ url('project',{'action': 'list'}) }}">{{ translate('Projects') }}</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						{% if identity %}
-							<li><a>{{ loggedUser.username }}</a></li>
+						{% if identity() %}
+							<li><a>{{ identity().getUsername() }}</a></li>
 							<li><a href="{{ url('user-index', {'action':'logout'}) }}">Logout</a></li>
 						{% else %}
 								<li><a href="{{ url('user-index', {'action':'login'}) }}">Login</a>{# include 'application/form/form_horizontal' with {'form' : loginForm} #}</li>
