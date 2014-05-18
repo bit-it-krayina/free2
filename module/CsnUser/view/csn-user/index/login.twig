@@ -1,0 +1,52 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+{% include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} %}
+
+
+<div class="jumbotron">
+  <h2>{{ translate('Log In') }}</h2>
+    <div class="container" id="wrap">
+	  <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          {{ form().openTag(form) | raw }}
+            <div class="row">
+              <div class="col-sm-12"> 
+                {{ messages }}
+              </div>
+            </div>
+            {{ formElement(form.get('usernameOrEmail'))| raw }}
+            {{ formElement(form.get('password'))| raw }}
+            <div class="checkbox">
+				{% set element = form.get('rememberme') %}
+				{{ formLabel(element, formCheckbox(element), 'append')| raw }}
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-12">
+				{% set element = form.get('captcha') %}
+				{{ formElement(element) | raw}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12"> 
+				  {{ formRow(form.get('submit'))| raw }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12"> 
+	            <a href="{{ url('user-register', {'action' : 'index'}) }}">
+					{{ translate('Sign up')| raw }}
+	            </a> |  
+	            <a href="{{ url('user-register', {'action' : 'reset-password'}) }}">
+					{{ translate('Forgot your password?')| raw }}
+	            </a>
+              </div>
+            </div>
+				{{ formElement(form.get('csrf'))| raw }}
+				{{ form().closeTag(form) | raw}}
+        </div>
+      </div>            
+    </div>
+</div>
+
+{% endblock content %}
