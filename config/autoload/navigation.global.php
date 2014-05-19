@@ -20,10 +20,16 @@ return array(
 			 array(
                  'label' => 'Login',
                  'route' => 'user-index',
-				 'controller' => 'Index',
 				 'action'     => 'login',
 				 'resource'	  => 'CsnUser\Controller\Index',
 				 'privilege'  => 'login',
+             ),
+			 array(
+                 'label' => 'Projects',
+                 'route' => 'project',
+				 'action'     => 'list',
+				 'resource'	  => 'Application\Controller\Projects',
+				 'privilege'  => 'index',
              ),
 			 array(
 				 'label' => 'Manage Users',
@@ -33,15 +39,15 @@ return array(
 					 array (
 						 'label' => 'List',
 						 'route' => 'user-admin',
-						 'controller' => 'Admin',
 						 'action' => 'index',
-//						 'resource' => 'CsnUser\Controller\Admin',
-//						 'privilege' => 'index',
+						 'resource' => 'CsnUser\Controller\Admin',
+						 'privilege' => 'index',
 					),
 					 array (
 						 'label' => 'Add',
 						 'route' => 'user-admin',
-						 'controller' => 'Admin',
+						 'resource' => 'CsnUser\Controller\Admin',
+						 'privilege' => 'index',
 						 'action' => 'create-user',
 					),
 				 ),
