@@ -1,0 +1,39 @@
+<?php function renderPage ($page, $navigation) { ?>
+	<li class="<?php echo ($page->isActive(true) ? 'active' : '');?> 
+		<?php echo ($page->hasPages(true) ? 'dropdown' : '');?>">
+		<?php if ($page->hasPages(true) ):
+			$page->setClass('dropdown-toggle');
+			echo '<a href="'.$page->getHref().'" class="'.$page->getClass().'" data-toggle="dropdown">' . $page->getLabel()  .'</a>'; 
+			?>
+				<ul class="dropdown-menu">
+				<?php foreach ( $page->getPages() as $child ) : 
+					renderPage($child, $navigation);
+				endforeach; ?>
+				</ul>
+		<?php else : 
+			echo '<a href="'.$page->getHref().'" class="'.$page->getClass().'">' . $page->getLabel()  .'</a>'; 
+		endif; ?>
+	</li>
+<?php } ?>
+
+
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<ul class="nav navbar-nav">
+			<?php foreach ( $this -> container as $page ) : 
+				renderPage ($page, $this -> navigation ());
+				endforeach;	?>
+		</ul>
+		
+		<ul class="nav navbar-nav navbar-right">
+			<?php if ( $this->identity() ) : ?>
+				<li><a><?php echo $this->identity()->getUsername() ; ?></a></li>
+				<li><a href="<?php echo $this->url('user-index', ['action'=>'logout']) ; ?>">Logout</a></li>
+			<?php else  :?>
+					<li><a href="<?php echo $this->url('user-index', ['action'=>'login']) ; ?>">Login</a></li>
+					<li><a href="<?php echo $this->url('user-register')  ; ?>">Sign Up</a></li>
+			<?php endif; ?>
+
+		</ul>
+	</div>
+</div>

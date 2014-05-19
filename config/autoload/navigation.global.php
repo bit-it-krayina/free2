@@ -52,6 +52,13 @@ return array(
 					),
 				 ),
 			 ),
+			 array(
+                 'label' => 'Logout',
+                 'route' => 'user-index',
+				 'action'     => 'logout',
+				 'resource'	  => 'CsnUser\Controller\Index',
+				 'privilege'  => 'logout',
+             ),
 //			 array(
 //                 'label' => 'User',
 //                 'route' => 'user',
