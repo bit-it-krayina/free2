@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.3
+-- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 15, 2014 at 02:14 AM
--- Server version: 5.5.6
--- PHP Version: 5.2.17-0.dotdeb.0
+-- Generation Time: May 20, 2014 at 11:15 PM
+-- Server version: 5.5.34-0ubuntu0.13.04.1
+-- PHP Version: 5.4.9-4ubuntu2.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,7 +17,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `yas`
+-- Database: `free2`
 --
 
 -- --------------------------------------------------------
@@ -48,11 +49,6 @@ CREATE TABLE IF NOT EXISTS `article` (
   KEY `IDX_23A0E6689329D25` (`resource_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `article`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -66,11 +62,6 @@ CREATE TABLE IF NOT EXISTS `articles_categories` (
   KEY `IDX_DE004A0E7294869C` (`article_id`),
   KEY `IDX_DE004A0E12469DE2` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `articles_categories`
---
-
 
 -- --------------------------------------------------------
 
@@ -113,11 +104,6 @@ CREATE TABLE IF NOT EXISTS `comment` (
   KEY `IDX_9474526C7294869C` (`article_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `comment`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -131,11 +117,6 @@ CREATE TABLE IF NOT EXISTS `friends` (
   KEY `IDX_21EE7069A76ED395` (`user_id`),
   KEY `IDX_21EE70696A5458E8` (`friend_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `friends`
---
-
 
 -- --------------------------------------------------------
 
@@ -392,16 +373,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `IDX_8D93D6495D83CC1` (`state_id`),
   KEY `IDX_8D93D6491E27F6BF` (`question_id`),
   KEY `search_idx` (`username`,`first_name`,`last_name`,`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`) VALUES
-(1, 3, 1, 2, 3, 'admin', 'test', 'test', 'imychkova@gmail.com', '$2y$10$Of/HbsCWhZEEzMU4A9TFR.ZqyCXWl5Rdw6Pm4kbmBTTZlHx8iB7VK', 'testtest', NULL, '2014-05-13 15:34:36', '56c87345d56bd242f498b14219655eb5', 1),
+(1, 3, 1, 2, 2, 'admin', 'test1', 'test1', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1),
 (2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1),
-(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1);
+(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1),
+(4, 2, 1, 2, 3, 'tester3', 'tester', 'tester', 'i.mychkova@gmail.com', '$2y$10$.R43BTVmhYPY.Q4neuVK7u2j4YAy6xNao/SGsPxFao9g5Icm/I7yO', 'test city', NULL, '2014-05-20 21:47:43', '6f9fe8b3908a543555330652f686d771', 1),
+(5, 2, 1, 1, 3, 'tester4', 'tester', 'tester', 'im.ychkova@gmail.com', '$2y$10$GxmzAXSur6ty/C8VZdzDQ.8JWI4vjd6y6sIBI.SgZSLrFzfU75Uca', 'test city', NULL, '2014-05-20 21:59:42', '42c9138fb8bdb546e0bee7712e561f22', 0);
 
 -- --------------------------------------------------------
 
@@ -437,11 +420,6 @@ CREATE TABLE IF NOT EXISTS `vote` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `vote`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -455,11 +433,6 @@ CREATE TABLE IF NOT EXISTS `votes_users` (
   KEY `IDX_9A4168C772DCDAFC` (`vote_id`),
   KEY `IDX_9A4168C7A76ED395` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `votes_users`
---
-
 
 -- --------------------------------------------------------
 
@@ -639,3 +612,7 @@ ALTER TABLE `user`
 ALTER TABLE `votes_users`
   ADD CONSTRAINT `FK_9A4168C772DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`),
   ADD CONSTRAINT `FK_9A4168C7A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
