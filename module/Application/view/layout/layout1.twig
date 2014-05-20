@@ -10,9 +10,13 @@
         {% block meta %}{% endblock meta %}
 
 	    <!-- Le styles -->
+	    <link href="/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
+	    <link href="/css/screen.css" media="screen" rel="stylesheet" type="text/css">
+	    <!--
 	    <link href="/css/bootstrap-simplex.css" media="screen" rel="stylesheet" type="text/css">
 	    <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css">
 	    <link href="/css/csn-user-style.css" media="screen" rel="stylesheet" type="text/css">
+	    -->
 	    <link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
         {% block style %}{% endblock style %}
 
@@ -50,16 +54,19 @@
 		    <div class="bl-page-content">
 				{% block content %}{{ content|raw }}{% endblock content %}
 		    </div>
-		    <hr>
-		    <footer >
-			<div class="container">
-			    <div class="row">
-				<div class="bsa well bl-well-semi-transparent ">
-				    <p class="bl-margin-bottom-minus">&copy; 2014 - 2015 {{ translate('Разработка Mice\'Studio') }}</p>
+		    <footer class="footer">
+				<div class="navbar navbar-default">
+					<div class="container">
+						<div class="navbar-collapse navbar-default-collapse">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="#">Про біржу</a></li>
+								<li><a href="#">Зворотній зв'язок</a></li>
+							</ul>
+							<div class="navbar-text navbar-right"><a href="#">2014 &copy; IT-Країна</a></div>
+						</div>
+					</div>
 				</div>
-			    </div>
-			</div>
-		    </footer>
+			</footer>
 	    </div> <!-- /container -->
         {% block inline %}{% endblock inline %}
     </body>
