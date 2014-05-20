@@ -64,7 +64,7 @@ class RegistrationController extends AbstractActionController
         $user = new User;
         $form = $this->getUserFormHelper()->createUserForm($user, 'SignUp');
         if($this->getRequest()->isPost()) {
-            $form->setValidationGroup('username', 'email', 'firstName', 'lastName', 'password', 'passwordVerify', 'question', 'answer', 'csrf', 'captcha');
+            $form->setValidationGroup('username', 'email', 'firstName', 'lastName', 'password', 'passwordVerify', 'question', 'answer', 'csrf');
             $form->setData($this->getRequest()->getPost());    
             if($form->isValid()) {
                 $entityManager = $this->getEntityManager();
@@ -212,7 +212,7 @@ class RegistrationController extends AbstractActionController
         $form = $this->getUserFormHelper()->createUserForm($user, 'ResetPassword');
         $message = null;
         if($this->getRequest()->isPost()) {
-            $form->setValidationGroup('csrf', 'captcha');
+            $form->setValidationGroup('csrf');
             $form->setData($this->getRequest()->getPost());
             if($form->isValid()) {
                 $data = $form->getData();

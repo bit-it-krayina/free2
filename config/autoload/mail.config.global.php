@@ -3,7 +3,7 @@
 return array(
 	'mail' => array(
 		'transport' => array(
-//			'options' => array(
+			'options' => array(
 //				'name' => 'localhost',
 //				'host' => 'mail.yahoo.com',
 //				'host' => 'smtp.gmail.com',
@@ -15,7 +15,7 @@ return array(
 //					'password' => '8R2svQHH',
 //					'ssl' => 'tls'
 //				),
-//			),
+			),
 		),
 	),
 );

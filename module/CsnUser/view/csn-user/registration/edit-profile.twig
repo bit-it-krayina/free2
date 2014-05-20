@@ -1,7 +1,7 @@
 {% extends 'layout/layout.twig' %}
 
 {% block content %}
-{% include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} %}
+{# include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} #}
 
 <div class="jumbotron">
   <h2>{{ translate('Edit Profile') }}</h2>
@@ -50,9 +50,11 @@
 	          <div class="row">
                 <div class="col-md-6">
 					{{ formElement(form.get('firstName'))| raw }}
+					{{ formElementErrors(form.get('firstName'))| raw }}
                 </div>
                 <div class="col-md-6">
 					{{ formElement(form.get('lastName'))| raw }}
+					{{ formElementErrors(form.get('lastName'))| raw }}
                 </div>
               </div>
               <span class="zf-green" style="font-size: 24px;">{{ translate('Your Language') }}:</span>

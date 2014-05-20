@@ -1,0 +1,9 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+<div class="jumbotron">
+  <h2>
+	  {{ translate('An email has been sent to <span class="zf-green">'~email~'</span>. Please, check your inbox and confirm your registration!') }}
+  </h2>
+</div>
+{% endblock content %}

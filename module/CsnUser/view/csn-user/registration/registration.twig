@@ -1,0 +1,57 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+<div class="jumbotron">
+  <h2>{{ translate('Sign Up') }}</h2>
+    <div class="container" id="wrap">
+	  <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+			{{ form().openTag(form) | raw }}
+			{{ formElement(form.get('username'))| raw }}
+			{{ formElementErrors(form.get('username'))| raw }}
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+					{{ formElement(form.get('firstName'))| raw }}
+					{{ formElementErrors(form.get('firstName'))| raw }}
+              </div>
+              <div class="col-xs-6 col-md-6">
+					{{ formElement(form.get('lastName'))| raw }}
+					{{ formElementErrors(form.get('lastName'))| raw }}
+              </div>                    
+            </div>
+				{{ formElement(form.get('email'))| raw }}
+				{{ formElementErrors(form.get('email'))| raw }}
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+				{{ formPassword(form.get('password'))| raw }}
+				{{ formElementErrors(form.get('password'))| raw }}
+              </div>
+              <div class="col-xs-6 col-md-6">
+				{{ formPassword(form.get('passwordVerify'))| raw }}
+				{{ formElementErrors(form.get('passwordVerify'))| raw }}
+              </div>                    
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('question'))| raw }}
+				{{ formElementErrors(form.get('question'))| raw }}
+              </div>                    
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('answer'))| raw }}
+				{{ formElementErrors(form.get('answer'))| raw }}
+              </div>      
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12"> 
+				  {{ formRow(form.get('submit'))| raw }}
+				  {{ formButton(form.get('login'))| raw }}
+              </div>
+            </div>
+		{{ formElement(form.get('csrf'))| raw }}
+		{{ form().closeTag(form) | raw}}         
+        </div>
+      </div>            
+    </div>
+</div>
+{% endblock content %}
