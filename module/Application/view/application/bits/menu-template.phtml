@@ -27,7 +27,7 @@
 		
 		<ul class="nav navbar-nav navbar-right">
 			<?php if ( $this->identity() ) : ?>
-				<li><a><?php echo $this->identity()->getUsername() ; ?></a></li>
+				<li><a href="<?php echo $this->url('user-register', ['action'=>'edit-profile']) ; ?>"><?php echo $this->identity()->getUsername() ; ?></a></li>
 				<li><a href="<?php echo $this->url('user-index', ['action'=>'logout']) ; ?>">Logout</a></li>
 			<?php else  :?>
 					<li><a href="<?php echo $this->url('user-index', ['action'=>'login']) ; ?>">Login</a></li>

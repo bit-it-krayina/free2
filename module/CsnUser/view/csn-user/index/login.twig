@@ -16,7 +16,9 @@
               </div>
             </div>
             {{ formElement(form.get('usernameOrEmail'))| raw }}
+            {{ formElementErrors(form.get('usernameOrEmail'))| raw }}
             {{ formElement(form.get('password'))| raw }}
+            {{ formElementErrors(form.get('password'))| raw }}
             <div class="checkbox">
 				{% set element = form.get('rememberme') %}
 				{{ formLabel(element, formCheckbox(element), 'append')| raw }}

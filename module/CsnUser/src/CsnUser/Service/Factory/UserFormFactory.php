@@ -184,6 +184,11 @@ class UserFormFactory implements FactoryInterface
 			case 'ChangePassword':
 				$this -> addChangePasswordFields ();
 				$this -> addChangePasswordFilters ();
+				
+				$this -> form ->get('submit')->setAttributes(array(
+					'class' => 'btn btn btn-success btn-lg', 
+					'value' => $this -> getTranslatorHelper () ->translate('Change Password')
+				));
 				$this -> form -> setAttributes ( array (
 					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
 							array ( 'action' => 'change-password' ) ),
@@ -192,8 +197,25 @@ class UserFormFactory implements FactoryInterface
 				break;
 
 			case 'ResetPassword':
+				
 				$this -> addResetPasswordFields ();
 				$this -> addResetPasswordFilters ();
+				
+				$this -> form -> setAttributes ( array (
+					'class' => 'form'
+				) );
+				
+				$this -> form -> get ( 'usernameOrEmail' ) -> setAttributes ( array (
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Write Your Username or Email' )
+				) );
+				
+				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
+					'class' => 'btn btn btn-success btn-lg',
+					'value' => $this -> getTranslatorHelper () -> translate ( 'Send Reset Email' )
+				) );
+
+				
 				$this -> form -> setAttributes ( array (
 					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
 							array ( 'action' => 'reset-password' ) ),
@@ -299,15 +321,15 @@ class UserFormFactory implements FactoryInterface
 			)
 		) );
 
-		$this -> form -> add ( array (
-			'name' => 'captcha',
-			'type' => 'Zend\Form\Element\Captcha',
-			'options' => array (
-				'captcha' => new \Zend\Captcha\Figlet ( array (
-					'wordLen' => $this -> getOptions () -> getCaptchaCharNum (),
-						) ),
-			),
-		) );
+//		$this -> form -> add ( array (
+//			'name' => 'captcha',
+//			'type' => 'Zend\Form\Element\Captcha',
+//			'options' => array (
+//				'captcha' => new \Zend\Captcha\Figlet ( array (
+//					'wordLen' => $this -> getOptions () -> getCaptchaCharNum (),
+//						) ),
+//			),
+//		) );
 
 		$this -> form -> add ( array (
 			'name' => 'submit',
@@ -385,6 +407,8 @@ class UserFormFactory implements FactoryInterface
 			'attributes' => array (
 				'required' => true,
 				'type' => 'password',
+				'class' => 'form-control input-lg',
+				'placeholder' => $this -> getTranslatorHelper () -> translate('Confirm New Password')
 			),
 		) );
 	}

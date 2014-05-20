@@ -59,7 +59,7 @@ return array(
 					'change-password' => 'volunteer',
 					'edit-profile' => 'volunteer',
 					'change-email' => 'volunteer',
-					'forgotten-password' => 'guest',
+					'reset-password' => 'guest',
 					'confirm-email' => 'guest',
 					'registration-success' => 'guest',
 				),

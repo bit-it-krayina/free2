@@ -20,17 +20,17 @@
             </div>
 			<div>
               <span class="zf-green" style="font-size: 24px;">
-				  {{ translate('Your Password') }}: </span>: </span>******
+				  {{ translate('Your Password') }}: </span>: ******
               <br />
-              <a href="{{ url('user-register', {'action' : 'change-password'})}}">
+              <a class="btn btn btn-success btn-lg" href="{{ url('user-register', {'action' : 'change-password'})}}">
                 {{ translate('Change Password') }}
               </a>
             </div>
 			<div>
               <span class="zf-green" style="font-size: 24px;">
 				  {{ translate('Your Email') }}: </span>{{ email }}
-              <br />
-              <a href="{{ url('user-register', {'action' : 'change-email'})}}">
+              <br/>
+              <a class="btn btn btn-success btn-lg" href="{{ url('user-register', {'action' : 'change-email'})}}">
                 {{translate('Change Email')}}
               </a>
             </div>
@@ -39,7 +39,7 @@
 				  {{ translate('Your Security Question') }}: </span>
               {{ securityQuestion }}
               <br/>
-              <a href="{{ url('user-register', {'action' : 'change-security-question'})}}">
+              <a class="btn btn btn-success btn-lg" href="{{ url('user-register', {'action' : 'change-security-question'})}}">
                 {{ translate('Change Security Question') }}
               </a>
             </div>	
@@ -71,6 +71,7 @@
         </div>
       </div>            
     </div>
+</div>
 </div>
 
 {% endblock content %}
