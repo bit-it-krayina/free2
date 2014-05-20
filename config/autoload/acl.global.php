@@ -57,6 +57,7 @@ return array(
 				'CsnUser\Controller\Registration' => array(
 					'index'	=> 'guest',
 					'change-password' => 'volunteer',
+					'change-security-question' => 'volunteer',
 					'edit-profile' => 'volunteer',
 					'change-email' => 'volunteer',
 					'reset-password' => 'guest',

@@ -224,8 +224,14 @@ class UserFormFactory implements FactoryInterface
 				break;
 
 			case 'ChangeEmail':
+				
 				$this -> addChangeEmailFields ();
 				$this -> addChangeEmailFilters ();
+				
+				$this -> form -> get('submit')->setAttributes(array(
+					'class' => 'btn btn btn-success btn-lg', 
+					'value' => $this -> getTranslatorHelper ()->translate('Change Email')
+				));
 				$this -> form -> setAttributes ( array (
 					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
 							array ( 'action' => 'change-email' ) ),
@@ -234,6 +240,20 @@ class UserFormFactory implements FactoryInterface
 				break;
 
 			case 'ChangeSecurityQuestion':
+				
+				$this -> form->setAttributes(array(
+					'class' => 'form'
+				));
+
+				$this -> form->get('question')->setAttributes(array(
+					'class' => 'form-control input-lg',
+					'value' => $this->questionSelectedId
+				));
+
+				$this -> form->get('submit')->setAttributes(array(
+					'class' => 'btn btn btn-success btn-lg', 
+					'value' => $this -> getTranslatorHelper ()->translate('Change Security Question')
+				));
 				$this -> form -> setAttributes ( array (
 					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
 							array ( 'action' => 'change-security-question' ) ),
@@ -437,12 +457,15 @@ class UserFormFactory implements FactoryInterface
 	 */
 	private function addChangeEmailFields ()
 	{
+	
 		$this -> form -> add ( array (
 			'name' => 'newEmail',
 			'type' => 'Zend\Form\Element\Email',
 			'attributes' => array (
 				'type' => 'email',
 				'required' => 'true',
+				'class' => 'form-control input-lg', 
+				'placeholder' => $this -> getTranslatorHelper ()->translate('New Email')
 			),
 		) );
 
@@ -452,6 +475,8 @@ class UserFormFactory implements FactoryInterface
 			'attributes' => array (
 				'type' => 'email',
 				'required' => 'true',
+				'class' => 'form-control input-lg', 
+				'placeholder' => $this -> getTranslatorHelper ()->translate('Confirm New Email')
 			),
 		) );
 	}
