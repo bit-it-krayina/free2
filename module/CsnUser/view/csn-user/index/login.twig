@@ -22,12 +22,6 @@
 				{{ formLabel(element, formCheckbox(element), 'append')| raw }}
             </div>
             <div class="row">
-              <div class="col-xs-12 col-md-12">
-				{% set element = form.get('captcha') %}
-				{{ formElement(element) | raw}}
-              </div>
-            </div>
-            <div class="row">
               <div class="col-sm-12"> 
 				  {{ formRow(form.get('submit'))| raw }}
               </div>

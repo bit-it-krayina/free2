@@ -76,7 +76,7 @@ class IndexController extends AbstractActionController
         $form = $this->getUserFormHelper()->createUserForm($user, 'login');
         $messages = null;
         if ($this->getRequest()->isPost()) {
-            $form->setValidationGroup('usernameOrEmail', 'password', 'rememberme', 'csrf', 'captcha');
+            $form->setValidationGroup('usernameOrEmail', 'password', 'rememberme', 'csrf');
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
                 $data = $form->getData();

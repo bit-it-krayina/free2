@@ -198,11 +198,11 @@ class UserFormFactory implements FactoryInterface
 					//'class' => 'form-control input-lg', 
 				));
 				
-				$this -> form->get('captcha')->setAttributes(array(
-					'required' => 'true',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this->getTranslatorHelper()->translate('Verify you are human')
-				));
+//				$this -> form->get('captcha')->setAttributes(array(
+//					'required' => 'true',
+//					'class' => 'form-control input-lg',
+//					'placeholder' => $this->getTranslatorHelper()->translate('Verify you are human')
+//				));
 				
 				$this -> form->get('submit')->setAttributes(array(
 					'class' => 'btn btn btn-success btn-lg', 

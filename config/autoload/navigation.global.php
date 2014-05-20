@@ -18,13 +18,6 @@ return array(
 				 'privilege' => 'index',
              ),
 			 array(
-                 'label' => 'Login',
-                 'route' => 'user-index',
-				 'action'     => 'login',
-				 'resource'	  => 'CsnUser\Controller\Index',
-				 'privilege'  => 'login',
-             ),
-			 array(
                  'label' => 'Projects',
                  'route' => 'project',
 				 'action'     => 'list',
@@ -52,13 +45,7 @@ return array(
 					),
 				 ),
 			 ),
-			 array(
-                 'label' => 'Logout',
-                 'route' => 'user-index',
-				 'action'     => 'logout',
-				 'resource'	  => 'CsnUser\Controller\Index',
-				 'privilege'  => 'logout',
-             ),
+
 //			 array(
 //                 'label' => 'User',
 //                 'route' => 'user',
