@@ -5,8 +5,8 @@ grunt.initConfig({
 	compass: {
 		dist: {
 			options: {
-				config: 'public/config.rb',
-				sassDir: 'public/sass',
+				config: 'config.rb',
+				sassDir: 'static/src/sass',
 				cssDir: 'public/css',
 				environment: 'production'
 			}
@@ -35,18 +35,18 @@ grunt.initConfig({
 	includereplace: {
 		dist: {
 			files: [
-				{src: '*.html', dest: 'static/production/', expand: true, cwd: 'static/src/'},
+				{src: '*.html', dest: 'static/', expand: true, cwd: 'static/src/'},
 			]
 		}
 	},
 	clean: {
-		html: ["static/production/_*.html"],
+		html: ["static/_*.html"],
 	},
 
 
 	watch: {
 		scss: {
-			files: 'public/sass/**/*.scss',
+			files: 'static/src/sass/**/*.scss',
 			tasks: ['compass', 'autoprefixer'],
 		},
 		html: {

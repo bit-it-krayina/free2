@@ -5,8 +5,8 @@
 	<title>Template</title>
 	<meta name="viewport" content="width=device-width"/>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,500,400italic,300italic,300,900italic,900,100italic,100' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" media="screen" href="../../public/css/bootstrap.css" >
-	<link rel="stylesheet" media="screen" href="../../public/css/screen.css" >
+	<link rel="stylesheet" media="screen" href="../public/css/bootstrap.css" >
+	<link rel="stylesheet" media="screen" href="../public/css/screen.css" >
 </head>
 <body>
 	<div class="wrap">
@@ -18,12 +18,22 @@
 			</div>
 			<div class="navbar-collapse navbar-inverse-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Проекти</a></li>
-					<li class="active"><a href="#">Увійти</a></li>
+					<li class="active"><a href="#">Проекти</a></li>
+					<li><a href="#">Волонтери</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						</ul>
+					</li>
 				</ul>
-			</div>
-		</div>
-	</div>
+			</div><!-- /.nav-collapse -->
+		</div><!-- /.container -->
+	</div><!-- /.navbar -->
 </header>
 <section class="main promo-page">
 	<div class="container">
@@ -62,7 +72,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section>	
 	</div>
 <footer class="footer">
 	<div class="navbar navbar-default">
