@@ -15,49 +15,47 @@ html, body { height: 100%; }
 
 .radio, .checkbox { position: relative; padding-left: 25px; margin-bottom: 15px; }
 .radio input, .checkbox input { display: none; }
-.radio input:checked + label:before, .checkbox input:checked + label:before { box-shadow: 0 0 0 3px #fff inset; background: #ffcc33; }
-.radio input + label:before, .checkbox input + label:before { content: ""; position: absolute; top: 4px; left: 0; height: 15px; width: 15px; background: #fff; }
+.radio input:checked + label:before, .checkbox input:checked + label:before { box-shadow: 0 0 0 3px #fff inset; background: #ffd52c; }
+.radio input + label:before, .checkbox input + label:before { content: ""; position: absolute; top: 4px; left: 0; height: 15px; width: 15px; background: #fff; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 
 .radio input + label:before { border-radius: 50%; }
 
-.btn { -webkit-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; height: 43px; text-transform: uppercase; }
+.btn { -webkit-transition: background 0.3s ease-out 0s; transition: background 0.3s ease-out 0s; height: 43px; text-transform: uppercase; padding: 0 12px; border: 2px solid transparent; line-height: 39px; }
 
 .form-group-last { margin-bottom: 0; }
 
+.block-main-color { background: #2980b9; color: #fff; }
+.block-main-color .h3 { color: #fff; }
+.block-main-color .form-control { border-color: transparent; }
+.block-main-color a { color: #fff; }
+
+.btn-inverse { border-color: #fff; color: #fff; background: #2980b9; }
+.btn-inverse:hover { color: #fff; background: #2e8ece; }
+
 .navbar-brand { padding: 0 15px; line-height: 45px; }
-.navbar-brand i { color: #ffcc33; font-size: 31px; vertical-align: middle; position: relative; top: -3px; }
+.navbar-brand i { color: #ffd52c; font-size: 31px; vertical-align: middle; position: relative; top: -6px; }
 
 .navbar { border: 0; }
 .navbar .navbar-nav > li > a { -webkit-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; }
 
 .navbar-inverse { box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.4); }
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus { box-shadow: 0 -5px 0 #3ac8ff inset; }
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus { box-shadow: 0 -5px 0 #55a5d9 inset; }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus { box-shadow: none; }
 
 .promo-page { margin-top: 90px; }
 .promo-page .col-md-6 { padding-left: 25px; padding-right: 25px; }
 
-.panel-authorization { background: #178cc6; color: #fff; margin-bottom: 0; }
-.panel-authorization .h3 { color: #fff; }
-.panel-authorization .form-control { border-color: transparent; }
-.panel-authorization a { color: #fff; }
+.panel-authorization { margin-bottom: 0; }
 .panel-authorization .pull-right { float: right; }
 .panel-authorization .text-devider { margin: 0 15px; }
-.panel-authorization:after { content: ""; position: absolute; top: 0; bottom: 0; right: -1px; width: 2px; background: #ffcc33; }
-
-.block-inverse { background: #178cc6; color: #fff; }
-.block-inverse .form-control { border-color: transparent; }
-.block-inverse a { color: #fff; }
-
-.btn-inverse { border: 2px solid #fff; color: #fff; background: #178cc6; }
-.btn-inverse:hover { color: #fff; background: #1a9cdd; }
+.panel-authorization:after { content: ""; position: absolute; top: 0; bottom: 0; right: -1px; width: 2px; background: #ffd52c; }
 
 .btn-auth { width: 40%; }
 
-.btn-reg { border: 2px solid #ffcc33; color: #fff; background: #ffcc33; width: 100%; }
-.btn-reg:hover { border-color: #fff; color: #fff; }
+.btn-reg { color: #846e13 !important; background: #ffd52c !important; border: 0 !important; width: 100%; line-height: 43px; }
+.btn-reg:hover { background: #ffeca1 !important; }
 
-.profile-header { background: #ffcc33; color: #fff; padding: 20px; }
+.profile-header { background: #ffd52c; color: #fff; padding: 20px; }
 .profile-header a { color: #fff; }
 .profile-header h1 small { display: block; color: #fff; font-style: italic; }
 .profile-header:before, .profile-header:after { content: " "; display: table; }

@@ -17,19 +17,28 @@ $gray:                   lighten(#000, 33.5%) !default; // #555
 $gray-light:             lighten(#000, 60%) !default;   // #999
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
-$brand-primary:         #428bca !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$blue:                    #2980B9 !default;
+$yellow:                  #FFD52C !default;
 
-$blue:                  #178cc6 !default;
-$blue-light:            #3ac8ff !default;
-$yellow:                #FFCC33 !default;
+$main-color:              $blue !default;
+$main-color-darker:       darken($blue, 13%) !default;
+$main-color-dark:         darken($blue, 7%) !default;
+$main-color-light:        lighten($blue, 15%) !default;
+$main-color-lighter:      lighten($blue, 21%) !default;
 
-$main-color:            $blue;
-$main-color-light:      $blue-light;
-$add-color:             $yellow;
+$add-color:                $yellow;
+$add-color-darker:         desaturate(darken($yellow, 12%), 25%) !default;
+$add-color-dark:           desaturate(darken($yellow, 5%), 20%) !default;
+$add-color-light:          lighten($yellow, 15%) !default;
+$add-color-lighter:        lighten($yellow, 23%) !default;
+$add-color-text:           desaturate(darken($yellow, 29%), 25%);
+
+$brand-primary:         $blue !default;
+$brand-success:         #2ecc71 !default;
+$brand-info:            #30b2de !default;
+$brand-warning:         #f39c12 !default;
+$brand-danger:          #e74c3c !default;
+
 
 //== Scaffolding
 //
@@ -38,7 +47,7 @@ $add-color:             $yellow;
 //** Background color for `<body>`.
 $body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$text-color:            lighten(#000, 40%) !default;
 
 //** Global textual link color.
 $link-color:            $main-color !default;
@@ -347,17 +356,16 @@ $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2
 $navbar-collapse-max-height:       340px !default;
 
 $navbar-default-color:             #fff !default;
-$navbar-default-bg:                $gray-lighter !default;
-//$navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-bg:                lighten(#000, 95%);
 $navbar-default-border:            transparent !default;
 
 // Navbar links
-$navbar-default-link-color:                $main-color !default;
-$navbar-default-link-hover-color:          $main-color !default;
-$navbar-default-link-hover-bg:             darken($navbar-default-bg, 6.5%) !default;
-$navbar-default-link-active-color:         #fff !default;
-$navbar-default-link-active-bg:            lighten($main-color,5) !default;
-$navbar-default-link-disabled-color:       $main-color !default;
+$navbar-default-link-color:                lighten(#000, 40%) !default;
+$navbar-default-link-hover-color:          lighten(#000, 30%) !default;
+$navbar-default-link-hover-bg:             lighten(#000, 92%) !default;
+$navbar-default-link-active-color:         lighten(#000, 30%) !default;
+$navbar-default-link-active-bg:            lighten(#000, 87%) !default;
+$navbar-default-link-disabled-color:       lighten(#000, 60%) !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
 // Navbar brand label
@@ -380,11 +388,11 @@ $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !def
 // Inverted navbar links
 $navbar-inverse-link-color:                 #fff !default;
 $navbar-inverse-link-hover-color:           #fff !default;
-$navbar-inverse-link-hover-bg:              lighten($main-color, 3) !default;
-$navbar-inverse-link-active-color:          #fff !default;
+$navbar-inverse-link-hover-bg:              lighten($main-color, 2%) !default;
+$navbar-inverse-link-active-color:          $add-color-text !default;
 $navbar-inverse-link-active-bg:             $add-color !default;
 $navbar-inverse-link-disabled-color:        #fff !default;
-$navbar-inverse-link-disabled-bg:           lighten($main-color, 6) !default;
+$navbar-inverse-link-disabled-bg:           lighten($main-color, 4%) !default;
 
 // Inverted navbar brand label
 $navbar-inverse-brand-color:                $navbar-inverse-link-color !default;

@@ -1,0 +1,56 @@
+.colors { border-collapse: collapse; color: #fff; font-size: 20px; text-align: center; font-weight: bold; }
+.colors td { width: 50px; height: 50px; }
+
+.c1-1 { background: #222222; }
+
+.c1-2 { background: #333333; }
+
+.c1-3 { background: #555555; }
+
+.c1-4 { background: #999999; }
+
+.c1-5 { background: #eeeeee; }
+
+.c2 { color: gray; border: 10px solid; border-width: 10px 0; border-color: #2980B9 #2980B9 #FFD52C #FFD52C; }
+
+.c2-1 { background: #e8e8e8; }
+
+.c2-2 { background: #ededed; }
+
+.c2-3 { background: #f2f2f2; }
+
+.c2-4 { background: #f7f7f7; }
+
+.c2-5 { background: #fcfcfc; }
+
+.c3-1 { background: #1d5a83; }
+
+.c3-2 { background: #236c9c; }
+
+.c3-3 { background: #2980b9; }
+
+.c3-4 { background: #55a5d9; }
+
+.c3-5 { background: #6eb2df; }
+
+.c4 { color: #846e13; }
+
+.c4-1 { background: #d0ad1e; }
+
+.c4-2 { background: #e7c22a; }
+
+.c4-3 { background: #ffd52c; }
+
+.c4-4 { background: #ffe478; }
+
+.c4-5 { background: #ffeca1; }
+
+.c5-1 { background: #2980b9; }
+
+.c5-2 { background: #2ecc71; }
+
+.c5-3 { background: #30b2de; }
+
+.c5-4 { background: #f39c12; }
+
+.c5-5 { background: #e74c3c; }

@@ -54,6 +54,7 @@ body {
       height: 15px;
       width: 15px;
       background: #fff;
+      user-select: none;
     }
   }
 }
@@ -63,14 +64,45 @@ body {
 }
 
 .btn {
-  transition: all 0.3s ease-out 0s;
+  transition: background 0.3s ease-out 0s;
   height: $input-height-base;
   text-transform: uppercase;
+  padding: 0 12px;
+  border:2px solid transparent;
+  line-height: 39px;
 }
 
 .form-group-last {
   margin-bottom: 0;
 }
+
+// Blue block //
+.block-main-color {
+  background: $main-color;
+  color: #fff;
+
+  .h3 {
+    color: #fff;
+  }
+
+  .form-control {
+    border-color: transparent;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+.btn-inverse {
+    border-color: #fff;
+    color: #fff;
+    background: $main-color;
+    &:hover{
+      color: #fff;
+      background: lighten($main-color, 5)
+    }
+  }
+
 
 //  Navbar //
 .navbar-brand {
@@ -81,7 +113,7 @@ body {
     font-size: 31px;
     vertical-align: middle;
     position: relative;
-    top: -3px;
+    top: -6px;
   }
 }
 
@@ -113,22 +145,11 @@ body {
   }
 }
 
-.navbar-default {
-  .navbar-nav {
-    > .active > a {
-      &,
-      &:hover,
-      &:focus {
-        //box-shadow: 0 5px 0 $main-color-light inset;
-      }
-    }
-  }
-}
 
-
+// Home page //
 .promo-page {
   margin-top: $grid-gutter-width * 3;
-  
+
   .col-md-6 {
     padding-left: 25px;
     padding-right: 25px;
@@ -136,21 +157,7 @@ body {
 }
 
 .panel-authorization {
-  background: $main-color;
-  color: #fff;
   margin-bottom: 0;
-
-  .h3 {
-    color: #fff;
-  }
-
-  .form-control {
-    border-color: transparent;
-  }
-
-  a {
-    color: #fff;
-  }
 
   .pull-right {
     float: right;
@@ -171,44 +178,21 @@ body {
   }
 }
 
-.block-inverse {
-  background: $main-color;
-  color: #fff;
-
-  .form-control {
-    border-color: transparent;
-  }
-
-  a {
-    color: #fff;
-  }
-}
-
-
-.btn-inverse {
-  border: 2px solid #fff;
-  color: #fff;
-  background: $main-color;
-  &:hover{
-    color: #fff;
-    background: lighten($main-color, 5)
-  }
-}
 .btn-auth {width: 40%;}
 .btn-reg {
-  border: 2px solid $add-color;
-  color: #fff;
-  background: $add-color;
+  color: $add-color-text !important;
+  background: $add-color !important;
+  border: 0 !important;
   width: 100%;
-  
+  line-height: 43px;
+
   &:hover{
-    border-color: #fff;
-    color: #fff;
-    //background: #fff;
-    //color: $add-color;
+    background: $add-color-lighter !important;
   }
 }
 
+
+// Profile //
 .profile {}
 .profile-header {
   background: $add-color;
