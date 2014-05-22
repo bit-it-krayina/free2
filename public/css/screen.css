@@ -3,6 +3,7 @@ html, body { height: 100%; }
 .wrap { min-height: 100%; }
 
 .main { padding: 0 0 65px; }
+.main .container { width: 940px; }
 
 .footer { position: relative; height: 45px; margin-top: -45px; }
 .footer .navbar { margin: 0; }
@@ -57,6 +58,8 @@ html, body { height: 100%; }
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus { box-shadow: 0 -5px 0 #41b1e9 inset; }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus { box-shadow: none; }
 
+.footer .navbar-text.navbar-right:last-child { margin-right: 15px; }
+
 .promo-page { margin-top: 90px; }
 .promo-page .col-md-6 { padding-left: 25px; padding-right: 25px; }
 
@@ -68,26 +71,29 @@ html, body { height: 100%; }
 .btn-auth { width: 40%; }
 
 .btn-reg { color: #69570f !important; background: #ffd52c !important; border: 0 !important; width: 100%; line-height: 43px; }
-.btn-reg:hover { background: #ffeca1 !important; }
+.btn-reg:hover { background: #ffe478 !important; }
 
 .profile .nav-tabs > li { width: 33.33333%; }
 
 .profile-header { background: #ededed; padding: 20px; position: relative; }
 .profile-header a { color: #fff; }
-.profile-header h1 { margin-top: 26px; }
-.profile-header h1 small { display: block; margin-top: 15px; font-style: italic; }
+.profile-header h1 { margin: 12px 0 -3px; word-wrap: break-word; font-weight: 400; }
+.profile-header h1 span { display: block; }
+.profile-header h1 small { display: block; margin-top: 18px; line-height: 1.18; font-style: italic; text-transform: lowercase; font-weight: 100; color: #666666; }
 .profile-header .icon-edit { position: absolute; bottom: 20px; right: 20px; }
 .profile-header:before, .profile-header:after { content: " "; display: table; }
 .profile-header:after { clear: both; }
-.profile-header:before { content: ""; position: absolute; left: 0; width: 100%; top: 50px; }
 
-.profile-photo { float: left; height: 150px; width: 150px; background: #fff; border: 5px solid #178cc6; margin-right: 20px; }
+.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #178cc6; margin-right: 20px; overflow: hidden; margin-bottom: 25px; }
+.profile-photo img { max-width: 130px; }
 
-.profile-header-info { max-width: 500px; }
+.profile-status { position: absolute; bottom: 20px; left: 20px; width: 130px; height: 22px; line-height: 21px; background: #2ecc71; color: #FFF; font-weight: bold; text-align: center; }
+
+.profile-header-info { width: 340px; float: left; }
 
 .profile-header-contacts { position: absolute; right: 20px; top: 20px; text-align: right; }
 
 .contacts-item { display: inline-block; vertical-align: top; margin: 0 0 10px 5px; }
 
-.profile-header-phone { font-size: 16px; }
-.profile-header-phone i { margin-right: 3px; position: relative; top: 2px; }
+.profile-header-phone { font-size: 16px; font-style: italic; word-spacing: 0.1em; }
+.profile-header-phone i { margin-right: 6px; position: relative; top: 3px; }

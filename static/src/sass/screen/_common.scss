@@ -9,7 +9,11 @@ body {
 
 .main {
   padding: 0 0 ($navbar-height + 20px);
+  .container {
+    width: 940px;
+  }
 }
+
 .footer {
   position: relative;
   height: $navbar-height;
@@ -32,7 +36,8 @@ body {
   margin-bottom: 17px;
 }
 
-.radio, .checkbox {
+.radio,
+.checkbox {
   position: relative;
   padding-left: 25px;
   margin-bottom: 15px;
@@ -81,6 +86,7 @@ body {
   border-radius: 4px;
   transition: background 0.2s ease-out 0s;
 }
+
 .icon-main-color {
   color: #fff;
   background: $main-color;
@@ -110,6 +116,7 @@ body {
   position: relative;
   top: 1px;
 }
+
 .icon-square.fi-mail {
   font-size: 16px;
 }
@@ -135,15 +142,16 @@ body {
     color: #fff;
   }
 }
+
 .btn-inverse {
-    border-color: #fff;
+  border-color: #fff;
+  color: #fff;
+  background: $main-color;
+  &:hover{
     color: #fff;
-    background: $main-color;
-    &:hover{
-      color: #fff;
-      background: lighten($main-color, 5)
-    }
+    background: lighten($main-color, 5)
   }
+}
 
 
 //  Navbar //
@@ -184,6 +192,10 @@ body {
       }
     }
   }
+}
+
+.footer .navbar-text.navbar-right:last-child {
+  margin-right: $navbar-padding-horizontal;
 }
 
 
@@ -228,7 +240,7 @@ body {
   line-height: 43px;
 
   &:hover{
-    background: $add-color-lighter !important;
+    background: $add-color-light !important;
   }
 }
 
@@ -241,6 +253,7 @@ body {
     }
   }
 }
+
 .profile-header {
   background: lighten(#000, 93%);
   padding: 20px;
@@ -250,11 +263,21 @@ body {
     color: #fff;
   }
   h1 {
-    margin-top: 26px;
+    margin: 12px 0 -3px;
+    word-wrap: break-word;
+    font-weight: 400;
+    
+    span {
+      display: block;
+    }
     small {
       display: block;
-      margin-top: 15px;
+      margin-top: 18px;
+      line-height: 1.18;
       font-style: italic;
+      text-transform: lowercase;
+      font-weight: 100;
+      color: lighten(#000, 40%);
     }
   }
 
@@ -266,43 +289,66 @@ body {
 
   @include clearfix();
   
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    top: 50px;
-    //border-top: 1px solid #f00;
-  }
-
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   left: 0;
+  //   width: 100%;
+  //   top: 50px;
+  //   border-top: 1px solid #f00;
+  // }
 }
+
 .profile-photo {
   float: left;
-  height: 150px;
-  width: 150px;
+  height: 130px;
+  width: 130px;
   background: #fff;
   border: 5px solid $main-color;
   margin-right: 20px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  img {
+    max-width: 130px;
+  }
+}
+.profile-status {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 130px;
+  height: 22px;
+  line-height: 21px;
+  background: $brand-success;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
 }
 .profile-header-info {
-  max-width: 500px;
+  width: 340px;
+  float: left;
 }
+
 .profile-header-contacts {
   position: absolute;
   right: 20px;
   top: 20px;
   text-align: right;
 }
+
 .contacts-item {
   display: inline-block;
   vertical-align: top;
   margin: 0 0 10px 5px;
 }
+
 .profile-header-phone {
   font-size: 16px;
+  font-style: italic;
+  word-spacing: 0.1em;
   i {
-    margin-right: 3px;
+    margin-right: 6px;
     position: relative;
-    top: 2px;
+    top: 3px;
   }
 }

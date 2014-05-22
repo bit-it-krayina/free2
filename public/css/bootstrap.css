@@ -103,7 +103,7 @@ td, th { padding: 0; }
 
 html { font-size: 62.5%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
-body { font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #595959; background-color: white; }
+body { font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #595959; background-color: white; }
 
 input, button, select, textarea { font-family: inherit; font-size: inherit; line-height: inherit; }
 
@@ -264,7 +264,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 .container:after { clear: both; }
 @media (min-width: 768px) { .container { width: 750px; } }
 @media (min-width: 992px) { .container { width: 970px; } }
-@media (min-width: 1200px) { .container { width: 970px; } }
+@media (min-width: 1200px) { .container { width: 1170px; } }
 
 .container-fluid { margin-right: auto; margin-left: auto; padding-left: 15px; padding-right: 15px; }
 .container-fluid:before, .container-fluid:after { content: " "; display: table; }
@@ -1322,7 +1322,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .navbar-default { background-color: #f2f2f2; border-color: transparent; }
 .navbar-default .navbar-brand { color: #666666; }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus { color: #4d4d4d; background-color: transparent; }
-.navbar-default .navbar-text { color: white; }
+.navbar-default .navbar-text { color: #666666; }
 .navbar-default .navbar-nav > li > a { color: #666666; }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus { color: #4d4d4d; background-color: #ebebeb; }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { color: #4d4d4d; background-color: #dedede; }
