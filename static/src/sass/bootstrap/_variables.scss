@@ -17,7 +17,8 @@ $gray:                   lighten(#000, 33.5%) !default; // #555
 $gray-light:             lighten(#000, 60%) !default;   // #999
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
-$blue:                    #2980B9 !default;
+$blue:                    #178cc6 !default;
+// #178cc6
 $yellow:                  #FFD52C !default;
 
 $main-color:              $blue !default;
@@ -31,7 +32,7 @@ $add-color-darker:         desaturate(darken($yellow, 12%), 25%) !default;
 $add-color-dark:           desaturate(darken($yellow, 5%), 20%) !default;
 $add-color-light:          lighten($yellow, 15%) !default;
 $add-color-lighter:        lighten($yellow, 23%) !default;
-$add-color-text:           desaturate(darken($yellow, 29%), 25%);
+$add-color-text:           desaturate(darken($yellow, 35%), 25%);
 
 $brand-primary:         $blue !default;
 $brand-success:         #2ecc71 !default;
@@ -47,7 +48,7 @@ $brand-danger:          #e74c3c !default;
 //** Background color for `<body>`.
 $body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            lighten(#000, 40%) !default;
+$text-color:            lighten(#000, 35%) !default;
 
 //** Global textual link color.
 $link-color:            $main-color !default;

@@ -1,28 +1,4 @@
-$gray-darker:            lighten(#000, 13.5%) !default; // #222
-$gray-dark:              lighten(#000, 20%) !default;   // #333
-$gray:                   lighten(#000, 33.5%) !default; // #555
-$gray-light:             lighten(#000, 60%) !default;   // #999
-$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
-
-$blue-darker:           #165F8F !default;
-$blue-dark:             #36739B !default;
-$blue:                  #2980B9 !default;
-$blue-light:            #58A7DA !default;
-$blue-lighter:          #78B4DA !default;
-
-$yellow-darker:         #c4A317 !default;
-$yellow-dark:           #D6B941 !default;
-$yellow:                #FFD52C !default;
-$yellow-light:          #FFDF5E !default;
-$yellow-lighter:        #FFE786 !default;
-
-$brand-primary:         $blue !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
-
-
+@import "bootstrap/variables";
 
 // darken();
 // lighten();
@@ -55,9 +31,9 @@ $brand-danger:          #d9534f !default;
 
 .c2 {
 	color: lighten(#000, 50%);
-	border: 10px solid;
+	border: 10px solid $main-color;
 	border-width: 10px 0;
-	border-color: #2980B9 #2980B9 #FFD52C #FFD52C;
+	border-bottom-color: $add-color;
 }
 
 .c2-1 {background: lighten(#000, 91%);}
@@ -66,25 +42,25 @@ $brand-danger:          #d9534f !default;
 .c2-4 {background: lighten(#000, 97%);}
 .c2-5 {background: lighten(#000, 99%);}
 
-.c3-1 {background: darken($blue, 13%)}
-.c3-2 {background: darken($blue, 7%)}
-.c3-3 {background: $blue;}
-.c3-4 {background: lighten($blue, 15%);}
-.c3-5 {background: lighten($blue, 21%);}
+.c3-1 {background: $main-color-darker;}
+.c3-2 {background: $main-color-dark;}
+.c3-3 {background: $main-color;}
+.c3-4 {background: $main-color-light;}
+.c3-5 {background: $main-color-lighter;}
 
 .c4 {
-	color: desaturate(darken($yellow, 29%), 25%);
+	color: $add-color-text;
 }
 
-.c4-1 {background: desaturate(darken($yellow, 12%), 25%)}
-.c4-2 {background: desaturate(darken($yellow, 5%), 20%)}
-.c4-3 {background: $yellow;}
-.c4-4 {background: lighten($yellow, 15%);}
-.c4-5 {background: lighten($yellow, 23%);}
+.c4-1 {background: $add-color-darker;}
+.c4-2 {background: $add-color-dark;}
+.c4-3 {background: $add-color;}
+.c4-4 {background: $add-color-light;}
+.c4-5 {background: $add-color-lighter;}
 
-.c5-1 {background: $blue;}
-.c5-2 {background: #2ecc71;}
-.c5-3 {background: #30b2de;}
-.c5-4 {background: #f39c12;}
-.c5-5 {background: #e74c3c;}
+.c5-1 {background: $brand-primary;}
+.c5-2 {background: $brand-success;}
+.c5-3 {background: $brand-info;}
+.c5-4 {background: $brand-warning;}
+.c5-5 {background: $brand-danger;}
 

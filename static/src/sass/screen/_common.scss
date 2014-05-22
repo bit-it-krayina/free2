@@ -64,12 +64,54 @@ body {
 }
 
 .btn {
-  transition: background 0.3s ease-out 0s;
+  transition: background 0.2s ease-out 0s;
   height: $input-height-base;
   text-transform: uppercase;
   padding: 0 12px;
   border:2px solid transparent;
   line-height: 39px;
+}
+
+.icon-square {
+  height: 28px;
+  width: 28px;
+  text-align: center;
+  line-height: 28px;
+  font-size: 19px;
+  border-radius: 4px;
+  transition: background 0.2s ease-out 0s;
+}
+.icon-main-color {
+  color: #fff;
+  background: $main-color;
+  &:hover {
+    background: $main-color-light;
+  }
+}
+
+.icon-add-color {
+  color: $add-color-text;
+  background: $add-color;
+  &:hover {
+    background: $add-color-light;
+  }
+}
+
+.icon-gray {
+  color: lighten(#000, 97%);
+  background: lighten(#000, 77%);
+  &:hover {
+    background: lighten(#000, 82%);
+  }
+}
+
+.icon-square.fa-facebook:before,
+.icon-square.fa-twitter:before {
+  position: relative;
+  top: 1px;
+}
+.icon-square.fi-mail {
+  font-size: 16px;
 }
 
 .form-group-last {
@@ -113,7 +155,6 @@ body {
     font-size: 31px;
     vertical-align: middle;
     position: relative;
-    top: -6px;
   }
 }
 
@@ -121,7 +162,7 @@ body {
   border: 0;
   .navbar-nav {
     > li > a {
-      transition: all 0.3s ease-out 0s;
+      transition: all 0.2s ease-out 0s;
     }
   }
 }
@@ -193,30 +234,75 @@ body {
 
 
 // Profile //
-.profile {}
+.profile {
+  .nav-tabs {
+    & > li {
+      width: 33.33333%;
+    }
+  }
+}
 .profile-header {
-  background: $add-color;
-  color: #fff;
+  background: lighten(#000, 93%);
   padding: 20px;
+  position: relative;
 
   a {
     color: #fff;
   }
   h1 {
+    margin-top: 26px;
     small {
       display: block;
-      color: #fff;
+      margin-top: 15px;
       font-style: italic;
     }
   }
+
+  .icon-edit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
   @include clearfix();
+  
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 50px;
+    //border-top: 1px solid #f00;
+  }
 
 }
 .profile-photo {
   float: left;
   height: 150px;
   width: 150px;
-  background: #ccc;
-  border: 5px solid #fff;
+  background: #fff;
+  border: 5px solid $main-color;
   margin-right: 20px;
+}
+.profile-header-info {
+  max-width: 500px;
+}
+.profile-header-contacts {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  text-align: right;
+}
+.contacts-item {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 10px 5px;
+}
+.profile-header-phone {
+  font-size: 16px;
+  i {
+    margin-right: 3px;
+    position: relative;
+    top: 2px;
+  }
 }

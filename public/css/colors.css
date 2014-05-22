@@ -11,7 +11,7 @@
 
 .c1-5 { background: #eeeeee; }
 
-.c2 { color: gray; border: 10px solid; border-width: 10px 0; border-color: #2980B9 #2980B9 #FFD52C #FFD52C; }
+.c2 { color: gray; border: 10px solid #178cc6; border-width: 10px 0; border-bottom-color: #ffd52c; }
 
 .c2-1 { background: #e8e8e8; }
 
@@ -23,17 +23,17 @@
 
 .c2-5 { background: #fcfcfc; }
 
-.c3-1 { background: #1d5a83; }
+.c3-1 { background: #10628b; }
 
-.c3-2 { background: #236c9c; }
+.c3-2 { background: #1375a6; }
 
-.c3-3 { background: #2980b9; }
+.c3-3 { background: #178cc6; }
 
-.c3-4 { background: #55a5d9; }
+.c3-4 { background: #41b1e9; }
 
-.c3-5 { background: #6eb2df; }
+.c3-5 { background: #5cbcec; }
 
-.c4 { color: #846e13; }
+.c4 { color: #69570f; }
 
 .c4-1 { background: #d0ad1e; }
 
@@ -45,7 +45,7 @@
 
 .c4-5 { background: #ffeca1; }
 
-.c5-1 { background: #2980b9; }
+.c5-1 { background: #178cc6; }
 
 .c5-2 { background: #2ecc71; }
 
