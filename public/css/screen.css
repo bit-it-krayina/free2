@@ -21,7 +21,7 @@ html, body { height: 100%; }
 
 .radio input + label:before { border-radius: 50%; }
 
-.btn { -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; height: 43px; text-transform: uppercase; padding: 0 12px; border: 2px solid transparent; line-height: 39px; }
+.btn { -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; text-transform: uppercase; }
 
 .icon-square { height: 28px; width: 28px; text-align: center; line-height: 28px; font-size: 19px; border-radius: 4px; -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; }
 
@@ -45,7 +45,7 @@ html, body { height: 100%; }
 .block-main-color .form-control { border-color: transparent; }
 .block-main-color a { color: #fff; }
 
-.btn-inverse { border-color: #fff; color: #fff; background: #178cc6; }
+.btn-inverse { color: #fff; background: #178cc6; border: 2px solid #fff; }
 .btn-inverse:hover { color: #fff; background: #1a9cdd; }
 
 .navbar-brand { padding: 0 15px; line-height: 45px; }
@@ -56,7 +56,7 @@ html, body { height: 100%; }
 
 .navbar-inverse { box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.4); }
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus { box-shadow: 0 -5px 0 #41b1e9 inset; }
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus { box-shadow: none; }
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus { box-shadow: none; }
 
 .footer .navbar-text.navbar-right:last-child { margin-right: 15px; }
 
@@ -70,16 +70,16 @@ html, body { height: 100%; }
 
 .btn-auth { width: 40%; }
 
-.btn-reg { color: #69570f !important; background: #ffd52c !important; border: 0 !important; width: 100%; line-height: 43px; }
-.btn-reg:hover { background: #ffe478 !important; }
+.btn-reg { color: #69570f !important; background: #ffd52c; border: 0; width: 100%; line-height: 27px; }
+.btn-reg:hover { background: #ffe478; }
 
 .profile .nav-tabs > li { width: 33.33333%; }
 
-.profile-header { background: #ededed; padding: 20px; position: relative; }
+.profile-header { background: #ededed; padding: 20px; position: relative; min-height: 200px; }
 .profile-header a { color: #fff; }
 .profile-header h1 { margin: 12px 0 -3px; word-wrap: break-word; font-weight: 400; }
 .profile-header h1 span { display: block; }
-.profile-header h1 small { display: block; margin-top: 18px; line-height: 1.18; font-style: italic; text-transform: lowercase; font-weight: 100; color: #666666; }
+.profile-header h1 small { display: block; margin-top: 18px; line-height: 1.18; text-transform: lowercase; font-weight: 100; color: #666666; }
 .profile-header .icon-edit { position: absolute; bottom: 20px; right: 20px; }
 .profile-header:before, .profile-header:after { content: " "; display: table; }
 .profile-header:after { clear: both; }
@@ -87,7 +87,14 @@ html, body { height: 100%; }
 .profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #178cc6; margin-right: 20px; overflow: hidden; margin-bottom: 25px; }
 .profile-photo img { max-width: 130px; }
 
-.profile-status { position: absolute; bottom: 20px; left: 20px; width: 130px; height: 22px; line-height: 21px; background: #2ecc71; color: #FFF; font-weight: bold; text-align: center; }
+.profile-status { position: absolute; bottom: 20px; left: 20px; }
+.profile-status .caret { position: absolute; top: 11px; right: 9px; font-size: 5px; }
+.profile-status .dropdown-menu { padding: 0; width: 130px; min-width: inherit; text-align: center; font-size: 13px; line-height: 20px; font-weight: bold; text-transform: uppercase; }
+.profile-status .dropdown-menu > li { cursor: pointer; }
+
+.profile-status-btn { width: 130px; text-align: center; border: 0; line-height: 20px; }
+
+div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2ecc71; padding: 1px 5px; font-size: 13px; }
 
 .profile-header-info { width: 340px; float: left; }
 

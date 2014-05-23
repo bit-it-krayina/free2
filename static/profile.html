@@ -8,6 +8,8 @@
 	<link rel="stylesheet" media="screen" href="../public/css/bootstrap.css" >
 	<link rel="stylesheet" media="screen" href="../public/css/fonts-icons.css" >
 	<link rel="stylesheet" media="screen" href="../public/css/screen.css" >
+	<script src="../public/js/jquery.min.js"></script>
+	<script src="../public/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -48,10 +50,17 @@
 						<div class="profile-header-info">
 							<h1><span>Константин</span>
 								<span>Константинопольский</span>
-								<small>Системный администратор, Системный администратор</small>
+								<small>Системный администратор</small>
 							</h1>
 						</div>
-						<div class="profile-status">вільний</div>
+						<div class="btn-group profile-status">
+							<button class="btn btn-success btn-xs profile-status-btn dropdown-toggle" type="button" data-toggle="dropdown">
+								вільний <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li class="btn-danger">зайнят</li>
+							</ul>
+						</div>
 
 						<div class="profile-header-contacts">
 							<a href="#" class="contacts-item"><i class="icon-square icon-main-color fi-facebook"></i></a>
@@ -76,7 +85,7 @@
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div style="background: #ccc; height: 200px;"></div>
+					<img src="img/banner.jpg" alt="">
 				</div>
 			</div>
 		</div>

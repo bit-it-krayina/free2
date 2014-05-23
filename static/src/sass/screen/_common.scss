@@ -70,11 +70,7 @@ body {
 
 .btn {
   transition: background 0.2s ease-out 0s;
-  height: $input-height-base;
   text-transform: uppercase;
-  padding: 0 12px;
-  border:2px solid transparent;
-  line-height: 39px;
 }
 
 .icon-square {
@@ -144,9 +140,9 @@ body {
 }
 
 .btn-inverse {
-  border-color: #fff;
   color: #fff;
   background: $main-color;
+  border:2px solid #fff;
   &:hover{
     color: #fff;
     background: lighten($main-color, 5)
@@ -184,7 +180,8 @@ body {
         box-shadow: 0 -5px 0 $main-color-light inset;
       }
     }
-    > .active > a {
+    > .active > a,
+    > .open > a {
       &,
       &:hover,
       &:focus {
@@ -234,13 +231,13 @@ body {
 .btn-auth {width: 40%;}
 .btn-reg {
   color: $add-color-text !important;
-  background: $add-color !important;
-  border: 0 !important;
+  background: $add-color;
+  border: 0;
   width: 100%;
-  line-height: 43px;
+  line-height: 27px;
 
   &:hover{
-    background: $add-color-light !important;
+    background: $add-color-light;
   }
 }
 
@@ -258,6 +255,7 @@ body {
   background: lighten(#000, 93%);
   padding: 20px;
   position: relative;
+  min-height: 200px;
 
   a {
     color: #fff;
@@ -266,7 +264,7 @@ body {
     margin: 12px 0 -3px;
     word-wrap: break-word;
     font-weight: 400;
-    
+
     span {
       display: block;
     }
@@ -274,7 +272,6 @@ body {
       display: block;
       margin-top: 18px;
       line-height: 1.18;
-      font-style: italic;
       text-transform: lowercase;
       font-weight: 100;
       color: lighten(#000, 40%);
@@ -316,13 +313,40 @@ body {
   position: absolute;
   bottom: 20px;
   left: 20px;
+
+  .caret {
+    position: absolute;
+    top: 11px;
+    right: 9px;
+    font-size: 5px;
+  }
+  .dropdown-menu {
+    padding: 0;
+    width: 130px;
+    min-width: inherit;
+    text-align: center;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    & > li {
+      cursor: pointer;
+    }
+  }
+}
+
+.profile-status-btn {
   width: 130px;
-  height: 22px;
-  line-height: 21px;
-  background: $brand-success;
-  color: #FFF;
-  font-weight: bold;
   text-align: center;
+  border: 0;
+  line-height: 20px;
+}
+div.profile-status-btn {
+  text-transform: uppercase;
+  color: #fff;
+  background: $brand-success;
+  padding: $padding-xs-vertical $padding-xs-horizontal;
+  font-size: $font-size-small;
 }
 .profile-header-info {
   width: 340px;
