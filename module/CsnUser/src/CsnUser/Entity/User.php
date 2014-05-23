@@ -259,6 +259,19 @@ class User
      **/
     protected $myFriends;
 
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="location", type="string", length=40, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})
+     */
+    protected $location;
+
+
     public function __construct()
     {
         $this->friendsWithMe = new ArrayCollection();
@@ -298,7 +311,7 @@ class User
         return $this->username;
     }
 
-    
+
     /**
      * Set firstName
      *
@@ -691,4 +704,18 @@ class User
 
         return $this;
     }
+
+	public function getLocation()
+	{
+		return $this->location;
+	}
+
+	public function setLocation($location)
+	{
+		$this->location = $location;
+
+		return $this;
+	}
+
+
 }

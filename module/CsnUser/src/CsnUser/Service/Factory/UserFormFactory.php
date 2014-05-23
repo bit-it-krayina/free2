@@ -135,6 +135,12 @@ class UserFormFactory implements FactoryInterface
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Type Your Answer' )
 				) );
 
+				$this -> form -> get ( 'location' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
+				) );
+
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
 					'class' => 'btn btn btn-success btn-lg',
 					'value' => $this -> getTranslatorHelper () -> translate ( 'Sign Up' )
@@ -167,6 +173,12 @@ class UserFormFactory implements FactoryInterface
 				$this -> form -> get ( 'language' ) -> setAttributes ( array (
 					'required' => 'true',
 					'class' => 'form-control input-lg',
+				) );
+
+				$this -> form -> get ( 'location' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
 				) );
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
@@ -277,6 +289,11 @@ class UserFormFactory implements FactoryInterface
 					'class' => 'form'
 				) );
 
+				$this -> form -> get ( 'location' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
+				) );
 
 				$this -> form -> get ( 'username' ) -> setAttributes ( array (
 					'required' => 'true',
@@ -581,6 +598,12 @@ class UserFormFactory implements FactoryInterface
 			'required' => 'false',
 			'class' => 'form-control input-lg',
 			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Last Name' )
+		) );
+
+		$this -> form -> get ( 'location' ) -> setAttributes ( array (
+			'required' => 'false',
+			'class' => 'form-control input-lg',
+			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
 		) );
 
 		$this -> form -> get ( 'email' ) -> setAttributes ( array (
