@@ -1,7 +1,7 @@
 <?php
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -22,7 +22,7 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * Doctrine ORM implementation of User entity
- * 
+ *
  * @ORM\Entity(repositoryClass="CsnUser\Entity\Repository\UserRepository")
  * @ORM\Table(name="`user`",
  *   indexes={@ORM\Index(name="search_idx", columns={"username", "first_name", "last_name", "email"})}
@@ -114,7 +114,7 @@ class User
 
     /**
      * @var CsnUser\Entity\Role
-     * 
+     *
      * @ORM\ManyToOne(targetEntity="CsnUser\Entity\Role")
      * @ORM\JoinColumn(name="role_id", referencedColumnName="id", nullable=false)
      * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
@@ -259,6 +259,26 @@ class User
      **/
     protected $myFriends;
 
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="location", type="string", length=40, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})
+     */
+    protected $location;
+
+
+	/**
+	 * @var UserResume
+     * @ORM\OneToOne(targetEntity="UserResume", mappedBy="user")
+     */
+    private $user_resume;
+
+
     public function __construct()
     {
         $this->friendsWithMe = new ArrayCollection();
@@ -298,28 +318,6 @@ class User
         return $this->username;
     }
 
-    /**
-     * Set displayName
-     *
-     * @param  string $displayName
-     * @return User
-     */
-    public function setDisplayName($displayName)
-    {
-        $this->displayName = $displayName;
-
-        return $this;
-    }
-
-    /**
-     * Get displayName
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->displayName;
-    }
 
     /**
      * Set firstName
@@ -713,4 +711,41 @@ class User
 
         return $this;
     }
+
+	public function getLocation()
+	{
+		return $this->location;
+	}
+
+	public function setLocation($location)
+	{
+		$this->location = $location;
+
+		return $this;
+	}
+
+
+	/**
+     * Set user_resume
+     *
+     * @param  string $user_resume
+     * @return User
+     */
+    public function setUserResume($user_resume)
+    {
+        $this->user_resume = $user_resume;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUserResume()
+    {
+        return $this->user_resume;
+    }
+
 }

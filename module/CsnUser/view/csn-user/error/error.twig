@@ -1,0 +1,16 @@
+{% extends 'layout/layout' %}
+
+{% block content %}
+
+<div class="jumbotron">
+<br />
+<h2>{{ errorMessage }}</h2>
+<br />
+</div>
+{% include 'error/index' with {
+	'display_exceptions' : display_exceptions,
+	'exception': exception,
+	'message':exception.getMessage()
+} %}
+
+{% endblock %}

@@ -2,7 +2,7 @@
 
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -63,7 +63,7 @@ class AdminController extends AbstractActionController
 		}
 
 		$users = $this -> getEntityManager () -> getRepository ( 'CsnUser\Entity\User' ) -> findall ();
-		return $this -> createViewModel ( 'csn-user/admin/index', array ( 
+		return $this -> createViewModel ( 'csn-user/admin/index', array (
 			'users' => $users,
 			'navMenu' => $this->getOptions()->getNavMenu()
 			) );
@@ -93,7 +93,7 @@ class AdminController extends AbstractActionController
 			{
 				$form -> setValidationGroup ( 'username', 'email', 'firstName', 'lastName',
 						'password', 'passwordVerify', 'language', 'state', 'role', 'question',
-						'answer', 'csrf' );
+						'answer', 'csrf' , 'location');
 				$form -> setData ( $request -> getPost () );
 				if ( $form -> isValid () )
 				{
@@ -117,9 +117,11 @@ class AdminController extends AbstractActionController
 			);
 		}
 
-		$viewModel = new ViewModel ( array ( 'form' => $form ) );
-		$viewModel -> setTemplate ( 'csn-user/admin/new-user-form' );
-		return $viewModel;
+
+		return $this -> createViewModel ( 'csn-user/admin/new-user-form', array (
+			'form' => $form,
+			'navMenu' => $this->getOptions()->getNavMenu()
+			) );
 	}
 
 	/**
@@ -160,7 +162,7 @@ class AdminController extends AbstractActionController
 			if ( $request -> isPost () )
 			{
 				$form -> setValidationGroup ( 'username', 'email', 'firstName', 'lastName',
-						'language', 'state', 'role', 'question', 'answer', 'csrf' );
+						'language', 'state', 'role', 'question', 'answer', 'csrf' , 'location');
 				$form -> setData ( $request -> getPost () );
 				if ( $form -> isValid () )
 				{
@@ -179,12 +181,11 @@ class AdminController extends AbstractActionController
 			);
 		}
 
-		$viewModel = new ViewModel ( array (
+		return $this -> createViewModel ( 'csn-user/admin/edit-user-form', array (
 			'form' => $form,
-			'headerLabel' => $this -> getTranslatorHelper () -> translate ( 'Edit User' ) . ' - ' . $user -> getDisplayName (),
-		) );
-		$viewModel -> setTemplate ( 'csn-user/admin/edit-user-form' );
-		return $viewModel;
+			'navMenu' => $this->getOptions()->getNavMenu(),
+			'headerLabel' => $this -> getTranslatorHelper () -> translate ( 'Edit User' ) . ' - ' . $user -> getUserName (),
+			) );
 	}
 
 	/**

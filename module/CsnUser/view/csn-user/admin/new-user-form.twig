@@ -1,34 +1,48 @@
-{% extends 'layout/layout.twig' %}
+{% extends 'layout/layout' %}
 
 {% block content %}
+
+
 <div class="jumbotron">
-  <h2>{{ translate('Sign Up') }}</h2>
+   <h2>{{ translate('New User') }}</h2>
     <div class="container" id="wrap">
 	  <div class="row">
         <div class="col-md-6 col-md-offset-3">
-			{{ form().openTag(form) | raw }}
-			{{ formElement(form.get('username'))| raw }}
-			{{ formElementErrors(form.get('username'))| raw }}
+          {{ form().openTag(form) | raw }}
+				{{ formElement(form.get('username'))| raw }}
+				{{ formElementErrors(form.get('username'))| raw }}
             <div class="row">
               <div class="col-xs-6 col-md-6">
-					{{ formElement(form.get('firstName'))| raw }}
-					{{ formElementErrors(form.get('firstName'))| raw }}
+				{{ formElement(form.get('firstName'))| raw }}
+				{{ formElementErrors(form.get('firstName'))| raw }}
               </div>
               <div class="col-xs-6 col-md-6">
-					{{ formElement(form.get('lastName'))| raw }}
-					{{ formElementErrors(form.get('lastName'))| raw }}
+				{{ formElement(form.get('lastName'))| raw }}
+				{{ formElementErrors(form.get('lastName'))| raw }}
               </div>
             </div>
 				{{ formElement(form.get('email'))| raw }}
 				{{ formElementErrors(form.get('email'))| raw }}
             <div class="row">
               <div class="col-xs-6 col-md-6">
-				{{ formPassword(form.get('password'))| raw }}
+				{{ formElement(form.get('password'))| raw }}
 				{{ formElementErrors(form.get('password'))| raw }}
               </div>
               <div class="col-xs-6 col-md-6">
-				{{ formPassword(form.get('passwordVerify'))| raw }}
+				{{ formElement(form.get('passwordVerify'))| raw }}
 				{{ formElementErrors(form.get('passwordVerify'))| raw }}
+              </div>
+            </div>
+				{{ formElement(form.get('language'))| raw }}
+				{{ formElementErrors(form.get('language'))| raw }}
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('role'))| raw }}
+				{{ formElementErrors(form.get('role'))| raw }}
+              </div>
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('state'))| raw }}
+				{{ formElementErrors(form.get('state'))| raw }}
               </div>
             </div>
             <div class="row">
@@ -41,23 +55,23 @@
 				{{ formElementErrors(form.get('answer'))| raw }}
               </div>
             </div>
-
-			<div class="row">
-				<div class="col-sm-12">
-					{{ formElement(form.get('location'))| raw }}
-				{{ formElementErrors(form.get('location'))| raw }}
-				</div>
-			</div>
             <div class="row">
               <div class="col-sm-12">
-				  {{ formRow(form.get('submit'))| raw }}
-				  {{ formButton(form.get('login'))| raw }}
+				  {{ formElement(form.get('location'))| raw }}
+				{{ formElementErrors(form.get('location'))| raw }}
               </div>
             </div>
-		{{ formElement(form.get('csrf'))| raw }}
-		{{ form().closeTag(form) | raw}}
+            <div class="row">
+              <div class="col-sm-12">
+                {{ formRow(form.get('submit'))| raw }}
+              </div>
+            </div>
+				{{ formElement(form.get('csrf'))| raw }}
+				{{ form().closeTag(form) | raw}}
         </div>
       </div>
     </div>
 </div>
-{% endblock content %}
+
+
+{% endblock %}

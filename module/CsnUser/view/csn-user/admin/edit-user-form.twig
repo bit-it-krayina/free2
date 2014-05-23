@@ -1,0 +1,75 @@
+{% extends 'layout/layout' %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+  <h2>{{ translate('Edit User') }}</h2>
+    <div class="container" id="wrap">
+	  <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          {{ form().openTag(form) | raw }}
+				{{ formElement(form.get('username'))| raw }}
+				{{ formElementErrors(form.get('username'))| raw }}
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('firstName'))| raw }}
+				{{ formElementErrors(form.get('firstName'))| raw }}
+              </div>
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('lastName'))| raw }}
+				{{ formElementErrors(form.get('lastName'))| raw }}
+              </div>
+            </div>
+				{{ formElement(form.get('email'))| raw }}
+				{{ formElementErrors(form.get('email'))| raw }}
+            <div class="row">
+              <span class="zf-green" style="font-size: 24px;">Change user Password: </span>******
+              <br />
+              <a href="{{ url('user-register', { 'action' : 'change-password'} ) }}">
+                {{ translate('Change Password') }}
+
+              </a>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('language'))| raw }}
+				{{ formElementErrors(form.get('language'))| raw }}
+              </div>
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('state'))| raw }}
+				{{ formElementErrors(form.get('state'))| raw }}
+              </div>
+            </div>
+
+				{{ formElement(form.get('role'))| raw }}
+				{{ formElementErrors(form.get('role'))| raw }}
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('question'))| raw }}
+				{{ formElementErrors(form.get('question'))| raw }}
+              </div>
+              <div class="col-xs-6 col-md-6">
+				{{ formElement(form.get('answer'))| raw }}
+				{{ formElementErrors(form.get('answer'))| raw }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+				{{ formElement(form.get('location'))| raw }}
+                {{ formElementErrors(form.get('location'))| raw }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                {{ formRow(form.get('submit'))| raw }}
+              </div>
+            </div>
+          {{ formElement(form.get('csrf'))| raw }}
+				{{ form().closeTag(form) | raw}}
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
