@@ -257,8 +257,14 @@ class UserFormFactory implements FactoryInterface
 				break;
 
 			case 'CreateUser':
+				$this -> form -> setAttributes ( array (
+					'class' => 'form'
+				) );
+
 				$this -> addCreateUserFields ();
 				$this -> addCreateUserFilters ();
+
+
 				$this -> form -> setAttributes ( array (
 					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-admin', array ( 'action' => 'create-user' ) ),
 					'name' => 'register'
@@ -554,6 +560,74 @@ class UserFormFactory implements FactoryInterface
 				'required' => true,
 				'type' => 'password',
 			),
+		) );
+
+
+
+
+		$this -> form -> get ( 'username' ) -> setAttributes ( array (
+			'required' => 'true',
+			'class' => 'form-control input-lg',
+			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Username' )
+		) );
+
+		$this -> form -> get ( 'firstName' ) -> setAttributes ( array (
+			'required' => 'false',
+			'class' => 'form-control input-lg',
+			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'First Name' )
+		) );
+
+		$this -> form -> get ( 'lastName' ) -> setAttributes ( array (
+			'required' => 'false',
+			'class' => 'form-control input-lg',
+			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Last Name' )
+		) );
+
+		$this -> form -> get ( 'email' ) -> setAttributes ( array (
+			'required' => 'true',
+			'class' => 'form-control input-lg',
+			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Your Email' )
+		) );
+
+		$this -> form -> get ( 'password' ) -> setAttributes ( array (
+			'class' => 'form-control input-lg',
+			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Password' )
+		) );
+
+		$this -> form -> get ( 'passwordVerify' ) -> setAttributes ( array (
+			'class' => 'form-control input-lg',
+			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Confirm Password' )
+		) );
+
+		$this -> form -> get ( 'language' ) -> setAttributes ( array (
+			'required' => 'true',
+			'class' => 'form-control input-lg',
+		) );
+
+		$this -> form -> get ( 'role' ) -> setAttributes ( array (
+			'required' => 'true',
+			'class' => 'form-control input-lg',
+		) );
+
+		$this -> form -> get ( 'state' ) -> setAttributes ( array (
+			'required' => 'true',
+			'class' => 'form-control input-lg',
+		) );
+
+		$this -> form -> get ( 'question' ) -> setAttributes ( array (
+			'required' => 'true',
+			'class' => 'form-control input-lg',
+		) );
+
+		$this -> form -> get ( 'answer' ) -> setAttributes ( array (
+			'required' => 'true',
+			'class' => 'form-control input-lg',
+			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Type Your Answer' )
+		) );
+
+		$this -> form -> get ( 'submit' ) -> setAttributes ( array (
+			'class' => 'btn btn btn-success btn-lg',
+			'value' => $this -> getTranslatorHelper () -> translate ( 'Create User' )
 		) );
 
 	}

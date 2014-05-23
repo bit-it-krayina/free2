@@ -117,9 +117,11 @@ class AdminController extends AbstractActionController
 			);
 		}
 
-		$viewModel = new ViewModel ( array ( 'form' => $form ) );
-		$viewModel -> setTemplate ( 'csn-user/admin/new-user-form' );
-		return $viewModel;
+
+		return $this -> createViewModel ( 'csn-user/admin/new-user-form', array (
+			'form' => $form,
+			'navMenu' => $this->getOptions()->getNavMenu()
+			) );
 	}
 
 	/**
