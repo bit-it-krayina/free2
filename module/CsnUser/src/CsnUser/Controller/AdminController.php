@@ -2,7 +2,7 @@
 
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -63,7 +63,7 @@ class AdminController extends AbstractActionController
 		}
 
 		$users = $this -> getEntityManager () -> getRepository ( 'CsnUser\Entity\User' ) -> findall ();
-		return $this -> createViewModel ( 'csn-user/admin/index', array ( 
+		return $this -> createViewModel ( 'csn-user/admin/index', array (
 			'users' => $users,
 			'navMenu' => $this->getOptions()->getNavMenu()
 			) );
@@ -179,12 +179,11 @@ class AdminController extends AbstractActionController
 			);
 		}
 
-		$viewModel = new ViewModel ( array (
+		return $this -> createViewModel ( 'csn-user/admin/edit-user-form', array (
 			'form' => $form,
-			'headerLabel' => $this -> getTranslatorHelper () -> translate ( 'Edit User' ) . ' - ' . $user -> getDisplayName (),
-		) );
-		$viewModel -> setTemplate ( 'csn-user/admin/edit-user-form' );
-		return $viewModel;
+			'navMenu' => $this->getOptions()->getNavMenu(),
+			'headerLabel' => $this -> getTranslatorHelper () -> translate ( 'Edit User' ) . ' - ' . $user -> getUserName (),
+			) );
 	}
 
 	/**

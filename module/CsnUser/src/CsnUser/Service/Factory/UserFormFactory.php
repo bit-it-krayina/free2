@@ -2,7 +2,7 @@
 
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -14,7 +14,6 @@
  */
 
 namespace CsnUser\Service\Factory;
-
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -60,12 +59,13 @@ class UserFormFactory implements FactoryInterface
 	{
 		$this -> serviceLocator = $serviceLocator;
 		return $this;
+
 	}
 
 	/**
 	 * Create admin user form
 	 *
-	 * Method to create the Doctrine ORM user form for edit/create users 
+	 * Method to create the Doctrine ORM user form for edit/create users
 	 *
 	 * @return Zend\Form\Form
 	 */
@@ -175,8 +175,7 @@ class UserFormFactory implements FactoryInterface
 				) );
 
 				$this -> form -> setAttributes ( array (
-					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
-							array ( 'action' => 'edit-profile' ) ),
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register', array ( 'action' => 'edit-profile' ) ),
 					'name' => 'edit-profile'
 				) );
 				break;
@@ -184,79 +183,75 @@ class UserFormFactory implements FactoryInterface
 			case 'ChangePassword':
 				$this -> addChangePasswordFields ();
 				$this -> addChangePasswordFilters ();
-				
-				$this -> form ->get('submit')->setAttributes(array(
-					'class' => 'btn btn btn-success btn-lg', 
-					'value' => $this -> getTranslatorHelper () ->translate('Change Password')
-				));
+
+				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
+					'class' => 'btn btn btn-success btn-lg',
+					'value' => $this -> getTranslatorHelper () -> translate ( 'Change Password' )
+				) );
 				$this -> form -> setAttributes ( array (
-					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
-							array ( 'action' => 'change-password' ) ),
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register', array ( 'action' => 'change-password' ) ),
 					'name' => 'change-password'
 				) );
 				break;
 
 			case 'ResetPassword':
-				
+
 				$this -> addResetPasswordFields ();
 				$this -> addResetPasswordFilters ();
-				
+
 				$this -> form -> setAttributes ( array (
 					'class' => 'form'
 				) );
-				
+
 				$this -> form -> get ( 'usernameOrEmail' ) -> setAttributes ( array (
 					'class' => 'form-control input-lg',
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Write Your Username or Email' )
 				) );
-				
+
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
 					'class' => 'btn btn btn-success btn-lg',
 					'value' => $this -> getTranslatorHelper () -> translate ( 'Send Reset Email' )
 				) );
 
-				
+
 				$this -> form -> setAttributes ( array (
-					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
-							array ( 'action' => 'reset-password' ) ),
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register', array ( 'action' => 'reset-password' ) ),
 					'name' => 'reset-password'
 				) );
 				break;
 
 			case 'ChangeEmail':
-				
+
 				$this -> addChangeEmailFields ();
 				$this -> addChangeEmailFilters ();
-				
-				$this -> form -> get('submit')->setAttributes(array(
-					'class' => 'btn btn btn-success btn-lg', 
-					'value' => $this -> getTranslatorHelper ()->translate('Change Email')
-				));
+
+				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
+					'class' => 'btn btn btn-success btn-lg',
+					'value' => $this -> getTranslatorHelper () -> translate ( 'Change Email' )
+				) );
 				$this -> form -> setAttributes ( array (
-					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
-							array ( 'action' => 'change-email' ) ),
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register', array ( 'action' => 'change-email' ) ),
 					'name' => 'change-email'
 				) );
 				break;
 
 			case 'ChangeSecurityQuestion':
-				
-				$this -> form->setAttributes(array(
-					'class' => 'form'
-				));
 
-				$this -> form->get('question')->setAttributes(array(
-					'class' => 'form-control input-lg',
-					'value' => $this->questionSelectedId
-				));
-
-				$this -> form->get('submit')->setAttributes(array(
-					'class' => 'btn btn btn-success btn-lg', 
-					'value' => $this -> getTranslatorHelper ()->translate('Change Security Question')
-				));
 				$this -> form -> setAttributes ( array (
-					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register',
-							array ( 'action' => 'change-security-question' ) ),
+					'class' => 'form'
+				) );
+
+				$this -> form -> get ( 'question' ) -> setAttributes ( array (
+					'class' => 'form-control input-lg',
+					'value' => $this -> questionSelectedId
+				) );
+
+				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
+					'class' => 'btn btn btn-success btn-lg',
+					'value' => $this -> getTranslatorHelper () -> translate ( 'Change Security Question' )
+				) );
+				$this -> form -> setAttributes ( array (
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register', array ( 'action' => 'change-security-question' ) ),
 					'name' => 'change-security-question'
 				) );
 				break;
@@ -265,13 +260,73 @@ class UserFormFactory implements FactoryInterface
 				$this -> addCreateUserFields ();
 				$this -> addCreateUserFilters ();
 				$this -> form -> setAttributes ( array (
-					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-admin',
-							array ( 'action' => 'create-user' ) ),
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-admin', array ( 'action' => 'create-user' ) ),
 					'name' => 'register'
 				) );
 				break;
 
 			case 'EditUser':
+
+				$this -> form -> setAttributes ( array (
+					'class' => 'form'
+				) );
+
+
+				$this -> form -> get ( 'username' ) -> setAttributes ( array (
+					'required' => 'true',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Username' )
+				) );
+
+				$this -> form -> get ( 'firstName' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'First Name' )
+				) );
+
+				$this -> form -> get ( 'lastName' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Last Name' )
+				) );
+
+				$this -> form -> get ( 'email' ) -> setAttributes ( array (
+					'required' => 'true',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Your Email' )
+				) );
+
+				$this -> form -> get ( 'language' ) -> setAttributes ( array (
+					'required' => 'true',
+					'class' => 'form-control input-lg',
+				) );
+
+				$this -> form -> get ( 'state' ) -> setAttributes ( array (
+					'required' => 'true',
+					'class' => 'form-control input-lg',
+				) );
+
+				$this -> form -> get ( 'role' ) -> setAttributes ( array (
+					'required' => 'true',
+					'class' => 'form-control input-lg',
+				) );
+
+				$this -> form -> get ( 'question' ) -> setAttributes ( array (
+					'required' => 'true',
+					'class' => 'form-control input-lg',
+				) );
+
+				$this -> form -> get ( 'answer' ) -> setAttributes ( array (
+					'required' => 'true',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Type Your Answer' )
+				) );
+
+				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
+					'class' => 'btn btn btn-success btn-lg',
+					'value' => $this -> getTranslatorHelper () -> translate ( 'Edit User' )
+				) );
+
 				$this -> form -> setAttributes ( array (
 					'name' => 'register'
 				) );
@@ -280,8 +335,7 @@ class UserFormFactory implements FactoryInterface
 				$this -> addLoginFields ();
 				$this -> addLoginFilters ();
 				$this -> form -> setAttributes ( array (
-					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-index',
-							array ( 'action' => 'login' ) ),
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-index', array ( 'action' => 'login' ) ),
 					'name' => 'login'
 				) );
 
@@ -300,7 +354,7 @@ class UserFormFactory implements FactoryInterface
 				) );
 
 				$this -> form -> get ( 'rememberme' ) -> setAttributes ( array (
-						//'class' => 'form-control input-lg', 
+				//'class' => 'form-control input-lg',
 				) );
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
@@ -312,8 +366,7 @@ class UserFormFactory implements FactoryInterface
 				$this -> addLoginFields ();
 				$this -> addLoginFilters ();
 				$this -> form -> setAttributes ( array (
-					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-index',
-							array ( 'action' => 'login' ) ),
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-index', array ( 'action' => 'login' ) ),
 					'name' => 'login'
 				) );
 				break;
@@ -322,6 +375,7 @@ class UserFormFactory implements FactoryInterface
 		$this -> form -> bind ( $userEntity );
 
 		return $this -> form;
+
 	}
 
 	/**
@@ -358,6 +412,7 @@ class UserFormFactory implements FactoryInterface
 				'type' => 'submit',
 			),
 		) );
+
 	}
 
 	/**
@@ -382,6 +437,7 @@ class UserFormFactory implements FactoryInterface
 				'label' => $this -> getTranslatorHelper () -> translate ( 'Remember me?' ),
 			),
 		) );
+
 	}
 
 	/**
@@ -405,13 +461,13 @@ class UserFormFactory implements FactoryInterface
 			'type' => 'Zend\Form\Element\Button',
 			'attributes' => array (
 				'class' => 'btn btn btn-warning btn-lg',
-				'onclick' => 'window.location="' . $this -> getUrlPlugin () -> fromRoute ( 'user-index',
-						array ( 'action' => 'login' ) ) . '"',
+				'onclick' => 'window.location="' . $this -> getUrlPlugin () -> fromRoute ( 'user-index', array ( 'action' => 'login' ) ) . '"',
 			),
 			'options' => array (
 				'label' => $this -> getTranslatorHelper () -> translate ( 'Sign In' ),
 			)
 		) );
+
 	}
 
 	/**
@@ -428,9 +484,10 @@ class UserFormFactory implements FactoryInterface
 				'required' => true,
 				'type' => 'password',
 				'class' => 'form-control input-lg',
-				'placeholder' => $this -> getTranslatorHelper () -> translate('Confirm New Password')
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Confirm New Password' )
 			),
 		) );
+
 	}
 
 	/**
@@ -448,6 +505,7 @@ class UserFormFactory implements FactoryInterface
 				'required' => 'true',
 			),
 		) );
+
 	}
 
 	/**
@@ -457,15 +515,15 @@ class UserFormFactory implements FactoryInterface
 	 */
 	private function addChangeEmailFields ()
 	{
-	
+
 		$this -> form -> add ( array (
 			'name' => 'newEmail',
 			'type' => 'Zend\Form\Element\Email',
 			'attributes' => array (
 				'type' => 'email',
 				'required' => 'true',
-				'class' => 'form-control input-lg', 
-				'placeholder' => $this -> getTranslatorHelper ()->translate('New Email')
+				'class' => 'form-control input-lg',
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'New Email' )
 			),
 		) );
 
@@ -475,10 +533,11 @@ class UserFormFactory implements FactoryInterface
 			'attributes' => array (
 				'type' => 'email',
 				'required' => 'true',
-				'class' => 'form-control input-lg', 
-				'placeholder' => $this -> getTranslatorHelper ()->translate('Confirm New Email')
+				'class' => 'form-control input-lg',
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Confirm New Email' )
 			),
 		) );
+
 	}
 
 	/**
@@ -496,6 +555,7 @@ class UserFormFactory implements FactoryInterface
 				'type' => 'password',
 			),
 		) );
+
 	}
 
 	/**
@@ -506,30 +566,31 @@ class UserFormFactory implements FactoryInterface
 	private function addLoginFilters ()
 	{
 		$this -> form -> getInputFilter () -> add ( $this -> form -> getInputFilter () -> getFactory () -> createInput ( array (
-					'name' => 'usernameOrEmail',
-					'required' => true,
-					'filters' => array (
-						array ( 'name' => 'StripTags' ),
-						array ( 'name' => 'StringTrim' ),
-					),
+			'name' => 'usernameOrEmail',
+			'required' => true,
+			'filters' => array (
+				array ( 'name' => 'StripTags' ),
+				array ( 'name' => 'StringTrim' ),
+			),
 		) ) );
 
 		$this -> form -> getInputFilter () -> add ( $this -> form -> getInputFilter () -> getFactory () -> createInput ( array (
-					'name' => 'rememberme',
-					'required' => true,
-					'filters' => array (
-						array ( 'name' => 'StripTags' ),
-						array ( 'name' => 'StringTrim' ),
+			'name' => 'rememberme',
+			'required' => true,
+			'filters' => array (
+				array ( 'name' => 'StripTags' ),
+				array ( 'name' => 'StringTrim' ),
+			),
+			'validators' => array (
+				array (
+					'name' => 'InArray',
+					'options' => array (
+						'haystack' => array ( '0', '1' ),
 					),
-					'validators' => array (
-						array (
-							'name' => 'InArray',
-							'options' => array (
-								'haystack' => array ( '0', '1' ),
-							),
-						),
-					)
+				),
+			)
 		) ) );
+
 	}
 
 	/**
@@ -541,24 +602,25 @@ class UserFormFactory implements FactoryInterface
 	{
 		$entityManager = $this -> getEntityManager ();
 		$this -> form -> getInputFilter () -> get ( 'username' ) -> getValidatorChain () -> attach (
-				new NoObjectExistsValidator ( array (
+		new NoObjectExistsValidator ( array (
 			'object_repository' => $entityManager -> getRepository ( 'CsnUser\Entity\User' ),
 			'fields' => array ( 'username' ),
 			'messages' => array (
 				'objectFound' => $this -> getTranslatorHelper () -> translate ( 'This username is already taken' ),
 			),
-				) )
+		) )
 		);
 
 		$this -> form -> getInputFilter () -> get ( 'email' ) -> getValidatorChain () -> attach (
-				new NoObjectExistsValidator ( array (
+		new NoObjectExistsValidator ( array (
 			'object_repository' => $entityManager -> getRepository ( 'CsnUser\Entity\User' ),
 			'fields' => array ( 'email' ),
 			'messages' => array (
 				'objectFound' => $this -> getTranslatorHelper () -> translate ( 'An user with this email already exists' ),
 			),
-				) )
+		) )
 		);
+
 	}
 
 	/**
@@ -569,28 +631,29 @@ class UserFormFactory implements FactoryInterface
 	private function addChangePasswordFilters ()
 	{
 		$this -> form -> getInputFilter () -> add ( $this -> form -> getInputFilter () -> getFactory () -> createInput ( array (
-					'name' => 'newPasswordVerify',
-					'filters' => array (
-						array ( 'name' => 'StripTags' ),
-						array ( 'name' => 'StringTrim' ),
+			'name' => 'newPasswordVerify',
+			'filters' => array (
+				array ( 'name' => 'StripTags' ),
+				array ( 'name' => 'StringTrim' ),
+			),
+			'validators' => array (
+				array (
+					'name' => 'StringLength',
+					'options' => array (
+						'encoding' => 'UTF-8',
+						'min' => 6,
+						'max' => 20,
 					),
-					'validators' => array (
-						array (
-							'name' => 'StringLength',
-							'options' => array (
-								'encoding' => 'UTF-8',
-								'min' => 6,
-								'max' => 20,
-							),
-						),
-						array (
-							'name' => 'Identical',
-							'options' => array (
-								'token' => 'password',
-							),
-						),
-					)
+				),
+				array (
+					'name' => 'Identical',
+					'options' => array (
+						'token' => 'password',
+					),
+				),
+			)
 		) ) );
+
 	}
 
 	/**
@@ -601,13 +664,14 @@ class UserFormFactory implements FactoryInterface
 	private function addResetPasswordFilters ()
 	{
 		$this -> form -> getInputFilter () -> add ( $this -> form -> getInputFilter () -> getFactory () -> createInput ( array (
-					'name' => 'usernameOrEmail',
-					'required' => true,
-					'filters' => array (
-						array ( 'name' => 'StripTags' ),
-						array ( 'name' => 'StringTrim' ),
-					),
+			'name' => 'usernameOrEmail',
+			'required' => true,
+			'filters' => array (
+				array ( 'name' => 'StripTags' ),
+				array ( 'name' => 'StringTrim' ),
+			),
 		) ) );
+
 	}
 
 	/**
@@ -618,48 +682,49 @@ class UserFormFactory implements FactoryInterface
 	private function addChangeEmailFilters ()
 	{
 		$this -> form -> getInputFilter () -> add ( $this -> form -> getInputFilter () -> getFactory () -> createInput ( array (
-					'name' => 'newEmail',
-					'required' => true,
-					'filters' => array (
-						array ( 'name' => 'StripTags' ),
-						array ( 'name' => 'StringTrim' ),
-					),
-					'validators' => array (
-						array (
-							'name' => 'EmailAddress'
-						),
-						array (
-							'name' => 'DoctrineModule\Validator\NoObjectExists',
-							'options' => array (
-								'object_repository' => $this -> getEntityManager () -> getRepository ( 'CsnUser\Entity\User' ),
-								'fields' => array ( 'email' ),
-								'messages' => array (
-									'objectFound' => $this -> getTranslatorHelper () -> translate ( 'An user with this email already exists' ),
-								),
-							),
+			'name' => 'newEmail',
+			'required' => true,
+			'filters' => array (
+				array ( 'name' => 'StripTags' ),
+				array ( 'name' => 'StringTrim' ),
+			),
+			'validators' => array (
+				array (
+					'name' => 'EmailAddress'
+				),
+				array (
+					'name' => 'DoctrineModule\Validator\NoObjectExists',
+					'options' => array (
+						'object_repository' => $this -> getEntityManager () -> getRepository ( 'CsnUser\Entity\User' ),
+						'fields' => array ( 'email' ),
+						'messages' => array (
+							'objectFound' => $this -> getTranslatorHelper () -> translate ( 'An user with this email already exists' ),
 						),
 					),
+				),
+			),
 		) ) );
 
 		$this -> form -> getInputFilter () -> add ( $this -> form -> getInputFilter () -> getFactory () -> createInput ( array (
-					'name' => 'newEmailVerify',
-					'required' => true,
-					'filters' => array (
-						array ( 'name' => 'StripTags' ),
-						array ( 'name' => 'StringTrim' ),
+			'name' => 'newEmailVerify',
+			'required' => true,
+			'filters' => array (
+				array ( 'name' => 'StripTags' ),
+				array ( 'name' => 'StringTrim' ),
+			),
+			'validators' => array (
+				array (
+					'name' => 'EmailAddress'
+				),
+				array (
+					'name' => 'Identical',
+					'options' => array (
+						'token' => 'newEmail',
 					),
-					'validators' => array (
-						array (
-							'name' => 'EmailAddress'
-						),
-						array (
-							'name' => 'Identical',
-							'options' => array (
-								'token' => 'newEmail',
-							),
-						),
-					),
+				),
+			),
 		) ) );
+
 	}
 
 	/**
@@ -670,28 +735,29 @@ class UserFormFactory implements FactoryInterface
 	private function addCreateUserFilters ()
 	{
 		$this -> form -> getInputFilter () -> add ( $this -> form -> getInputFilter () -> getFactory () -> createInput ( array (
-					'name' => 'passwordVerify',
-					'filters' => array (
-						array ( 'name' => 'StripTags' ),
-						array ( 'name' => 'StringTrim' ),
+			'name' => 'passwordVerify',
+			'filters' => array (
+				array ( 'name' => 'StripTags' ),
+				array ( 'name' => 'StringTrim' ),
+			),
+			'validators' => array (
+				array (
+					'name' => 'StringLength',
+					'options' => array (
+						'encoding' => 'UTF-8',
+						'min' => 6,
+						'max' => 20,
 					),
-					'validators' => array (
-						array (
-							'name' => 'StringLength',
-							'options' => array (
-								'encoding' => 'UTF-8',
-								'min' => 6,
-								'max' => 20,
-							),
-						),
-						array (
-							'name' => 'Identical',
-							'options' => array (
-								'token' => 'password',
-							),
-						),
-					)
+				),
+				array (
+					'name' => 'Identical',
+					'options' => array (
+						'token' => 'password',
+					),
+				),
+			)
 		) ) );
+
 	}
 
 	/**
@@ -707,6 +773,7 @@ class UserFormFactory implements FactoryInterface
 		}
 
 		return $this -> options;
+
 	}
 
 	/**
@@ -722,6 +789,7 @@ class UserFormFactory implements FactoryInterface
 		}
 
 		return $this -> entityManager;
+
 	}
 
 	/**
@@ -737,6 +805,7 @@ class UserFormFactory implements FactoryInterface
 		}
 
 		return $this -> translatorHelper;
+
 	}
 
 	/**
@@ -752,6 +821,7 @@ class UserFormFactory implements FactoryInterface
 		}
 
 		return $this -> url;
+
 	}
 
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -22,7 +22,7 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * Doctrine ORM implementation of User entity
- * 
+ *
  * @ORM\Entity(repositoryClass="CsnUser\Entity\Repository\UserRepository")
  * @ORM\Table(name="`user`",
  *   indexes={@ORM\Index(name="search_idx", columns={"username", "first_name", "last_name", "email"})}
@@ -114,7 +114,7 @@ class User
 
     /**
      * @var CsnUser\Entity\Role
-     * 
+     *
      * @ORM\ManyToOne(targetEntity="CsnUser\Entity\Role")
      * @ORM\JoinColumn(name="role_id", referencedColumnName="id", nullable=false)
      * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
@@ -298,29 +298,7 @@ class User
         return $this->username;
     }
 
-    /**
-     * Set displayName
-     *
-     * @param  string $displayName
-     * @return User
-     */
-    public function setDisplayName($displayName)
-    {
-        $this->displayName = $displayName;
-
-        return $this;
-    }
-
-    /**
-     * Get displayName
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->displayName;
-    }
-
+    
     /**
      * Set firstName
      *
