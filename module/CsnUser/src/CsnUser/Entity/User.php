@@ -272,6 +272,13 @@ class User
     protected $location;
 
 
+	/**
+	 * @var UserResume
+     * @ORM\OneToOne(targetEntity="UserResume", mappedBy="user")
+     */
+    private $user_resume;
+
+
     public function __construct()
     {
         $this->friendsWithMe = new ArrayCollection();
@@ -717,5 +724,28 @@ class User
 		return $this;
 	}
 
+
+	/**
+     * Set user_resume
+     *
+     * @param  string $user_resume
+     * @return User
+     */
+    public function setUserResume($user_resume)
+    {
+        $this->user_resume = $user_resume;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUserResume()
+    {
+        return $this->user_resume;
+    }
 
 }
