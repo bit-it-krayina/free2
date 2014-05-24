@@ -1,0 +1,23 @@
+
+.fi-pencil-1:before { content: '\e818'; } /* '' */
+.fi-mail:before { content: '\e807'; } /* '' */
+.fi-user:before { content: '\e808'; } /* '' */
+.fi-cog:before { content: '\e800'; } /* '' */
+.fi-phone:before { content: '\e81a'; } /* '' */
+.fi-cancel:before { content: '\e810'; } /* '' */
+.fi-help:before { content: '\e80e'; } /* '' */
+.fi-info:before { content: '\e80f'; } /* '' */
+.fi-trash:before { content: '\e80b'; } /* '' */
+.fi-wrench:before { content: '\e80d'; } /* '' */
+.fi-globe:before { content: '\e80c'; } /* '' */
+.fi-search:before { content: '\e817'; } /* '' */
+.fi-facebook:before { content: '\e802'; } /* '' */
+.fi-github-circled:before { content: '\e815'; } /* '' */
+.fi-gplus:before { content: '\e816'; } /* '' */
+.fi-linkedin:before { content: '\e813'; } /* '' */
+.fi-skype:before { content: '\e803'; } /* '' */
+.fi-twitter:before { content: '\e801'; } /* '' */
+.fi-vkontakte:before { content: '\e814'; } /* '' */
+.fi-pencil:before { content: '\e806'; } /* '' */
+.fi-search-left:before { content: '\e809'; } /* '' */
+.fi-spinner:before { content: '\e811'; } /* '' */

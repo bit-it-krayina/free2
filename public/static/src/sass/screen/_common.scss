@@ -1,0 +1,378 @@
+html,
+body {
+  height: 100%;
+}
+
+.wrap {
+  min-height: 100%;
+}
+
+.main {
+  padding: 0 0 ($navbar-height + 20px);
+  .container {
+    width: 940px;
+  }
+}
+
+.footer {
+  position: relative;
+  height: $navbar-height;
+  margin-top: -($navbar-height);
+  .navbar {
+    margin: 0;
+  }
+}
+
+//  Common  //
+.headings-top-0 {
+  margin-top: 0;
+}
+
+.form-control {
+  box-shadow: none;
+}
+
+.form-group {
+  margin-bottom: 17px;
+}
+
+.radio,
+.checkbox {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  input {
+    display: none;
+    &:checked + label {
+      &:before {
+        box-shadow: 0 0 0 3px #fff inset;
+        background: $add-color;
+      }
+    }
+  }
+  input + label {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: 0;
+      height: 15px;
+      width: 15px;
+      background: #fff;
+      user-select: none;
+    }
+  }
+}
+
+.radio input + label:before {
+  border-radius: 50%;
+}
+
+.btn {
+  transition: background 0.2s ease-out 0s;
+  text-transform: uppercase;
+}
+
+.icon-square {
+  height: 28px;
+  width: 28px;
+  text-align: center;
+  line-height: 28px;
+  font-size: 19px;
+  border-radius: 4px;
+  transition: background 0.2s ease-out 0s;
+}
+
+.icon-main-color {
+  color: #fff;
+  background: $main-color;
+  &:hover {
+    background: $main-color-light;
+  }
+}
+
+.icon-add-color {
+  color: $add-color-text;
+  background: $add-color;
+  &:hover {
+    background: $add-color-light;
+  }
+}
+
+.icon-gray {
+  color: lighten(#000, 97%);
+  background: lighten(#000, 77%);
+  &:hover {
+    background: lighten(#000, 82%);
+  }
+}
+
+.icon-square.fa-facebook:before,
+.icon-square.fa-twitter:before {
+  position: relative;
+  top: 1px;
+}
+
+.icon-square.fi-mail {
+  font-size: 16px;
+}
+
+.form-group-last {
+  margin-bottom: 0;
+}
+
+// Blue block //
+.block-main-color {
+  background: $main-color;
+  color: #fff;
+
+  .h3 {
+    color: #fff;
+  }
+
+  .form-control {
+    border-color: transparent;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+.btn-inverse {
+  color: #fff;
+  background: $main-color;
+  border:2px solid #fff;
+  &:hover{
+    color: #fff;
+    background: lighten($main-color, 5)
+  }
+}
+
+
+//  Navbar //
+.navbar-brand {
+  padding: 0 15px;
+  line-height: $navbar-height;
+  i {
+    color: $add-color;
+    font-size: 31px;
+    vertical-align: middle;
+    position: relative;
+  }
+}
+
+.navbar {
+  border: 0;
+  .navbar-nav {
+    > li > a {
+      transition: all 0.2s ease-out 0s;
+    }
+  }
+}
+
+.navbar-inverse {
+  box-shadow: 0px 0px 10px 0 rgba(0,0,0,.4);
+  .navbar-nav {
+    > li > a {
+      &:hover,
+      &:focus {
+        box-shadow: 0 -5px 0 $main-color-light inset;
+      }
+    }
+    > .active > a,
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.footer .navbar-text.navbar-right:last-child {
+  margin-right: $navbar-padding-horizontal;
+}
+
+
+// Home page //
+.promo-page {
+  margin-top: $grid-gutter-width * 3;
+
+  .col-md-6 {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.panel-authorization {
+  margin-bottom: 0;
+
+  .pull-right {
+    float: right;
+  }
+
+  .text-devider {
+    margin: 0 15px;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1px;
+    width: 2px;
+    background: $add-color;
+  }
+}
+
+.btn-auth {width: 40%;}
+.btn-reg {
+  color: $add-color-text !important;
+  background: $add-color;
+  border: 0;
+  width: 100%;
+  line-height: 27px;
+
+  &:hover{
+    background: $add-color-light;
+  }
+}
+
+
+// Profile //
+.profile {
+  .nav-tabs {
+    & > li {
+      width: 33.33333%;
+    }
+  }
+}
+
+.profile-header {
+  background: lighten(#000, 93%);
+  padding: 20px;
+  position: relative;
+  min-height: 200px;
+
+  a {
+    color: #fff;
+  }
+  h1 {
+    margin: 12px 0 -3px;
+    word-wrap: break-word;
+    font-weight: 400;
+
+    span {
+      display: block;
+    }
+    small {
+      display: block;
+      margin-top: 18px;
+      line-height: 1.18;
+      text-transform: lowercase;
+      font-weight: 100;
+      color: lighten(#000, 40%);
+    }
+  }
+
+  .icon-edit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  @include clearfix();
+  
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   left: 0;
+  //   width: 100%;
+  //   top: 50px;
+  //   border-top: 1px solid #f00;
+  // }
+}
+
+.profile-photo {
+  float: left;
+  height: 130px;
+  width: 130px;
+  background: #fff;
+  border: 5px solid $main-color;
+  margin-right: 20px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  img {
+    max-width: 130px;
+  }
+}
+.profile-status {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  .caret {
+    position: absolute;
+    top: 11px;
+    right: 9px;
+    font-size: 5px;
+  }
+  .dropdown-menu {
+    padding: 0;
+    width: 130px;
+    min-width: inherit;
+    text-align: center;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    & > li {
+      cursor: pointer;
+    }
+  }
+}
+
+.profile-status-btn {
+  width: 130px;
+  text-align: center;
+  border: 0;
+  line-height: 20px;
+}
+div.profile-status-btn {
+  text-transform: uppercase;
+  color: #fff;
+  background: $brand-success;
+  padding: $padding-xs-vertical $padding-xs-horizontal;
+  font-size: $font-size-small;
+}
+.profile-header-info {
+  width: 340px;
+  float: left;
+}
+
+.profile-header-contacts {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  text-align: right;
+}
+
+.contacts-item {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 10px 5px;
+}
+
+.profile-header-phone {
+  font-size: 16px;
+  font-style: italic;
+  word-spacing: 0.1em;
+  i {
+    margin-right: 6px;
+    position: relative;
+    top: 3px;
+  }
+}
