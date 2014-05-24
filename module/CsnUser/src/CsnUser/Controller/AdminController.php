@@ -93,7 +93,7 @@ class AdminController extends AbstractActionController
 			{
 				$form -> setValidationGroup ( 'username', 'email', 'firstName', 'lastName',
 						'password', 'passwordVerify', 'language', 'state', 'role', 'question',
-						'answer', 'csrf' , 'location');
+						'answer', 'csrf' , 'location', 'resume');
 				$form -> setData ( $request -> getPost () );
 				if ( $form -> isValid () )
 				{
@@ -162,7 +162,7 @@ class AdminController extends AbstractActionController
 			if ( $request -> isPost () )
 			{
 				$form -> setValidationGroup ( 'username', 'email', 'firstName', 'lastName',
-						'language', 'state', 'role', 'question', 'answer', 'csrf' , 'location');
+						'language', 'state', 'role', 'question', 'answer', 'csrf' , 'location', 'resume');
 				$form -> setData ( $request -> getPost () );
 				if ( $form -> isValid () )
 				{

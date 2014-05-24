@@ -150,6 +150,14 @@ class UserFormFactory implements FactoryInterface
 					'class' => 'btn btn btn-warning btn-lg',
 					'label' => $this -> getTranslatorHelper () -> translate ( 'Sign In' )
 				) );
+				
+				$this -> form -> get ( 'resume' )
+					-> setAttributes ( array (
+						'required' => 'false',
+						'class' => 'form-control input-lg',
+						'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
+				) );
+
 				break;
 
 			case 'EditProfile':
@@ -180,6 +188,13 @@ class UserFormFactory implements FactoryInterface
 					'class' => 'form-control input-lg',
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
 				) );
+
+				$this -> form -> get ( 'resume' )
+					-> setAttributes ( array (
+						'required' => 'false',
+						'class' => 'form-control input-lg',
+						'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
+					) );
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
 					'class' => 'btn btn btn-success btn-lg',
@@ -344,6 +359,13 @@ class UserFormFactory implements FactoryInterface
 					'class' => 'form-control input-lg',
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Type Your Answer' )
 				) );
+				
+				$this -> form -> get ( 'resume' )
+					-> setAttributes ( array (
+						'required' => 'false',
+						'class' => 'form-control input-lg',
+						'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
+					) );
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
 					'class' => 'btn btn btn-success btn-lg',
@@ -579,6 +601,12 @@ class UserFormFactory implements FactoryInterface
 			),
 		) );
 
+		$this -> form -> get ( 'resume' )
+			-> setAttributes ( array (
+				'required' => 'false',
+				'class' => 'form-control input-lg',
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
+			) );
 
 
 

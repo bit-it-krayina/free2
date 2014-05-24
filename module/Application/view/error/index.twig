@@ -1,7 +1,11 @@
 
 {% block content %}
-
+	
 	<h1>{{ translate('An error occurred') }}</h1>
 	<h2>{{ message }}</h2>
-
+	{% if exception %}
+	<pre>
+		{{ exception |raw }}
+	</pre>
+	{% endif %}
 {% endblock %}

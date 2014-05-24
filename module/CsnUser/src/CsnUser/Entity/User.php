@@ -272,13 +272,18 @@ class User
     protected $location;
 
 
-	/**
-	 * @var UserResume
-     * @ORM\OneToOne(targetEntity="UserResume", mappedBy="user")
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resume", type="string", length=255, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})
      */
-    private $user_resume;
+    private $resume;
 
-
+	
     public function __construct()
     {
         $this->friendsWithMe = new ArrayCollection();
@@ -726,26 +731,26 @@ class User
 
 
 	/**
-     * Set user_resume
+     * Set resume
      *
-     * @param  string $user_resume
+     * @param  string $resume
      * @return User
      */
-    public function setUserResume($user_resume)
+    public function setResume($resume)
     {
-        $this->user_resume = $user_resume;
+        $this->resume = $resume;
 
         return $this;
     }
 
     /**
-     * Get username
+     * Get resume
      *
      * @return string
      */
-    public function getUserResume()
+    public function getResume()
     {
-        return $this->user_resume;
+        return $this->resume;
     }
 
 }

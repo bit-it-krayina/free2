@@ -48,6 +48,14 @@
 				{{ formElementErrors(form.get('location'))| raw }}
 				</div>
 			</div>
+				
+			<div class="row">
+				<div class="col-sm-12">
+				{{ formElement(form.get('resume'))| raw }}
+				{{ formElementErrors(form.get('resume'))| raw }}
+				</div>
+			</div>
+				
             <div class="row">
               <div class="col-sm-12">
 				  {{ formRow(form.get('submit'))| raw }}

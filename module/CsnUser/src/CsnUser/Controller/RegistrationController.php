@@ -131,7 +131,7 @@ class RegistrationController extends AbstractActionController
         if($this->getRequest()->isPost()) {
             $currentFirstName = $user->getFirstName();
             $currentLastName = $user->getLastName();
-            $form->setValidationGroup('firstName', 'lastName', 'language', 'csrf', 'location');
+            $form->setValidationGroup('firstName', 'lastName', 'language', 'csrf', 'location', 'resume');
             $form->setData($this->getRequest()->getPost());
             if($form->isValid()) {
                 $firstName = $this->params()->fromPost('firstName');

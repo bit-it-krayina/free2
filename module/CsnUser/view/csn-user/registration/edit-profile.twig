@@ -60,9 +60,14 @@
               <span class="zf-green" style="font-size: 24px;">{{ translate('Your Language') }}:</span>
               <br/>
 			  {{ formElement(form.get('language'))| raw }}
+			  <span class="zf-green" style="font-size: 24px;">{{ translate('Your Location') }}:</span>
+              <br/>
 				{{ formElement(form.get('location'))| raw }}
 				{{ formElementErrors(form.get('location'))| raw }}
-
+			  <span class="zf-green" style="font-size: 24px;">{{ translate('Tell About Yourself') }}:</span>
+              <br/>
+				{{ formElement(form.get('resume'))| raw }}
+				{{ formElementErrors(form.get('resume'))| raw }}
             <div class="row">
               <div class="col-sm-12">
 				  {{ formRow(form.get('submit'))| raw }}
