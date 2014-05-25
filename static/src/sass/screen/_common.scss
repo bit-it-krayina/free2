@@ -8,7 +8,7 @@ body {
 }
 
 .main {
-  padding: 0 0 ($navbar-height + 20px);
+  padding: ($navbar-height + 25px) 0 ($navbar-height + 20px);
   .container {
     width: 940px;
   }
@@ -121,6 +121,17 @@ body {
   margin-bottom: 0;
 }
 
+.badge-notif {
+  position: absolute;
+  font-weight: normal;
+  font-size: 10px;
+  padding: 3px 5px;
+  top: 5px;
+  right: 4px;
+  box-shadow: -1px 1px 5px rgba(0,0,0,.3);
+}
+
+
 // Blue block //
 .block-main-color {
   background: $main-color;
@@ -169,6 +180,11 @@ body {
       transition: all 0.2s ease-out 0s;
     }
   }
+
+  .fi-globe {
+    font-size: 21px;
+    margin-top: -4px;
+  }
 }
 
 .navbar-inverse {
@@ -193,186 +209,4 @@ body {
 
 .footer .navbar-text.navbar-right:last-child {
   margin-right: $navbar-padding-horizontal;
-}
-
-
-// Home page //
-.promo-page {
-  margin-top: $grid-gutter-width * 3;
-
-  .col-md-6 {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-}
-
-.panel-authorization {
-  margin-bottom: 0;
-
-  .pull-right {
-    float: right;
-  }
-
-  .text-devider {
-    margin: 0 15px;
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -1px;
-    width: 2px;
-    background: $add-color;
-  }
-}
-
-.btn-auth {width: 40%;}
-.btn-reg {
-  color: $add-color-text !important;
-  background: $add-color;
-  border: 0;
-  width: 100%;
-  line-height: 27px;
-
-  &:hover{
-    background: $add-color-light;
-  }
-}
-
-
-// Profile //
-.profile {
-  .nav-tabs {
-    & > li {
-      width: 33.33333%;
-    }
-  }
-}
-
-.profile-header {
-  background: lighten(#000, 93%);
-  padding: 20px;
-  position: relative;
-  min-height: 200px;
-
-  a {
-    color: #fff;
-  }
-  h1 {
-    margin: 12px 0 -3px;
-    word-wrap: break-word;
-    font-weight: 400;
-
-    span {
-      display: block;
-    }
-    small {
-      display: block;
-      margin-top: 18px;
-      line-height: 1.18;
-      text-transform: lowercase;
-      font-weight: 100;
-      color: lighten(#000, 40%);
-    }
-  }
-
-  .icon-edit {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-  }
-
-  @include clearfix();
-  
-  // &:before {
-  //   content: "";
-  //   position: absolute;
-  //   left: 0;
-  //   width: 100%;
-  //   top: 50px;
-  //   border-top: 1px solid #f00;
-  // }
-}
-
-.profile-photo {
-  float: left;
-  height: 130px;
-  width: 130px;
-  background: #fff;
-  border: 5px solid $main-color;
-  margin-right: 20px;
-  overflow: hidden;
-  margin-bottom: 25px;
-  img {
-    max-width: 130px;
-  }
-}
-.profile-status {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-
-  .caret {
-    position: absolute;
-    top: 11px;
-    right: 9px;
-    font-size: 5px;
-  }
-  .dropdown-menu {
-    padding: 0;
-    width: 130px;
-    min-width: inherit;
-    text-align: center;
-    font-size: 13px;
-    line-height: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    & > li {
-      cursor: pointer;
-    }
-  }
-}
-
-.profile-status-btn {
-  width: 130px;
-  text-align: center;
-  border: 0;
-  line-height: 20px;
-}
-div.profile-status-btn {
-  text-transform: uppercase;
-  color: #fff;
-  background: $brand-success;
-  padding: $padding-xs-vertical $padding-xs-horizontal;
-  font-size: $font-size-small;
-}
-.profile-header-info {
-  width: 340px;
-  float: left;
-}
-
-.profile-header-contacts {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  text-align: right;
-}
-
-.contacts-item {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 0 10px 5px;
-}
-
-.profile-header-phone {
-  font-size: 16px;
-  font-style: italic;
-  word-spacing: 0.1em;
-  i {
-    margin-right: 6px;
-    position: relative;
-    top: 3px;
-  }
 }

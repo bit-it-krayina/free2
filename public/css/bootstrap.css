@@ -1219,8 +1219,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .nav-tabs { border-bottom: 1px solid #dddddd; }
 .nav-tabs > li { float: left; margin-bottom: -1px; }
 .nav-tabs > li > a { margin-right: 2px; line-height: 1.7; border: 1px solid transparent; border-radius: 0 0 0 0; }
-.nav-tabs > li > a:hover { border-color: #eeeeee #eeeeee #dddddd; }
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: #555555; background-color: white; border: 1px solid #dddddd; border-bottom-color: transparent; cursor: default; }
+.nav-tabs > li > a:hover { border-color: transparent transparent #dddddd; }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: #178cc6; background-color: #fcfcfc; border: 1px solid #dddddd; border-bottom-color: transparent; cursor: default; }
 
 .nav-pills > li { float: left; }
 .nav-pills > li > a { border-radius: 0; }
@@ -1384,6 +1384,17 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .label-danger { background-color: #e74c3c; }
 .label-danger[href]:hover, .label-danger[href]:focus { background-color: #d62c1a; }
 
+.badge { display: inline-block; min-width: 10px; padding: 3px 7px; font-size: 13px; font-weight: bold; color: white; line-height: 1; vertical-align: baseline; white-space: nowrap; text-align: center; background-color: #e74c3c; border-radius: 10px; }
+.badge:empty { display: none; }
+.btn .badge { position: relative; top: -1px; }
+.btn-xs .badge { top: 0; padding: 1px 5px; }
+
+a.badge:hover, a.badge:focus { color: white; text-decoration: none; cursor: pointer; }
+
+a.list-group-item.active > .badge, .nav-pills > .active > a > .badge { color: white; background-color: white; }
+
+.nav-pills > li > a > .badge { margin-left: 3px; }
+
 .panel { margin-bottom: 25px; background-color: white; border: 1px solid transparent; border-radius: 0; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
 
 .panel-body { padding: 20px; }
@@ -1458,3 +1469,24 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .panel-danger > .panel-heading { color: #a94442; background-color: #f2dede; border-color: #ebccd1; }
 .panel-danger > .panel-heading + .panel-collapse .panel-body { border-top-color: #ebccd1; }
 .panel-danger > .panel-footer + .panel-collapse .panel-body { border-bottom-color: #ebccd1; }
+
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+.center-block { display: block; margin-left: auto; margin-right: auto; }
+
+.pull-right { float: right !important; }
+
+.pull-left { float: left !important; }
+
+.hide { display: none !important; }
+
+.show { display: block !important; }
+
+.invisible { visibility: hidden; }
+
+.text-hide { font: 0/0 a; color: transparent; text-shadow: none; background-color: transparent; border: 0; }
+
+.hidden { display: none !important; visibility: hidden !important; }
+
+.affix { position: fixed; }

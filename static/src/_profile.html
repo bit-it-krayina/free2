@@ -1,17 +1,11 @@
 <section class="main">
-	<div class="profile">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-9">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="profile">
 					<div class="profile-header ">
-						<div class="profile-photo">
+						<div class="profile-photo profile-photo-available">
 							<img src="img/photo.jpg" alt="">
-						</div>
-						<div class="profile-header-info">
-							<h1><span>Константин</span>
-								<span>Константинопольский</span>
-								<small>Системный администратор</small>
-							</h1>
 						</div>
 						<div class="btn-group profile-status">
 							<button class="btn btn-success btn-xs profile-status-btn dropdown-toggle" type="button" data-toggle="dropdown">
@@ -21,6 +15,13 @@
 								<li class="btn-danger">зайнят</li>
 							</ul>
 						</div>
+						<div class="profile-header-info">
+							<h1><span>Константин</span>
+								<span>Константинопольский</span>
+								<small>копірайтор</small>
+							</h1>
+						</div>
+						
 
 						<div class="profile-header-contacts">
 							<a href="#" class="contacts-item"><i class="icon-square icon-main-color fi-facebook"></i></a>
@@ -31,22 +32,94 @@
 						</div>
 						<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 					</div>
-					<ul class="nav nav-tabs">
-					 	<li class="active"><a href="#home" data-toggle="tab">Особиста інформація</a></li>
-						<li><a href="#profile" data-toggle="tab">Професійна інформація</a></li>
-						<li><a href="#messages" data-toggle="tab">Проекти</a></li>
+					<ul class="nav nav-tabs profile-tabs">
+					 	<li><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
+						<li class="active"><a href="#professional" data-toggle="tab">Професійна інформація</a></li>
+						<li><a href="#projects" data-toggle="tab">Проекти</a></li>
 					</ul>
 
-					<div class="tab-content">
-						<div class="tab-pane active" id="home">...</div>
-						<div class="tab-pane" id="profile">...</div>
-						<div class="tab-pane" id="messages">...</div>
-						<div class="tab-pane" id="settings">...</div>
+					<div class="tab-content profile-tabs-content">
+						<div class="tab-pane" id="personal">
+							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
+							<dl class="profile-info">
+								<dt class="profile-title profile-title-left">Дата народження:</dt>
+								<dd class="profile-text">10.10.1980</dd>
+								<dt class="profile-title profile-title-left">Місцезнаходження:</dt>
+								<dd class="profile-text">Київ, України</dd>
+							</dl>
+							<div class="profile-text">
+								<p>
+									Работаю со словом с 2007 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов… 
+								</p>
+								<p>
+									Я люблю писать. Люблю учиться. Люблю цифры и факты.
+								</p>
+							</div>
+							<h3 class="profile-title">Контакти</h3>
+							<dl class="profile-info">
+								<dt class="profile-title profile-title-left">E-mail:</dt>
+								<dd class="profile-text"><a href="mailto:mymail@gmail.com">mymail@gmail.com</a></dd>
+								<dt class="profile-title profile-title-left">Skype:</dt>
+								<dd class="profile-text">myskype</dd>
+								<dt class="profile-title profile-title-left">Телефон:</dt>
+								<dd class="profile-text">+38066 123 3456</dd>
+								<dt class="profile-title profile-title-left">Facebook:</dt>
+								<dd class="profile-text"><a href="https://www.facebook.com/">https://www.facebook.com/</a></dd>
+								<dt class="profile-title profile-title-left">Twitter:</dt>
+								<dd class="profile-text"><a href="https://twitter.com/">https://twitter.com/</a></dd>
+							</dl>
+						</div>
+						<div class="tab-pane active" id="professional">
+							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
+							<dl class="profile-info">
+								<dt class="profile-title profile-title-left">Cпеціальність:</dt>
+								<dd class="profile-text">копірайтор</dd>
+								<dt class="profile-title profile-title-left">Cтаж роботи:</dt>
+								<dd class="profile-text">5 років</dd>
+							</dl>
+							<dl class="profile-info">
+								<dt class="profile-title">Професійні навики: </dt>
+								<dd class="profile-tags">
+									<span>копірайтинг</span>
+									<span>одностранічнікі</span>
+									<span>pr-тексти</span>
+									<span>Комерційна пропозиція</span>
+									<span>ведення груп в соц.мережах</span>
+								</dd>
+							</dl>
+
+							<div class="profile-text">
+								<p>
+									Оказываю услуги по бизнес-анализу и документированию программного обеспечения (настольных, мобильных и веб-приложений), прототипированию пользовательских интерфейсов, тестированию программного обеспечению, разработке веб-сайтов на платформах WordPress и Moodle, а также разработке учебных курсов.
+								</p>
+							</div>
+						</div>
+						<div class="tab-pane" id="projects">
+							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
+							<h3 class="profile-title"><a href="">MediaPlazm</a></h3>
+							<dl>
+								<dt class="profile-title profile-title-left">Роль:</dt>
+								<dd class="profile-text">учасник</dd>
+								<dt class="profile-title profile-title-left">Дати роботи:</dt>
+								<dd class="profile-text">7.06.2014 - 15.11.2014</dd>
+								<dt class="profile-title">Відгук:</dt>
+								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
+							</dl>
+							<h3 class="profile-title"><a href="">MediaPlazm 2</a></h3>
+							<dl>
+								<dt class="profile-title profile-title-left">Роль:</dt>
+								<dd class="profile-text">учасник</dd>
+								<dt class="profile-title profile-title-left">Дати роботи:</dt>
+								<dd class="profile-text">7.06.2014 - 15.11.2014</dd>
+								<dt class="profile-title">Відгук:</dt>
+								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
+							</dl>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<img src="img/banner.jpg" alt="">
-				</div>
+			</div>
+			<div class="col-md-3">
+				<img src="img/banner.jpg" alt="">
 			</div>
 		</div>
 	</div>
