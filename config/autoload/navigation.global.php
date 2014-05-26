@@ -11,91 +11,104 @@
 return array(
      'navigation' => array(
          'default' => array(
-             array(
-                 'label' => 'Home',
-                 'route' => 'home',
-				 'resource' => 'Application\Controller\Index',
-				 'privilege' => 'index',
-             ),
+//             array(
+//                 'label' => 'Home',
+//                 'route' => 'home',
+//				 'resource' => 'Application\Controller\Index',
+//				 'privilege' => 'index',
+//             ),
 			 array(
-                 'label' => 'Projects',
+                 'label' => 'Проекти',
                  'route' => 'project',
 				 'action'     => 'list',
 				 'resource'	  => 'Application\Controller\Projects',
 				 'privilege'  => 'index',
              ),
 			 array(
-				 'label' => 'Manage Users',
-				 'uri'	=> '#',
-				 'class' => '',
-				 'pages' => array(
-					 array (
-						 'label' => 'List',
-						 'route' => 'user-admin',
-						 'action' => 'index',
-						 'resource' => 'CsnUser\Controller\Admin',
-						 'privilege' => 'index',
+				'label' => 'Volounteers',
+				'uri'	=> '#',
+				'route' => 'user-admin',
+				'action' => 'index',
+				'resource' => 'CsnUser\Controller\Admin',
+				'privilege' => 'index',
+				'class' => '',
+				'pages' => array(
+					array (
+						'label' => 'Список',
+						'route' => 'user-admin',
+						'action' => 'index',
+						'resource' => 'CsnUser\Controller\Admin',
+						'privilege' => 'index',
 					),
-					 array (
-						 'label' => 'Add',
-						 'route' => 'user-admin',
-						 'resource' => 'CsnUser\Controller\Admin',
-						 'privilege' => 'index',
-						 'action' => 'create-user',
+					array (
+						'label' => 'Добавити',
+						'route' => 'user-admin',
+						'resource' => 'CsnUser\Controller\Admin',
+						'privilege' => 'index',
+						'action' => 'create-user',
 					),
 				 ),
 			 ),
+			 array(
+				'label' => '<span class="fi-search"></span>',
+				'uri'	=> '#',
+				'pages' => array(
+					array (
+						'label' => 'Скоро тут буде гарна форма пошуку',
+						'uri'	=> '#',
+					),
+				),
 
-//			 array(
-//                 'label' => 'User',
-//                 'route' => 'user',
-//				 'controller' => 'Index',
-//				 'action'     => 'index',
-//				 'resource'	  => 'CsnUser\Controller\Index',
-//				 'privilege'  => 'index',
-//             ),
-//             array(
-//                 'label' => 'Registration',
-//                 'route' => 'user-register',
-//				 'controller' => 'Registration',
-//				 'action'     => 'index',
-//				 'resource'	  => 'CsnUser\Controller\Registration',
-//				 'privilege'  => 'index',
-//				 'title'	  => 'Registration Form'
-//             ),
-//             array(
-//                 'label' => 'Edit profile',
-//                 'route' => 'editProfile',
-//				 'controller' => 'Registration',
-//				 'action'     => 'editProfile',
-//				 'resource'	  => 'CsnUser\Controller\Registration',
-//				 'privilege'  => 'editProfile',
-//             ),
-//			array(
-//				'label' => 'Zend',
-//				'uri'   => 'http://framework.zend.com/',
-//				'resource' => 'Zend',
-//				'privilege'	=>	'uri'
-//			),
-			/*
-			// uncomment if you have the CsnCms module installed
-			array(
-                 'label' => 'CMS',
-                 'route' => 'csn-cms',
-				 'controller' => 'Index',
-				 'action'     => 'index',
-				 'resource'	  => 'CsnCms\Controller\Index',
-				 'privilege'  => 'index'
              ),
-			 */
-//            array(
-//                 'label' => 'Logout',
-//                 'route' => 'user-index',
-//				 'controller' => 'Index',
-//				 'action'     => 'logout',
-//				 'resource'	  => 'CsnUser\Controller\Index',
-//				 'privilege'  => 'logout'
-//             ),
+			 array(
+				'label' => '<span class="fi-globe"></span><span class="badge badge-notif">2</span>',
+				'uri'	=> '#',
+				'pages' => array(
+					array (
+						'label' => 'Запрошення до "Ua roads"',
+						'uri'	=> '#',
+					),
+					array (
+						'label' => 'Новий відгук від "Ua elections"',
+						'uri'	=> '#',
+					),
+				),
+
+             ),
+			 array(
+				'label' => '<span class="fi-user"></span>',
+				'uri'	=> '#',
+				'route' => 'user-register',
+				'controller' => 'Registration',
+				'action'     => 'edit-profile',
+				'resource'	  => 'CsnUser\Controller\Registration',
+				'privilege'  => 'edit-profile',
+				'pages' => array(
+					array (
+						'label' => 'Профіль',
+						'route' => 'user-register',
+						'controller' => 'Registration',
+						'action'     => 'edit-profile',
+						'resource'	  => 'CsnUser\Controller\Registration',
+						'privilege'  => 'edit-profile',
+					),
+					array (
+						'label' => 'Налаштування',
+						'uri'	=> '#',
+					),
+
+					array (
+						'label' => 'Вихід',
+						'route' => 'user-index',
+						'controller' => 'Index',
+						'action'     => 'logout',
+						'resource'	  => 'CsnUser\Controller\Index',
+						'privilege'  => 'logout'
+					),
+				),
+
+             ),
+
 
 		 ),
 	 ),

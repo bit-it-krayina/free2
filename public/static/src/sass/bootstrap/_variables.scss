@@ -422,10 +422,10 @@ $nav-open-link-hover-color:                 #fff !default;
 //== Tabs
 $nav-tabs-border-color:                     #ddd !default;
 
-$nav-tabs-link-hover-border-color:          $gray-lighter !default;
+$nav-tabs-link-hover-border-color:          transparent !default;
 
-$nav-tabs-active-link-hover-bg:             $body-bg !default;
-$nav-tabs-active-link-hover-color:          $gray !default;
+$nav-tabs-active-link-hover-bg:             lighten(#000, 99%) !default;
+$nav-tabs-active-link-hover-color:          $main-color !default;
 $nav-tabs-active-link-hover-border-color:   #ddd !default;
 
 $nav-tabs-justified-link-border-color:            #ddd !default;
@@ -751,10 +751,10 @@ $well-border:                 darken($well-bg, 7%) !default;
 $badge-color:                 #fff !default;
 //** Linked badge text color on hover
 $badge-link-hover-color:      #fff !default;
-$badge-bg:                    $gray-light !default;
+$badge-bg:                    $brand-danger !default;
 
 //** Badge text color in active nav link
-$badge-active-color:          $link-color !default;
+$badge-active-color:          #fff !default;
 //** Badge background color in active nav link
 $badge-active-bg:             #fff !default;
 

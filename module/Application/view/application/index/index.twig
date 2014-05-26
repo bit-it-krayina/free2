@@ -1,48 +1,19 @@
-{% extends 'layout/layout.twig' %}
+{% extends 'layout/layout1.twig' %}
 
 {% block content %}
-<div class="row">
-    <div class="bc-main-content-section col-lg-8">
-	<div class="row">
-	    <div class="col-lg-12">
-		<div class="list-group bl-green-list bl-well-semi-transparent">
-		    <span class="list-group-item active">
-			<h4>Тут некоторый список проектов  {{someVar}} !</h4>
-		    </span>
-		    <span class="list-group-item">Проект 1!</span>
-		    <span class="list-group-item">Проект 2!</span>
-		    <span class="list-group-item">Проект 3!</span>
-		    <span class="list-group-item">Проект 4!</span>
-		    <span class="list-group-item">Проект 5!</span>
+<section class="main promo-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				{% include 'application/index/forms/login' %}
+			</div>
+			<div class="col-md-6">
+				<h1 class= "headings-top-0">Що таке <br>біржа волонтерів</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo quis est et malesuada. Donec mauris orci, posuere ut posuere sed, laoreet feugiat magna. </p>
+				<p>Quisque eros mi, lobortis ut massa nec, volutpat sollicitudin ante. Suspendisse vulputate rhoncus dui id dapibus. Vivamus cursus ornare ante. Donec dictum a urna id lobortis. Vivamus leo quam, convallis ac eros et, lacinia sollicitudin nulla. Nullam malesuada euismod molestie. Integer in mattis tellus. Vestibulum eget mi eget ante euismod dignissim.</p>
+			</div>
 		</div>
-	    </div>
-	    <div class=" col-lg-12">
-		<div class="list-group bl-green-list bl-well-semi-transparent">
-		    <span class="list-group-item active">
-			<h4>Требуются волонтеры:</h4>
-		    </span>
-		    <span class="list-group-item">Дизайнер</span>
-		    <span class="list-group-item">Менеджер проекта</span>
-		    <span class="list-group-item">Контент менеджер</span>
-		</div>
-	    </div>
-
 	</div>
-    </div>
-    <div class="bc-sidebar-section col-lg-4">
-	<div class="row">
-	    <div class="col-lg-12">
-		{% include 'application/bits/last-review' %}
-	    </div>
-	</div>
-	{#
-	<div class="row">
-	    <div class="col-lg-12">
-		{% include 'application/adv/vacancy' %}
-	    </div>
-	</div>
-#}
-    </div>
-    </div>
+</section>
 
 {% endblock content %}

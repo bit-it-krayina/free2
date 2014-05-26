@@ -1,0 +1,43 @@
+{% if messages is not empty %}
+ {{ messages | raw}}
+
+{% endif %}
+
+{% if loginForm is  not empty %}
+
+	<div class="panel block-main-color panel-authorization">
+		<div class="panel-body">
+			<h3 class="h3 headings-top-0">Авторизація</h3>
+			{{ form().openTag(loginForm) | raw }}
+				<div class="form-group">
+					{{ formElement(loginForm.get('usernameOrEmail'))| raw }}
+					{{ formElementErrors(loginForm.get('usernameOrEmail'))| raw }}
+				</div>
+				<div class="form-group">
+					{{ formElement(loginForm.get('password'))| raw }}
+					{{ formElementErrors(loginForm.get('password'))| raw }}
+				</div>
+				<div class="checkbox">
+					{% set element = loginForm.get('rememberme') %}
+					{{ formElement(element)}}
+					{{ formLabel(element)| raw }}
+					<a class="pull-right" href="{{ url('user-register', {'action' : 'reset-password'}) }}">
+						{{ translate('Forgot your password?')| raw }}
+					</a>
+				</div>
+				<div class="form-group">
+					{{ formRow(loginForm.get('submit'))| raw }} <span class="text-devider">або</span>
+					<a href="#">facebook</a>
+				</div>
+				<div class="form-group form-group-last">
+					<a class="btn btn-reg" href="{{ url('user-register', {'action' : 'index'}) }}">
+					{{ translate('Sign up')| raw }}
+					</a>
+				</div>
+			{{ formElement(loginForm.get('csrf'))| raw }}
+			{{ form().closeTag(loginForm) | raw}}
+		</div>
+	</div>
+
+{% endif %}
+

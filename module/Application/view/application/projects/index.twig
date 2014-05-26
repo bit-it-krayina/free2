@@ -1,0 +1,13 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+    <h2>List of projects</h2>
+    <div class="list-group">
+	{% for project in projects %}
+	<a href="#" class="list-group-item">
+	    <h4 class="list-group-item-heading">{{project.title}}</h4>
+	    <p class="list-group-item-text">{{project.description}}</p>
+	</a>
+	{% endfor %}
+    </div>
+{% endblock content %}

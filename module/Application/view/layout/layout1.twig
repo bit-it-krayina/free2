@@ -1,73 +1,49 @@
-{{ docType() }}
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>
-            {% block title %}Биржа воллонтеров{% endblock title %}
-	    </title>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Биржа волонтеров</title>
+		<meta name="viewport" content="width=device-width"/>
 
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% block meta %}{% endblock meta %}
+		{% block meta %}{% endblock meta %}
 
-	    <!-- Le styles -->
-	    <link href="/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
-	    <link href="/css/screen.css" media="screen" rel="stylesheet" type="text/css">
-	    <!--
-	    <link href="/css/bootstrap-simplex.css" media="screen" rel="stylesheet" type="text/css">
-	    <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css">
-	    <link href="/css/csn-user-style.css" media="screen" rel="stylesheet" type="text/css">
-	    -->
-	    <link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-        {% block style %}{% endblock style %}
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500italic,500,700,700italic,900,900italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" media="screen" href="/css/bootstrap.css" >
+		<link rel="stylesheet" media="screen" href="/css/fonts-icons.css" >
+		<link rel="stylesheet" media="screen" href="/css/screen.css" >
+		<link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
 
-	    <!-- Scripts -->
-	    <script type="text/javascript" src="/js/jquery.min.js"></script>
-	    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	    <script type="text/javascript" src="/js/mine/contact.js"></script>
-	    <!--[if lt IE 9]><script type="text/javascript" src="/js/html5.js"></script><![endif]-->
-        {% block script %}{% endblock script %}
+
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap-tagsinput.min.js"></script>
+
+
 	</head>
 	<body>
+		<div class="wrap">
+			<header class="header">
 
-	    <div class="container">
-	    {% include 'application/bits/menu.twig' %}
-		{% block header %}
-		    <div class="row">
-				<div class="col-lg-4">
-					{% include 'application/bits/logo.twig' %}
-				</div>
-				<div class="col-lg-4 col-lg-offset-4">
-					{# include 'application/bits/contact_block' #}
-				</div>
-		    </div>
-
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="navbar navbar-default">
-						{{ navigation('navigation').menu().setUlClass('nav navbar-nav')|raw }}
+				<div class="row">
+					<div class="col-lg-12">
+						{{ navigation('navigation').menu().setPartial('application/bits/menu-template.phtml')|raw }}
 					</div>
+				</div>
+			</header>
+			{% block content %}{{ content|raw }}{% endblock content %}
+
+		</div>
+		<footer class="footer">
+			<div class="navbar navbar-default">
+				<div class="container">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Про біржу</a></li>
+						<li><a href="#">Зворотній зв'язок</a></li>
+					</ul>
+					<div class="navbar-text navbar-right">2014 &copy; <a href="http://www.it-krayina.org.ua/">IT-Країна</a></div>
 				</div>
 			</div>
+		</footer>
 
-		{% endblock header %}
-		    <!-- content|raw is required for phtml fallback -->
-		    <div class="bl-page-content">
-				{% block content %}{{ content|raw }}{% endblock content %}
-		    </div>
-		    <footer class="footer">
-				<div class="navbar navbar-default">
-					<div class="container">
-						<div class="navbar-collapse navbar-default-collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">Про біржу</a></li>
-								<li><a href="#">Зворотній зв'язок</a></li>
-							</ul>
-							<div class="navbar-text navbar-right"><a href="#">2014 &copy; IT-Країна</a></div>
-						</div>
-					</div>
-				</div>
-			</footer>
-	    </div> <!-- /container -->
-        {% block inline %}{% endblock inline %}
-    </body>
+	</body>
 </html>

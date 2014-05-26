@@ -1,7 +1,57 @@
-{% extends 'layout/layout1.twig' %}
-
-{% block content %}
-{# include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} #}
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Template</title>
+	<meta name="viewport" content="width=device-width"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500italic,500,700,700italic,900,900italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" media="screen" href="/css/bootstrap.css" >
+	<link rel="stylesheet" media="screen" href="/css/fonts-icons.css" >
+	<link rel="stylesheet" media="screen" href="/css/screen.css" >
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap-tagsinput.min.js"></script>
+</head>
+<body>
+	<div class="wrap">
+<header class="header">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">IT-країна <i class="fi-cog"></i> <span>Біржа волонтерів</span></a>
+			</div>
+			<div class="navbar-collapse navbar-inverse-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Проекти</a></li>
+					<li><a href="#">Волонтери</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-search"></span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Скоро тут буде гарна форма пошуку</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-globe"></span><span class="badge badge-notif">2</span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Запрошення до "Ua roads"</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Новий відгук від "Ua elections"</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-user"></span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Профіль</a></li>
+						<li><a href="#">Налаштування</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Вихід</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
 <section class="main">
 	<div class="container">
 		<div class="row">
@@ -9,7 +59,7 @@
 				<div class="profile profile-edit">
 					<div class="profile-header ">
 						<div class="profile-photo">
-							<img src="/img/photo.jpg" alt="">
+							<img src="img/photo.jpg" alt="">
 						</div>
 						<div class="profile-header-info">
 							<form role="form form-horizontal">
@@ -106,87 +156,23 @@
 				</div>
 			</div>
 			<div class="col-md-3">
-				<img src="/img/banner.jpg" alt="">
+				<img src="img/banner.jpg" alt="">
 			</div>
 		</div>
 	</div>
 </section>
-<div class="jumbotron">
-  <h2>{{ translate('Edit Profile') }}</h2>
-    <div class="container" id="wrap">
-	  <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          {{ form().openTag(form) | raw }}
-            <div class="row">
-              <div class="col-sm-12">
-                {{ messages }}
-              </div>
-            </div>
-			<div>
-              <span class="zf-green" style="font-size: 24px;">
-				  {{ translate('Your Username') }}: </span>{{ username }}
-            </div>
-			<div>
-              <span class="zf-green" style="font-size: 24px;">
-				  {{ translate('Your Password') }}: </span>: ******
-              <br />
-              <a class="btn btn btn-success btn-lg" href="{{ url('user-register', {'action' : 'change-password'})}}">
-                {{ translate('Change Password') }}
-              </a>
-            </div>
-			<div>
-              <span class="zf-green" style="font-size: 24px;">
-				  {{ translate('Your Email') }}: </span>{{ email }}
-              <br/>
-              <a class="btn btn btn-success btn-lg" href="{{ url('user-register', {'action' : 'change-email'})}}">
-                {{translate('Change Email')}}
-              </a>
-            </div>
-			<div>
-              <span class="zf-green" style="font-size: 24px;">
-				  {{ translate('Your Security Question') }}: </span>
-              {{ securityQuestion }}
-              <br/>
-              <a class="btn btn btn-success btn-lg" href="{{ url('user-register', {'action' : 'change-security-question'})}}">
-                {{ translate('Change Security Question') }}
-              </a>
-            </div>
-			<div>
-              <span class="zf-green" style="font-size: 24px;">
-				  {{ translate('Your First/Last Name') }}:</span>
-              <br/>
-	          <div class="row">
-                <div class="col-md-6">
-					{{ formElement(form.get('firstName'))| raw }}
-					{{ formElementErrors(form.get('firstName'))| raw }}
-                </div>
-                <div class="col-md-6">
-					{{ formElement(form.get('lastName'))| raw }}
-					{{ formElementErrors(form.get('lastName'))| raw }}
-                </div>
-              </div>
-              <span class="zf-green" style="font-size: 24px;">{{ translate('Your Language') }}:</span>
-              <br/>
-			  {{ formElement(form.get('language'))| raw }}
-			  <span class="zf-green" style="font-size: 24px;">{{ translate('Your Location') }}:</span>
-              <br/>
-				{{ formElement(form.get('location'))| raw }}
-				{{ formElementErrors(form.get('location'))| raw }}
-			  <span class="zf-green" style="font-size: 24px;">{{ translate('Tell About Yourself') }}:</span>
-              <br/>
-				{{ formElement(form.get('resume'))| raw }}
-				{{ formElementErrors(form.get('resume'))| raw }}
-            <div class="row">
-              <div class="col-sm-12">
-				  {{ formRow(form.get('submit'))| raw }}
-              </div>
-            </div>
-				{{ formElement(form.get('csrf'))| raw }}
-				{{ form().closeTag(form) | raw}}
-        </div>
-      </div>
-    </div>
-</div>
-</div>
+	</div>
+<footer class="footer">
+	<div class="navbar navbar-default">
+		<div class="container">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Про біржу</a></li>
+				<li><a href="#">Зворотній зв'язок</a></li>
+			</ul>
+			<div class="navbar-text navbar-right">2014 &copy; <a href="http://www.it-krayina.org.ua/">IT-Країна</a></div>
+		</div>
+	</div>
+</footer>
 
-{% endblock content %}
+</body>
+</html>
