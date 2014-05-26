@@ -1,7 +1,7 @@
 <?php
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -36,12 +36,12 @@ class IndexController extends AbstractActionController
      * @var Doctrine\ORM\EntityManager
      */
     protected $entityManager;
-    
+
     /**
      * @var Zend\Mvc\I18n\Translator
      */
     protected $translatorHelper;
-    
+
     /**
      * @var Zend\Form\Form
      */
@@ -71,7 +71,7 @@ class IndexController extends AbstractActionController
         if ($user = $this->identity()) {
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
-        
+
         $user = new User;
         $form = $this->getUserFormHelper()->createUserForm($user, 'login');
         $messages = null;
@@ -87,24 +87,22 @@ class IndexController extends AbstractActionController
                 try {
                     $user = $this->getEntityManager()->createQuery("SELECT u FROM CsnUser\Entity\User u WHERE u.email = '$usernameOrEmail' OR u.username = '$usernameOrEmail'")->getResult(\Doctrine\ORM\Query::HYDRATE_OBJECT);
                     $user = $user[0];
-                    
+
                     if(!isset($user)) {
                         $message = 'The username or email is not valid!';
                         return new ViewModel(array(
                             'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
                             'form'	=> $form,
-                            'messages' => $messages,
-                            'navMenu' => $this->getOptions()->getNavMenu()
+                            'messages' => $messages
                         ));
                     }
-                    
+
                     if($user->getState()->getId() < 2) {
                         $messages = $this->getTranslatorHelper()->translate('Your username is disabled. Please contact an administrator.');
                         return new ViewModel(array(
                             'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
                             'form'	=> $form,
-                            'messages' => $messages,
-                            'navMenu' => $this->getOptions()->getNavMenu()
+                            'messages' => $messages
                         ));
                     }
 
@@ -115,7 +113,7 @@ class IndexController extends AbstractActionController
                     if ($authResult->isValid()) {
                         $identity = $authResult->getIdentity();
                         $authService->getStorage()->write($identity);
-                        
+
                         if ($this->params()->fromPost('rememberme')) {
                             $time = 1209600; // 14 days (1209600/3600 = 336 hours => 336/24 = 14 days)
                             $sessionManager = new SessionManager();
@@ -124,7 +122,7 @@ class IndexController extends AbstractActionController
 
                         return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
                     }
-                    
+
                     foreach ($authResult->getMessages() as $message) {
                       $messages .= "$message\n";
                     }
@@ -138,7 +136,7 @@ class IndexController extends AbstractActionController
                 }
             }
         }
-        
+
         return new ViewModel(array(
             'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
             'form'	=> $form,
@@ -176,7 +174,7 @@ class IndexController extends AbstractActionController
         if (null === $this->options) {
             $this->options = $this->getServiceLocator()->get('csnuser_module_options');
         }
-      
+
         return $this->options;
     }
 
@@ -193,7 +191,7 @@ class IndexController extends AbstractActionController
 
         return $this->entityManager;
     }
-    
+
     /**
      * get translatorHelper
      *
@@ -204,10 +202,10 @@ class IndexController extends AbstractActionController
         if (null === $this->translatorHelper) {
            $this->translatorHelper = $this->getServiceLocator()->get('MvcTranslator');
         }
-      
+
         return $this->translatorHelper;
     }
-    
+
     /**
      * get userFormHelper
      *
@@ -218,7 +216,7 @@ class IndexController extends AbstractActionController
         if (null === $this->userFormHelper) {
            $this->userFormHelper = $this->getServiceLocator()->get('csnuser_user_form');
         }
-      
+
         return $this->userFormHelper;
     }
 }

@@ -11,7 +11,7 @@
         <div class="col-md-6 col-md-offset-3">
           {{ form().openTag(form) | raw }}
             <div class="row">
-              <div class="col-sm-12"> 
+              <div class="col-sm-12">
                 {{ messages }}
               </div>
             </div>
@@ -24,15 +24,15 @@
 				{{ formLabel(element, formCheckbox(element), 'append')| raw }}
             </div>
             <div class="row">
-              <div class="col-sm-12"> 
+              <div class="col-sm-12">
 				  {{ formRow(form.get('submit'))| raw }}
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12"> 
+              <div class="col-sm-12">
 	            <a href="{{ url('user-register', {'action' : 'index'}) }}">
 					{{ translate('Sign up')| raw }}
-	            </a> |  
+	            </a> |
 	            <a href="{{ url('user-register', {'action' : 'reset-password'}) }}">
 					{{ translate('Forgot your password?')| raw }}
 	            </a>
@@ -41,7 +41,7 @@
 				{{ formElement(form.get('csrf'))| raw }}
 				{{ form().closeTag(form) | raw}}
         </div>
-      </div>            
+      </div>
     </div>
 </div>
 

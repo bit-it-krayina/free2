@@ -7,12 +7,20 @@ use Zend\View\Model\ViewModel;
 
 trait ControlUtils
 {
+    /**
+     * @var ModuleOptions
+     */
+    protected $options;
 
 	/**
-	 *
-	 * @var Login
-	 */
-	private $loginForm;
+     * @var Zend\Mvc\I18n\Translator
+     */
+    protected $translatorHelper;
+
+    /**
+     * @var Zend\Form\Form
+     */
+    protected $userFormHelper;
 
 	/**
 	 * @return \Zend\Authentication\AuthenticationServiceInterface
@@ -47,7 +55,6 @@ trait ControlUtils
 					$view -> setVariables ( array (
 						'user' => $this -> getAuthenticationService () -> getIdentity (),
 						'someVar' => 'yoyoyo',
-						'loginForm' => $this -> getLoginForm (),
 						'identity' => $this -> getAuthenticationService () -> getIdentity (),
 						'loggedUser' => $this -> getLoggedUser (),
 					) );
@@ -102,4 +109,48 @@ trait ControlUtils
 		else
 			return 'guest';
 	}
+
+
+	 /**
+     * get translatorHelper
+     *
+     * @return  Zend\Mvc\I18n\Translator
+     */
+    private function getTranslatorHelper()
+    {
+        if (null === $this->translatorHelper) {
+           $this->translatorHelper = $this->getServiceLocator()->get('MvcTranslator');
+        }
+
+        return $this->translatorHelper;
+    }
+
+    /**
+     * get userFormHelper
+     *
+     * @return  Zend\Form\Form
+     */
+    private function getUserFormHelper()
+    {
+        if (null === $this->userFormHelper) {
+           $this->userFormHelper = $this->getServiceLocator()->get('csnuser_user_form');
+        }
+
+        return $this->userFormHelper;
+    }
+
+
+	/**
+     * get options
+     *
+     * @return ModuleOptions
+     */
+    private function getOptions()
+    {
+        if (null === $this->options) {
+            $this->options = $this->getServiceLocator()->get('csnuser_module_options');
+        }
+
+        return $this->options;
+    }
 }

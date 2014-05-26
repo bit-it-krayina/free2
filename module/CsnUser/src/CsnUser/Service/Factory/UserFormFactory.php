@@ -150,7 +150,7 @@ class UserFormFactory implements FactoryInterface
 					'class' => 'btn btn btn-warning btn-lg',
 					'label' => $this -> getTranslatorHelper () -> translate ( 'Sign In' )
 				) );
-				
+
 				$this -> form -> get ( 'resume' )
 					-> setAttributes ( array (
 						'required' => 'false',
@@ -359,7 +359,7 @@ class UserFormFactory implements FactoryInterface
 					'class' => 'form-control input-lg',
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Type Your Answer' )
 				) );
-				
+
 				$this -> form -> get ( 'resume' )
 					-> setAttributes ( array (
 						'required' => 'false',
@@ -399,11 +399,11 @@ class UserFormFactory implements FactoryInterface
 				) );
 
 				$this -> form -> get ( 'rememberme' ) -> setAttributes ( array (
-				//'class' => 'form-control input-lg',
+					'id' => 'check-save',
 				) );
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
-					'class' => 'btn btn btn-success btn-lg',
+					'class' => 'btn btn-inverse btn-auth',
 					'value' => $this -> getTranslatorHelper () -> translate ( 'Log In' )
 				) );
 				break;
