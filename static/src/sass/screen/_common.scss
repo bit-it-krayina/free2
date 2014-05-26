@@ -8,7 +8,7 @@ body {
 }
 
 .main {
-  padding: ($navbar-height + 25px) 0 ($navbar-height + 20px);
+  padding: ($navbar-height + 45px) 0 ($navbar-height + 20px);
   .container {
     width: 940px;
   }
@@ -170,6 +170,7 @@ body {
     font-size: 31px;
     vertical-align: middle;
     position: relative;
+    top: 2px;
   }
 }
 
