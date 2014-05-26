@@ -1,0 +1,44 @@
+// Home page //
+.promo-page {
+  padding-top: 140px;
+
+  .col-md-6 {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.panel-authorization {
+  margin-bottom: 0;
+
+  .pull-right {
+    float: right;
+  }
+
+  .text-devider {
+    margin: 0 15px;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1px;
+    width: 2px;
+    background: $add-color;
+  }
+}
+
+.btn-auth {width: 40%;}
+.btn-reg {
+  color: $add-color-text !important;
+  background: $add-color;
+  border: 0;
+  width: 100%;
+  line-height: 27px;
+
+  &:hover{
+    background: $add-color-light;
+  }
+}
