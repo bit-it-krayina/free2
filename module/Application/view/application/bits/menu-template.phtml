@@ -21,14 +21,14 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="/">IT-країна <i class="fi-cog"></i> <span>Біржа волонтерів</span></a>
+			<a class="navbar-brand" href="<?php echo $this->url('home'); ?>">IT-країна <i class="fi-cog"></i> <span>Біржа волонтерів</span></a>
 		</div>
 		<div class="navbar-collapse navbar-inverse-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<?php foreach ( $this -> container as $page ) :
 				renderPage ($page, $this -> navigation ());
 				endforeach;	?>
-				
+
 			</ul>
 		</div>
 	</div>
