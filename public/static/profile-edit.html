@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Template</title>
+	<meta name="viewport" content="width=device-width"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500italic,500,700,700italic,900,900italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" media="screen" href="/css/bootstrap.css" >
+	<link rel="stylesheet" media="screen" href="/css/fonts-icons.css" >
+	<link rel="stylesheet" media="screen" href="/css/screen.css" >
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap-tagsinput.min.js"></script>
+</head>
+<body>
+	<div class="wrap">
+<header class="header">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">IT-країна <i class="fi-cog"></i> <span>Біржа волонтерів</span></a>
+			</div>
+			<div class="navbar-collapse navbar-inverse-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Проекти</a></li>
+					<li><a href="#">Волонтери</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-search"></span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Скоро тут буде гарна форма пошуку</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-globe"></span><span class="badge badge-notif">2</span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Запрошення до "Ua roads"</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Новий відгук від "Ua elections"</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-user"></span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Профіль</a></li>
+						<li><a href="#">Налаштування</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Вихід</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<section class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="profile profile-edit">
+					<div class="profile-header ">
+						<div class="profile-photo">
+							<img src="img/photo.jpg" alt="">
+						</div>
+						<div class="profile-header-info">
+							<form role="form form-horizontal">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Ім'я">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Фамілія">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Телефон">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Skype">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Facebook">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Twitter">
+								</div>
+								<div class="form-group">
+									<button type="button" class="btn btn-primary pull-right">Зерегти</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<ul class="nav nav-tabs profile-tabs">
+					 	<li><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
+						<li class="active"><a href="#professional" data-toggle="tab">Професійна інформація</a></li>
+						<li><a href="#projects" data-toggle="tab">Проекти</a></li>
+					</ul>
+
+					<div class="tab-content profile-tabs-content">
+						<div class="tab-pane" id="personal">
+							<form role="form form-horizontal">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Дата народження">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Місцезнаходження">
+								</div>
+								<div class="form-group">
+									<textarea name="" id="" cols="30" rows="10"  class="form-control" placeholder="Про себе"></textarea>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane active" id="professional">
+							<form role="form form-horizontal">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Cпеціальність">
+								</div>
+								<div class="form-group">
+									<label for="">Cтаж роботи:</label>
+									<select name="" id="">
+										<option value="">менше року</option>
+										<option value="">більше року </option>
+										<option value="">більше трьох років</option>
+										<option value="">більше п'яти років</option>
+										<option value="">більше 10 років</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="">Професійні навики:</label>
+									<input type="text" class="form-control" data-role="tagsinput" value="Word">
+								</div>
+								<div class="form-group">
+									<textarea name="" id="" cols="30" rows="10"  class="form-control" placeholder="Додаткова інформація"></textarea>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane" id="projects">
+							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
+							<h3 class="profile-title"><a href="">MediaPlazm</a></h3>
+							<dl>
+								<dt class="profile-title profile-title-left">Роль:</dt>
+								<dd class="profile-text">учасник</dd>
+								<dt class="profile-title profile-title-left">Дати роботи:</dt>
+								<dd class="profile-text">7.06.2014 - 15.11.2014</dd>
+								<dt class="profile-title">Відгук:</dt>
+								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
+							</dl>
+							<h3 class="profile-title"><a href="">MediaPlazm 2</a></h3>
+							<dl>
+								<dt class="profile-title profile-title-left">Роль:</dt>
+								<dd class="profile-text">учасник</dd>
+								<dt class="profile-title profile-title-left">Дати роботи:</dt>
+								<dd class="profile-text">7.06.2014 - 15.11.2014</dd>
+								<dt class="profile-title">Відгук:</dt>
+								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<img src="img/banner.jpg" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+	</div>
+<footer class="footer">
+	<div class="navbar navbar-default">
+		<div class="container">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Про біржу</a></li>
+				<li><a href="#">Зворотній зв'язок</a></li>
+			</ul>
+			<div class="navbar-text navbar-right">2014 &copy; <a href="http://www.it-krayina.org.ua/">IT-Країна</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
