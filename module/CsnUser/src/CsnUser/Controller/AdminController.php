@@ -57,7 +57,7 @@ class AdminController extends AbstractActionController
 	 */
 	public function indexAction ()
 	{
-		if ( !$this -> identity () )
+		if ( !$this -> identity ()  )
 		{
 			return $this -> redirect () -> toRoute ( $this -> getOptions () -> getLoginRedirectRoute () );
 		}

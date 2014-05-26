@@ -30,7 +30,11 @@ trait ControlUtils
 
 	public function onDispatch ( \Zend\Mvc\MvcEvent $e )
 	{
+
 		$this -> setLoginForm ( new Login () );
+
+		$viewHelperManager = $this->getServiceLocator()->get('viewHelperManager');
+		$viewHelperManager->get('navigation')->setAcl($e -> getApplication () ->getServiceManager()->get('acl'))->setRole($this -> getRole());
 
 		/**
 		 * Было бы хорошо конечно, но это ещё не совсем работает
@@ -58,6 +62,7 @@ trait ControlUtils
 		$view -> setTemplate ( $template );
 		$view -> setTerminal ( true );
 
+
 		if ( !empty ( $variables ) )
 		{
 			$view -> setVariables ( $variables );
@@ -78,16 +83,23 @@ trait ControlUtils
 	{
 		return $this -> loginForm;
 	}
-	
+
 	public function getLoggedUser ()
 	{
 		if ( $this -> getAuthenticationService () -> hasIdentity () )
 		{
 			return $this -> getAuthenticationService () -> getIdentity ();
 		}
-		
+
 		return ['username' => 'Guest'];
 	}
 
 
+	protected function getRole()
+	{
+		if ($this->identity())
+			return $this->identity()->getRole()->getName();
+		else
+			return 'guest';
+	}
 }
