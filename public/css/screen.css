@@ -21,12 +21,21 @@ html, body { height: 100%; }
 
 .radio input + label:before { border-radius: 50%; }
 
-.btn { -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; text-transform: uppercase; }
+.btn { -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; text-transform: uppercase; text-decoration: none !important; }
 
-.icon-square { height: 28px; width: 28px; text-align: center; line-height: 28px; font-size: 19px; border-radius: 4px; -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; }
+.icon-square, .icon-circle { text-align: center; font-size: 19px; -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; }
+
+.icon-square { height: 32px; width: 32px; line-height: 32px; }
+
+.icon-circle { height: 32px; width: 32px; line-height: 28px; font-size: 19px; border-radius: 50%; border: 2px solid transparent; }
 
 .icon-main-color { color: #fff; background: #1179b9; }
 .icon-main-color:hover { background: #2ba2ec; }
+
+.icon-main-color-in { color: #1179b9; background: #fff; border-color: #1179b9; }
+.icon-main-color-in:hover { background: #1179b9; color: #fff; }
+
+.icon-disabled-in, .icon-disabled-in:hover { background: #FFF; color: #e6e6e6; border-color: #e6e6e6; cursor: default; }
 
 .icon-add-color { color: #69570f; background: #ffd52c; }
 .icon-add-color:hover { background: #ffe478; }
@@ -34,9 +43,9 @@ html, body { height: 100%; }
 .icon-gray { color: #f7f7f7; background: #c4c4c4; }
 .icon-gray:hover { background: #d1d1d1; }
 
-.icon-square.fa-facebook:before, .icon-square.fa-twitter:before { position: relative; top: 1px; }
+.icon-square.fa-facebook:before, .icon-square.fa-twitter:before, .icon-circle.fa-facebook:before, .icon-circle.fa-twitter:before { position: relative; top: 1px; }
 
-.icon-square.fi-mail { font-size: 16px; }
+.icon-square.fi-mail, .icon-circle.fi-mail { font-size: 16px; }
 
 .form-group-last { margin-bottom: 0; }
 
@@ -45,7 +54,8 @@ html, body { height: 100%; }
 .block-main-color { background: #1179b9; color: #fff; }
 .block-main-color .h3 { color: #fff; }
 .block-main-color .form-control { border-color: transparent; }
-.block-main-color a { color: #fff; }
+.block-main-color a { color: #fff; text-decoration: underline; }
+.block-main-color a:hover { text-decoration: none; }
 
 .btn-inverse { color: #fff; background: #1179b9; border: 2px solid #fff; }
 .btn-inverse:hover { color: #fff; background: #1388d0; }
@@ -65,34 +75,32 @@ html, body { height: 100%; }
 
 .promo-page { padding-top: 140px; }
 .promo-page .col-md-6 { padding-left: 25px; padding-right: 25px; }
+.promo-page h1 { font-weight: 100; }
 
 .panel-authorization { margin-bottom: 0; }
 .panel-authorization .pull-right { float: right; }
 .panel-authorization .text-devider { margin: 0 15px; }
-.panel-authorization:after { content: ""; position: absolute; top: 0; bottom: 0; right: -1px; width: 2px; background: #ffd52c; }
 
 .btn-auth { width: 40%; }
 
 .btn-reg { color: #69570f !important; background: #ffd52c; border: 0; width: 100%; line-height: 27px; }
 .btn-reg:hover { background: #ffe478; }
 
-.profile { background: #fcfcfc; }
-
-.profile-header { background: #fff; padding: 0 0 30px; position: relative; min-height: 200px; }
+.profile-header { padding: 0 0 40px; position: relative; min-height: 190px; }
 .profile-header a { color: #fff; }
 .profile-header h1 { margin: 12px 0 -3px; word-wrap: break-word; font-weight: 400; }
 .profile-header h1 span { display: block; }
 .profile-header h1 small { display: block; margin-top: 18px; line-height: 1.18; text-transform: lowercase; font-weight: 100; color: #666666; letter-spacing: -0.01em; }
-.profile-header .icon-edit { position: absolute; bottom: 30px; right: 0; }
+.profile-header .icon-edit { position: absolute; bottom: 40px; right: 0; }
 .profile-header:before, .profile-header:after { content: " "; display: table; }
 .profile-header:after { clear: both; }
 
-.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 35px; }
+.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 30px; }
 .profile-photo img { max-width: 130px; }
 
 .profile-photo-available { border-color: #2ecc71; }
 
-.profile-status { position: absolute; bottom: 30px; left: 0; }
+.profile-status { position: absolute; bottom: 40px; left: 0; }
 .profile-status .caret { position: absolute; top: 11px; right: 9px; font-size: 5px; }
 .profile-status .dropdown-menu { padding: 0; width: 130px; min-width: inherit; text-align: center; font-size: 13px; line-height: 20px; font-weight: bold; text-transform: uppercase; }
 .profile-status .dropdown-menu > li { cursor: pointer; }
@@ -108,17 +116,14 @@ div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2e
 .contacts-item { display: inline-block; vertical-align: top; margin: 0 0 10px 5px; }
 
 .profile-header-phone { font-size: 16px; font-style: italic; word-spacing: 0.1em; }
-.profile-header-phone i { margin-right: 6px; position: relative; top: 3px; }
+.profile-header-phone i { margin-right: 4px; position: relative; top: 3px; }
 
-.profile-tabs > li { background: whitesmoke; width: 33.3333333%; }
-.profile-tabs > li > a { margin: 0; border-bottom-color: #ddd; border-left-color: #ddd; border-top-color: #ddd; color: #999999; padding: 10px 20px; }
-.profile-tabs > li:last-child a { border-right-color: #ddd; }
-.profile-tabs > li.active + li a { border-left-color: transparent; }
-.profile-tabs > li.active a { font-weight: 500; }
-.profile-tabs > li:hover > a { background: #f0f0f0; color: gray; border-bottom-color: #ddd; border-left-color: #ddd; border-top-color: #ddd; }
+.profile-tabs { position: relative; }
+.profile-tabs > li > a { margin: 0; color: #999999; padding: 7px 15px; font-weight: 100; text-transform: uppercase; font-size: 15px; }
+.profile-tabs > li:hover > a { background: transparent; color: #2ba2ec; }
+.profile-tabs:before { content: ""; position: absolute; width: 2000px; height: 1px; background: #2ba2ec; right: 99%; bottom: -1px; }
 
-.profile-tabs-content { border: 1px solid #ddd; border-top: 0; padding: 20px; position: relative; }
-.profile-tabs-content .icon-edit { float: right; margin: 0 0 20px 20px; opacity: 0.6; }
+.profile-tabs-content { border-top: 0; padding: 20px 0; position: relative; }
 
 .profile-info:before, .profile-info:after { content: " "; display: table; }
 .profile-info:after { clear: both; }

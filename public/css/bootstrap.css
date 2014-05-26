@@ -1216,11 +1216,11 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .nav .nav-divider { height: 1px; margin: 11.5px 0; overflow: hidden; background-color: #e5e5e5; }
 .nav > li > a > img { max-width: none; }
 
-.nav-tabs { border-bottom: 1px solid #dddddd; }
+.nav-tabs { border-bottom: 1px solid #2ba2ec; }
 .nav-tabs > li { float: left; margin-bottom: -1px; }
 .nav-tabs > li > a { margin-right: 2px; line-height: 1.7; border: 1px solid transparent; border-radius: 0 0 0 0; }
-.nav-tabs > li > a:hover { border-color: transparent transparent #dddddd; }
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: #1179b9; background-color: #fcfcfc; border: 1px solid #dddddd; border-bottom-color: transparent; cursor: default; }
+.nav-tabs > li > a:hover { border-color: transparent transparent #2ba2ec; }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: white; background-color: #2ba2ec; border: 1px solid #2ba2ec; border-bottom-color: transparent; cursor: default; }
 
 .nav-pills > li { float: left; }
 .nav-pills > li > a { border-radius: 0; }

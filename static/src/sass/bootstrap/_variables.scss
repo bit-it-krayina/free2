@@ -420,13 +420,13 @@ $nav-disabled-link-hover-color:             $gray-light !default;
 $nav-open-link-hover-color:                 #fff !default;
 
 //== Tabs
-$nav-tabs-border-color:                     #ddd !default;
+$nav-tabs-border-color:                     $main-color-light !default;
 
 $nav-tabs-link-hover-border-color:          transparent !default;
 
-$nav-tabs-active-link-hover-bg:             lighten(#000, 99%) !default;
-$nav-tabs-active-link-hover-color:          $main-color !default;
-$nav-tabs-active-link-hover-border-color:   #ddd !default;
+$nav-tabs-active-link-hover-bg:             $main-color-light !default;
+$nav-tabs-active-link-hover-color:          #fff !default;
+$nav-tabs-active-link-hover-border-color:   $main-color-light !default;
 
 $nav-tabs-justified-link-border-color:            #ddd !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
