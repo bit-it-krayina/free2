@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 27, 2014 at 07:21 AM
+-- Generation Time: May 27, 2014 at 08:58 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -484,6 +484,58 @@ CREATE TABLE IF NOT EXISTS `user_info_private` (
 
 INSERT INTO `user_info_private` (`id`, `birthDay`, `location`, `resume`) VALUES
 (1, '1987-03-08', 'Ukraine, Kyiv', '<p> Работаю со словом с 2007 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	</p> <p>Я люблю писать. Люблю учиться. Люблю цифры и факты. </p>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_tag`
+--
+
+CREATE TABLE IF NOT EXISTS `user_tag` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tag` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tag` (`tag`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `user_tag`
+--
+
+INSERT INTO `user_tag` (`id`, `tag`) VALUES
+(10, 'administration'),
+(8, 'apache'),
+(7, 'mysql'),
+(9, 'nginx'),
+(6, 'php'),
+(3, 'pr-тексти'),
+(5, 'ведення груп в соц.мережах'),
+(4, 'Комерційна пропозиція'),
+(1, 'копірайтинг'),
+(2, 'одностранічнікі');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_user_tag`
+--
+
+CREATE TABLE IF NOT EXISTS `user_user_tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `tag_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`,`user_id`,`tag_id`),
+  KEY `user_id` (`user_id`),
+  KEY `tag_id` (`tag_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `user_user_tag`
+--
+
+INSERT INTO `user_user_tag` (`id`, `user_id`, `tag_id`) VALUES
+(1, 1, 5),
+(2, 1, 6);
 
 -- --------------------------------------------------------
 
