@@ -68,6 +68,7 @@ html, body { height: 100%; }
 .navbar .fi-globe { font-size: 21px; margin-top: -4px; }
 
 .navbar-inverse { box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.4); }
+.navbar-inverse .navbar-nav > li > a { padding: 0 15px; line-height: 45px; }
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus { box-shadow: 0 -5px 0 #2ba2ec inset; }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus { box-shadow: none; }
 
@@ -86,11 +87,11 @@ html, body { height: 100%; }
 .btn-reg { color: #69570f !important; background: #ffd52c; border: 0; width: 100%; line-height: 27px; }
 .btn-reg:hover { background: #ffe478; }
 
-.profile-header { padding: 0 0 40px; position: relative; min-height: 190px; }
+.profile-header { padding: 0 0 32px; position: relative; min-height: 190px; }
 .profile-header a { color: #fff; }
 .profile-header h1 { margin: 12px 0 -3px; word-wrap: break-word; font-weight: 400; }
 .profile-header h1 span { display: block; }
-.profile-header h1 small { display: block; margin-top: 18px; line-height: 1.18; text-transform: lowercase; font-weight: 100; color: #666666; letter-spacing: -0.01em; }
+.profile-header h1 small { display: block; margin-top: 15px; line-height: 1.18; text-transform: lowercase; font-weight: 100; color: #666666; letter-spacing: -0.01em; }
 .profile-header .icon-edit { position: absolute; bottom: 40px; right: 0; }
 .profile-header:before, .profile-header:after { content: " "; display: table; }
 .profile-header:after { clear: both; }
@@ -111,17 +112,22 @@ div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2e
 
 .profile-header-info { width: 340px; float: left; }
 
-.profile-header-contacts { position: absolute; right: 0; top: 0; text-align: right; }
+.profile-header-contacts { position: absolute; right: 0; top: 0; }
 
 .contacts-item { display: inline-block; vertical-align: top; margin: 0 0 10px 5px; }
 
-.profile-header-phone { font-size: 16px; font-style: italic; word-spacing: 0.1em; }
-.profile-header-phone i { margin-right: 4px; position: relative; top: 3px; }
+.profile-header-phone, .profile-header-skype { max-width: 160px; word-wrap: break-word; font-style: italic; padding-left: 25px; position: relative; margin-bottom: 8px; }
+.profile-header-phone i, .profile-header-skype i { position: absolute; }
+
+.profile-header-phone { word-spacing: 0.1em; text-align: right; font-size: 16px; }
+.profile-header-phone i { top: 3px; left: 4px; }
+
+.profile-header-skype { font-size: 13px; }
+.profile-header-skype i { color: #1179b9; top: -7px; font-size: 21px; left: 3px; }
 
 .profile-tabs { position: relative; }
 .profile-tabs > li > a { margin: 0; color: #999999; padding: 7px 15px; font-weight: 100; text-transform: uppercase; font-size: 15px; }
 .profile-tabs > li:hover > a { background: transparent; color: #2ba2ec; }
-.profile-tabs:before { content: ""; position: absolute; width: 2000px; height: 1px; background: #2ba2ec; right: 99%; bottom: -1px; }
 
 .profile-tabs-content { border-top: 0; padding: 20px 0; position: relative; }
 

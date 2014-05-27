@@ -4,7 +4,7 @@
 }
 
 .profile-header {
-  padding: 0 0 40px;
+  padding: 0 0 32px;
   position: relative;
   min-height: 190px;
 
@@ -21,7 +21,7 @@
     }
     small {
       display: block;
-      margin-top: 18px;
+      margin-top: 15px;
       line-height: 1.18;
       text-transform: lowercase;
       font-weight: 100;
@@ -109,7 +109,6 @@ div.profile-status-btn {
   position: absolute;
   right: 0;
   top: 0;
-  text-align: right;
 }
 
 .contacts-item {
@@ -118,15 +117,39 @@ div.profile-status-btn {
   margin: 0 0 10px 5px;
 }
 
-.profile-header-phone {
-  font-size: 16px;
+.profile-header-phone,
+.profile-header-skype{
+  max-width: 160px;
+  word-wrap: break-word;
+  
   font-style: italic;
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 8px;
+  
+  i {
+    position: absolute;
+
+  }
+}
+.profile-header-phone {
   word-spacing: 0.1em;
+  text-align: right;
+  font-size: 16px;
 
   i {
-    margin-right: 4px;
-    position: relative;
     top: 3px;
+    left: 4px;
+  }
+}
+
+.profile-header-skype {
+  font-size: 13px;
+  i {
+    color: $main-color;
+    top: -7px;
+    font-size: 21px;
+    left: 3px;
   }
 }
 
@@ -148,16 +171,6 @@ div.profile-status-btn {
       color: $main-color-light;
 
     }
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    width: 2000px;
-    height: 1px;
-    background: $main-color-light;
-    right: 99%;
-    bottom: -1px;
   }
 }
 
