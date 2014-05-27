@@ -67,6 +67,7 @@ return array(
 				'CsnUser\Controller\Index' => array(
 					'login'   => 'guest',
 					'logout'  => 'volunteer',
+					'profile'  => 'volunteer',
 					'index' => 'guest',
 				),
 				'CsnUser\Controller\Admin' => array(

@@ -19,6 +19,7 @@ use Zend\Form\Annotation;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use CsnUser\Entity\Employment;
 
 /**
  * Doctrine ORM implementation of User entity
@@ -283,7 +284,36 @@ class User
      */
     private $resume;
 
-	
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="qualification", type="string", length=100, nullable=false)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":100}})
+     */
+    private $qualification;
+
+
+	/**
+     * @var CsnUser\Entity\Employment
+     *
+     * @ORM\ManyToOne(targetEntity="CsnUser\Entity\Employment")
+     * @ORM\JoinColumn(name="employment_id", referencedColumnName="id", nullable=false)
+     * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"Digits"})
+     * @Annotation\Required(true)
+     * @Annotation\Options({
+     *   "required":"true",
+     *   "target_class":"CsnUser\Entity\Employment",
+     *   "property": "employment"
+     * })
+     */
+    protected $employment;
+
     public function __construct()
     {
         $this->friendsWithMe = new ArrayCollection();
@@ -752,5 +782,50 @@ class User
     {
         return $this->resume;
     }
+
+	/**
+	 * Специальность/Квалификация
+	 * @return string
+	 */
+	public function getQualification ()
+	{
+		return $this -> qualification;
+
+	}
+
+	/**
+	 * Специальность/Квалификация
+	 * @param string $qualification
+	 * @return \CsnUser\Entity\User
+	 */
+	public function setQualification ( $qualification )
+	{
+		$this -> qualification = $qualification;
+
+		return $this;
+
+	}
+
+	/**
+	 *
+	 * @return CsnUser\Entity\Employment
+	 */
+	public function getEmployment ()
+	{
+		return $this -> employment;
+
+	}
+
+	/**
+	 *
+	 * @param \CsnUser\Entity\Employment $employment
+	 * @return \CsnUser\Entity\User
+	 */
+	public function setEmployment ( $employment )
+	{
+		$this -> employment = $employment;
+
+		return $this;
+	}
 
 }

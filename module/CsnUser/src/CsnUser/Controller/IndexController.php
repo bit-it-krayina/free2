@@ -21,12 +21,16 @@ use Zend\Session\Config\StandardConfig;
 
 use CsnUser\Entity\User;
 use CsnUser\Options\ModuleOptions;
+use Application\Service\ControlUtils;
 
 /**
  * Index controller
  */
 class IndexController extends AbstractActionController
 {
+
+	use ControlUtils;
+
     /**
      * @var ModuleOptions
      */
@@ -163,6 +167,52 @@ class IndexController extends AbstractActionController
 
         return $this->redirect()->toRoute($this->getOptions()->getLogoutRedirectRoute());
     }
+
+	public function profileAction ()
+	{
+		if ( !$user = $this -> identity () )
+		{
+			return $this -> redirect () -> toRoute ( $this -> getOptions () -> getLoginRedirectRoute () );
+		}
+
+		$form = $this -> getUserFormHelper () -> createUserForm ( $user, 'EditProfile' );
+		$email = $user -> getEmail ();
+		$username = $user -> getUsername ();
+		$message = null;
+		if ( $this -> getRequest () -> isPost () )
+		{
+			$currentFirstName = $user -> getFirstName ();
+			$currentLastName = $user -> getLastName ();
+			$form -> setValidationGroup ( 'firstName', 'lastName', 'language', 'csrf', 'location', 'resume' );
+			$form -> setData ( $this -> getRequest () -> getPost () );
+			if ( $form -> isValid () )
+			{
+				$firstName = $this -> params () -> fromPost ( 'firstName' );
+				$lastName = $this -> params () -> fromPost ( 'lastName' );
+				$user -> setFirstName ( $firstName );
+				$user -> setLastName ( $lastName );
+				$entityManager = $this -> getEntityManager ();
+				$entityManager -> persist ( $user );
+				$entityManager -> flush ();
+				$message = $this -> getTranslatorHelper () -> translate ( 'Your profile has been edited' );
+			}
+		}
+
+
+		$employments = $this
+						-> getEntityManager ()
+						-> getRepository ( 'CsnUser\Entity\Employment' )
+						-> findAll ();
+
+		return $this->createViewModel('csn-user/index/profile', array(
+			'user' => $user,
+			'employments' => $employments,
+		));
+
+
+	}
+
+
 
     /**
      * get options

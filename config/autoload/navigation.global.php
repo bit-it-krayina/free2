@@ -86,15 +86,19 @@ return array(
 				'pages' => array(
 					array (
 						'label' => 'Профіль',
+						'route' => 'user-index',
+						'controller' => 'Index',
+						'action'     => 'profile',
+						'resource'	  => 'CsnUser\Controller\Index',
+						'privilege'  => 'profile',
+					),
+					array (
+						'label' => 'Налаштування',
 						'route' => 'user-register',
 						'controller' => 'Registration',
 						'action'     => 'edit-profile',
 						'resource'	  => 'CsnUser\Controller\Registration',
 						'privilege'  => 'edit-profile',
-					),
-					array (
-						'label' => 'Налаштування',
-						'uri'	=> '#',
 					),
 
 					array (

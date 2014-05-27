@@ -22,12 +22,16 @@ use Zend\Validator\Identical as IdenticalValidator;
 use CsnUser\Entity\User;
 use CsnUser\Options\ModuleOptions;
 use CsnUser\Service\UserService as UserCredentialsService;
+use Application\Service\ControlUtils;
 
 /**
  * Registration controller
  */
 class RegistrationController extends AbstractActionController
 {
+
+	use ControlUtils;
+
     /**
      * @var ModuleOptions
      */
