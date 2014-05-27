@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 26, 2014 at 09:46 AM
+-- Generation Time: May 27, 2014 at 06:13 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -25,7 +25,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `article`
 --
 
-DROP TABLE IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) DEFAULT NULL,
@@ -60,7 +59,6 @@ CREATE TABLE IF NOT EXISTS `article` (
 -- Table structure for table `articles_categories`
 --
 
-DROP TABLE IF EXISTS `articles_categories`;
 CREATE TABLE IF NOT EXISTS `articles_categories` (
   `article_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
@@ -80,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `articles_categories` (
 -- Table structure for table `category`
 --
 
-DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
@@ -102,7 +99,6 @@ INSERT INTO `category` (`id`, `user_id`, `name`) VALUES
 -- Table structure for table `comment`
 --
 
-DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `language_id` int(11) DEFAULT NULL,
@@ -125,10 +121,31 @@ CREATE TABLE IF NOT EXISTS `comment` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `employment`
+--
+
+CREATE TABLE IF NOT EXISTS `employment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `employment` varchar(20) NOT NULL DEFAULT '',
+  `class` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `employment` (`employment`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `employment`
+--
+
+INSERT INTO `employment` (`id`, `employment`, `class`) VALUES
+(1, 'buzy', 'btn-danger'),
+(2, 'free', 'btn-success');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `friends`
 --
 
-DROP TABLE IF EXISTS `friends`;
 CREATE TABLE IF NOT EXISTS `friends` (
   `user_id` int(11) NOT NULL,
   `friend_id` int(11) NOT NULL,
@@ -148,7 +165,6 @@ CREATE TABLE IF NOT EXISTS `friends` (
 -- Table structure for table `language`
 --
 
-DROP TABLE IF EXISTS `language`;
 CREATE TABLE IF NOT EXISTS `language` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
@@ -175,7 +191,6 @@ INSERT INTO `language` (`id`, `name`, `abbreviation`) VALUES
 -- Table structure for table `privilege`
 --
 
-DROP TABLE IF EXISTS `privilege`;
 CREATE TABLE IF NOT EXISTS `privilege` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `resource_id` int(11) DEFAULT NULL,
@@ -229,7 +244,6 @@ INSERT INTO `privilege` (`id`, `resource_id`, `role_id`, `name`, `permission_all
 -- Table structure for table `projects`
 --
 
-DROP TABLE IF EXISTS `projects`;
 CREATE TABLE IF NOT EXISTS `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -254,7 +268,6 @@ INSERT INTO `projects` (`id`, `title`, `description`, `functions`, `done`, `topi
 -- Table structure for table `question`
 --
 
-DROP TABLE IF EXISTS `question`;
 CREATE TABLE IF NOT EXISTS `question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `question` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -278,7 +291,6 @@ INSERT INTO `question` (`id`, `question`) VALUES
 -- Table structure for table `resource`
 --
 
-DROP TABLE IF EXISTS `resource`;
 CREATE TABLE IF NOT EXISTS `resource` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -312,7 +324,6 @@ INSERT INTO `resource` (`id`, `name`) VALUES
 -- Table structure for table `role`
 --
 
-DROP TABLE IF EXISTS `role`;
 CREATE TABLE IF NOT EXISTS `role` (
   `id` int(11) NOT NULL,
   `name` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
@@ -336,7 +347,6 @@ INSERT INTO `role` (`id`, `name`) VALUES
 -- Table structure for table `roles_parents`
 --
 
-DROP TABLE IF EXISTS `roles_parents`;
 CREATE TABLE IF NOT EXISTS `roles_parents` (
   `role_id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
@@ -359,7 +369,6 @@ INSERT INTO `roles_parents` (`role_id`, `parent_id`) VALUES
 -- Table structure for table `state`
 --
 
-DROP TABLE IF EXISTS `state`;
 CREATE TABLE IF NOT EXISTS `state` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `state` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -381,7 +390,6 @@ INSERT INTO `state` (`id`, `state`) VALUES
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role_id` int(11) NOT NULL,
@@ -400,6 +408,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email_confirmed` tinyint(1) NOT NULL,
   `location` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT 'Ukraine',
   `resume` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `qualification` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `employment_id` int(11) NOT NULL DEFAULT '1',
+  `private_info_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`),
@@ -409,17 +420,42 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `IDX_8D93D6491E27F6BF` (`question_id`),
   KEY `search_idx` (`username`,`first_name`,`last_name`,`email`),
   KEY `location` (`location`),
-  KEY `resume` (`resume`)
+  KEY `resume` (`resume`),
+  KEY `qualification` (`qualification`),
+  KEY `employment_id` (`employment_id`),
+  KEY `private_info_id` (`private_info_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `location`, `resume`) VALUES
-(1, 3, 1, 2, 2, 'admin', 'test1', 'test1', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'Ukraine2', ''),
-(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, 'Ukraine', ''),
-(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, 'Ukraine', '');
+INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `location`, `resume`, `qualification`, `employment_id`, `private_info_id`) VALUES
+(1, 3, 1, 2, 2, 'admin', 'test1', 'test1', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'Ukraine2', '', 'копірайтор', 2, 1),
+(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, 'Ukraine', '', '', 1, NULL),
+(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, 'Ukraine', '', '', 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_info_private`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_private` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `birthDay` date NOT NULL,
+  `location` varchar(40) NOT NULL DEFAULT 'Ukraine, Kyiv',
+  `resume` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `location` (`location`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `user_info_private`
+--
+
+INSERT INTO `user_info_private` (`id`, `birthDay`, `location`, `resume`) VALUES
+(1, '1987-03-08', 'Ukraine, Kyiv', '<p> Работаю со словом с 2007 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	</p> <p>Я люблю писать. Люблю учиться. Люблю цифры и факты. </p>');
 
 -- --------------------------------------------------------
 
@@ -427,7 +463,6 @@ INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `
 -- Table structure for table `vote`
 --
 
-DROP TABLE IF EXISTS `vote`;
 CREATE TABLE IF NOT EXISTS `vote` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `likes_count` int(11) NOT NULL,
@@ -446,7 +481,6 @@ CREATE TABLE IF NOT EXISTS `vote` (
 -- Table structure for table `votes_users`
 --
 
-DROP TABLE IF EXISTS `votes_users`;
 CREATE TABLE IF NOT EXISTS `votes_users` (
   `vote_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -466,7 +500,6 @@ CREATE TABLE IF NOT EXISTS `votes_users` (
 -- Table structure for table `yas_lesson_order`
 --
 
-DROP TABLE IF EXISTS `yas_lesson_order`;
 CREATE TABLE IF NOT EXISTS `yas_lesson_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `teacher_id` int(11) NOT NULL,
@@ -505,7 +538,6 @@ INSERT INTO `yas_lesson_order` (`id`, `teacher_id`, `customer_name`, `customer_e
 -- Table structure for table `yas_order_state`
 --
 
-DROP TABLE IF EXISTS `yas_order_state`;
 CREATE TABLE IF NOT EXISTS `yas_order_state` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(1024) NOT NULL,
@@ -529,7 +561,6 @@ INSERT INTO `yas_order_state` (`id`, `name`) VALUES
 -- Table structure for table `yas_review`
 --
 
-DROP TABLE IF EXISTS `yas_review`;
 CREATE TABLE IF NOT EXISTS `yas_review` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `reviewer` varchar(255) NOT NULL,
@@ -553,7 +584,6 @@ INSERT INTO `yas_review` (`id`, `reviewer`, `review_content`, `review_date`, `mo
 -- Table structure for table `yas_teacher`
 --
 
-DROP TABLE IF EXISTS `yas_teacher`;
 CREATE TABLE IF NOT EXISTS `yas_teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,

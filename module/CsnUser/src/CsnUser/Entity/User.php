@@ -20,6 +20,7 @@ use Zend\Form\Annotation;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use CsnUser\Entity\Employment;
+use CsnUser\Entity\Info\UserPrivate;
 
 /**
  * Doctrine ORM implementation of User entity
@@ -268,7 +269,7 @@ class User
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":40}})
      */
     protected $location;
 
@@ -313,6 +314,15 @@ class User
      * })
      */
     protected $employment;
+
+
+	/**
+     * @var CsnUser\Entity\Info\UserPrivate
+     *
+     * @ORM\ManyToOne(targetEntity="CsnUser\Entity\Info\UserPrivate")
+     * @ORM\JoinColumn(name="private_info_id", referencedColumnName="id", nullable=false)
+     */
+    protected $privateInfo;
 
     public function __construct()
     {
@@ -826,6 +836,29 @@ class User
 		$this -> employment = $employment;
 
 		return $this;
+	}
+
+	/**
+	 *
+	 * @return UserPrivate
+	 */
+	public function getPrivateInfo ()
+	{
+		return $this -> privateInfo;
+
+	}
+
+	/**
+	 *
+	 * @param UserPrivate $privateInfo
+	 * @return \CsnUser\Entity\User
+	 */
+	public function setPrivateInfo ( UserPrivate $privateInfo )
+	{
+		$this -> privateInfo = $privateInfo;
+
+		return $this;
+
 	}
 
 }

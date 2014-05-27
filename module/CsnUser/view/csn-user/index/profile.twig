@@ -40,43 +40,40 @@
 						<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 					</div>
 					<ul class="nav nav-tabs profile-tabs">
-					 	<li><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
-						<li class="active"><a href="#professional" data-toggle="tab">Професійна інформація</a></li>
+					 	{% if user.privateInfo %}<li class="active"><a href="#personal"  data-toggle="tab">Особиста інформація</a></li>{% endif %}
+						<li ><a href="#professional" data-toggle="tab">Професійна інформація</a></li>
 						<li><a href="#projects" data-toggle="tab">Проекти</a></li>
 					</ul>
 
 					<div class="tab-content profile-tabs-content">
-						<div class="tab-pane" id="personal">
-							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
-							<dl class="profile-info">
-								<dt class="profile-title profile-title-left">Дата народження:</dt>
-								<dd class="profile-text">10.10.1980</dd>
-								<dt class="profile-title profile-title-left">Місцезнаходження:</dt>
-								<dd class="profile-text">Київ, України</dd>
-							</dl>
-							<div class="profile-text">
-								<p>
-									Работаю со словом с 2007 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…
-								</p>
-								<p>
-									Я люблю писать. Люблю учиться. Люблю цифры и факты.
-								</p>
+						{% if user.privateInfo %}
+							<div class="tab-pane active" id="personal">
+								<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
+								<dl class="profile-info">
+									<dt class="profile-title profile-title-left">Дата народження:</dt>
+									<dd class="profile-text">{{ user.privateInfo.birthDay|date("Y-m-d") }}</dd>
+									<dt class="profile-title profile-title-left">Місцезнаходження:</dt>
+									<dd class="profile-text">{{ user.privateInfo.location}}</dd>
+								</dl>
+								<div class="profile-text">
+									{{ user.privateInfo.resume|raw}}
+								</div>
+								<h3 class="profile-title">Контакти</h3>
+								<dl class="profile-info">
+									<dt class="profile-title profile-title-left">E-mail:</dt>
+									<dd class="profile-text"><a href="mailto:mymail@gmail.com">mymail@gmail.com</a></dd>
+									<dt class="profile-title profile-title-left">Skype:</dt>
+									<dd class="profile-text">myskype</dd>
+									<dt class="profile-title profile-title-left">Телефон:</dt>
+									<dd class="profile-text">+38066 123 3456</dd>
+									<dt class="profile-title profile-title-left">Facebook:</dt>
+									<dd class="profile-text"><a href="https://www.facebook.com/">https://www.facebook.com/</a></dd>
+									<dt class="profile-title profile-title-left">Twitter:</dt>
+									<dd class="profile-text"><a href="https://twitter.com/">https://twitter.com/</a></dd>
+								</dl>
 							</div>
-							<h3 class="profile-title">Контакти</h3>
-							<dl class="profile-info">
-								<dt class="profile-title profile-title-left">E-mail:</dt>
-								<dd class="profile-text"><a href="mailto:mymail@gmail.com">mymail@gmail.com</a></dd>
-								<dt class="profile-title profile-title-left">Skype:</dt>
-								<dd class="profile-text">myskype</dd>
-								<dt class="profile-title profile-title-left">Телефон:</dt>
-								<dd class="profile-text">+38066 123 3456</dd>
-								<dt class="profile-title profile-title-left">Facebook:</dt>
-								<dd class="profile-text"><a href="https://www.facebook.com/">https://www.facebook.com/</a></dd>
-								<dt class="profile-title profile-title-left">Twitter:</dt>
-								<dd class="profile-text"><a href="https://twitter.com/">https://twitter.com/</a></dd>
-							</dl>
-						</div>
-						<div class="tab-pane active" id="professional">
+						{% endif %}
+						<div class="tab-pane " id="professional">
 							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 							<dl class="profile-info">
 								<dt class="profile-title profile-title-left">Cпеціальність:</dt>
