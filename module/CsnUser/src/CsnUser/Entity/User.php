@@ -21,6 +21,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use CsnUser\Entity\Employment;
 use CsnUser\Entity\Info\UserPrivate;
+use CsnUser\Entity\Info\Contact;
 
 /**
  * Doctrine ORM implementation of User entity
@@ -288,7 +289,7 @@ class User
 	/**
      * @var string
      *
-     * @ORM\Column(name="qualification", type="string", length=100, nullable=false)
+     * @ORM\Column(name="qualification", type="string", length=100, nullable=true)
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
@@ -320,9 +321,17 @@ class User
      * @var CsnUser\Entity\Info\UserPrivate
      *
      * @ORM\ManyToOne(targetEntity="CsnUser\Entity\Info\UserPrivate")
-     * @ORM\JoinColumn(name="private_info_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="private_info_id", referencedColumnName="id", nullable=true)
      */
     protected $privateInfo;
+
+	/**
+     * @var Contact
+     *
+     * @ORM\ManyToOne(targetEntity="CsnUser\Entity\Info\Contact")
+     * @ORM\JoinColumn(name="contact_info_id", referencedColumnName="id", nullable=true)
+     */
+    protected $contactInfo;
 
     public function __construct()
     {
@@ -859,6 +868,24 @@ class User
 
 		return $this;
 
+	}
+
+	public function getContactInfo ()
+	{
+		return $this -> contactInfo;
+
+	}
+
+	/**
+	 *
+	 * @param \CsnUser\Entity\Info\Contact $contactInfo
+	 * @return \CsnUser\Entity\User
+	 */
+	public function setContactInfo ( Contact $contactInfo )
+	{
+		$this -> contactInfo = $contactInfo;
+
+		return $this;
 	}
 
 }

@@ -31,46 +31,50 @@
 
 
 						<div class="profile-header-contacts">
-							<a href="#" class="contacts-item"><i class="icon-square icon-main-color fi-facebook"></i></a>
-							<a href="#" class="contacts-item"><i class="icon-square icon-main-color fi-twitter"></i></a>
-							<a href="#" class="contacts-item"><i class="icon-square icon-main-color fi-skype"></i></a>
-							<a href="#" class="contacts-item"><i class="icon-square icon-main-color fi-mail"></i></a>
-							<div class="profile-header-phone"><i class="fi-phone"></i>+38066 123 4567</div>
+							{% if user.contactInfo.FacebookUrl %}<a href="{{user.contactInfo.FacebookUrl}}" class="contacts-item"><i class="icon-square icon-main-color fi-facebook"></i></a>{% endif %}
+							{% if user.contactInfo.TwitterUrl %}<a href="{{user.contactInfo.TwitterUrl}}" class="contacts-item"><i class="icon-square icon-main-color fi-twitter"></i></a>{% endif %}
+							{% if user.contactInfo.skype %}<a href="#" class="contacts-item"><i class="icon-square icon-main-color fi-skype"></i></a>{% endif %}
+							{% if user.contactInfo.email %}<a href="mailto:{{user.contactInfo.email}}" class="contacts-item"><i class="icon-square icon-main-color fi-mail"></i></a>{% endif %}
+							{% if user.contactInfo.phone %}<div class="profile-header-phone"><i class="fi-phone"></i>{{ user.contactInfo.phone }}</div>{% endif %}
 						</div>
 						<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 					</div>
 					<ul class="nav nav-tabs profile-tabs">
-					 	{% if user.privateInfo %}<li class="active"><a href="#personal"  data-toggle="tab">Особиста інформація</a></li>{% endif %}
+					 	{% if user.privateInfo or user.contactInfo %}<li class="active"><a href="#personal"  data-toggle="tab">Особиста інформація</a></li>{% endif %}
 						<li ><a href="#professional" data-toggle="tab">Професійна інформація</a></li>
 						<li><a href="#projects" data-toggle="tab">Проекти</a></li>
 					</ul>
 
 					<div class="tab-content profile-tabs-content">
-						{% if user.privateInfo %}
+						{% if user.privateInfo or user.contactInfo %}
 							<div class="tab-pane active" id="personal">
 								<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
-								<dl class="profile-info">
-									<dt class="profile-title profile-title-left">Дата народження:</dt>
-									<dd class="profile-text">{{ user.privateInfo.birthDay|date("Y-m-d") }}</dd>
-									<dt class="profile-title profile-title-left">Місцезнаходження:</dt>
-									<dd class="profile-text">{{ user.privateInfo.location}}</dd>
-								</dl>
-								<div class="profile-text">
-									{{ user.privateInfo.resume|raw}}
-								</div>
+								{% if user.privateInfo  %}
+									<dl class="profile-info">
+										<dt class="profile-title profile-title-left">Дата народження:</dt>
+										<dd class="profile-text">{{ user.privateInfo.birthDay|date("Y-m-d") }}</dd>
+										<dt class="profile-title profile-title-left">Місцезнаходження:</dt>
+										<dd class="profile-text">{{ user.privateInfo.location}}</dd>
+									</dl>
+									<div class="profile-text">
+										{{ user.privateInfo.resume|raw}}
+									</div>
+								{% endif %}
 								<h3 class="profile-title">Контакти</h3>
-								<dl class="profile-info">
-									<dt class="profile-title profile-title-left">E-mail:</dt>
-									<dd class="profile-text"><a href="mailto:mymail@gmail.com">mymail@gmail.com</a></dd>
-									<dt class="profile-title profile-title-left">Skype:</dt>
-									<dd class="profile-text">myskype</dd>
-									<dt class="profile-title profile-title-left">Телефон:</dt>
-									<dd class="profile-text">+38066 123 3456</dd>
-									<dt class="profile-title profile-title-left">Facebook:</dt>
-									<dd class="profile-text"><a href="https://www.facebook.com/">https://www.facebook.com/</a></dd>
-									<dt class="profile-title profile-title-left">Twitter:</dt>
-									<dd class="profile-text"><a href="https://twitter.com/">https://twitter.com/</a></dd>
-								</dl>
+								{% if user.contactInfo%}
+									<dl class="profile-info">
+										<dt class="profile-title profile-title-left">E-mail:</dt>
+										<dd class="profile-text"><a href="mailto:{{user.contactInfo.email}}">{{user.contactInfo.email}}</a></dd>
+										<dt class="profile-title profile-title-left">Skype:</dt>
+										<dd class="profile-text">{{user.contactInfo.skype}}</dd>
+										<dt class="profile-title profile-title-left">Телефон:</dt>
+										<dd class="profile-text">{{user.contactInfo.phone}}</dd>
+										<dt class="profile-title profile-title-left">Facebook:</dt>
+										<dd class="profile-text"><a href="{{user.contactInfo.FacebookUrl}}">{{user.contactInfo.FacebookUrl}}</a></dd>
+										<dt class="profile-title profile-title-left">Twitter:</dt>
+										<dd class="profile-text"><a href="{{user.contactInfo.TwitterUrl}}">{{user.contactInfo.TwitterUrl}}</a></dd>
+									</dl>
+								{% endif %}
 							</div>
 						{% endif %}
 						<div class="tab-pane " id="professional">
