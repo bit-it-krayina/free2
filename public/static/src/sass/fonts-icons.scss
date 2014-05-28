@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'fonts-icons';
-  src: url('../fonts/fonts-icons.eot?4624510');
-  src: url('../fonts/fonts-icons.eot?4624510#iefix') format('embedded-opentype'),
-       url('../fonts/fonts-icons.woff?4624510') format('woff'),
-       url('../fonts/fonts-icons.ttf?4624510') format('truetype'),
-       url('../fonts/fonts-icons.svg?4624510#fonts-icons') format('svg');
+  src: url('../fonts/fonts-icons.eot?96347608');
+  src: url('../fonts/fonts-icons.eot?96347608#iefix') format('embedded-opentype'),
+       url('../fonts/fonts-icons.woff?96347608') format('woff'),
+       url('../fonts/fonts-icons.ttf?96347608') format('truetype'),
+       url('../fonts/fonts-icons.svg?96347608#fonts-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -25,25 +25,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fi-pencil-1:before { content: '\e818'; } /* '' */
-.fi-mail:before { content: '\e807'; } /* '' */
-.fi-user:before { content: '\e808'; } /* '' */
-.fi-cog:before { content: '\e800'; } /* '' */
-.fi-phone:before { content: '\e81a'; } /* '' */
-.fi-cancel:before { content: '\e810'; } /* '' */
-.fi-help:before { content: '\e80e'; } /* '' */
-.fi-info:before { content: '\e80f'; } /* '' */
-.fi-trash:before { content: '\e80b'; } /* '' */
-.fi-wrench:before { content: '\e80d'; } /* '' */
-.fi-globe:before { content: '\e80c'; } /* '' */
-.fi-search:before { content: '\e817'; } /* '' */
-.fi-facebook:before { content: '\e802'; } /* '' */
-.fi-github-circled:before { content: '\e815'; } /* '' */
-.fi-gplus:before { content: '\e816'; } /* '' */
-.fi-linkedin:before { content: '\e813'; } /* '' */
-.fi-skype:before { content: '\e803'; } /* '' */
-.fi-twitter:before { content: '\e801'; } /* '' */
-.fi-vkontakte:before { content: '\e814'; } /* '' */
-.fi-pencil:before { content: '\e806'; } /* '' */
-.fi-search-left:before { content: '\e809'; } /* '' */
-.fi-spinner:before { content: '\e811'; } /* '' */
+.fi-mail:before { content: '\e800'; } /* '' */
+.fi-user:before { content: '\e801'; } /* '' */
+.fi-cog:before { content: '\e802'; } /* '' */
+.fi-phone:before { content: '\e803'; } /* '' */
+.fi-cancel:before { content: '\e804'; } /* '' */
+.fi-help:before { content: '\e805'; } /* '' */
+.fi-info:before { content: '\e806'; } /* '' */
+.fi-trash:before { content: '\e807'; } /* '' */
+.fi-wrench:before { content: '\e808'; } /* '' */
+.fi-search:before { content: '\e809'; } /* '' */
+.fi-facebook:before { content: '\e80a'; } /* '' */
+.fi-github-circled:before { content: '\e80b'; } /* '' */
+.fi-gplus:before { content: '\e80c'; } /* '' */
+.fi-linkedin:before { content: '\e80d'; } /* '' */
+.fi-skype:before { content: '\e80e'; } /* '' */
+.fi-twitter:before { content: '\e80f'; } /* '' */
+.fi-vkontakte:before { content: '\e810'; } /* '' */
+.fi-pencil:before { content: '\e811'; } /* '' */
+.fi-spinner:before { content: '\e812'; } /* '' */
+.fi-bell-alt:before { content: '\e813'; } /* '' */
+.fi-bell:before { content: '\e815'; } /* '' */
+.fi-download:before { content: '\e816'; } /* '' */
+.fi-print:before { content: '\e817'; } /* '' */

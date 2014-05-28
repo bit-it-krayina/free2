@@ -31,11 +31,12 @@
 
 
 						<div class="profile-header-contacts">
-							{% if user.contactInfo.FacebookUrl %}<a href="{{user.contactInfo.FacebookUrl}}" class="contacts-item"><i class="icon-square icon-main-color fi-facebook"></i></a>{% endif %}
-							{% if user.contactInfo.TwitterUrl %}<a href="{{user.contactInfo.TwitterUrl}}" class="contacts-item"><i class="icon-square icon-main-color fi-twitter"></i></a>{% endif %}
-							{% if user.contactInfo.skype %}<a href="#" class="contacts-item"><i class="icon-square icon-main-color fi-skype"></i></a>{% endif %}
-							{% if user.contactInfo.email %}<a href="mailto:{{user.contactInfo.email}}" class="contacts-item"><i class="icon-square icon-main-color fi-mail"></i></a>{% endif %}
+							{% if user.contactInfo.FacebookUrl %}<a href="{{user.contactInfo.FacebookUrl}}" class="contacts-item"><i class="icon-circle icon-main-color-in fi-facebook"></i></a>{% endif %}
+							{% if user.contactInfo.TwitterUrl %}<a href="{{user.contactInfo.TwitterUrl}}" class="contacts-item"><i class="icon-circle icon-main-color-in icon-disabled-in fi-twitter"></i></a>{% endif %}
+							{% if user.contactInfo.LinkedInUrl %}<a href="{{user.contactInfo.LinkedInUrl}}" class="contacts-item"><i class="icon-circle icon-main-color-in fi-linkedin"></i></a>{% endif %}
+							{% if user.contactInfo.email %}<a href="mailto:{{user.contactInfo.email}}" class="contacts-item"><i class="icon-circle icon-main-color-in fi-mail"></i></a>{% endif %}
 							{% if user.contactInfo.phone %}<div class="profile-header-phone"><i class="fi-phone"></i>{{ user.contactInfo.phone }}</div>{% endif %}
+							{% if user.contactInfo.skype %}<div class="profile-header-skype"><i class="fi-skype"></i>{{user.contactInfo.skype}}</div>{% endif %}
 						</div>
 						<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 					</div>

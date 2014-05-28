@@ -8,7 +8,7 @@ body {
 }
 
 .main {
-  padding: ($navbar-height + 25px) 0 ($navbar-height + 20px);
+  padding: ($navbar-height + 45px) 0 ($navbar-height + 20px);
   .container {
     width: 940px;
   }
@@ -71,16 +71,30 @@ body {
 .btn {
   transition: background 0.2s ease-out 0s;
   text-transform: uppercase;
+  text-decoration: none !important;
+}
+
+.icon-square,
+.icon-circle {
+  text-align: center;
+  font-size: 19px;
+  transition: background 0.2s ease-out 0s;
 }
 
 .icon-square {
-  height: 28px;
-  width: 28px;
-  text-align: center;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+//  border-radius: 4px;
+}
+
+.icon-circle {
+  height: 32px;
+  width: 32px;
   line-height: 28px;
   font-size: 19px;
-  border-radius: 4px;
-  transition: background 0.2s ease-out 0s;
+  border-radius: 50%;
+  border: 2px solid transparent;
 }
 
 .icon-main-color {
@@ -89,6 +103,23 @@ body {
   &:hover {
     background: $main-color-light;
   }
+}
+
+.icon-main-color-in {
+  color: $main-color;
+  background: #fff;
+  border-color: $main-color;
+  &:hover {
+    background: $main-color;
+    color: #fff;
+  }
+}
+.icon-disabled-in,
+.icon-disabled-in:hover {
+  background: #FFF;
+  color: lighten(#000, 90%);
+  border-color: lighten(#000, 90%);
+  cursor: default;
 }
 
 .icon-add-color {
@@ -108,12 +139,15 @@ body {
 }
 
 .icon-square.fa-facebook:before,
-.icon-square.fa-twitter:before {
+.icon-square.fa-twitter:before,
+.icon-circle.fa-facebook:before,
+.icon-circle.fa-twitter:before {
   position: relative;
   top: 1px;
 }
 
-.icon-square.fi-mail {
+.icon-square.fi-mail,
+.icon-circle.fi-mail {
   font-size: 16px;
 }
 
@@ -147,6 +181,11 @@ body {
 
   a {
     color: #fff;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -170,6 +209,7 @@ body {
     font-size: 31px;
     vertical-align: middle;
     position: relative;
+    top: 2px;
   }
 }
 
@@ -191,6 +231,8 @@ body {
   box-shadow: 0px 0px 10px 0 rgba(0,0,0,.4);
   .navbar-nav {
     > li > a {
+      padding: 0 15px;
+      line-height: $navbar-height;
       &:hover,
       &:focus {
         box-shadow: 0 -5px 0 $main-color-light inset;

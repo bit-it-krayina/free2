@@ -6,6 +6,10 @@
     padding-left: 25px;
     padding-right: 25px;
   }
+
+  h1 {
+    font-weight: 100;
+  }
 }
 
 .panel-authorization {
@@ -19,15 +23,15 @@
     margin: 0 15px;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -1px;
-    width: 2px;
-    background: $add-color;
-  }
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   right: -1px;
+  //   width: 2px;
+  //   background: $add-color;
+  // }
 }
 
 .btn-auth {width: 40%;}

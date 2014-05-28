@@ -61,7 +61,7 @@ return array(
 
              ),
 			 array(
-				'label' => '<span class="fi-globe"></span><span class="badge badge-notif">2</span>',
+				'label' => '<span class="fi-bell-alt"></span><span class="badge badge-notif">2</span>',
 				'uri'	=> '#',
 				'pages' => array(
 					array (
