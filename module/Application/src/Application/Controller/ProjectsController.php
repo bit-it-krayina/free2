@@ -33,9 +33,13 @@ class ProjectsController extends AbstractActionController implements EntityManag
 		) );
 		return $view;
 	}
-	
-	public function parseAction()
+
+	public function importAction()
 	{
-		$html = file_get_contents('http://davidwalsh.name/');
+		
+
+		$this->createViewModel('application/project/import', [
+
+		]);
 	}
 }

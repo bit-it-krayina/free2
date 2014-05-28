@@ -114,7 +114,9 @@ return array(
 					'all' => 'guest',
 				),
 				'Application\Controller\Projects' => array(
-					'all'   => 'guest',
+					'index'   => 'guest',
+					'list'   => 'guest',
+					'import'   => 'admin',
 				),
 				// for CMS articles
                 'all' => array(
