@@ -76,7 +76,7 @@ class ProjectsController extends AbstractActionController implements EntityManag
 			$entityManager -> persist ( $project );
 			$entityManager -> flush ();
 		}
-//		var_dump( count($projectsList));
+		$this->redirect()->toRoute('projects', ['action' => 'list']);
 		return $this->createViewModel('application/projects/import', array (
 			'projects' => $projectsList
 		));

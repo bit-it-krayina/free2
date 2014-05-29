@@ -57,6 +57,7 @@ trait ControlUtils
 				'someVar' => 'yoyoyo',
 				'identity' => $this -> getAuthenticationService () -> getIdentity (),
 				'loggedUser' => $this -> getLoggedUser (),
+				'lastProjects' => $this -> getLastProjects()
 			) );
 		} );
 
@@ -153,4 +154,13 @@ trait ControlUtils
 
         return $this->options;
     }
+
+
+	public function getLastProjects()
+	{
+		return $this
+						-> getEntityManager ()
+						-> getRepository ( 'Application\Entity\Project' )
+						-> findBy( [], ['outerId' => 'DESC'], 3);
+	}
 }

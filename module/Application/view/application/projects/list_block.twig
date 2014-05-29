@@ -1,0 +1,10 @@
+
+{% for project in projects %}
+	<hr>
+	<div class="row">
+		<div class="col-lg-3"><a href="{{project.url}}">{{project.header}}</a>
+		</div>
+		<div class="col-lg-9">{{project.description|raw}}</div>
+	</div>
+
+{% endfor %}
