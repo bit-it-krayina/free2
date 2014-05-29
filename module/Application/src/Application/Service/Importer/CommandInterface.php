@@ -15,4 +15,11 @@ interface  CommandInterface
 
 	public function hasNextPage();
 
+	public function setResponse ( $response );
+
+	public function getResponse (  );
+
+	public function isSuccess();
+
+	public function getObjects();
 }

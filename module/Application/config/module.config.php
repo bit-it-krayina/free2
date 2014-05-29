@@ -96,6 +96,9 @@ return array (
 		'aliases' => array (
 			'translator' => 'MvcTranslator',
 		),
+		'invokables' => array(
+			'importer' => 'Application\Service\Importer\Service',
+		),
 	),
 	'translator' => array (
 		'locale' => 'en_US',

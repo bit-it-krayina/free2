@@ -9,7 +9,7 @@ use Zend\Http\Client;
  *
  * @author mice
  */
-class Client extends Client
+class ImporterClient extends Client
 {
 
 	/**
@@ -21,7 +21,7 @@ class Client extends Client
 	public function __construct ( $uri = null, $options = null )
 	{
 
-		parent::__construct ( 'https://userecho.com/api/v2/forums/30751/topics.json?access_token=82258f7b25b53ef65940a403f3bc2eb7c1e0c2ed', array (
+		parent::__construct ( $uri, array (
 			'maxredirects' => 0,
 			'timeout' => 30
 		) );

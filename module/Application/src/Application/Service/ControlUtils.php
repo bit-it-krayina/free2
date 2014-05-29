@@ -50,15 +50,15 @@ trait ControlUtils
 		$evm = $e -> getApplication () -> getEventManager ();
 		$evm -> attach ( \Zend\Mvc\MvcEvent::EVENT_RENDER, function (\Zend\Mvc\MvcEvent $event) {
 
-					$view = $event -> getViewModel ();
+			$view = $event -> getViewModel ();
 
-					$view -> setVariables ( array (
-						'user' => $this -> getAuthenticationService () -> getIdentity (),
-						'someVar' => 'yoyoyo',
-						'identity' => $this -> getAuthenticationService () -> getIdentity (),
-						'loggedUser' => $this -> getLoggedUser (),
-					) );
-				} );
+			$view -> setVariables ( array (
+				'user' => $this -> getAuthenticationService () -> getIdentity (),
+				'someVar' => 'yoyoyo',
+				'identity' => $this -> getAuthenticationService () -> getIdentity (),
+				'loggedUser' => $this -> getLoggedUser (),
+			) );
+		} );
 
 		return parent::onDispatch ( $e );
 	}

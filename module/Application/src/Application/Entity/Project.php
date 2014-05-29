@@ -3,156 +3,145 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Form\Annotation;
 
 /**
  * A project data
  *
  * @ORM\Entity
  * @ORM\Table(name="projects")
- * @property string $title
- * @property string $description
- * @property string $functions
- * @property string $done
- * @property int $topic_id
- * @property int $id
  */
 class Project
 {
 
-    
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer");
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $title;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $description;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $functions;
-    
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $done;
-	
 	/**
-     * @ORM\Column(type="integer")
-     */
-    protected $topic_id;
-	
+	 * @var integer
+	 *
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="IDENTITY")
+	 * @Annotation\Exclude()
+	 */
+	protected $id;
 
-	    
-    function getId()
-    {
-	return $this->id;
-    }
-    
-    
-    /**
-     * Возвращает имя преподавателя
-     * @return string
-     */
-    function getTitle()
-    {
-	return $this->title;
-    }
-    
-    /**
-     * Возвращает описание
-     * @return string
-     */
-    function getDescription()
-    {
-	return $this->description;
-    }
-    
-    /**
-     * Возвращает 
-     * @return string
-     */
-    function getFunctions()
-    {
-	return $this->functions;
-    }
-    
-    /**
-     * Возвращает то что сделано
-     * @return string
-     */
-    function getDone()
-    {
-	return $this->done;
-    }
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="header", type="string", length=255, nullable=false)
+	 * @Annotation\Type("Zend\Form\Element\Textarea")
+	 * @Annotation\Filter({"name":"StringTrim"})
+	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})
+	 * @Annotation\Required(true)
+	 * @Annotation\Attributes({
+	 *   "type":"text",
+	 *   "required":"true"
+	 * })
+	 */
+	protected $header;
 
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="description", type="string", length=1024, nullable=false)
+	 * @Annotation\Type("Zend\Form\Element\Textarea")
+	 * @Annotation\Filter({"name":"StripTags"})
+	 * @Annotation\Filter({"name":"StringTrim"})
+	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":1024}})
+	 * @Annotation\Attributes({
+	 *   "type":"text",
+	 *   "required":"true"
+	 * })
+	 */
+	protected $description;
 
-    
-    /**
-     * Magic setter to save protected properties.
-     *
-     * @param string $property
-     * @param mixed $value
-     */
-    public function __set($property, $value)
-    {
-	$this->$property = $value;
-    }
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="url", type="string", length=1024, nullable=false)
+	 * @Annotation\Type("Zend\Form\Element\Textarea")
+	 * @Annotation\Filter({"name":"StripTags"})
+	 * @Annotation\Filter({"name":"StringTrim"})
+	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":1024}})
+	 * @Annotation\Attributes({
+	 *   "type":"text",
+	 *   "required":"true"
+	 * })
+	 */
+	protected $url;
 
-    /**
-     * Convert the object to an array.
-     *
-     * @return array
-     */
-    public function getArrayCopy()
-    {
-	return get_object_vars($this);
-    }
-    
-    public function setTitle ( $title )
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="outer_id", type="string", length=20, nullable=false)
+	 * @Annotation\Type("Zend\Form\Element\Text")
+	 * @Annotation\Filter({"name":"StripTags"})
+	 * @Annotation\Filter({"name":"StringTrim"})
+	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":20}})
+	 * @Annotation\Validator({"name":"Digits"})
+	 */
+	private $outerId;
+
+	public function getHeader ()
 	{
-		$this -> title = $title;
+		return $this -> header;
+
+	}
+
+	public function setHeader ( $header )
+	{
+		$this -> header = $header;
+
 		return $this;
+
+	}
+
+	public function getDescription ()
+	{
+		return $this -> description;
+
 	}
 
 	public function setDescription ( $description )
 	{
 		$this -> description = $description;
+
 		return $this;
+
 	}
 
-	public function setFunctions ( $functions )
+	public function getUrl ()
 	{
-		$this -> functions = $functions;
-		return $this;
+		return $this -> url;
+
 	}
 
-	public function setDone ( $done )
+	public function setUrl ( $url )
 	{
-		$this -> done = $done;
+		$this -> url = $url;
+
 		return $this;
+
 	}
 
-
-	public function getTopicId ()
+	public function getOuterId ()
 	{
-		return $this -> topic_id;
+		return $this -> outerId;
+
 	}
 
-	public function setTopicId ( $topic_id )
+	public function setOuterId ( $outerId )
 	{
-		$this -> topic_id = $topic_id;
+		$this -> outerId = $outerId;
+
 		return $this;
+
+	}
+
+	public function getId ()
+	{
+		return $this -> id;
+
 	}
 
 }
