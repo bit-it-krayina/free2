@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 29, 2014 at 07:32 AM
+-- Generation Time: May 29, 2014 at 09:57 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -539,6 +539,31 @@ CREATE TABLE IF NOT EXISTS `user_info_private` (
 
 INSERT INTO `user_info_private` (`id`, `birthDay`, `location`, `resume`) VALUES
 (1, '1987-03-08', 'Ukraine, Kyiv', '<p> Работаю со словом с 2007 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	</p> <p>Я люблю писать. Люблю учиться. Люблю цифры и факты. </p>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_project_tag`
+--
+
+CREATE TABLE IF NOT EXISTS `user_project_tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `project_id` int(10) unsigned NOT NULL,
+  `tag_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`project_id`,`tag_id`),
+  KEY `project_id` (`project_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `user_project_tag`
+--
+
+INSERT INTO `user_project_tag` (`id`, `user_id`, `project_id`, `tag_id`) VALUES
+(4, 1, 1, 1),
+(3, 1, 1, 2),
+(5, 1, 1, 5);
 
 -- --------------------------------------------------------
 
