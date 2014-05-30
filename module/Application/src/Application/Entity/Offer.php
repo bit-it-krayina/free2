@@ -125,6 +125,22 @@ class Offer
 	 */
 	protected $user;
 
+	/**
+	 * @ORM\ManyToMany(targetEntity="CsnUser\Entity\Info\Tag", inversedBy="offers")
+	 * @ORM\JoinTable(name="offer_tag",
+	 *      joinColumns={@ORM\JoinColumn(name="offer_id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+	 *      )
+	 */
+	private $tags;
+
+
+	public function __construct ()
+	{
+		$this -> tags = new ArrayCollection();
+	}
+
+
 	public function getId ()
 	{
 		return $this -> id;
@@ -238,6 +254,21 @@ class Offer
 	public function setUser ( CsnUser\Entity\User $user )
 	{
 		$this -> user = $user;
+
+		return $this;
+
+	}
+
+
+	public function getTags ()
+	{
+		return $this -> tags;
+
+	}
+
+	public function setTags ( $tags )
+	{
+		$this -> tags = $tags;
 
 		return $this;
 

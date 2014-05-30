@@ -35,6 +35,11 @@ class Tag
 
 
     /**
+     * @ORM\ManyToMany(targetEntity="Application\Entity\Offer", mappedBy="tags")
+     */
+    protected $offers;
+
+    /**
      * @ORM\ManyToMany(targetEntity="CsnUser\Entity\User", mappedBy="tags")
      */
     protected $users;
@@ -47,6 +52,7 @@ class Tag
     public function __construct() {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->offers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 	public function getId ()

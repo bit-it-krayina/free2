@@ -955,6 +955,8 @@ class User
 	{
 		$this -> tags = $tags;
 
+		return $this;
+
 	}
 
 	public function getOffers ()
@@ -966,6 +968,8 @@ class User
 	public function setOffers ( $offers )
 	{
 		$this -> offers = $offers;
+
+		return $this;
 
 	}
 

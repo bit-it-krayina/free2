@@ -78,7 +78,7 @@
 								{% endif %}
 							</div>
 						{% endif %}
-						<div class="tab-pane " id="professional">
+						<div class="tab-pane active" id="professional">
 							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 							<dl class="profile-info">
 								<dt class="profile-title profile-title-left">Cпеціальність:</dt>
@@ -102,7 +102,7 @@
 								</p>
 							</div>
 						</div>
-						<div class="tab-pane active" id="projects">
+						<div class="tab-pane " id="projects">
 							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 							<h3 class="profile-title"><a href="">MediaPlazm</a></h3>
 							<dl>
@@ -126,6 +126,12 @@
 							{% for offer in user.offers %}
 								<span>{{ offer.resume }}</span>
 								<p>{{ offer.project.header }}</p>
+								<dt class="profile-title">Професійні навики: </dt>
+									<dd class="profile-tags">
+										{% for tag in offer.tags %}
+											<span>{{ tag.tag }}</span>
+										{% endfor %}
+									</dd>
 							{% endfor %}
 						</div>
 					</div>
