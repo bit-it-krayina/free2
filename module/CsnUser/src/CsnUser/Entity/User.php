@@ -340,11 +340,17 @@ class User
 	 */
 	private $tags;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="Application\Entity\Offer", mappedBy="user")
+	 */
+	private $offers;
+
 	public function __construct ()
 	{
 		$this -> friendsWithMe = new ArrayCollection();
 		$this -> myFriends = new ArrayCollection();
 		$this -> tags = new ArrayCollection();
+		$this -> offers = new ArrayCollection();
 
 	}
 
@@ -948,6 +954,18 @@ class User
 	public function setTags ( $tags )
 	{
 		$this -> tags = $tags;
+
+	}
+
+	public function getOffers ()
+	{
+		return $this -> offers;
+
+	}
+
+	public function setOffers ( $offers )
+	{
+		$this -> offers = $offers;
 
 	}
 

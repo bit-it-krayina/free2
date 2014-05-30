@@ -14,7 +14,6 @@ use Zend\Form\Annotation;
 class Project
 {
 
-
 	/**
 	 * @var integer
 	 *
@@ -91,7 +90,10 @@ class Project
 	 */
 	private $tags;
 
-
+	/**
+	 * @ORM\OneToMany(targetEntity="Application\Entity\Offer", mappedBy="project")
+	 */
+	private $offers;
 
 	public function getHeader ()
 	{
@@ -164,6 +166,18 @@ class Project
 	public function setTags ( $tags )
 	{
 		$this -> tags = $tags;
+
+	}
+
+	public function getOffers ()
+	{
+		return $this -> offers;
+
+	}
+
+	public function setOffers ( $offers )
+	{
+		$this -> offers = $offers;
 
 	}
 

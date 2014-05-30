@@ -78,7 +78,7 @@
 								{% endif %}
 							</div>
 						{% endif %}
-						<div class="tab-pane active" id="professional">
+						<div class="tab-pane " id="professional">
 							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 							<dl class="profile-info">
 								<dt class="profile-title profile-title-left">Cпеціальність:</dt>
@@ -102,7 +102,7 @@
 								</p>
 							</div>
 						</div>
-						<div class="tab-pane" id="projects">
+						<div class="tab-pane active" id="projects">
 							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 							<h3 class="profile-title"><a href="">MediaPlazm</a></h3>
 							<dl>
@@ -122,6 +122,11 @@
 								<dt class="profile-title">Відгук:</dt>
 								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
 							</dl>
+
+							{% for offer in user.offers %}
+								<span>{{ offer.resume }}</span>
+								<p>{{ offer.project.header }}</p>
+							{% endfor %}
 						</div>
 					</div>
 				</div>

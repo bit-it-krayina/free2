@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 30, 2014 at 08:18 AM
+-- Generation Time: May 30, 2014 at 09:30 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -184,6 +184,62 @@ INSERT INTO `language` (`id`, `name`, `abbreviation`) VALUES
 (5, 'Italiano', 'it'),
 (6, 'Български', 'bg'),
 (7, 'Русский', 'ru');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `offer`
+--
+
+CREATE TABLE IF NOT EXISTS `offer` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `project_id` int(10) unsigned NOT NULL,
+  `offer_state_id` int(10) unsigned NOT NULL DEFAULT '1',
+  `resume` varchar(255) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `finish_date` date DEFAULT NULL,
+  `registration_date` date DEFAULT NULL,
+  `role` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`project_id`),
+  KEY `project_id` (`project_id`),
+  KEY `offer_state_id` (`offer_state_id`),
+  KEY `resume` (`resume`),
+  KEY `start_date` (`start_date`),
+  KEY `finish_date` (`finish_date`),
+  KEY `register_date` (`registration_date`),
+  KEY `role` (`role`),
+  KEY `user_id_2` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `offer`
+--
+
+INSERT INTO `offer` (`id`, `user_id`, `project_id`, `offer_state_id`, `resume`, `start_date`, `finish_date`, `registration_date`, `role`) VALUES
+(1, 1, 1, 2, 'some resume', '2014-05-29', '2014-05-30', '2014-05-28', 'boss');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `offer_state`
+--
+
+CREATE TABLE IF NOT EXISTS `offer_state` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `state` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`state`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `offer_state`
+--
+
+INSERT INTO `offer_state` (`id`, `state`) VALUES
+(2, 'Approved'),
+(1, 'Not Approved');
 
 -- --------------------------------------------------------
 
