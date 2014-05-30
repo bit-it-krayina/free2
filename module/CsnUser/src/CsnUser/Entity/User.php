@@ -333,7 +333,7 @@ class User
 
 	/**
 	 * @ORM\ManyToMany(targetEntity="CsnUser\Entity\Info\Tag", inversedBy="users")
-	 * @ORM\JoinTable(name="user_user_tag",
+	 * @ORM\JoinTable(name="user_tag",
 	 *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
 	 *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
 	 *      )

@@ -5,10 +5,11 @@ namespace CsnUser\Entity\Info;
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
 use CsnUser\Entity\User;
+use Application\Entity\Project;
 /**
  * Role
  *
- * @ORM\Table(name="user_tag")
+ * @ORM\Table(name="tag")
  * @ORM\Entity
  */
 class Tag
@@ -38,8 +39,14 @@ class Tag
      */
     protected $users;
 
+	/**
+     * @ORM\ManyToMany(targetEntity="Application\Entity\Project", mappedBy="tags")
+     */
+    protected $projects;
+
     public function __construct() {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 	public function getId ()

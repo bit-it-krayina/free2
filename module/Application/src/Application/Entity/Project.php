@@ -82,6 +82,17 @@ class Project
 	 */
 	private $outerId;
 
+	/**
+	 * @ORM\ManyToMany(targetEntity="CsnUser\Entity\Info\Tag", inversedBy="users")
+	 * @ORM\JoinTable(name="project_tag",
+	 *      joinColumns={@ORM\JoinColumn(name="project_id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+	 *      )
+	 */
+	private $tags;
+
+
+
 	public function getHeader ()
 	{
 		return $this -> header;
@@ -141,6 +152,18 @@ class Project
 	public function getId ()
 	{
 		return $this -> id;
+
+	}
+
+	public function getTags ()
+	{
+		return $this -> tags;
+
+	}
+
+	public function setTags ( $tags )
+	{
+		$this -> tags = $tags;
 
 	}
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 29, 2014 at 09:57 AM
+-- Generation Time: May 30, 2014 at 08:18 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -320,6 +320,34 @@ INSERT INTO `projects` (`id`, `header`, `description`, `outer_id`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `project_tag`
+--
+
+CREATE TABLE IF NOT EXISTS `project_tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `project_id` int(10) unsigned NOT NULL,
+  `tag_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`project_id`),
+  KEY `tag_id` (`tag_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `project_tag`
+--
+
+INSERT INTO `project_tag` (`id`, `project_id`, `tag_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 5),
+(5, 1, 4),
+(6, 1, 6),
+(7, 1, 7);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `question`
 --
 
@@ -438,6 +466,35 @@ CREATE TABLE IF NOT EXISTS `state` (
 INSERT INTO `state` (`id`, `state`) VALUES
 (1, 'Disabled'),
 (2, 'Enabled');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tag`
+--
+
+CREATE TABLE IF NOT EXISTS `tag` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tag` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tag` (`tag`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `tag`
+--
+
+INSERT INTO `tag` (`id`, `tag`) VALUES
+(10, 'administration'),
+(8, 'apache'),
+(7, 'mysql'),
+(9, 'nginx'),
+(6, 'php'),
+(3, 'pr-тексти'),
+(5, 'ведення груп в соц.мережах'),
+(4, 'Комерційна пропозиція'),
+(1, 'копірайтинг'),
+(2, 'одностранічнікі');
 
 -- --------------------------------------------------------
 
@@ -572,48 +629,19 @@ INSERT INTO `user_project_tag` (`id`, `user_id`, `project_id`, `tag_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user_tag` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `tag` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `tag` (`tag`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `user_tag`
---
-
-INSERT INTO `user_tag` (`id`, `tag`) VALUES
-(10, 'administration'),
-(8, 'apache'),
-(7, 'mysql'),
-(9, 'nginx'),
-(6, 'php'),
-(3, 'pr-тексти'),
-(5, 'ведення груп в соц.мережах'),
-(4, 'Комерційна пропозиція'),
-(1, 'копірайтинг'),
-(2, 'одностранічнікі');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_user_tag`
---
-
-CREATE TABLE IF NOT EXISTS `user_user_tag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `tag_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`,`user_id`,`tag_id`),
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `tag_id` (`tag_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `user_user_tag`
+-- Dumping data for table `user_tag`
 --
 
-INSERT INTO `user_user_tag` (`id`, `user_id`, `tag_id`) VALUES
+INSERT INTO `user_tag` (`id`, `user_id`, `tag_id`) VALUES
 (1, 1, 5),
 (2, 1, 6);
 

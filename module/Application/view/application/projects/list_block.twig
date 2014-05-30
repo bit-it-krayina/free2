@@ -2,9 +2,26 @@
 {% for project in projects %}
 	<hr>
 	<div class="row">
-		<div class="col-lg-3"><a href="{{project.url}}">{{project.header}}</a>
+		<div class="col-lg-3">
+			<a href="{{project.url}}">{{project.header}}</a>
+			<p>{{project.id}}</p>
+			<p>{{project.outerId}}</p>
 		</div>
-		<div class="col-lg-9">{{project.description|raw}}</div>
+		<div class="col-lg-9">
+			<div class="row">
+				{{project.description|raw}}
+			</div>
+			{% if project.tags is not empty %}
+			<div class="row">
+				<dt class="profile-title">Нужны навыки: </dt>
+				<dd class="profile-tags">
+					{% for tag in project.tags %}
+						<span>{{ tag.tag }}</span>
+					{% endfor %}
+				</dd>
+			</div>
+			{% endif %}
+		</div>
 	</div>
 
 {% endfor %}
