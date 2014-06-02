@@ -107,17 +107,34 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
 	}
 
+
+	public function facebookAction()
+	{
+		
+	}
+
+
+
+	/**
+	 * @deprecated since version number
+	 */
 	public function aboutAction ()
 	{
 //	$mailer = $this->getServiceLocator()->get('mailer');
 		return new ViewModel();
 	}
 
+	/**
+	 * @deprecated since version number
+	 */
 	public function contactsAction ()
 	{
 		return new ViewModel();
 	}
 
+	/**
+	 * @deprecated since version number
+	 */
 	public function servicesAction ()
 	{
 		return new ViewModel();
@@ -148,11 +165,17 @@ class IndexController extends AbstractActionController implements EntityManagerA
 		) );
 	}
 
+	/**
+	 * @deprecated since version number
+	 */
 	public function profileAction ()
 	{
 		return new ViewModel();
 	}
 
+	/**
+	 * @deprecated since version number
+	 */
 	public function userManagementAction ()
 	{
 		return new ViewModel();

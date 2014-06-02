@@ -50,6 +50,7 @@ trait ControlUtils
 		$evm = $e -> getApplication () -> getEventManager ();
 		$evm -> attach ( \Zend\Mvc\MvcEvent::EVENT_RENDER, function (\Zend\Mvc\MvcEvent $event) {
 
+			$facebookAuth = $this->getServiceLocator()->get('config')['facebookAuth'];
 			$view = $event -> getViewModel ();
 
 			$view -> setVariables ( array (
@@ -57,7 +58,8 @@ trait ControlUtils
 				'someVar' => 'yoyoyo',
 				'identity' => $this -> getAuthenticationService () -> getIdentity (),
 				'loggedUser' => $this -> getLoggedUser (),
-				'lastProjects' => $this -> getLastProjects()
+				'lastProjects' => $this -> getLastProjects(),
+				'facebookAuthUrl' => "https://www.facebook.com/dialog/oauth?client_id=".$facebookAuth['apiId']."&redirect_uri=". $this->url()->fromRoute('') //https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow/v2.0
 			) );
 		} );
 

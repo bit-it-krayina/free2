@@ -189,4 +189,8 @@ return array (
 	'projectsApi' => [
 		'url' => 'http://ideas.it-krayina.org.ua/'
 	],
+	'facebookAuth' => [
+		'apiId' => '760427617322200',
+		'secret' => '0c9967f76181a9573a06043339bfd0da',
+	],
 );
