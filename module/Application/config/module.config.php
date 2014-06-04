@@ -35,8 +35,19 @@ return array (
 					),
 				),
 			),
-
-
+			'facebook' => array(
+				'type' => 'Zend\Mvc\Router\Http\Segment',
+				'options' => array (
+					'route' => '/facebook/:action',
+					'constraints' => array (
+						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+					),
+					'defaults' => array (
+						'controller' => 'Application\Controller\Facebook',
+						'action' => 'index',
+					),
+				),
+			),
 			'project' => array (
 				'type' => 'Segment',
 				'options' => array (
@@ -114,6 +125,7 @@ return array (
 		'invokables' => array (
 			'Application\Controller\Index' => 'Application\Controller\IndexController',
 			'Application\Controller\Projects' => 'Application\Controller\ProjectsController',
+			'Application\Controller\Facebook' => 'Application\Controller\FacebookController',
 			'Application\Controller\Auth' => 'Application\Controller\AuthController',
 			'Application\Controller\Ajax' => 'Application\Controller\AjaxController',
 			'Application\Controller\Teachers' => 'Application\Controller\TeachersController'

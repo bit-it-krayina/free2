@@ -59,7 +59,7 @@ trait ControlUtils
 				'identity' => $this -> getAuthenticationService () -> getIdentity (),
 				'loggedUser' => $this -> getLoggedUser (),
 				'lastProjects' => $this -> getLastProjects(),
-				'facebookAuthUrl' => "https://www.facebook.com/dialog/oauth?client_id=".$facebookAuth['apiId']."&redirect_uri=". $this->url()->fromRoute('') //https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow/v2.0
+				'facebookAuthUrl' => "https://www.facebook.com/dialog/oauth?client_id=".$facebookAuth['apiId']."&redirect_uri=".$this->url()->fromRoute('facebook', ['action' => 'login'], array('force_canonical' => true))
 			) );
 		} );
 

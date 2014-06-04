@@ -54,6 +54,10 @@ return array(
         ),
         'resources' => array(
             'allow' => array(
+				'Application\Controller\Facebook' => array(
+					'login'   => 'guest',
+					'index' => 'guest',
+				),
 				'CsnUser\Controller\Registration' => array(
 					'index'	=> 'guest',
 					'change-password' => 'volunteer',
