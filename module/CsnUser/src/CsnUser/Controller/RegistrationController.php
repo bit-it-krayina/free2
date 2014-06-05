@@ -128,20 +128,19 @@ class RegistrationController extends AbstractActionController
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
 
+
         $form = $this->getUserFormHelper()->createUserForm($user, 'EditProfile');
-        $email = $user->getEmail();
-        $username = $user->getUsername();
         $message = null;
         if($this->getRequest()->isPost()) {
-            $currentFirstName = $user->getFirstName();
-            $currentLastName = $user->getLastName();
-            $form->setValidationGroup('firstName', 'lastName', 'language', 'csrf', 'location', 'resume');
+//            $form->setValidationGroup('firstName', 'lastName', 'csrf', 'phone1','phone2','skype','facebookUrl', 'twitterUrl', 'linkedInUrl');
+            $form->setValidationGroup('firstName', 'lastName', 'csrf');
             $form->setData($this->getRequest()->getPost());
             if($form->isValid()) {
-                $firstName = $this->params()->fromPost('firstName');
-                $lastName = $this->params()->fromPost('lastName');
-                $user->setFirstName($firstName);
-                $user->setLastName($lastName);
+                $phone1 = $this->params()->fromPost('phone1');
+                $phone2 = $this->params()->fromPost('phone2');
+                $user->setPhone1($phone1);
+                $user->setPhone2($phone2);
+
                 $entityManager = $this->getEntityManager();
                 $entityManager->persist($user);
                 $entityManager->flush();
@@ -151,8 +150,6 @@ class RegistrationController extends AbstractActionController
 
         return new ViewModel(array(
             'form' => $form,
-            'email' => $email,
-            'username' => $username,
             'securityQuestion' => $user->getQuestion()->getQuestion(),
             'message' => $message,
             'navMenu' => $this->getOptions()->getNavMenu()

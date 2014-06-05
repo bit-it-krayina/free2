@@ -19,6 +19,7 @@
         <input type="{{ type|default('text') }}"
 			   name="{{ element.attributes.name }}"
 			   value="{{ element.value }}"
+			   placeholder="{{ element.attributes.placeholder }}"
 			   {{ element.attributes.required is not empty and element.attributes.required != 'false' ? 'required="required"' : ''}}
 			   class="{{ element.attributes.class|e }}"
 			   />

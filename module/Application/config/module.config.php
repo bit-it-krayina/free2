@@ -109,10 +109,13 @@ return array (
 		),
 		'invokables' => array(
 			'importer' => 'Application\Service\Importer\Service',
+			'userForm' => 'Application\Form\User',
+			'userFormFilter' => 'Application\Form\UserFilter',
 		),
 	),
 	'translator' => array (
-		'locale' => 'uk_UA',
+//		'locale' => 'uk_UA',
+		'locale' => 'en_US',
 		'translation_file_patterns' => array (
 			array (
 				'type' => 'gettext',

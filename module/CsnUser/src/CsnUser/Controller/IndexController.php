@@ -181,7 +181,7 @@ class IndexController extends AbstractActionController
 		{
 			$currentFirstName = $user -> getFirstName ();
 			$currentLastName = $user -> getLastName ();
-			$form -> setValidationGroup ( 'firstName', 'lastName', 'language', 'csrf', 'location', 'resume' );
+			$form -> setValidationGroup ( 'firstName', 'lastName', 'language', 'csrf', 'location' );
 			$form -> setData ( $this -> getRequest () -> getPost () );
 			if ( $form -> isValid () )
 			{

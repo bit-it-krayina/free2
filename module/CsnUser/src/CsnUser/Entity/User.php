@@ -136,23 +136,6 @@ class User
 	 */
 	protected $role;
 
-	/**
-	 * @var CsnUser\Entity\Language
-	 *
-	 * @ORM\ManyToOne(targetEntity="CsnUser\Entity\Language")
-	 * @ORM\JoinColumn(name="language_id", referencedColumnName="id", nullable=false)
-	 * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
-	 * @Annotation\Filter({"name":"StripTags"})
-	 * @Annotation\Filter({"name":"StringTrim"})
-	 * @Annotation\Validator({"name":"Digits"})
-	 * @Annotation\Options({
-	 *   "label":"Language:",
-	 *   "empty_option": "User Language",
-	 *   "target_class":"CsnUser\Entity\Language",
-	 *   "property": "name"
-	 * })
-	 */
-	protected $language;
 
 	/**
 	 * @var CsnUser\Entity\State
@@ -275,16 +258,6 @@ class User
 	 */
 	protected $location;
 
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="resume", type="string", length=255, nullable=true)
-	 * @Annotation\Type("Zend\Form\Element\Textarea")
-	 * @Annotation\Filter({"name":"StripTags"})
-	 * @Annotation\Filter({"name":"StringTrim"})
-	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})
-	 */
-	private $resume;
 
 	/**
 	 * @var string
@@ -344,6 +317,76 @@ class User
 	 * @ORM\OneToMany(targetEntity="Application\Entity\Offer", mappedBy="user")
 	 */
 	private $offers;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="skype", type="string", length=60, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":60}})
+     */
+    protected $skype;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone1", type="string", length=20, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Number")
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":20}})
+     * @Annotation\Validator({"name":"Digits"})
+     */
+    private $phone1;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="phone2", type="string", length=20, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Number")
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":20}})
+     * @Annotation\Validator({"name":"Digits"})
+     */
+    private $phone2;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="facebook_url", type="string", length=150, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":150}})
+     */
+    private $facebookUrl;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="twitter_url", type="string", length=150, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":150}})
+     */
+    private $twitterUrl;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="linkedin_url", type="string", length=150, nullable=true)
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":150}})
+     */
+    private $linkedInUrl;
+
+
+
+
 
 	public function __construct ()
 	{
@@ -515,30 +558,6 @@ class User
 
 	}
 
-	/**
-	 * Set language
-	 *
-	 * @param  Language $language
-	 * @return User
-	 */
-	public function setLanguage ( $language )
-	{
-		$this -> language = $language;
-
-		return $this;
-
-	}
-
-	/**
-	 * Get language
-	 *
-	 * @return Language
-	 */
-	public function getLanguage ()
-	{
-		return $this -> language;
-
-	}
 
 	/**
 	 * Set user state
@@ -818,45 +837,7 @@ class User
 
 	}
 
-	public function getLocation ()
-	{
-		return $this -> location;
-
-	}
-
-	public function setLocation ( $location )
-	{
-		$this -> location = $location;
-
-		return $this;
-
-	}
-
-	/**
-	 * Set resume
-	 *
-	 * @param  string $resume
-	 * @return User
-	 */
-	public function setResume ( $resume )
-	{
-		$this -> resume = $resume;
-
-		return $this;
-
-	}
-
-	/**
-	 * Get resume
-	 *
-	 * @return string
-	 */
-	public function getResume ()
-	{
-		return $this -> resume;
-
-	}
-
+	
 	/**
 	 * Специальность/Квалификация
 	 * @return string
@@ -969,6 +950,84 @@ class User
 	{
 		$this -> offers = $offers;
 
+		return $this;
+
+	}
+
+	public function getSkype ()
+	{
+		return $this -> skype;
+
+	}
+
+	public function setSkype ( $skype )
+	{
+		$this -> skype = $skype;
+		return $this;
+
+	}
+
+	public function getPhone1 ()
+	{
+		return $this -> phone1;
+
+	}
+
+	public function setPhone1 ( $phone1 )
+	{
+		$this -> phone1 = $phone1;
+		return $this;
+
+	}
+
+	public function getPhone2 ()
+	{
+		return $this -> phone2;
+
+	}
+
+	public function setPhone2 ( $phone2 )
+	{
+		$this -> phone2 = $phone2;
+		return $this;
+
+	}
+
+	public function getFacebookUrl ()
+	{
+		return $this -> facebookUrl;
+
+	}
+
+	public function setFacebookUrl ( $facebookUrl )
+	{
+		$this -> facebookUrl = $facebookUrl;
+		return $this;
+
+	}
+
+	public function getTwitterUrl ()
+	{
+		return $this -> twitterUrl;
+
+	}
+
+	public function setTwitterUrl ( $twitterUrl )
+	{
+		$this -> twitterUrl = $twitterUrl;
+		return $this;
+
+	}
+
+	public function getLinkedInUrl ()
+	{
+		return $this -> linkedInUrl;
+
+	}
+
+	public function setLinkedInUrl ( $linkedInUrl )
+	{
+		$this -> linkedInUrl = $linkedInUrl;
 		return $this;
 
 	}

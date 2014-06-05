@@ -151,12 +151,6 @@ class UserFormFactory implements FactoryInterface
 					'label' => $this -> getTranslatorHelper () -> translate ( 'Sign In' )
 				) );
 
-				$this -> form -> get ( 'resume' )
-					-> setAttributes ( array (
-						'required' => 'false',
-						'class' => 'form-control input-lg',
-						'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
-				) );
 
 				break;
 
@@ -178,17 +172,39 @@ class UserFormFactory implements FactoryInterface
 					'class' => 'form-control input-lg',
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Last Name' )
 				) );
-
-				$this -> form -> get ( 'language' ) -> setAttributes ( array (
-					'required' => 'true',
+				$this -> form -> get ( 'phone1' ) -> setAttributes ( array (
+					'required' => 'false',
+					'type' => 'number',
 					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Phone' )
 				) );
-
-				$this -> form -> get ( 'location' ) -> setAttributes ( array (
+				$this -> form -> get ( 'phone2' ) -> setAttributes ( array (
+					'required' => 'false',
+					'type' => 'number',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Phone' )
+				) );
+				$this -> form -> get ( 'skype' ) -> setAttributes ( array (
 					'required' => 'false',
 					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Skype' )
 				) );
+				$this -> form -> get ( 'facebookUrl' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Facebook' )
+				) );
+				$this -> form -> get ( 'twitterUrl' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Twitter' )
+				) );
+				$this -> form -> get ( 'linkedInUrl' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control input-lg',
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Linkedin' )
+				) );
+
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
 					'class' => 'btn btn-primary pull-right',
@@ -354,12 +370,6 @@ class UserFormFactory implements FactoryInterface
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Type Your Answer' )
 				) );
 
-				$this -> form -> get ( 'resume' )
-					-> setAttributes ( array (
-						'required' => 'false',
-						'class' => 'form-control input-lg',
-						'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
-					) );
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
 					'class' => 'btn btn btn-success btn-lg',
@@ -594,13 +604,6 @@ class UserFormFactory implements FactoryInterface
 				'type' => 'password',
 			),
 		) );
-
-		$this -> form -> get ( 'resume' )
-			-> setAttributes ( array (
-				'required' => 'false',
-				'class' => 'form-control input-lg',
-				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
-			) );
 
 
 
