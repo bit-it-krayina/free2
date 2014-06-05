@@ -85,7 +85,6 @@ body {
   height: 32px;
   width: 32px;
   line-height: 32px;
-//  border-radius: 4px;
 }
 
 .icon-circle {
@@ -220,11 +219,6 @@ body {
       transition: all 0.2s ease-out 0s;
     }
   }
-
-  .fi-globe {
-    font-size: 21px;
-    margin-top: -4px;
-  }
 }
 
 .navbar-inverse {
@@ -246,6 +240,30 @@ body {
         box-shadow: none;
       }
     }
+
+    .dropdown_icon .dropdown-toggle{
+      width: 45px;
+      text-align: center;
+      height: 45px;
+      padding: 0;
+      font-size: 16px;
+    }
+  }
+
+  .fi {
+    position: relative;
+  }
+
+  .fi-search {
+    top: 3px;
+  }
+
+  .fi-bell-alt {
+    
+  }
+
+  .fi-search {
+    top: 2px;
   }
 }
 
