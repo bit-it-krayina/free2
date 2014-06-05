@@ -1,48 +1,21 @@
-{% extends 'layout/layout.twig' %}
+{% extends 'layout/layout1.twig' %}
 
 {% block content %}
-{# include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} #}
+<section class="main promo-page">
+	<div class="container">
+			<div class="row">
+			{% if identity is empty %}
+				<div class="col-md-6 col-lg-offset-3">
+					{% include 'application/index/forms/login' %}
+				</div>
 
+			{% else %}
+					<h2>Last projects</h2>
+				{% include 'application/projects/list_block' with {'projects' : lastProjects} %}
+			{% endif %}
+			</div>
 
-<div class="jumbotron">
-  <h2>{{ translate('Log In') }}</h2>
-    <div class="container" id="wrap">
-	  <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          {{ form().openTag(form) | raw }}
-            <div class="row">
-              <div class="col-sm-12">
-                {{ messages }}
-              </div>
-            </div>
-            {{ formElement(form.get('usernameOrEmail'))| raw }}
-            {{ formElementErrors(form.get('usernameOrEmail'))| raw }}
-            {{ formElement(form.get('password'))| raw }}
-            {{ formElementErrors(form.get('password'))| raw }}
-            <div class="checkbox">
-				{% set element = form.get('rememberme') %}
-				{{ formLabel(element, formCheckbox(element), 'append')| raw }}
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-				  {{ formRow(form.get('submit'))| raw }}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-	            <a href="{{ url('user-register', {'action' : 'index'}) }}">
-					{{ translate('Sign up')| raw }}
-	            </a> |
-	            <a href="{{ url('user-register', {'action' : 'reset-password'}) }}">
-					{{ translate('Forgot your password?')| raw }}
-	            </a>
-              </div>
-            </div>
-				{{ formElement(form.get('csrf'))| raw }}
-				{{ form().closeTag(form) | raw}}
-        </div>
-      </div>
-    </div>
-</div>
+	</div>
+</section>
 
 {% endblock content %}

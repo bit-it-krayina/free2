@@ -78,12 +78,20 @@ return array(
 			 array(
 				'label' => '<span class="fi-user"></span>',
 				'uri'	=> '#',
-				'route' => 'user-register',
-				'controller' => 'Registration',
-				'action'     => 'edit-profile',
-				'resource'	  => 'CsnUser\Controller\Registration',
-				'privilege'  => 'edit-profile',
+//				'route' => 'home',
+//				'controller' => 'Registration',
+//				'action'     => 'edit-profile',
+//				'resource'	  => 'CsnUser\Controller\Registration',
+//				'privilege'  => 'edit-profile',
 				'pages' => array(
+					array (
+						'label' => 'Логін',
+						'route' => 'user-index',
+						'controller' => 'Index',
+						'action'     => 'login',
+						'resource'	  => 'CsnUser\Controller\Index',
+						'privilege'  => 'login',
+					),
 					array (
 						'label' => 'Профіль',
 						'route' => 'user-index',

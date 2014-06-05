@@ -1,7 +1,7 @@
-{% if messages is not empty %}
- {{ messages | raw}}
-
-{% endif %}
+{% for message in messages %}
+<div class="alert alert-warning">{{ message | raw}}</div>
+{% endfor %}
+<div class="alert alert-warning">{{ error | raw}}</div>
 
 {% if loginForm is  not empty %}
 

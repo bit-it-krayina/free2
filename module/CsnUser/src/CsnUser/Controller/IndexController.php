@@ -72,6 +72,7 @@ class IndexController extends AbstractActionController
      */
     public function loginAction()
     {
+		ini_set('display_errors', 1); error_reporting(E_ALL & ~E_NOTICE);
         if ($user = $this->identity()) {
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
@@ -96,17 +97,17 @@ class IndexController extends AbstractActionController
                         $message = 'The username or email is not valid!';
                         return new ViewModel(array(
                             'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
-                            'form'	=> $form,
-                            'messages' => $messages
+                            'loginForm'	=> $form,
+                            'messages' => [$message]
                         ));
                     }
 
                     if($user->getState()->getId() < 2) {
-                        $messages = $this->getTranslatorHelper()->translate('Your username is disabled. Please contact an administrator.');
+                        $message = $this->getTranslatorHelper()->translate('Your username is disabled. Please contact an administrator.');
                         return new ViewModel(array(
                             'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
-                            'form'	=> $form,
-                            'messages' => $messages
+                            'loginForm'	=> $form,
+                            'messages' => [$message]
                         ));
                     }
 
@@ -127,9 +128,7 @@ class IndexController extends AbstractActionController
                         return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
                     }
 
-                    foreach ($authResult->getMessages() as $message) {
-                      $messages .= "$message\n";
-                    }
+					$messages = array_merge($messages, $authResult->getMessages());
                 } catch (\Exception $e) {
                     return $this->getServiceLocator()->get('csnuser_error_view')->createErrorView(
                         $this->getTranslatorHelper()->translate('Something went wrong during login! Please, try again later.'),
@@ -140,10 +139,9 @@ class IndexController extends AbstractActionController
                 }
             }
         }
-
         return new ViewModel(array(
             'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
-            'form'	=> $form,
+            'loginForm'	=> $form,
             'messages' => $messages,
             'navMenu' => $this->getOptions()->getNavMenu()
         ));
