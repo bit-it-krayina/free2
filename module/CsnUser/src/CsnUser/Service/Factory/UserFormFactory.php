@@ -163,12 +163,13 @@ class UserFormFactory implements FactoryInterface
 			case 'EditProfile':
 
 				$this -> form -> setAttributes ( array (
-					'class' => 'form'
-				) );
+					'class' => 'form',
+					'role' => 'form form-horizontal'
+ 				) );
 
 				$this -> form -> get ( 'firstName' ) -> setAttributes ( array (
-					'required' => 'false',
-					'class' => 'form-control input-lg',
+					'required' => 'true',
+					'class' => 'form-control ',
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'First Name' )
 				) );
 
@@ -189,15 +190,8 @@ class UserFormFactory implements FactoryInterface
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
 				) );
 
-				$this -> form -> get ( 'resume' )
-					-> setAttributes ( array (
-						'required' => 'false',
-						'class' => 'form-control input-lg',
-						'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
-					) );
-
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
-					'class' => 'btn btn btn-success btn-lg',
+					'class' => 'btn btn-primary pull-right',
 					'value' => $this -> getTranslatorHelper () -> translate ( 'Update Profile' )
 				) );
 

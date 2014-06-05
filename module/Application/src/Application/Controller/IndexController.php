@@ -36,6 +36,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
         $form = $this->getUserFormHelper()->createUserForm($user, 'login');
         $messages = null;
         if ($this->getRequest()->isPost()) {
+			var_dump('66666666666');
             $form->setValidationGroup('usernameOrEmail', 'password', 'rememberme', 'csrf');
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
@@ -99,7 +100,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
         return $this->createViewModel('application/index/index',
 			array(
-				'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
+				'error' => '',
 				'loginForm'	=> $form,
 				'messages' => $messages,
 				'navMenu' => $this->getOptions()->getNavMenu()
@@ -110,7 +111,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
 	public function facebookAction()
 	{
-		
+
 	}
 
 

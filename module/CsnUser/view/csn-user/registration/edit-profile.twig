@@ -1,5 +1,7 @@
 {% extends 'layout/layout1.twig' %}
 
+{% import 'application/macros/profile-forms.twig' as _forms %}
+
 {% block content %}
 {# include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} #}
 <section class="main">
@@ -9,31 +11,14 @@
 				<div class="profile profile-edit">
 					<div class="profile-header ">
 						<div class="profile-photo">
-							<img src="/img/photo.jpg" alt="">
+							<img src="img/photo.jpg" alt="">
 						</div>
 						<div class="profile-header-info">
-							<form role="form form-horizontal">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Ім'я">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Фамілія">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Телефон">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Skype">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Facebook">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Twitter">
-								</div>
-								<div class="form-group">
-									<button type="button" class="btn btn-primary pull-right">Зерегти</button>
-								</div>
+							{{ form().openTag(form) | raw }}
+								{% for element in form if element.name in ['firstName', 'lastName', 'language', 'location',  'submit'] %}
+									{{ _forms._wrappedInput(element) }}
+								{% endfor%}
+
 							</form>
 						</div>
 					</div>
@@ -45,10 +30,55 @@
 
 					<div class="tab-content profile-tabs-content">
 						<div class="tab-pane" id="personal">
-							<form role="form form-horizontal">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Дата народження">
+							<div class="tab-pane active" id="personal">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="profile-title" for="">Cпеціальність</label>
+										<input type="text" class="form-control" placeholder="">
+									</div>
+									<div class="form-group">
+										<label class="profile-title" for="">Cтаж роботи</label>
+										<select name="" id="">
+											<option value="">менше року</option>
+											<option value="">більше року </option>
+											<option value="">більше трьох років</option>
+											<option value="">більше п'яти років</option>
+											<option value="">більше 10 років</option>
+										</select>
+									</div>
 								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="profile-title" for="">Дата народження</label>
+										<input type="text" class="form-control" placeholder="">
+									</div>
+									<div class="form-group">
+										<label class="profile-title" for="">Місцезнаходження</label>
+										<input type="text" class="form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<dl class="profile-info">
+								<dt class="profile-title">Професійні навики </dt>
+								<dd class="profile-tags">
+									<span>копірайтинг</span>
+									<span>одностранічнікі</span>
+									<span>pr-тексти</span>
+									<span>Комерційна пропозиція</span>
+									<span>ведення груп в соц.мережах</span>
+								</dd>
+							</dl>
+
+							<div class="profile-text">
+								<p>
+									Оказываю услуги по бизнес-анализу и документированию программного обеспечения (настольных, мобильных и веб-приложений), прототипированию пользовательских интерфейсов, тестированию программного обеспечению, разработке веб-сайтов на платформах WordPress и Moodle, а также разработке учебных курсов.
+								</p>
+							</div>
+						</div>
+							<form role="form form-horizontal">
+
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Місцезнаходження">
 								</div>
@@ -64,13 +94,7 @@
 								</div>
 								<div class="form-group">
 									<label for="">Cтаж роботи:</label>
-									<select name="" id="">
-										<option value="">менше року</option>
-										<option value="">більше року </option>
-										<option value="">більше трьох років</option>
-										<option value="">більше п'яти років</option>
-										<option value="">більше 10 років</option>
-									</select>
+
 								</div>
 								<div class="form-group">
 									<label for="">Професійні навики:</label>
@@ -106,7 +130,7 @@
 				</div>
 			</div>
 			<div class="col-md-3">
-				<img src="/img/banner.jpg" alt="">
+				<img src="img/banner.jpg" alt="">
 			</div>
 		</div>
 	</div>

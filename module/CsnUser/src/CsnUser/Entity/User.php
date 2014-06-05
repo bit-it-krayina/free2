@@ -279,7 +279,7 @@ class User
 	 * @var string
 	 *
 	 * @ORM\Column(name="resume", type="string", length=255, nullable=true)
-	 * @Annotation\Type("Zend\Form\Element\Text")
+	 * @Annotation\Type("Zend\Form\Element\Textarea")
 	 * @Annotation\Filter({"name":"StripTags"})
 	 * @Annotation\Filter({"name":"StringTrim"})
 	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})

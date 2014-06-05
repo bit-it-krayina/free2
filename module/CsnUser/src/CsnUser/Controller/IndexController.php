@@ -140,7 +140,7 @@ class IndexController extends AbstractActionController
             }
         }
         return new ViewModel(array(
-            'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
+            'error' => '',
             'loginForm'	=> $form,
             'messages' => $messages,
             'navMenu' => $this->getOptions()->getNavMenu()
