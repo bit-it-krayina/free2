@@ -1,18 +1,18 @@
-<?php function renderPage ($page, $navigation) { ?>
+<?php function renderPage ($page, $navigation, $translate)  { ?>
 	<?php if ( $navigation->accept($page) ): ?>
 		<li class="<?php echo ($page->isActive(true) ? 'active' : '');?>
 			<?php echo ($page->hasPages(true) ? 'dropdown' : '');?>">
 			<?php if ($page->hasPages(true) ):
 				$page->setClass('dropdown-toggle');
-				echo '<a href="'.$page->getHref().'" class="'.$page->getClass().'" data-toggle="dropdown">' . $page->getLabel()  .'</a>';
+				echo '<a href="'.$page->getHref().'" class="'.$page->getClass().'" data-toggle="dropdown">' .  $translate->getTranslator()->translate($page->getLabel())  .'</a>';
 				?>
 					<ul class="dropdown-menu">
 					<?php foreach ( $page->getPages() as $child ) :
-						renderPage($child, $navigation);
+						renderPage($child, $navigation, $translate);
 					endforeach; ?>
 					</ul>
 			<?php else :
-				echo '<a href="'.$page->getHref().'" class="'.$page->getClass().'">' . $page->getLabel()  .'</a>';
+				echo '<a href="'.$page->getHref().'" class="'.$page->getClass().'">' . $translate->getTranslator()->translate($page->getLabel())  .'</a>';
 			endif; ?>
 		</li>
 	<?php endif; ?>
@@ -21,12 +21,12 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="<?php echo $this->url('home'); ?>"><i class="fi-cog"></i> <span>Біржа волонтерів України</span></a>
+			<a class="navbar-brand" href="<?php echo $this->url('home'); ?>"><i class="fi-cog"></i> <span><?php echo $this->translate('Volunteers Marketplace of Ukraine') ?></span></a>
 		</div>
 		<div class="navbar-collapse navbar-inverse-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<?php foreach ( $this -> container as $page ) :
-				renderPage ($page, $this -> navigation ());
+				renderPage ($page, $this -> navigation (), $this->plugin('translate'));
 				endforeach;	?>
 
 			</ul>

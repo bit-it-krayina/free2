@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2014-06-05 16:07+0300\n"
+"PO-Revision-Date: 2014-06-05 16:39+0300\n"
 "Last-Translator: irina <imychkova@gmail.com>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: en_US\n"
@@ -151,5 +151,32 @@ msgid "Exception"
 msgstr "Исключение"
 
 msgid "Last projects"
-msgstr "Последние проекты"
+msgstr "Останні проекти"
+
+msgid "List of projects"
+msgstr "Усі проекти"
+
+msgid "Volunteers Marketplace of Ukraine"
+msgstr "Біржа волонтерів України"
+
+msgid "Volunteers"
+msgstr "Волонтери"
+
+msgid "Projects"
+msgstr "Проекти"
+
+msgid "List"
+msgstr "Список"
+
+msgid "Add"
+msgstr "Створити"
+
+msgid "Profile"
+msgstr "Профіль"
+
+msgid "Logout"
+msgstr "Вихід"
+
+msgid "Login"
+msgstr "Логін"
 

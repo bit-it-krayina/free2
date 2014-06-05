@@ -18,14 +18,14 @@ return array(
 //				 'privilege' => 'index',
 //             ),
 			 array(
-                 'label' => 'Проекти',
+                 'label' => 'Projects',
                  'route' => 'project',
 				 'action'     => 'list',
 				 'resource'	  => 'Application\Controller\Projects',
 				 'privilege'  => 'index',
              ),
 			 array(
-				'label' => 'Volounteers',
+				'label' => 'Volunteers',
 				'uri'	=> '#',
 				'route' => 'user-admin',
 				'action' => 'index',
@@ -34,14 +34,14 @@ return array(
 				'class' => '',
 				'pages' => array(
 					array (
-						'label' => 'Список',
+						'label' => 'List',
 						'route' => 'user-admin',
 						'action' => 'index',
 						'resource' => 'CsnUser\Controller\Admin',
 						'privilege' => 'index',
 					),
 					array (
-						'label' => 'Добавити',
+						'label' => 'Add',
 						'route' => 'user-admin',
 						'resource' => 'CsnUser\Controller\Admin',
 						'privilege' => 'index',
@@ -85,7 +85,7 @@ return array(
 //				'privilege'  => 'edit-profile',
 				'pages' => array(
 					array (
-						'label' => 'Логін',
+						'label' => 'Login',
 						'route' => 'user-index',
 						'controller' => 'Index',
 						'action'     => 'login',
@@ -93,7 +93,7 @@ return array(
 						'privilege'  => 'login',
 					),
 					array (
-						'label' => 'Профіль',
+						'label' => 'Profile',
 						'route' => 'user-index',
 						'controller' => 'Index',
 						'action'     => 'profile',
@@ -101,7 +101,7 @@ return array(
 						'privilege'  => 'profile',
 					),
 					array (
-						'label' => 'Налаштування',
+						'label' => 'Settings',
 						'route' => 'user-register',
 						'controller' => 'Registration',
 						'action'     => 'edit-profile',
@@ -110,7 +110,7 @@ return array(
 					),
 
 					array (
-						'label' => 'Вихід',
+						'label' => 'Logout',
 						'route' => 'user-index',
 						'controller' => 'Index',
 						'action'     => 'logout',

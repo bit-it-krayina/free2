@@ -14,7 +14,7 @@
 					<p>Quisque eros mi, lobortis ut massa nec, volutpat sollicitudin ante. Suspendisse vulputate rhoncus dui id dapibus. Vivamus cursus ornare ante. Donec dictum a urna id lobortis. Vivamus leo quam, convallis ac eros et, lacinia sollicitudin nulla. Nullam malesuada euismod molestie. Integer in mattis tellus. Vestibulum eget mi eget ante euismod dignissim.</p>
 				</div>
 			{% else %}
-					<h2>Last projects</h2>
+					<h2>{{ translate( 'Last projects') }}</h2>
 				{% include 'application/projects/list_block' with {'projects' : lastProjects} %}
 			{% endif %}
 			</div>
