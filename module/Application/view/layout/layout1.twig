@@ -23,12 +23,7 @@
 	<body>
 		<div class="wrap">
 			<header class="header">
-
-				<div class="row">
-					<div class="col-lg-12">
-						{{ navigation('navigation').menu().setPartial('application/bits/menu-template.phtml')|raw }}
-					</div>
-				</div>
+				{{ navigation('navigation').menu().setPartial('application/bits/menu-template.phtml')|raw }}
 			</header>
 			{% block content %}{{ content|raw }}{% endblock content %}
 
