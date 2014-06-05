@@ -114,7 +114,9 @@ body {
   }
 }
 .icon-disabled,
-.icon-disabled:hover {
+.icon-disabled:hover,
+.contacts-item-disabled i,
+.contacts-item-disabled:hover i{
   background: #FFF;
   color: lighten(#000, 90%);
   border-color: lighten(#000, 90%);

@@ -35,7 +35,7 @@ html, body { height: 100%; }
 .icon-main-color-in { color: #1179b9; background: #fff; border-color: #1179b9; }
 .icon-main-color-in:hover { background: #1179b9; color: #fff; }
 
-.icon-disabled, .icon-disabled:hover { background: #FFF; color: #e6e6e6; border-color: #e6e6e6; cursor: default; }
+.icon-disabled, .icon-disabled:hover, .contacts-item-disabled i, .contacts-item-disabled:hover i { background: #FFF; color: #e6e6e6; border-color: #e6e6e6; cursor: default; }
 
 .icon-add-color { color: #69570f; background: #ffd52c; }
 .icon-add-color:hover { background: #ffe478; }
@@ -102,7 +102,9 @@ html, body { height: 100%; }
 .profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 35px; }
 .profile-photo img { max-width: 130px; }
 
-.profile-photo-available { border-color: #2ecc71; }
+.profile-photo-free { border-color: #2ecc71; }
+
+.profile-photo-busy { border-color: #e74c3c; }
 
 .profile-status { position: absolute; bottom: 40px; left: 0; }
 .profile-status .caret { position: absolute; top: 11px; right: 9px; font-size: 5px; }
@@ -115,11 +117,11 @@ div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2e
 
 .profile-header-info { width: 340px; float: left; }
 
-.profile-header-contacts { position: absolute; right: 0; top: 0; }
+.profile-header-contacts { position: absolute; right: 0; top: 0; text-align: right; }
 
 .contacts-item { display: inline-block; vertical-align: top; margin: 0 0 10px 10px; }
 
-.profile-header-phone, .profile-header-skype { max-width: 170px; font-style: italic; padding-left: 27px; position: relative; margin-bottom: 8px; margin-left: 10px; }
+.profile-header-phone, .profile-header-skype { max-width: 170px; font-style: italic; padding-left: 27px; position: relative; margin-bottom: 8px; margin-left: 10px; text-align: left; }
 .profile-header-phone i, .profile-header-skype i { position: absolute; }
 
 .profile-header-phone { font-size: 16px; white-space: nowrap; }

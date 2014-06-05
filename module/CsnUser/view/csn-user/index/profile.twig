@@ -7,7 +7,7 @@
 			<div class="col-md-9">
 				<div class="profile">
 					<div class="profile-header ">
-						<div class="profile-photo profile-photo-available">
+						<div class="profile-photo profile-photo-free">
 							<img src="/img/photo.jpg" alt="">
 						</div>
 						<div class="btn-group profile-status">
@@ -31,10 +31,21 @@
 
 
 						<div class="profile-header-contacts">
-							{% if user.contactInfo.FacebookUrl %}<a href="{{user.contactInfo.FacebookUrl}}" class="contacts-item"><i class="icon-circle icon-main-color-in fi-facebook"></i></a>{% endif %}
-							{% if user.contactInfo.TwitterUrl %}<a href="{{user.contactInfo.TwitterUrl}}" class="contacts-item"><i class="icon-circle icon-main-color-in icon-disabled-in fi-twitter"></i></a>{% endif %}
-							{% if user.contactInfo.LinkedInUrl %}<a href="{{user.contactInfo.LinkedInUrl}}" class="contacts-item"><i class="icon-circle icon-main-color-in fi-linkedin"></i></a>{% endif %}
-							{% if user.contactInfo.email %}<a href="mailto:{{user.contactInfo.email}}" class="contacts-item"><i class="icon-circle icon-main-color-in fi-mail"></i></a>{% endif %}
+							<a {% if user.contactInfo.FacebookUrl %}href="{{user.contactInfo.FacebookUrl}}" class="contacts-item"
+							{% else %} class="contacts-item contacts-item-disabled"
+							{% endif %}><i class="icon-circle icon-main-color-in fi-facebook"></i></a>
+							<a {% if user.contactInfo.TwitterUrl %}href="{{user.contactInfo.TwitterUrl}}" class="contacts-item"
+							{% else %} class="contacts-item contacts-item-disabled"
+							{% endif %}><i class="icon-circle icon-main-color-in fi-twitter"></i></a>
+							<a {% if user.contactInfo.LinkedInUrl %}href="{{user.contactInfo.LinkedInUrl}}" class="contacts-item"
+							{% else %} class="contacts-item contacts-item-disabled"
+							{% endif %}><i class="icon-circle icon-main-color-in fi-linkedin"></i></a>
+							<a {% if user.contactInfo.email %}href="mailto:{{user.contactInfo.email}}" class="contacts-item"
+							{% else %} class="contacts-item contacts-item-disabled"
+							{% endif %}><i class="icon-circle icon-main-color-in fi-mail"></i></a>
+
+							{# Надо сделать 2 отдельных вывода разых номеров телефонов #}
+							{% if user.contactInfo.phone %}<div class="profile-header-phone"><i class="fi-phone"></i>{{ user.contactInfo.phone }}</div>{% endif %}
 							{% if user.contactInfo.phone %}<div class="profile-header-phone"><i class="fi-phone"></i>{{ user.contactInfo.phone }}</div>{% endif %}
 							{% if user.contactInfo.skype %}<div class="profile-header-skype"><i class="fi-skype"></i>{{user.contactInfo.skype}}</div>{% endif %}
 						</div>
@@ -60,7 +71,7 @@
 									<div class="col-md-6">
 										<dl class="profile-info">
 											<dt class="profile-title profile-title-left">Дата народження:</dt>
-											<dd class="profile-text">{{ user.privateInfo.birthDay|date("Y-m-d") }}</dd>
+											<dd class="profile-text">{{ user.privateInfo.birthDay|date("d.m.Y") }} / 30 років</dd>
 											<dt class="profile-title profile-title-left">Місцезнаходження:</dt>
 											<dd class="profile-text">{{ user.privateInfo.location}}</dd>
 										</dl>
