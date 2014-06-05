@@ -6,7 +6,7 @@ grunt.initConfig({
 		dist: {
 			options: {
 				config: 'config.rb',
-				sassDir: 'static/src/sass',
+				sassDir: 'public/static/src/sass',
 				cssDir: 'public/css',
 				environment: 'production'
 			}
@@ -35,22 +35,22 @@ grunt.initConfig({
 	includereplace: {
 		dist: {
 			files: [
-				{src: '*.html', dest: 'static/', expand: true, cwd: 'static/src/'},
+				{src: '*.html', dest: 'public/static/', expand: true, cwd: 'public/static/src/'},
 			]
 		}
 	},
 	clean: {
-		html: ["static/_*.html"],
+		html: ["public/static/_*.html"],
 	},
 
 
 	watch: {
 		scss: {
-			files: 'static/src/sass/**/*.scss',
+			files: 'public/static/src/sass/**/*.scss',
 			tasks: ['compass', 'autoprefixer'],
 		},
 		html: {
-			files: 'static/src/*.html',
+			files: 'public/static/src/*.html',
 			tasks: ['includereplace', 'clean:html'],
 		},
 	},
