@@ -65,12 +65,15 @@ html, body { height: 100%; }
 
 .navbar { border: 0; }
 .navbar .navbar-nav > li > a { -webkit-transition: all 0.2s ease-out 0s; transition: all 0.2s ease-out 0s; }
-.navbar .fi-globe { font-size: 21px; margin-top: -4px; }
 
 .navbar-inverse { box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.4); }
 .navbar-inverse .navbar-nav > li > a { padding: 0 15px; line-height: 45px; }
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus { box-shadow: 0 -5px 0 #2ba2ec inset; }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus { box-shadow: none; }
+.navbar-inverse .navbar-nav .dropdown_icon .dropdown-toggle { width: 45px; text-align: center; height: 45px; padding: 0; font-size: 16px; }
+.navbar-inverse .fi { position: relative; }
+.navbar-inverse .fi-search { top: 3px; }
+.navbar-inverse .fi-search { top: 2px; }
 
 .footer .navbar-text.navbar-right:last-child { margin-right: 15px; }
 
@@ -92,11 +95,12 @@ html, body { height: 100%; }
 .profile-header h1 { margin: 12px 0 -3px; word-wrap: break-word; font-weight: 400; }
 .profile-header h1 span { display: block; }
 .profile-header h1 small { display: block; margin-top: 15px; line-height: 1.18; text-transform: lowercase; font-weight: 100; color: #666666; letter-spacing: -0.01em; }
-.profile-header .icon-edit { position: absolute; bottom: 40px; right: 0; }
+.profile-header .icon-edit { position: absolute; bottom: -40px; z-index: 2; right: 0; }
+.profile-header .icon-edit .fi-pencil { height: 39px; width: 39px; line-height: 39px; text-align: center; font-size: 21px; }
 .profile-header:before, .profile-header:after { content: " "; display: table; }
 .profile-header:after { clear: both; }
 
-.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 30px; }
+.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 35px; }
 .profile-photo img { max-width: 130px; }
 
 .profile-photo-available { border-color: #2ecc71; }
@@ -114,33 +118,42 @@ div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2e
 
 .profile-header-contacts { position: absolute; right: 0; top: 0; }
 
-.contacts-item { display: inline-block; vertical-align: top; margin: 0 0 10px 5px; }
+.contacts-item { display: inline-block; vertical-align: top; margin: 0 0 10px 10px; }
 
-.profile-header-phone, .profile-header-skype { max-width: 160px; word-wrap: break-word; font-style: italic; padding-left: 25px; position: relative; margin-bottom: 8px; }
+.profile-header-phone, .profile-header-skype { max-width: 170px; font-style: italic; padding-left: 27px; position: relative; margin-bottom: 8px; margin-left: 10px; }
 .profile-header-phone i, .profile-header-skype i { position: absolute; }
 
-.profile-header-phone { word-spacing: 0.1em; text-align: right; font-size: 16px; }
+.profile-header-phone { font-size: 16px; white-space: nowrap; }
 .profile-header-phone i { top: 3px; left: 4px; }
 
-.profile-header-skype { font-size: 13px; }
+.profile-header-skype { font-size: 13px; word-wrap: break-word; }
 .profile-header-skype i { color: #1179b9; top: -7px; font-size: 21px; left: 3px; }
 
-.profile-tabs { position: relative; }
-.profile-tabs > li > a { margin: 0; color: #999999; padding: 7px 15px; font-weight: 100; text-transform: uppercase; font-size: 15px; }
-.profile-tabs > li:hover > a { background: transparent; color: #2ba2ec; }
+.profile-tabs { position: relative; border: 1px solid #d9d9d9; border-width: 1px 0; }
+.profile-tabs > li { margin-bottom: 0; }
+.profile-tabs > li > a { margin: 0; color: #999999; padding: 6px 12px; font-weight: 100; text-transform: uppercase; font-size: 15px; -webkit-transition: all 0.2s ease-out 0s; transition: all 0.2s ease-out 0s; }
+.profile-tabs > li:hover > a { background: transparent; color: #2ba2ec; border-bottom-color: transparent; }
 
-.profile-tabs-content { border-top: 0; padding: 20px 0; position: relative; }
+.profile-tabs-content { border-top: 0; padding: 40px 0 20px 12px; position: relative; }
 
+.profile-info { margin-bottom: 25px; }
 .profile-info:before, .profile-info:after { content: " "; display: table; }
 .profile-info:after { clear: both; }
 
-.profile-title { color: #404040; font-weight: 500; }
+.profile-title { color: #b3b3b3; font-weight: 500; text-transform: uppercase; line-height: 1.5; font-size: 13px; }
 
-h3.profile-title { margin-top: 0; font-size: 18px; margin-bottom: 7px; }
+h3.profile-title { margin-top: 0; font-size: 22px; margin-bottom: 3px; font-weight: 100; }
+h3.profile-title .profile-role { font-size: 18px; font-weight: 100; text-transform: lowercase; font-style: italic; display: inline-block; margin-left: 10px; }
+h3.profile-title .profile-role:before { content: "|"; font-style: normal; font-size: 22px; margin-right: 10px; }
 
-.profile-title-left { float: left; min-width: 29.3333333%; min-width: -webkit-calc(33.333333% - 25px); min-width: calc(33.333333% - 25px); margin-right: 15px; clear: left; }
+.profile-text { margin-bottom: 15px; line-height: 1.5; }
 
+.profile-date { font-size: 13px; color: #bfbfbf; }
+
+.profile-tags { margin-bottom: 15px; }
 .profile-tags span { display: inline-block; background: #2ba2ec; margin: 6px 2px 0 0; padding: 0 8px; color: #fff; cursor: default; }
+
+.profile-tags_project span { background: white; box-shadow: 0 0 0 1px #bfbfbf inset; color: #a6a6a6; }
 
 .bootstrap-tagsinput { background-color: #fff; border: 1px solid #ccc; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); padding: 4px 6px; margin-bottom: 10px; color: #555; vertical-align: middle; border-radius: 4px; max-width: 100%; line-height: 22px; }
 

@@ -11,6 +11,7 @@
   a {
     color: #fff;
   }
+
   h1 {
     margin: 12px 0 -3px;
     word-wrap: break-word;
@@ -19,6 +20,7 @@
     span {
       display: block;
     }
+
     small {
       display: block;
       margin-top: 15px;
@@ -32,8 +34,17 @@
 
   .icon-edit {
     position: absolute;
-    bottom: 40px;
+    bottom: -40px;
+    z-index: 2;
     right: 0;
+
+    .fi-pencil {
+      height: 39px;
+      width: 39px;
+      line-height: 39px;
+      text-align: center;
+      font-size: 21px;
+    }
   }
 
   @include clearfix();
@@ -47,7 +58,7 @@
   border: 5px solid $main-color;
   margin-right: 20px;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 
   img {
     max-width: 130px;
@@ -114,28 +125,25 @@ div.profile-status-btn {
 .contacts-item {
   display: inline-block;
   vertical-align: top;
-  margin: 0 0 10px 5px;
+  margin: 0 0 10px 10px;
 }
 
 .profile-header-phone,
 .profile-header-skype{
-  max-width: 160px;
-  word-wrap: break-word;
-  
+  max-width: 170px;
   font-style: italic;
-  padding-left: 25px;
+  padding-left: 27px;
   position: relative;
   margin-bottom: 8px;
-  
+  margin-left: 10px;
   i {
     position: absolute;
 
   }
 }
 .profile-header-phone {
-  word-spacing: 0.1em;
-  text-align: right;
   font-size: 16px;
+  white-space: nowrap;
 
   i {
     top: 3px;
@@ -145,6 +153,8 @@ div.profile-status-btn {
 
 .profile-header-skype {
   font-size: 13px;
+  word-wrap: break-word;
+
   i {
     color: $main-color;
     top: -7px;
@@ -155,54 +165,83 @@ div.profile-status-btn {
 
 .profile-tabs {
   position: relative;
+  border: 1px solid lighten(#000, 85%);
+  border-width: 1px 0;
 
   & > li {
+    margin-bottom: 0;
+
     & > a {
       margin: 0;
       color: lighten(#000, 60%);
-      padding: 7px 15px;
+      padding: 6px 12px;
       font-weight: 100;
       text-transform: uppercase;
       font-size: 15px;
+      transition: all 0.2s ease-out 0s;
     }
 
     &:hover > a {
       background: transparent;
       color: $main-color-light;
+      border-bottom-color: transparent;
 
     }
   }
 }
 
 .profile-tabs-content {
-
   border-top: 0;
-  padding: 20px 0;
+  padding: 40px 0 20px 12px;
   position: relative;
 }
 
 .profile-info {
   @include clearfix();
-  
-
+  margin-bottom: 25px;
 }
 .profile-title {
-  color: lighten(#000, 25%);
+  color: lighten(#000, 70%);
   font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.5;
+  font-size: 13px;
 }
+
 h3.profile-title{
   margin-top: 0;
-  font-size: 18px;
-  margin-bottom: 7px;
+  font-size: 22px;
+  margin-bottom: 3px;
+  font-weight: 100;
+
+  .profile-role {
+    font-size: 18px;
+    font-weight: 100;
+    text-transform: lowercase;
+    font-style: italic;
+    display: inline-block;
+    margin-left: 10px;
+    &:before {
+      content: "|";
+      font-style: normal;
+      font-size: 22px;
+      margin-right: 10px;
+    }
+  }
 }
-.profile-title-left {
-  float: left;
-  min-width: 29.3333333%;
-  min-width: calc(33.333333% - 25px);
-  margin-right: 15px;
-  clear: left;
+
+.profile-text {
+  margin-bottom: 15px;
+  line-height: 1.5;
 }
+.profile-date {
+  font-size: 13px;
+  color: lighten(#000, 75%);
+}
+
 .profile-tags {
+  margin-bottom: 15px;
+
   span {
     display: inline-block;
     background: $main-color-light;
@@ -210,6 +249,14 @@ h3.profile-title{
     padding: 0 8px;
     color: #fff;
     cursor: default;
+  }
+}
+
+.profile-tags_project {
+  span {
+    background: white;
+    box-shadow: 0 0 0 1px lighten(#000, 75%) inset;
+    color: lighten(#000, 65%);
   }
 }
 
