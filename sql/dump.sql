@@ -3,10 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 30, 2014 at 10:03 AM
+-- Generation Time: Jun 05, 2014 at 04:41 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
@@ -944,3 +945,4 @@ ALTER TABLE `user`
 ALTER TABLE `votes_users`
   ADD CONSTRAINT `FK_9A4168C772DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`),
   ADD CONSTRAINT `FK_9A4168C7A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+SET FOREIGN_KEY_CHECKS=1;
