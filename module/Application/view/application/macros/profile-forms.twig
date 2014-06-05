@@ -1,0 +1,34 @@
+{% macro _wrappedInput(element) %}
+    {% if type != 'hidden' %}
+        <div class="form-group">
+    {% endif %}
+
+    {% if label %}
+        {{ label }}:
+    {% endif %}
+    {% if element.attributes.type  == 'textarea' %}
+        <textarea
+			name="{{ element.attributes.name }}"
+			class="{{ element.attributes.class|e }}"
+			value="{{ element.value }}"
+			{{ element.attributes.required is not empty and element.attributes.required != 'false' ? 'required="required"' : ''}}
+				  />{{ element.value|e }}</textarea>
+    {% elseif type == 'checkbox' %}
+        <input type="{{ type }}" name="{{ name }}" value="1"{% if value == true %} checked="checked"{% endif %} />
+    {% elseif element.attributes.type == 'text' %}
+        <input type="{{ type|default('text') }}"
+			   name="{{ element.attributes.name }}"
+			   value="{{ element.value }}"
+			   placeholder="{{ element.attributes.placeholder }}"
+			   {{ element.attributes.required is not empty and element.attributes.required != 'false' ? 'required="required"' : ''}}
+			   class="{{ element.attributes.class|e }}"
+			   />
+    {% else %}
+		{{ formElement(element )|raw }}
+    {% endif %}
+
+    {% if type != 'hidden' %}
+        </div>
+    {%  endif %}
+
+{% endmacro %}

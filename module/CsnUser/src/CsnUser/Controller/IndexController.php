@@ -140,7 +140,7 @@ class IndexController extends AbstractActionController
             }
         }
         return new ViewModel(array(
-            'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
+            'error' => '',
             'loginForm'	=> $form,
             'messages' => $messages,
             'navMenu' => $this->getOptions()->getNavMenu()
@@ -181,7 +181,7 @@ class IndexController extends AbstractActionController
 		{
 			$currentFirstName = $user -> getFirstName ();
 			$currentLastName = $user -> getLastName ();
-			$form -> setValidationGroup ( 'firstName', 'lastName', 'language', 'csrf', 'location', 'resume' );
+			$form -> setValidationGroup ( 'firstName', 'lastName', 'language', 'csrf', 'location' );
 			$form -> setData ( $this -> getRequest () -> getPost () );
 			if ( $form -> isValid () )
 			{

@@ -99,7 +99,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
         return $this->createViewModel('application/index/index',
 			array(
-				'error' => $this->getTranslatorHelper()->translate('Your authentication credentials are not valid'),
+				'error' => '',
 				'loginForm'	=> $form,
 				'messages' => $messages,
 				'navMenu' => $this->getOptions()->getNavMenu()
@@ -110,7 +110,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
 	public function facebookAction()
 	{
-		
+
 	}
 
 

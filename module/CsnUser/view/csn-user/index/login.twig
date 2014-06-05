@@ -3,18 +3,11 @@
 {% block content %}
 <section class="main promo-page">
 	<div class="container">
-			<div class="row">
-			{% if identity is empty %}
-				<div class="col-md-6 col-lg-offset-3">
-					{% include 'application/index/forms/login' %}
-				</div>
-
-			{% else %}
-					<h2>Last projects</h2>
-				{% include 'application/projects/list_block' with {'projects' : lastProjects} %}
-			{% endif %}
+		<div class="row">
+			<div class="col-md-6 col-lg-offset-3">
+				{% include 'application/index/forms/login' %}
 			</div>
-
+		</div>
 	</div>
 </section>
 
