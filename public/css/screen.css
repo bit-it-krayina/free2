@@ -35,7 +35,7 @@ html, body { height: 100%; }
 .icon-main-color-in { color: #1179b9; background: #fff; border-color: #1179b9; }
 .icon-main-color-in:hover { background: #1179b9; color: #fff; }
 
-.icon-disabled-in, .icon-disabled-in:hover { background: #FFF; color: #e6e6e6; border-color: #e6e6e6; cursor: default; }
+.icon-disabled, .icon-disabled:hover { background: #FFF; color: #e6e6e6; border-color: #e6e6e6; cursor: default; }
 
 .icon-add-color { color: #69570f; background: #ffd52c; }
 .icon-add-color:hover { background: #ffe478; }
