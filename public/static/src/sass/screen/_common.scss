@@ -113,8 +113,8 @@ body {
     color: #fff;
   }
 }
-.icon-disabled-in,
-.icon-disabled-in:hover {
+.icon-disabled,
+.icon-disabled:hover {
   background: #FFF;
   color: lighten(#000, 90%);
   border-color: lighten(#000, 90%);
@@ -227,6 +227,7 @@ body {
     > li > a {
       padding: 0 15px;
       line-height: $navbar-height;
+      height: $navbar-height;
       &:hover,
       &:focus {
         box-shadow: 0 -5px 0 $main-color-light inset;
@@ -240,29 +241,21 @@ body {
         box-shadow: none;
       }
     }
-
-    .dropdown_icon .dropdown-toggle{
-      width: 45px;
-      text-align: center;
-      height: 45px;
-      padding: 0;
-      font-size: 16px;
-    }
   }
 
-  .fi {
+  .fi-search,
+  .fi-bell-alt,
+  .fi-user {
     position: relative;
+    font-size: 16px;
   }
 
   .fi-search {
     top: 3px;
+    margin-right: -1px;
   }
 
-  .fi-bell-alt {
-    
-  }
-
-  .fi-search {
+  .fi-user {
     top: 2px;
   }
 }
