@@ -1,3 +1,4 @@
+@charset "IBM866";
 html, body { height: 100%; }
 
 .wrap { min-height: 100%; }
@@ -22,7 +23,9 @@ html, body { height: 100%; }
 
 .radio input + label:before { border-radius: 50%; }
 
-.btn { -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; text-transform: uppercase; text-decoration: none !important; line-height: 32px; border: 2px solid; padding: 5px 12px; }
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill { -webkit-box-shadow: inset 0 0 0 50px #fff !important; /* Цвет фона */ }
+
+.btn { -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; text-transform: uppercase; text-decoration: none !important; border-width: 2px; }
 
 .btn-inverse { color: #fff; background: #1179b9; border-color: #fff; }
 .btn-inverse:hover { color: #fff; background: #1388d0; }
@@ -60,7 +63,7 @@ html, body { height: 100%; }
 
 .block-main-color { background: #1179b9; color: #fff; }
 .block-main-color .h3 { color: #fff; }
-.block-main-color .form-control { border-color: transparent; }
+.block-main-color .form-control { border-color: white; }
 .block-main-color a { color: #fff; text-decoration: underline; }
 .block-main-color a:hover { text-decoration: none; }
 
@@ -94,6 +97,7 @@ html, body { height: 100%; }
 .panel-authorization .form-group-btn .btn:last-child { float: right; }
 .panel-authorization .form-group-btn .btn-inverse { text-align: left; }
 .panel-authorization .checkbox { margin-right: 2px; }
+.panel-authorization .btn { line-height: 32px; }
 
 .btn-auth { width: 40%; padding: 5px; }
 .btn-auth .icon-main-color-in { margin-right: 13px; }
@@ -116,6 +120,9 @@ html, body { height: 100%; }
 .profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 35px; }
 .profile-photo img { max-width: 130px; }
 
+.photo-btn { position: absolute; left: 0; top: 135px; width: 130px; overflow: hidden; height: 28px; cursor: pointer; }
+.photo-btn input { opacity: 0; height: 100%; width: 250%; position: absolute; top: 0; right: 0; cursor: pointer; }
+
 .profile-photo-free { border-color: #2ecc71; }
 
 .profile-photo-busy { border-color: #e74c3c; }
@@ -125,7 +132,7 @@ html, body { height: 100%; }
 .profile-status .dropdown-menu { padding: 0; width: 130px; min-width: inherit; text-align: center; font-size: 13px; line-height: 20px; font-weight: bold; text-transform: uppercase; }
 .profile-status .dropdown-menu > li { cursor: pointer; }
 
-.profile-status-btn { width: 130px; text-align: center; border: 0; line-height: 20px; }
+.profile-status-btn { width: 130px; text-align: center; border: 0; line-height: 20px; padding: 0; }
 
 div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2ecc71; padding: 1px 5px; font-size: 13px; }
 
@@ -157,6 +164,8 @@ div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2e
 
 .profile-title { color: #b3b3b3; font-weight: 500; text-transform: uppercase; line-height: 1.5; font-size: 13px; }
 
+label.profile-title { color: gray; }
+
 h3.profile-title { margin-top: 0; font-size: 22px; margin-bottom: 3px; font-weight: 100; }
 h3.profile-title .profile-role { font-size: 18px; font-weight: 100; text-transform: lowercase; font-style: italic; display: inline-block; margin-left: 10px; }
 h3.profile-title .profile-role:before { content: "|"; font-style: normal; font-size: 22px; margin-right: 10px; }
@@ -170,24 +179,19 @@ h3.profile-title .profile-role:before { content: "|"; font-style: normal; font-s
 
 .profile-tags_project span { background: white; box-shadow: 0 0 0 1px #bfbfbf inset; color: #a6a6a6; }
 
-.bootstrap-tagsinput { background-color: #fff; border: 1px solid #ccc; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); padding: 4px 6px; margin-bottom: 10px; color: #555; vertical-align: middle; border-radius: 4px; max-width: 100%; line-height: 22px; }
+.bootstrap-tagsinput { background-color: #fff; border: 1px solid #ccc; padding: 5px 6px; margin-bottom: 10px; color: #555; vertical-align: middle; max-width: 100%; line-height: 29px; }
+.bootstrap-tagsinput:focus { border-color: #66afe9; outline: 0; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
 
 .bootstrap-tagsinput input { border: none; box-shadow: none; outline: none; background-color: transparent; padding: 0; margin: 0; width: auto !important; max-width: inherit; }
 
 .bootstrap-tagsinput input:focus { border: none; box-shadow: none; }
 
-.bootstrap-tagsinput .tag { margin-right: 2px; color: white; }
+.bootstrap-tagsinput .tag { margin-right: 2px; color: white; background: #2ba2ec; padding: 0 0 0 8px; cursor: default; font-size: 15px; border-radius: 0; line-height: 25px; display: inline-block; font-weight: normal; text-transform: lowercase; }
 
-.bootstrap-tagsinput .tag [data-role="remove"] { margin-left: 8px; cursor: pointer; }
+.bootstrap-tagsinput .tag [data-role="remove"] { padding: 0 8px; cursor: pointer; margin-left: 5px; -webkit-transition: background 0.2s ease-out 0s; transition: background 0.2s ease-out 0s; line-height: 25px; display: inline-block; }
 
-.bootstrap-tagsinput .tag [data-role="remove"]:after { content: "x"; padding: 0px 2px; }
+.bootstrap-tagsinput .tag [data-role="remove"]:after { content: '\e804'; font-family: "fonts-icons"; font-style: normal; font-weight: normal; font-size: 12px; }
 
-.bootstrap-tagsinput .tag [data-role="remove"]:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); }
-
-.bootstrap-tagsinput .tag [data-role="remove"]:hover:active { box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+.bootstrap-tagsinput .tag [data-role="remove"]:hover { background: #1388d0; }
 
 .profile-edit .profile-header-info { width: auto; float: none; margin-left: 150px; }
-
-.profile-sidebar { position: fixed; }
-
-.profile-nav { padding: 0; list-style: none; }

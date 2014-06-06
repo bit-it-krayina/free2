@@ -11,10 +11,20 @@
 				<div class="profile profile-edit">
 					<div class="profile-header ">
 						<div class="profile-photo">
-							<img src="img/photo.jpg" alt="">
+							<img src="/img/photo.jpg" alt="">
 						</div>
+						<div class="btn btn-primary btn-xs photo-btn">завантажити<input type="file"></div>
+
 						<div class="profile-header-info">
-							{{ form().openTag(form) | raw }}
+							<div class="form-group">
+								<label class="profile-title" for="">Ім'я</label>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="">Прізвище</label>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+{# 							{{ form().openTag(form) | raw }}
 
 								{{ _forms._wrappedInput(form.get('firstName')) }}
 								{{ _forms._wrappedInput(form.get('lastName')) }}
@@ -25,20 +35,19 @@
 								{{ _forms._wrappedInput(form.get('twitterUrl')) }}
 								{{ _forms._wrappedInput(form.get('linkedInUrl')) }}
 								{{ _forms._wrappedInput(form.get('csrf')) }}
-								{{ _forms._wrappedInput(form.get('submit')) }}
+								{{ _forms._wrappedInput(form.get('submit')) }} #}
 
 							</form>
 						</div>
 					</div>
 					<ul class="nav nav-tabs profile-tabs">
-					 	<li><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
-						<li class="active"><a href="#professional" data-toggle="tab">Професійна інформація</a></li>
+					 	<li class="active"><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
 						<li><a href="#projects" data-toggle="tab">Проекти</a></li>
+						<li><a href="#contacts" data-toggle="tab">Контакты</a></li>
 					</ul>
 
 					<div class="tab-content profile-tabs-content">
-						<div class="tab-pane" id="personal">
-							<div class="tab-pane active" id="personal">
+						<div class="tab-pane active" id="personal">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -47,7 +56,7 @@
 									</div>
 									<div class="form-group">
 										<label class="profile-title" for="">Cтаж роботи</label>
-										<select name="" id="">
+										<select name="" id="" class="form-control">
 											<option value="">менше року</option>
 											<option value="">більше року </option>
 											<option value="">більше трьох років</option>
@@ -68,77 +77,52 @@
 									</div>
 								</div>
 							</div>
-							<dl class="profile-info">
-								<dt class="profile-title">Професійні навики </dt>
-								<dd class="profile-tags">
-									<span>копірайтинг</span>
-									<span>одностранічнікі</span>
-									<span>pr-тексти</span>
-									<span>Комерційна пропозиція</span>
-									<span>ведення груп в соц.мережах</span>
-								</dd>
-							</dl>
 
-							<div class="profile-text">
-								<p>
-									Оказываю услуги по бизнес-анализу и документированию программного обеспечения (настольных, мобильных и веб-приложений), прототипированию пользовательских интерфейсов, тестированию программного обеспечению, разработке веб-сайтов на платформах WordPress и Moodle, а также разработке учебных курсов.
-								</p>
+							<div class="form-group">
+								<label class="profile-title" for="">Професійні навики:</label>
+								<input type="text" data-role="tagsinput" value="копірайтинг">
+							</div>
+
+							<div class="form-group">
+								<label class="profile-title" for="">Про себе:</label>
+								<textarea name="" id="" cols="30" rows="10"  class="form-control">Оказываю услуги по бизнес-анализу и документированию программного обеспечения (настольных, мобильных и веб-приложений), прототипированию пользовательских интерфейсов, тестированию программного обеспечению, разработке веб-сайтов на платформах WordPress и Moodle, а также разработке учебных курсов.
+								</textarea>
 							</div>
 						</div>
-							<form role="form form-horizontal">
-
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Місцезнаходження">
-								</div>
-								<div class="form-group">
-									<textarea name="" id="" cols="30" rows="10"  class="form-control" placeholder="Про себе"></textarea>
-								</div>
-							</form>
-						</div>
-						<div class="tab-pane active" id="professional">
-							<form role="form form-horizontal">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Cпеціальність">
-								</div>
-								<div class="form-group">
-									<label for="">Cтаж роботи:</label>
-
-								</div>
-								<div class="form-group">
-									<label for="">Професійні навики:</label>
-									<input type="text" class="form-control" data-role="tagsinput" value="Word">
-								</div>
-								<div class="form-group">
-									<textarea name="" id="" cols="30" rows="10"  class="form-control" placeholder="Додаткова інформація"></textarea>
-								</div>
-							</form>
-						</div>
 						<div class="tab-pane" id="projects">
-							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
-							<h3 class="profile-title"><a href="">MediaPlazm</a></h3>
-							<dl>
-								<dt class="profile-title profile-title-left">Роль:</dt>
-								<dd class="profile-text">учасник</dd>
-								<dt class="profile-title profile-title-left">Дати роботи:</dt>
-								<dd class="profile-text">7.06.2014 - 15.11.2014</dd>
-								<dt class="profile-title">Відгук:</dt>
-								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
-							</dl>
-							<h3 class="profile-title"><a href="">MediaPlazm 2</a></h3>
-							<dl>
-								<dt class="profile-title profile-title-left">Роль:</dt>
-								<dd class="profile-text">учасник</dd>
-								<dt class="profile-title profile-title-left">Дати роботи:</dt>
-								<dd class="profile-text">7.06.2014 - 15.11.2014</dd>
-								<dt class="profile-title">Відгук:</dt>
-								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
-							</dl>
+							Что может редактировать юзер в проектах?
+						</div>
+						<div class="tab-pane" id="contacts">
+							<div class="form-group">
+								<label class="profile-title" for="">Tелефон:</label>
+								<input type="tel" class="form-control" placeholder="">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="">Додатковий телефон:</label>
+								<input type="tel" class="form-control" placeholder="">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="">Skype:</label>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="">Facebook:</label>
+								<input type="url" class="form-control" placeholder="">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="">Twitter:</label>
+								<input type="url" class="form-control" placeholder="">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="">LinkedIn:</label>
+								<input type="url" class="form-control" placeholder="">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<img src="img/banner.jpg" alt="">
+				<img src="/img/banner.jpg" alt="">
 			</div>
 		</div>
 	</div>

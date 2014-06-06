@@ -65,6 +65,25 @@
   }
 }
 
+.photo-btn {
+  position: absolute;
+  left: 0;
+  top: 135px;
+  width: 130px;
+  overflow: hidden;
+  height: 28px;
+  cursor: pointer;
+  input {
+    opacity: 0;
+    height: 100%;
+    width: 250%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
 .profile-photo-free {
   border-color:  $brand-success;
 }
@@ -106,6 +125,7 @@
   text-align: center;
   border: 0;
   line-height: 20px;
+  padding: 0;
 }
 
 div.profile-status-btn {
@@ -215,6 +235,10 @@ div.profile-status-btn {
   font-size: 13px;
 }
 
+label.profile-title {
+  color: lighten(#000, 50%);
+}
+
 h3.profile-title{
   margin-top: 0;
   font-size: 22px;
@@ -270,14 +294,18 @@ h3.profile-title{
 .bootstrap-tagsinput {
   background-color: #fff;
   border: 1px solid #ccc;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  padding: 4px 6px;
+  padding: 5px 6px;
   margin-bottom: 10px;
   color: #555;
   vertical-align: middle;
-  border-radius: 4px;
   max-width: 100%;
-  line-height: 22px;
+  line-height: 29px;
+
+  &:focus {
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  }
 }
 .bootstrap-tagsinput input {
   border: none;
@@ -296,20 +324,36 @@ h3.profile-title{
 .bootstrap-tagsinput .tag {
   margin-right: 2px;
   color: white;
+  background: $main-color-light;
+  padding: 0 0 0 8px;
+  cursor: default;
+  font-size: 15px;
+  border-radius: 0;
+  line-height: 25px;
+  display: inline-block;
+  font-weight: normal;
+  text-transform: lowercase;
 }
 .bootstrap-tagsinput .tag [data-role="remove"] {
-  margin-left: 8px;
+  padding: 0 8px;
   cursor: pointer;
+  margin-left: 5px;
+  transition: background 0.2s ease-out 0s;
+  line-height: 25px;
+  display: inline-block;
 }
 .bootstrap-tagsinput .tag [data-role="remove"]:after {
-  content: "x";
-  padding: 0px 2px;
+  content: '\e804';
+  font-family: "fonts-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
 }
 .bootstrap-tagsinput .tag [data-role="remove"]:hover {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  background: darken($main-color-light, 10%);
 }
 .bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  
 }
 
 .profile-edit {
@@ -318,14 +362,4 @@ h3.profile-title{
     float: none;
     margin-left: 150px;
   }
-}
-
-.profile-sidebar {
-  
-  position: fixed;
-}
-
-.profile-nav {
-  padding: 0;
-  list-style: none;
 }
