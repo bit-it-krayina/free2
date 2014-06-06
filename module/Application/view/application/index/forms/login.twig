@@ -25,12 +25,12 @@
 						{{ translate('Forgot your password?')| raw }}
 					</a>
 				</div>
-				<div class="form-group">
+				<div class="form-group form-group-btn">
 					{{ formRow(loginForm.get('submit'))| raw }} <span class="text-devider">або</span>
-					<a href="{{ facebookAuthUrl }}" class="btn btn-inverse btn-auth"><i class="icon-square icon-main-color fi-facebook"></i> Facebook</a>
+					<a href="{{ facebookAuthUrl }}" class="btn btn-inverse btn-auth"><i class="icon-square icon-main-color-in fi-facebook"></i> Facebook</a>
 				</div>
-				<div class="form-group form-group-last">
-					<a class="btn btn-reg" href="{{ url('user-register', {'action' : 'index'}) }}">
+				<div class="form-group form-group-reg">
+					<a class="btn btn-inverse btn-reg" href="{{ url('user-register', {'action' : 'index'}) }}">
 					{{ translate('Sign up')| raw }}
 					</a>
 				</div>

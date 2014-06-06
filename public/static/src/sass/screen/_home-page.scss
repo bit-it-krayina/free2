@@ -20,29 +20,51 @@
   }
 
   .text-devider {
-    margin: 0 15px;
+    line-height: 44px;
   }
 
-  // &:after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   bottom: 0;
-  //   right: -1px;
-  //   width: 2px;
-  //   background: $add-color;
-  // }
+  .form-group-btn {
+    @include clearfix();
+    text-align: center;
+
+    .btn:first-child {
+      float: left;
+    }
+
+    .btn:last-child {
+      float: right;
+    }
+
+    .btn-inverse {
+      text-align: left;
+    }
+  }
+
+  .checkbox {
+    margin-right: 2px;
+  }
 }
 
-.btn-auth {width: 40%;}
-.btn-reg {
-  color: $add-color-text !important;
-  background: $add-color;
-  border: 0;
-  width: 100%;
-  line-height: 27px;
+.btn-auth {
+  width: 40%;
+  padding: 5px;
 
-  &:hover{
-    background: $add-color-light;
+  .icon-main-color-in {
+    margin-right: 13px;
   }
+
+  .icon-main-color-in:hover {
+    color: $main-color;
+    background: #fff;
+  }
+}
+
+.form-group-reg {
+  border-top: 10px solid #fff;
+  margin: 0 -21px -21px;
+}
+
+.btn-reg {
+  width: 100%;
+  border-color : transparent;
 }

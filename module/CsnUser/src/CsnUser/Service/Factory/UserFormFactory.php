@@ -407,7 +407,7 @@ class UserFormFactory implements FactoryInterface
 				) );
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
-					'class' => 'btn btn-inverse btn-auth',
+					'class' => 'btn btn-add-color btn-auth',
 					'value' => $this -> getTranslatorHelper () -> translate ( 'Log In' )
 				) );
 				break;
