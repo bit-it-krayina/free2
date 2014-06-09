@@ -23,34 +23,18 @@ use CsnUser\Entity\User;
 use CsnUser\Options\ModuleOptions;
 use CsnUser\Service\UserService as UserCredentialsService;
 use Application\Service\ControlUtils;
+use Application\Service\EntityManagerAwareInterface;
+use Application\Service\EntityManagerAwareTrait;
 
 /**
  * Registration controller
  */
-class RegistrationController extends AbstractActionController
+class RegistrationController extends AbstractActionController implements EntityManagerAwareInterface
 {
 
-	use ControlUtils;
+	use ControlUtils, EntityManagerAwareTrait;
 
-    /**
-     * @var ModuleOptions
-     */
-    protected $options;
 
-    /**
-     * @var Doctrine\ORM\EntityManager
-     */
-    protected $entityManager;
-
-    /**
-     * @var Zend\Mvc\I18n\Translator
-     */
-    protected $translatorHelper;
-
-    /**
-     * @var Zend\Form\Form
-     */
-    protected $userFormHelper;
 
     /**
      * Register Index Action
@@ -128,8 +112,13 @@ class RegistrationController extends AbstractActionController
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
 
-
         $form = $this->getUserFormHelper()->createUserForm($user, 'EditProfile');
+		$form->setData(['birthDay' => $user->getPrivateInfo()->getBirthDay()]);
+		$form->setData(['location' => $user->getPrivateInfo()->getLocation()]);
+		$form->setData(['resume' => $user->getPrivateInfo()->getResume()]);
+		$tags = array_map(function ( $tag ) { return $tag->getTag();}, $user->getTags()->toArray());
+		$form->setData(['userTags' => implode(',', $tags)]);
+
         $message = null;
         if($this->getRequest()->isPost()) {
 //            $form->setValidationGroup('firstName', 'lastName', 'csrf', 'phone1','phone2','skype','facebookUrl', 'twitterUrl', 'linkedInUrl');
@@ -519,59 +508,5 @@ class RegistrationController extends AbstractActionController
         return sprintf('%s://%s', $uri->getScheme(), $uri->getHost());
     }
 
-    /**
-     * get options
-     *
-     * @return ModuleOptions
-     */
-    private function getOptions()
-    {
-        if(null === $this->options) {
-            $this->options = $this->getServiceLocator()->get('csnuser_module_options');
-        }
 
-        return $this->options;
-    }
-
-    /**
-     * get entityManager
-     *
-     * @return Doctrine\ORM\EntityManager
-     */
-    private function getEntityManager()
-    {
-        if(null === $this->entityManager) {
-            $this->entityManager = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
-        }
-
-        return $this->entityManager;
-    }
-
-    /**
-     * get translatorHelper
-     *
-     * @return  Zend\Mvc\I18n\Translator
-     */
-    private function getTranslatorHelper()
-    {
-        if(null === $this->translatorHelper) {
-            $this->translatorHelper = $this->getServiceLocator()->get('MvcTranslator');
-        }
-
-        return $this->translatorHelper;
-    }
-
-    /**
-     * get userFormHelper
-     *
-     * @return  Zend\Form\Form
-     */
-    private function getUserFormHelper()
-    {
-        if(null === $this->userFormHelper) {
-            $this->userFormHelper = $this->getServiceLocator()->get('csnuser_user_form');
-        }
-
-        return $this->userFormHelper;
-    }
 }

@@ -3,7 +3,6 @@
 {% import 'application/macros/profile-forms.twig' as _forms %}
 
 {% block content %}
-{# include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} #}
 <section class="main">
 	<div class="container">
 		<div class="row">
@@ -15,15 +14,10 @@
 						</div>
 						<div class="btn btn-primary btn-xs photo-btn">завантажити<input type="file"></div>
 
+						{{ _forms._wrappedInput(form.get('csrf')) }}
 						<div class="profile-header-info">
-							<div class="form-group">
-								<label class="profile-title" for="">Ім'я</label>
-								<input type="text" class="form-control" placeholder="">
-							</div>
-							<div class="form-group">
-								<label class="profile-title" for="">Прізвище</label>
-								<input type="text" class="form-control" placeholder="">
-							</div>
+							{{ _forms._wrappedInput(form.get('firstName')) }}
+							{{ _forms._wrappedInput(form.get('lastName')) }}
 {# 							{{ form().openTag(form) | raw }}
 
 								{{ _forms._wrappedInput(form.get('firstName')) }}
@@ -34,7 +28,7 @@
 								{{ _forms._wrappedInput(form.get('facebookUrl')) }}
 								{{ _forms._wrappedInput(form.get('twitterUrl')) }}
 								{{ _forms._wrappedInput(form.get('linkedInUrl')) }}
-								{{ _forms._wrappedInput(form.get('csrf')) }}
+
 								{{ _forms._wrappedInput(form.get('submit')) }} #}
 
 							</form>
@@ -50,10 +44,9 @@
 						<div class="tab-pane active" id="personal">
 							<div class="row">
 								<div class="col-md-6">
-									<div class="form-group">
-										<label class="profile-title" for="">Cпеціальність</label>
-										<input type="text" class="form-control" placeholder="">
-									</div>
+									{{ _forms._wrappedInput(form.get('qualification')) }}
+									{{ _forms._wrappedInput(form.get('workExperience')) }}
+
 									<div class="form-group">
 										<label class="profile-title" for="">Cтаж роботи</label>
 										<select name="" id="" class="form-control">
@@ -67,56 +60,24 @@
 								</div>
 
 								<div class="col-md-6">
-									<div class="form-group">
-										<label class="profile-title" for="">Дата народження</label>
-										<input type="text" class="form-control" placeholder="">
-									</div>
-									<div class="form-group">
-										<label class="profile-title" for="">Місцезнаходження</label>
-										<input type="text" class="form-control" placeholder="">
-									</div>
+									{{ _forms._wrappedInput(form.get('birthDay')) }}
+									{{ _forms._wrappedInput(form.get('location')) }}
 								</div>
 							</div>
-
-							<div class="form-group">
-								<label class="profile-title" for="">Професійні навики:</label>
-								<input type="text" data-role="tagsinput" value="копірайтинг">
-							</div>
-
-							<div class="form-group">
-								<label class="profile-title" for="">Про себе:</label>
-								<textarea name="" id="" cols="30" rows="10"  class="form-control">Оказываю услуги по бизнес-анализу и документированию программного обеспечения (настольных, мобильных и веб-приложений), прототипированию пользовательских интерфейсов, тестированию программного обеспечению, разработке веб-сайтов на платформах WordPress и Moodle, а также разработке учебных курсов.
-								</textarea>
-							</div>
+							{{ _forms._wrappedInput(form.get('userTags')) }}
+							{{ _forms._wrappedInput(form.get('resume')) }}
 						</div>
 						<div class="tab-pane" id="projects">
 							Что может редактировать юзер в проектах?
 						</div>
 						<div class="tab-pane" id="contacts">
-							<div class="form-group">
-								<label class="profile-title" for="">Tелефон:</label>
-								<input type="tel" class="form-control" placeholder="">
-							</div>
-							<div class="form-group">
-								<label class="profile-title" for="">Додатковий телефон:</label>
-								<input type="tel" class="form-control" placeholder="">
-							</div>
-							<div class="form-group">
-								<label class="profile-title" for="">Skype:</label>
-								<input type="text" class="form-control" placeholder="">
-							</div>
-							<div class="form-group">
-								<label class="profile-title" for="">Facebook:</label>
-								<input type="url" class="form-control" placeholder="">
-							</div>
-							<div class="form-group">
-								<label class="profile-title" for="">Twitter:</label>
-								<input type="url" class="form-control" placeholder="">
-							</div>
-							<div class="form-group">
-								<label class="profile-title" for="">LinkedIn:</label>
-								<input type="url" class="form-control" placeholder="">
-							</div>
+							{{ _forms._wrappedInput(form.get('phone1')) }}
+							{{ _forms._wrappedInput(form.get('phone2')) }}
+							{{ _forms._wrappedInput(form.get('skype')) }}
+							{{ _forms._wrappedInput(form.get('facebookUrl')) }}
+							{{ _forms._wrappedInput(form.get('twitterUrl')) }}
+							{{ _forms._wrappedInput(form.get('linkedInUrl')) }}
+							
 						</div>
 					</div>
 				</div>

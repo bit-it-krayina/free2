@@ -58,6 +58,9 @@ return array(
 					'login'   => 'guest',
 					'index' => 'guest',
 				),
+				'Application\Controller\ProfileAjax' => array(
+					'all'   => 'volunteer',
+				),
 				'CsnUser\Controller\Registration' => array(
 					'index'	=> 'guest',
 					'change-password' => 'volunteer',

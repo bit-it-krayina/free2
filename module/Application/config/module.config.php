@@ -25,6 +25,21 @@ return array (
 					),
 				),
 			),
+
+			'profile-ajax' => array (
+				'type' => 'Zend\Mvc\Router\Http\Segment',
+				'options' => array (
+					'route' => '/profile-ajax/:action',
+					'constraints' => array (
+						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+					),
+					'defaults' => array (
+						'controller' => 'Application\Controller\ProfileAjax',
+					),
+				),
+			),
+
+
 			'home' => array (
 				'type' => 'Zend\Mvc\Router\Http\Literal',
 				'options' => array (
@@ -128,6 +143,7 @@ return array (
 		'invokables' => array (
 			'Application\Controller\Index' => 'Application\Controller\IndexController',
 			'Application\Controller\Projects' => 'Application\Controller\ProjectsController',
+			'Application\Controller\ProfileAjax' => 'Application\Controller\ProfileAjaxController',
 			'Application\Controller\Facebook' => 'Application\Controller\FacebookController',
 			'Application\Controller\Auth' => 'Application\Controller\AuthController',
 			'Application\Controller\Ajax' => 'Application\Controller\AjaxController',
@@ -154,6 +170,9 @@ return array (
 		),
 		'template_path_stack' => array (
 			__DIR__ . '/../view',
+		),
+		'strategies' => array(
+			'ViewJsonStrategy',
 		),
 	),
 	// Placeholder for console routes

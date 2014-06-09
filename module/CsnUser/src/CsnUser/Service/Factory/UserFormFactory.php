@@ -78,6 +78,8 @@ class UserFormFactory implements FactoryInterface
 		$this -> form -> setAttribute ( 'method', 'post' );
 
 		$this -> addCommonFields ();
+		$this -> addSubFields ();
+
 
 		switch ( $formName )
 		{
@@ -163,46 +165,67 @@ class UserFormFactory implements FactoryInterface
 
 				$this -> form -> get ( 'firstName' ) -> setAttributes ( array (
 					'required' => 'true',
-					'class' => 'form-control ',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'First Name' )
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'First Name' ),
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'First Name' ),
 				) );
 
 				$this -> form -> get ( 'lastName' ) -> setAttributes ( array (
 					'required' => 'false',
-					'class' => 'form-control input-lg',
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Last Name' ),
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Last Name' )
 				) );
+
+				$this -> form -> get ( 'qualification' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Qualification' ),
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Qualification' )
+				) );
+
+				$this -> form -> get ( 'workExperience' ) -> setAttributes ( array (
+					'required' => 'false',
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Work Experience' ),
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Work Experience' )
+				) );
+
+
+
 				$this -> form -> get ( 'phone1' ) -> setAttributes ( array (
 					'required' => 'false',
-					'type' => 'number',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Phone' )
+					'type' => 'tel',
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Phone' ),
 				) );
+
 				$this -> form -> get ( 'phone2' ) -> setAttributes ( array (
 					'required' => 'false',
-					'type' => 'number',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Phone' )
+					'type' => 'tel',
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Extra phone' ),
 				) );
+
 				$this -> form -> get ( 'skype' ) -> setAttributes ( array (
 					'required' => 'false',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Skype' )
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Skype' ),
 				) );
 				$this -> form -> get ( 'facebookUrl' ) -> setAttributes ( array (
 					'required' => 'false',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Facebook' )
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Facebook' ),
 				) );
 				$this -> form -> get ( 'twitterUrl' ) -> setAttributes ( array (
 					'required' => 'false',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Twitter' )
+					'class' => 'form-control js-profile-form-field',
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Twitter' ),
 				) );
 				$this -> form -> get ( 'linkedInUrl' ) -> setAttributes ( array (
 					'required' => 'false',
 					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Linkedin' )
+					'label' => $this -> getTranslatorHelper () -> translate ( 'Linkedin' ),
 				) );
 
 
@@ -489,6 +512,69 @@ class UserFormFactory implements FactoryInterface
 
 	}
 
+
+
+	/**
+	 *
+	 * Fields of embeded entities for User Edit Profile form
+	 *
+	 */
+	private function addSubFields ()
+	{
+
+		$this -> form -> add ( array (
+			'name' => 'birthDay',
+			'type' => 'Zend\Form\Element\Date',
+			'attributes' => array (
+				'required' => false,
+				'type' => 'date',
+				'class' => 'form-control js-profile-form-field',
+				'label' => $this -> getTranslatorHelper () -> translate ( 'Birth Day' ),
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Birth Day' )
+			),
+		) );
+
+		$this -> form -> add ( array (
+			'name' => 'location',
+			'type' => 'Zend\Form\Element\Text',
+			'attributes' => array (
+				'required' => false,
+				'type' => 'date',
+				'class' => 'form-control js-profile-form-field',
+				'label' => $this -> getTranslatorHelper () -> translate ( 'Location' ),
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
+			),
+		) );
+
+		$this -> form -> add ( array (
+			'name' => 'userTags',
+			'type' => 'Zend\Form\Element\Text',
+			'attributes' => array (
+				'required' => false,
+				'type' => 'date',
+				'class' => 'form-control js-profile-form-field js-tagsinput',
+				'label' => $this -> getTranslatorHelper () -> translate ( 'Professional skils' ),
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Professional skils' )
+			),
+		) );
+
+		$this -> form -> add ( array (
+			'name' => 'resume',
+			'type' => 'Zend\Form\Element\Textarea',
+			'attributes' => array (
+				'required' => false,
+				'rows' => 10,
+				'colls' => 30,
+				'class' => 'form-control js-profile-form-field',
+				'label' => $this -> getTranslatorHelper () -> translate ( 'About me' ),
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'About me' )
+			),
+		) );
+
+
+
+
+	}
 	/**
 	 *
 	 * Fields for User Sign Up

@@ -3,14 +3,17 @@
         <div class="form-group">
     {% endif %}
 
-    {% if label %}
-        {{ label }}:
+    {% if element.attributes.label %}
+		<label class="profile-title" for="{{ element.attributes.name }}">{{ element.attributes.label }}:</label>
     {% endif %}
     {% if element.attributes.type  == 'textarea' %}
         <textarea
 			name="{{ element.attributes.name }}"
+			id="{{ element.attributes.name }}"
 			class="{{ element.attributes.class|e }}"
 			value="{{ element.value }}"
+			rows="{{ element.attributes.rows }}"
+			colls="{{ element.attributes.colls }}"
 			{{ element.attributes.required is not empty and element.attributes.required != 'false' ? 'required="required"' : ''}}
 				  />{{ element.value|e }}</textarea>
     {% elseif type == 'checkbox' %}
@@ -18,6 +21,7 @@
     {% elseif element.attributes.type == 'text' %}
         <input type="{{ type|default('text') }}"
 			   name="{{ element.attributes.name }}"
+			   id="{{ element.attributes.name }}"
 			   value="{{ element.value }}"
 			   placeholder="{{ element.attributes.placeholder }}"
 			   {{ element.attributes.required is not empty and element.attributes.required != 'false' ? 'required="required"' : ''}}

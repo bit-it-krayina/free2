@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2014-06-09 10:25+0300\n"
+"PO-Revision-Date: 2014-06-09 14:34+0300\n"
 "Last-Translator: irina <imychkova@gmail.com>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: en_US\n"
@@ -119,6 +119,7 @@ msgstr "Профіль"
 msgid "Logout"
 msgstr "Вихід"
 
+# login form
 msgid "LOG IN"
 msgstr "Логін"
 
@@ -142,4 +143,47 @@ msgstr "або"
 
 msgid "Authorization"
 msgstr "Авторизація"
+
+# Edit profile form
+msgid "First Name"
+msgstr "Ім'я"
+
+msgid "Last Name"
+msgstr "Прізвище"
+
+msgid "Birth Day"
+msgstr "Дата народження"
+
+msgid "Qualification"
+msgstr "Cпеціальність"
+
+msgid "Work Experience"
+msgstr "Cтаж роботи"
+
+msgid "Location"
+msgstr "Місцезнаходження"
+
+msgid "Professional skils"
+msgstr "Професійні навики"
+
+msgid "About me"
+msgstr "Про себе"
+
+msgid "Phone"
+msgstr "Tелефон"
+
+msgid "Extra phone"
+msgstr "Додатковий телефон"
+
+msgid "Skype"
+msgstr "Skype"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
 

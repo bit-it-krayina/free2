@@ -43,23 +43,23 @@ class AjaxController extends AbstractActionController implements EntityManagerAw
 	    $em = $this ->  getEntityManager();
 	    $em->persist($orderEntity);
 	    $em -> flush();
-	    
+
 	    $id = $orderEntity -> getId();
 	    $result = 'success';
-	    
+
 	    {
 		/**
 		 * @var \Application\Service\EmailSender Description
 		 */
 		$mailer = $this->getServiceLocator()->get('mailer');
-		if ( ! $mes = $mailer->sendOrderMailToAdmin($orderEntity) ) 
+		if ( ! $mes = $mailer->sendOrderMailToAdmin($orderEntity) )
 		{
 		    $result = 'failure';
-		}
-		
+}
+
 	    }
 	}
-	
+
 
 	$this -> redirect () -> toRoute (
 		'contact_thanks', array ( 'result' => $result, 'order_id' => $id ) );
