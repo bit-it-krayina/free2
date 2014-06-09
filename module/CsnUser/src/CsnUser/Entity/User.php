@@ -250,18 +250,6 @@ class User
 	/**
 	 * @var string
 	 *
-	 * @ORM\Column(name="location", type="string", length=40, nullable=true)
-	 * @Annotation\Type("Zend\Form\Element\Text")
-	 * @Annotation\Filter({"name":"StripTags"})
-	 * @Annotation\Filter({"name":"StringTrim"})
-	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":40}})
-	 */
-	protected $location;
-
-
-	/**
-	 * @var string
-	 *
 	 * @ORM\Column(name="qualification", type="string", length=100, nullable=true)
 	 * @Annotation\Type("Zend\Form\Element\Text")
 	 * @Annotation\Filter({"name":"StripTags"})
@@ -269,6 +257,17 @@ class User
 	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":100}})
 	 */
 	private $qualification;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="work_experience", type="string", length=100, nullable=true)
+	 * @Annotation\Type("Zend\Form\Element\Text")
+	 * @Annotation\Filter({"name":"StripTags"})
+	 * @Annotation\Filter({"name":"StringTrim"})
+	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":100}})
+	 */
+	private $workExperience;
 
 	/**
 	 * @var CsnUser\Entity\Employment
@@ -296,13 +295,6 @@ class User
 	 */
 	protected $privateInfo;
 
-	/**
-	 * @var Contact
-	 *
-	 * @ORM\ManyToOne(targetEntity="CsnUser\Entity\Info\Contact")
-	 * @ORM\JoinColumn(name="contact_info_id", referencedColumnName="id", nullable=true)
-	 */
-	protected $contactInfo;
 
 	/**
 	 * @ORM\ManyToMany(targetEntity="CsnUser\Entity\Info\Tag", inversedBy="users")
@@ -837,7 +829,7 @@ class User
 
 	}
 
-	
+
 	/**
 	 * Специальность/Квалификация
 	 * @return string
@@ -907,24 +899,6 @@ class User
 
 	}
 
-	public function getContactInfo ()
-	{
-		return $this -> contactInfo;
-
-	}
-
-	/**
-	 *
-	 * @param \CsnUser\Entity\Info\Contact $contactInfo
-	 * @return \CsnUser\Entity\User
-	 */
-	public function setContactInfo ( Contact $contactInfo )
-	{
-		$this -> contactInfo = $contactInfo;
-
-		return $this;
-
-	}
 
 	public function getTags ()
 	{
@@ -1028,6 +1002,19 @@ class User
 	public function setLinkedInUrl ( $linkedInUrl )
 	{
 		$this -> linkedInUrl = $linkedInUrl;
+		return $this;
+
+	}
+
+	public function getWorkExperience ()
+	{
+		return $this -> workExperience;
+
+	}
+
+	public function setWorkExperience ( $workExperience )
+	{
+		$this -> workExperience = $workExperience;
 		return $this;
 
 	}

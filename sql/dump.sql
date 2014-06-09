@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 05, 2014 at 11:01 AM
+-- Generation Time: Jun 09, 2014 at 04:10 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -205,16 +205,17 @@ CREATE TABLE IF NOT EXISTS `offer` (
   `user_id` int(10) unsigned NOT NULL,
   `project_id` int(10) unsigned NOT NULL,
   `offer_state_id` int(10) unsigned NOT NULL DEFAULT '1',
-  `resume` varchar(255) DEFAULT NULL,
+  `resume` varchar(1024) DEFAULT NULL,
   `start_date` date DEFAULT NULL,
   `finish_date` date DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
   `role` varchar(100) DEFAULT NULL,
+  `offer` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`project_id`),
   KEY `project_id` (`project_id`),
   KEY `offer_state_id` (`offer_state_id`),
-  KEY `resume` (`resume`),
+  KEY `resume` (`resume`(255)),
   KEY `start_date` (`start_date`),
   KEY `finish_date` (`finish_date`),
   KEY `register_date` (`registration_date`),
@@ -226,8 +227,8 @@ CREATE TABLE IF NOT EXISTS `offer` (
 -- Dumping data for table `offer`
 --
 
-INSERT INTO `offer` (`id`, `user_id`, `project_id`, `offer_state_id`, `resume`, `start_date`, `finish_date`, `registration_date`, `role`) VALUES
-(1, 1, 1, 2, 'some resume', '2014-05-29', '2014-05-30', '2014-05-28', 'boss');
+INSERT INTO `offer` (`id`, `user_id`, `project_id`, `offer_state_id`, `resume`, `start_date`, `finish_date`, `registration_date`, `role`, `offer`) VALUES
+(1, 1, 1, 2, 'some resume', '2014-05-29', '2014-05-30', '2014-05-28', 'boss', NULL);
 
 -- --------------------------------------------------------
 
@@ -622,11 +623,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `registration_date` datetime DEFAULT NULL,
   `registration_token` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email_confirmed` tinyint(1) NOT NULL,
-  `location` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT 'Ukraine',
   `qualification` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `employment_id` int(11) NOT NULL DEFAULT '1',
   `private_info_id` int(10) unsigned DEFAULT NULL,
-  `contact_info_id` int(10) unsigned DEFAULT NULL,
+  `work_experience` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `skype` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone1` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone2` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -641,11 +641,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `IDX_8D93D6495D83CC1` (`state_id`),
   KEY `IDX_8D93D6491E27F6BF` (`question_id`),
   KEY `search_idx` (`username`,`first_name`,`last_name`,`email`),
-  KEY `location` (`location`),
   KEY `qualification` (`qualification`),
   KEY `employment_id` (`employment_id`),
   KEY `private_info_id` (`private_info_id`),
-  KEY `contact_info_id` (`contact_info_id`),
+  KEY `contact_info_id` (`work_experience`),
   KEY `skype` (`skype`,`phone1`,`phone2`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
@@ -653,37 +652,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `location`, `qualification`, `employment_id`, `private_info_id`, `contact_info_id`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`) VALUES
-(1, 3, 1, 2, 2, 'admin', 'test1', 'test2', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'Ukraine2', 'копірайтор', 2, 1, 1, NULL, '123', '123', NULL, NULL, NULL),
-(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, 'Ukraine', '', 1, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, 'Ukraine', '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_info_contact`
---
-
-DROP TABLE IF EXISTS `user_info_contact`;
-CREATE TABLE IF NOT EXISTS `user_info_contact` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `email` varchar(60) DEFAULT NULL,
-  `skype` varchar(60) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `facebook_url` varchar(150) DEFAULT NULL,
-  `twitter_url` varchar(150) DEFAULT NULL,
-  `linkedin_url` varchar(150) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `email` (`email`,`skype`,`phone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `user_info_contact`
---
-
-INSERT INTO `user_info_contact` (`id`, `email`, `skype`, `phone`, `facebook_url`, `twitter_url`, `linkedin_url`) VALUES
-(1, 'mice-1@mice.devoffice.com', 'pyatachok0803', '123456789', NULL, NULL, NULL),
-(2, 'mice-1@mice.devoffice.com', 'pyatachok0803', '123456789', 'http://www.facebook.com/irina.pyatachok', NULL, NULL);
+INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `qualification`, `employment_id`, `private_info_id`, `work_experience`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`) VALUES
+(1, 3, 1, 2, 2, 'admin', 'test1', 'test2', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'копірайтор', 2, 1, '5 років', NULL, '123', '123', NULL, NULL, NULL),
+(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, '', 1, NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

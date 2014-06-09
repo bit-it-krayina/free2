@@ -45,12 +45,22 @@ class Offer
 	/**
 	 * @var string
 	 *
-	 * @ORM\Column(name="resume", type="string", length=255, nullable=true)
+	 * @ORM\Column(name="resume", type="string", length=1024, nullable=true)
 	 * @Annotation\Type("Zend\Form\Element\Text")
 	 * @Annotation\Filter({"name":"StringTrim"})
-	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})
+	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":1024}})
 	 */
 	private $resume;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="offer", type="string", length=1024, nullable=true)
+	 * @Annotation\Type("Zend\Form\Element\Text")
+	 * @Annotation\Filter({"name":"StringTrim"})
+	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":1024}})
+	 */
+	private $offer;
 
 	/**
 	 * @var \DateTime
@@ -170,6 +180,19 @@ class Offer
 	public function setResume ( $resume )
 	{
 		$this -> resume = $resume;
+
+		return $this;
+
+	}
+	public function getOffer ()
+	{
+		return $this -> offer;
+
+	}
+
+	public function setOffer ( $offer )
+	{
+		$this -> offer = $offer;
 
 		return $this;
 
