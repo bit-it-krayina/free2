@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2014 at 04:10 AM
+-- Generation Time: Jun 09, 2014 at 09:49 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -633,6 +633,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `facebook_url` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `twitter_url` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `linkedin_url` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `work_experience_id` int(10) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`),
@@ -645,17 +646,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `employment_id` (`employment_id`),
   KEY `private_info_id` (`private_info_id`),
   KEY `contact_info_id` (`work_experience`),
-  KEY `skype` (`skype`,`phone1`,`phone2`)
+  KEY `skype` (`skype`,`phone1`,`phone2`),
+  KEY `work_experience_id` (`work_experience_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `qualification`, `employment_id`, `private_info_id`, `work_experience`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`) VALUES
-(1, 3, 1, 2, 2, 'admin', 'test1', 'test2', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'копірайтор', 2, 1, '5 років', NULL, '123', '123', NULL, NULL, NULL),
-(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, '', 1, NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `qualification`, `employment_id`, `private_info_id`, `work_experience`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`, `work_experience_id`) VALUES
+(1, 3, 1, 2, 2, 'admin', 'test1', 'test2', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'копірайтор', 2, 1, '5 років', NULL, '123', '123', NULL, NULL, NULL, 3),
+(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, '', 1, NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -769,6 +771,31 @@ CREATE TABLE IF NOT EXISTS `votes_users` (
 -- Dumping data for table `votes_users`
 --
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `work_experience`
+--
+
+DROP TABLE IF EXISTS `work_experience`;
+CREATE TABLE IF NOT EXISTS `work_experience` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `experience` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `experience` (`experience`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `work_experience`
+--
+
+INSERT INTO `work_experience` (`id`, `experience`) VALUES
+(5, 'більше 10 років'),
+(4, 'більше п''яти років'),
+(2, 'більше року'),
+(3, 'більше трьох років'),
+(1, 'менше року');
 
 -- --------------------------------------------------------
 

@@ -14,7 +14,7 @@ $('.js-profile-form-field').focusout(function(){
 		dataType: 'json',
 		success: function(data, status) {
 			console.log(data);
-		},
+		}
 
 	})
 });

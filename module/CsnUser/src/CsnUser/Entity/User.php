@@ -258,16 +258,6 @@ class User
 	 */
 	private $qualification;
 
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="work_experience", type="string", length=100, nullable=true)
-	 * @Annotation\Type("Zend\Form\Element\Text")
-	 * @Annotation\Filter({"name":"StripTags"})
-	 * @Annotation\Filter({"name":"StringTrim"})
-	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":100}})
-	 */
-	private $workExperience;
 
 	/**
 	 * @var CsnUser\Entity\Employment
@@ -377,6 +367,24 @@ class User
     private $linkedInUrl;
 
 
+
+	/**
+	 * @var CsnUser\Entity\WorkExperience
+	 *
+	 * @ORM\ManyToOne(targetEntity="CsnUser\Entity\WorkExperience")
+	 * @ORM\JoinColumn(name="work_experience_id", referencedColumnName="id", nullable=false)
+	 * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
+	 * @Annotation\Filter({"name":"StripTags"})
+	 * @Annotation\Filter({"name":"StringTrim"})
+	 * @Annotation\Validator({"name":"Digits"})
+	 * @Annotation\Required(true)
+	 * @Annotation\Options({
+	 *   "required":"true",
+	 *   "target_class":"CsnUser\Entity\WorkExperience",
+	 *   "property": "experience"
+	 * })
+	 */
+	protected $workExperience;
 
 
 
@@ -1018,5 +1026,6 @@ class User
 		return $this;
 
 	}
+
 
 }
