@@ -31,22 +31,22 @@
 
 
 						<div class="profile-header-contacts">
-							<a {% if user.contactInfo.FacebookUrl %}href="{{user.contactInfo.FacebookUrl}}" class="contacts-item"
+							<a {% if user.FacebookUrl %}href="{{user.FacebookUrl}}" class="contacts-item"
 							{% else %} class="contacts-item contacts-item-disabled"
 							{% endif %}><i class="icon-circle icon-main-color-in fi-facebook"></i></a>
-							<a {% if user.contactInfo.TwitterUrl %}href="{{user.contactInfo.TwitterUrl}}" class="contacts-item"
+							<a {% if user.TwitterUrl %}href="{{user.TwitterUrl}}" class="contacts-item"
 							{% else %} class="contacts-item contacts-item-disabled"
 							{% endif %}><i class="icon-circle icon-main-color-in fi-twitter"></i></a>
-							<a {% if user.contactInfo.LinkedInUrl %}href="{{user.contactInfo.LinkedInUrl}}" class="contacts-item"
+							<a {% if user.LinkedInUrl %}href="{{user.LinkedInUrl}}" class="contacts-item"
 							{% else %} class="contacts-item contacts-item-disabled"
 							{% endif %}><i class="icon-circle icon-main-color-in fi-linkedin"></i></a>
-							<a {% if user.contactInfo.email %}href="mailto:{{user.contactInfo.email}}" class="contacts-item"
+							<a {% if user.email %}href="mailto:{{user.email}}" class="contacts-item"
 							{% else %} class="contacts-item contacts-item-disabled"
 							{% endif %}><i class="icon-circle icon-main-color-in fi-mail"></i></a>
 
-							{% if user.contactInfo.phone %}<div class="profile-header-phone"><i class="fi-phone"></i>{{ user.contactInfo.phone }}</div>{% endif %}
-							{% if user.contactInfo.phone %}<div class="profile-header-phone"><i class="fi-phone"></i>{{ user.contactInfo.phone }}</div>{% endif %}
-							{% if user.contactInfo.skype %}<div class="profile-header-skype"><i class="fi-skype"></i>{{user.contactInfo.skype}}</div>{% endif %}
+							{% if user.phone1 %}<div class="profile-header-phone"><i class="fi-phone"></i>{{ user.phone1 }}</div>{% endif %}
+							{% if user.phone2 %}<div class="profile-header-phone"><i class="fi-phone"></i>{{ user.phone2 }}</div>{% endif %}
+							{% if user.skype %}<div class="profile-header-skype"><i class="fi-skype"></i>{{user.skype}}</div>{% endif %}
 						</div>
 						<a href="{{ url('user-register', {'action': 'edit-profile'})}}" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
 					</div>
