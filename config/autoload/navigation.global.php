@@ -85,7 +85,7 @@ return array(
 //				'privilege'  => 'edit-profile',
 				'pages' => array(
 					array (
-						'label' => 'Login',
+						'label' => 'LOG IN',
 						'route' => 'user-index',
 						'controller' => 'Index',
 						'action'     => 'login',

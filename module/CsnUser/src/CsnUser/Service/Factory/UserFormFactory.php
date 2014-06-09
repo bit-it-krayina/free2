@@ -408,7 +408,7 @@ class UserFormFactory implements FactoryInterface
 
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
 					'class' => 'btn btn-add-color btn-auth',
-					'value' => $this -> getTranslatorHelper () -> translate ( 'Log In' )
+					'value' => $this -> getTranslatorHelper () -> translate ( 'LOG IN' )
 				) );
 				break;
 			default:
@@ -483,7 +483,7 @@ class UserFormFactory implements FactoryInterface
 			'name' => 'rememberme',
 			'type' => 'Zend\Form\Element\Checkbox',
 			'options' => array (
-				'label' => $this -> getTranslatorHelper () -> translate ( 'Remember me?' ),
+				'label' => $this -> getTranslatorHelper () -> translate ( 'Remember me' ),
 			),
 		) );
 

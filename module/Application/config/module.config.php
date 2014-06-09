@@ -114,8 +114,8 @@ return array (
 		),
 	),
 	'translator' => array (
-//		'locale' => 'uk_UA',
-		'locale' => 'en_US',
+		'locale' => 'uk_UA',
+//		'locale' => 'en_US',
 		'translation_file_patterns' => array (
 			array (
 				'type' => 'gettext',
@@ -191,14 +191,7 @@ return array (
 		),
 	),
 	'contacts' => [
-		'phones' => [
-			'mts' => '(050) 056-58-48',
-			'life' => '(063) 552-62-53',
-		],
-		'address' => 'some address',
-		'email' => 'email',
-		'name' => 'Ярослава Солтівская',
-		'skype' => 'skype',
+
 	],
 
 	'projectsApi' => [
