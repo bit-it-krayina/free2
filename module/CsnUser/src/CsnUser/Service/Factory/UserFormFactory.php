@@ -224,7 +224,7 @@ class UserFormFactory implements FactoryInterface
 				) );
 				$this -> form -> get ( 'linkedInUrl' ) -> setAttributes ( array (
 					'required' => 'false',
-					'class' => 'form-control input-lg',
+					'class' => 'form-control js-profile-form-field',
 					'label' => $this -> getTranslatorHelper () -> translate ( 'Linkedin' ),
 				) );
 
@@ -528,7 +528,7 @@ class UserFormFactory implements FactoryInterface
 			'attributes' => array (
 				'required' => false,
 				'type' => 'date',
-				'class' => 'form-control js-profile-form-field',
+				'class' => 'form-control js-profile-form-field js-datepicker',
 				'label' => $this -> getTranslatorHelper () -> translate ( 'Birth Day' ),
 				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Birth Day' )
 			),

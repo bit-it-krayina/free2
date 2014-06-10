@@ -53,7 +53,17 @@ class UserPrivate extends \CsnUser\Entity\Info\UserPrivate implements \Doctrine\
 
 
 
+    /**
+     * {@inheritDoc}
+     * @param string $name
+     * @param mixed  $value
+     */
+    public function __set($name, $value)
+    {
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__set', array($name, $value));
 
+        return parent::__set($name, $value);
+    }
 
 
 

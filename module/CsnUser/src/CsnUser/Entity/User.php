@@ -23,6 +23,8 @@ use CsnUser\Entity\Employment;
 use CsnUser\Entity\Info\UserPrivate;
 use CsnUser\Entity\Info\Contact;
 use CsnUser\Entity\Info\Tag;
+use CsnUser\Entity\Extras\MagicInterface;
+use CsnUser\Entity\Extras\MagicTrait;
 
 /**
  * Doctrine ORM implementation of User entity
@@ -33,8 +35,9 @@ use CsnUser\Entity\Info\Tag;
  * )
  * @Annotation\Name("User")
  */
-class User
+class User implements MagicInterface
 {
+	use MagicTrait;
 
 	/**
 	 * @var integer

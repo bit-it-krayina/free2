@@ -4,6 +4,8 @@ namespace CsnUser\Entity\Info;
 
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
+use CsnUser\Entity\Extras\MagicInterface;
+use CsnUser\Entity\Extras\MagicTrait;
 
 /**
  * Role
@@ -11,8 +13,10 @@ use Zend\Form\Annotation;
  * @ORM\Table(name="user_info_private")
  * @ORM\Entity
  */
-class UserPrivate
+class UserPrivate implements MagicInterface
 {
+	use MagicTrait;
+	
     /**
      * @var integer
      *
