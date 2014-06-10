@@ -14,7 +14,15 @@ function saveField($field) {
 }
 
 $(document).ready(function(){
-	$('.js-tagsinput').tagsinput();
+	$('.js-tagsinput').tagsinput({
+		typeahead: {
+			source: ['sql', 'symphony', 'mysql', 'mysqli']
+//			source: function(query) {
+//				console.log('123');
+//				return $.getJSON('/profile-ajax/getAvailableTags');
+//			}
+		}
+	});
 
 	$('.js-datepicker').each(function(){
 		$(this).attr('data-date', $(this).val() );

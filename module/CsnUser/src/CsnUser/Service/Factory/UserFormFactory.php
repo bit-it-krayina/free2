@@ -539,7 +539,6 @@ class UserFormFactory implements FactoryInterface
 			'type' => 'Zend\Form\Element\Text',
 			'attributes' => array (
 				'required' => false,
-				'type' => 'date',
 				'class' => 'form-control js-profile-form-field',
 				'label' => $this -> getTranslatorHelper () -> translate ( 'Location' ),
 				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
@@ -551,10 +550,9 @@ class UserFormFactory implements FactoryInterface
 			'type' => 'Zend\Form\Element\Text',
 			'attributes' => array (
 				'required' => false,
-				'type' => 'date',
 				'class' => 'form-control js-profile-form-field js-tagsinput',
 				'label' => $this -> getTranslatorHelper () -> translate ( 'Professional skils' ),
-				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Professional skils' )
+//				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Professional skils' )
 			),
 		) );
 

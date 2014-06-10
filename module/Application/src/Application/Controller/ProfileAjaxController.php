@@ -76,4 +76,11 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
             'message' => $message,
         ));
 	}
+
+
+	public function getAvailableTagsAction()
+	{
+		
+		return \Zend\Json\Json::encode(['mysql, sql, zf2, zf, zend framework']);
+	}
 }

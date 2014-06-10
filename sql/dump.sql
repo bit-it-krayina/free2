@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2014 at 09:49 AM
+-- Generation Time: Jun 10, 2014 at 08:06 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -626,7 +626,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `qualification` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `employment_id` int(11) NOT NULL DEFAULT '1',
   `private_info_id` int(10) unsigned DEFAULT NULL,
-  `work_experience` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `skype` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone1` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone2` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -645,7 +644,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `qualification` (`qualification`),
   KEY `employment_id` (`employment_id`),
   KEY `private_info_id` (`private_info_id`),
-  KEY `contact_info_id` (`work_experience`),
   KEY `skype` (`skype`,`phone1`,`phone2`),
   KEY `work_experience_id` (`work_experience_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
@@ -654,10 +652,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `qualification`, `employment_id`, `private_info_id`, `work_experience`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`, `work_experience_id`) VALUES
-(1, 3, 1, 2, 2, 'admin', 'test1', 'test2', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'копірайтор', 2, 1, '5 років', NULL, '123', '123', NULL, NULL, NULL, 3),
-(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, '', 1, NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `qualification`, `employment_id`, `private_info_id`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`, `work_experience_id`) VALUES
+(1, 3, 1, 2, 2, 'admin', 'test', 'test25', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'копірайтор', 2, 1, '123', '123', '123', '234', '345', '456', 4),
+(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -680,7 +678,7 @@ CREATE TABLE IF NOT EXISTS `user_info_private` (
 --
 
 INSERT INTO `user_info_private` (`id`, `birthDay`, `location`, `resume`) VALUES
-(1, '1987-03-08', 'Ukraine, Kyiv', '<p> Работаю со словом с 2007 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	</p> <p>Я люблю писать. Люблю учиться. Люблю цифры и факты. </p>');
+(1, '1983-06-08', 'Ukraine, Kyiv, Shevchenko Avenu 16', '<p> Работаю со словом с 2012 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	</p> <p>Я люблю писать. Люблю учиться. Люблю цифры и факты. </p>');
 
 -- --------------------------------------------------------
 
