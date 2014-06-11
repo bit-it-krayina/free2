@@ -108,17 +108,21 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill { -we
 .btn-reg { width: 100%; border-color: transparent; }
 
 .profile-header { padding: 0 0 32px; position: relative; min-height: 190px; }
+.profile-header:before, .profile-header:after { content: " "; display: table; }
+.profile-header:after { clear: both; }
 .profile-header a { color: #fff; }
 .profile-header h1 { margin: 12px 0 -3px; word-wrap: break-word; font-weight: 400; }
 .profile-header h1 span { display: block; }
 .profile-header h1 small { display: block; margin-top: 15px; line-height: 1.18; text-transform: lowercase; font-weight: 100; color: #666666; letter-spacing: -0.01em; }
-.profile-header .icon-edit { position: absolute; bottom: -40px; z-index: 2; right: 0; }
-.profile-header .icon-edit .fi-pencil { height: 39px; width: 39px; line-height: 39px; text-align: center; font-size: 21px; }
-.profile-header:before, .profile-header:after { content: " "; display: table; }
-.profile-header:after { clear: both; }
 
-.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 35px; }
+.change-profile { position: absolute; bottom: -40px; z-index: 2; right: 0; }
+.change-profile .icon-square { height: 39px; width: 39px; line-height: 39px; text-align: center; font-size: 21px; }
+
+.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 35px; background: #f8f8f8 url(../img/no-avatar.png); position: relative; }
 .profile-photo img { max-width: 130px; }
+
+.profile-photo-delete { position: absolute; top: 0; right: 0; cursor: pointer; height: 24px; width: 24px; line-height: 24px; text-align: center; font-size: 15px; color: #1179b9; background-color: rgba(102, 102, 103, 0.5); color: #fff; color: rgba(255, 255, 255, 0.7); }
+.profile-photo-delete:hover { color: #fff; }
 
 .photo-btn { position: absolute; left: 0; top: 135px; width: 130px; overflow: hidden; height: 28px; cursor: pointer; }
 .photo-btn input { opacity: 0; height: 100%; width: 250%; position: absolute; top: 0; right: 0; cursor: pointer; }
@@ -142,11 +146,11 @@ div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2e
 
 .contacts-item { display: inline-block; vertical-align: top; margin: 0 0 10px 10px; }
 
-.profile-header-phone, .profile-header-skype { max-width: 170px; font-style: italic; padding-left: 27px; position: relative; margin-bottom: 8px; margin-left: 10px; text-align: left; }
+.profile-header-phone, .profile-header-skype { max-width: 170px; font-style: italic; padding-left: 27px; position: relative; margin-bottom: 8px; margin-left: 11px; text-align: left; }
 .profile-header-phone i, .profile-header-skype i { position: absolute; }
 
 .profile-header-phone { font-size: 16px; white-space: nowrap; }
-.profile-header-phone i { top: 3px; left: 4px; }
+.profile-header-phone i { top: 2px; left: 4px; }
 
 .profile-header-skype { font-size: 13px; word-wrap: break-word; }
 .profile-header-skype i { color: #1179b9; top: -7px; font-size: 21px; left: 3px; }
@@ -162,6 +166,8 @@ div.profile-status-btn { text-transform: uppercase; color: #fff; background: #2e
 .profile-info:before, .profile-info:after { content: " "; display: table; }
 .profile-info:after { clear: both; }
 
+.profile-info_project { margin-bottom: 40px; }
+
 .profile-title { color: #b3b3b3; font-weight: 500; text-transform: uppercase; line-height: 1.5; font-size: 13px; }
 
 label.profile-title { color: gray; }
@@ -172,12 +178,13 @@ h3.profile-title .profile-role:before { content: "|"; font-style: normal; font-s
 
 .profile-text { margin-bottom: 15px; line-height: 1.5; }
 
-.profile-date { font-size: 13px; color: #bfbfbf; }
+.profile-date { font-size: 13px; color: #bfbfbf; margin-bottom: 3px; }
 
-.profile-tags { margin-bottom: 15px; }
-.profile-tags span { display: inline-block; background: #2ba2ec; margin: 6px 2px 0 0; padding: 0 8px; color: #fff; cursor: default; }
+.skill-tags { margin-bottom: 15px; }
+.skill-tags span { display: inline-block; background: #2ba2ec; margin: 6px 2px 0 0; padding: 0 8px; color: #fff; cursor: default; }
 
-.profile-tags_project span { background: white; box-shadow: 0 0 0 1px #bfbfbf inset; color: #a6a6a6; }
+.skill-tags_gray { margin-top: -5px; }
+.skill-tags_gray span { background: #f2f2f2; color: #8c8c8c; }
 
 .bootstrap-tagsinput { background-color: #fff; border: 1px solid #ccc; padding: 5px 6px; margin-bottom: 10px; color: #555; vertical-align: middle; max-width: 100%; line-height: 29px; }
 .bootstrap-tagsinput:focus { border-color: #66afe9; outline: 0; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
@@ -194,4 +201,8 @@ h3.profile-title .profile-role:before { content: "|"; font-style: normal; font-s
 
 .bootstrap-tagsinput .tag [data-role="remove"]:hover { background: #1388d0; }
 
-.profile-edit .profile-header-info { width: auto; float: none; margin-left: 150px; }
+.profile-edit .profile-header-info { width: auto; float: none; margin-left: 150px; margin-top: 4px; }
+.profile-edit .profile-header .form-group { margin: 0; }
+.profile-edit .profile-header-info .form-group { margin-bottom: 10px; }
+
+.project-notice { background: #fffcee; margin-left: -12px; padding: 12px; }

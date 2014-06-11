@@ -65,12 +65,21 @@
 .fi-bell-alt:before { content: '\e813'; }
 
 /* '' */
-.fi-bell:before { content: '\e815'; }
+.fi-bell:before { content: '\e814'; }
+
+/* '' */
+.fi-download:before { content: '\e815'; }
 
 /* '' */
-.fi-download:before { content: '\e816'; }
+.fi-print:before { content: '\e816'; }
 
 /* '' */
-.fi-print:before { content: '\e817'; }
+.fi-ok:before { content: '\e817'; }
 
 /* '' */
+.fi-plus:before { content: '\e818'; }
+
+/* '' */
+.fi-minus:before { content: '\e81a'; }
+
+/* '' */

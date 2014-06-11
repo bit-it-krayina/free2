@@ -7,6 +7,7 @@
   padding: 0 0 32px;
   position: relative;
   min-height: 190px;
+  @include clearfix();
 
   a {
     color: #fff;
@@ -31,23 +32,21 @@
       letter-spacing: -0.01em;
     }
   }
+}
 
-  .icon-edit {
-    position: absolute;
-    bottom: -40px;
-    z-index: 2;
-    right: 0;
+.change-profile {
+  position: absolute;
+  bottom: -40px;
+  z-index: 2;
+  right: 0;
 
-    .fi-pencil {
-      height: 39px;
-      width: 39px;
-      line-height: 39px;
-      text-align: center;
-      font-size: 21px;
-    }
+  .icon-square {
+    height: 39px;
+    width: 39px;
+    line-height: 39px;
+    text-align: center;
+    font-size: 21px;
   }
-
-  @include clearfix();
 }
 
 .profile-photo {
@@ -59,9 +58,31 @@
   margin-right: 20px;
   overflow: hidden;
   margin-bottom: 35px;
+  background: #f8f8f8 url(../img/no-avatar.png);
+  position: relative;
 
   img {
     max-width: 130px;
+  }
+}
+
+.profile-photo-delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 15px;
+  color: $main-color;
+  background-color: rgba(102, 102, 103,.5);
+  color: #fff;
+  color: rgba(white,.7);
+
+  &:hover {
+    color: #fff;
   }
 }
 
@@ -161,7 +182,7 @@ div.profile-status-btn {
   padding-left: 27px;
   position: relative;
   margin-bottom: 8px;
-  margin-left: 10px;
+  margin-left: 11px;
   text-align: left;
   i {
     position: absolute;
@@ -173,7 +194,7 @@ div.profile-status-btn {
   white-space: nowrap;
 
   i {
-    top: 3px;
+    top: 2px;
     left: 4px;
   }
 }
@@ -227,6 +248,11 @@ div.profile-status-btn {
   @include clearfix();
   margin-bottom: 25px;
 }
+
+.profile-info_project {
+  margin-bottom: 40px;
+}
+
 .profile-title {
   color: lighten(#000, 70%);
   font-weight: 500;
@@ -268,9 +294,10 @@ h3.profile-title{
 .profile-date {
   font-size: 13px;
   color: lighten(#000, 75%);
+  margin-bottom: 3px;
 }
 
-.profile-tags {
+.skill-tags {
   margin-bottom: 15px;
 
   span {
@@ -283,11 +310,12 @@ h3.profile-title{
   }
 }
 
-.profile-tags_project {
+.skill-tags_gray {
+  margin-top: -5px;
+
   span {
-    background: white;
-    box-shadow: 0 0 0 1px lighten(#000, 75%) inset;
-    color: lighten(#000, 65%);
+    background: #f2f2f2;
+    color: lighten(#000, 55%);
   }
 }
 
@@ -361,5 +389,21 @@ h3.profile-title{
     width: auto;
     float: none;
     margin-left: 150px;
+    margin-top: 4px;
   }
+
+  .profile-header .form-group{
+    margin: 0;
+  }
+
+  .profile-header-info .form-group{
+    margin-bottom: 10px;
+  }
+}
+
+
+.project-notice {
+  background: $add-color-lighter;
+  margin-left: -12px;
+  padding: 12px;
 }

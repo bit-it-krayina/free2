@@ -31,7 +31,7 @@ $add-color:                $yellow;
 $add-color-darker:         desaturate(darken($yellow, 12%), 25%) !default;
 $add-color-dark:           desaturate(darken($yellow, 5%), 20%) !default;
 $add-color-light:          lighten($yellow, 15%) !default;
-$add-color-lighter:        lighten($yellow, 23%) !default;
+$add-color-lighter:        lighten($yellow, 38%) !default;
 $add-color-text:           desaturate(darken($yellow, 35%), 25%);
 
 $brand-primary:         $blue !default;

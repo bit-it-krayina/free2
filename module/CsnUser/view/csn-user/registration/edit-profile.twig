@@ -11,6 +11,7 @@
 					<div class="profile-header ">
 						<div class="profile-photo">
 							<img src="/img/photo.jpg" alt="">
+							<div class="fi-cancel profile-photo-delete"></div>
 						</div>
 						<div class="btn btn-primary btn-xs photo-btn">завантажити<input type="file"></div>
 
@@ -19,6 +20,7 @@
 							{{ _forms._wrappedInput(form.get('firstName')) }}
 							{{ _forms._wrappedInput(form.get('lastName')) }}
 						</div>
+						<a href="/user/profile" class="change-profile"><i class="icon-square btn-success fi-ok"></i></a>
 					</div>
 					<ul class="nav nav-tabs profile-tabs">
 					 	<li class="active"><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
@@ -35,15 +37,15 @@
 								</div>
 
 								<div class="col-md-6">
-									{{ _forms._wrappedInput(form.get('birthDay')) }}
 									{{ _forms._wrappedInput(form.get('location')) }}
+									{{ _forms._wrappedInput(form.get('birthDay')) }}
 								</div>
 							</div>
 							{{ _forms._wrappedInput(form.get('userTags')) }}
 							{{ _forms._wrappedInput(form.get('resume')) }}
 						</div>
 						<div class="tab-pane" id="projects">
-							Что может редактировать юзер в проектах?
+
 						</div>
 						<div class="tab-pane" id="contacts">
 							{{ _forms._wrappedInput(form.get('phone1')) }}
