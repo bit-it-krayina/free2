@@ -12,6 +12,9 @@ use Application\Service\MenuTrait;
 use Application\Service\ControlUtils;
 use Application\Service\Importer\Service as ImporterService;
 use Application\Entity\Project;
+use Zend\Db\Sql\Select;
+use Zend\Paginator\Paginator;
+use Zend\Paginator\Adapter\Iterator;
 
 class ProjectsController extends AbstractActionController implements EntityManagerAwareInterface
 {
@@ -22,16 +25,34 @@ class ProjectsController extends AbstractActionController implements EntityManag
 			;
 	public function listAction()
 	{
+		$order_by = $this->params()->fromRoute('order_by') ?
+                $this->params()->fromRoute('order_by') : 'id';
+        $order = $this->params()->fromRoute('order') ?
+                $this->params()->fromRoute('order') : Select::ORDER_ASCENDING;
+		$page = $this->params()->fromRoute('page') ? (int) $this->params()->fromRoute('page') : 1;
+
+		$itemsPerPage = 10;
+
 		$projects = $this
 						-> getEntityManager ()
 						-> getRepository ( 'Application\Entity\Project' )
-						-> findAll ();
+						-> findBy(array() , array($order_by => $order ));
+
+		$paginator = new Paginator(new Iterator( new \ArrayIterator($projects)));
+        $paginator->setCurrentPageNumber($page)
+                ->setItemCountPerPage($itemsPerPage)
+                ->setPageRange(5);
+
 
 		$view = new ViewModel ( array (
 			'loginForm' => $this -> getLoginForm (),
 			'identity' => $this -> getAuthenticationService() -> getIdentity(),
 			'loggedUser' => $this -> getLoggedUser (),
-			'projects' => $projects
+			'projects' => $projects,
+			'order_by' => $order_by,
+			'order' => $order,
+			'page' => $page,
+			'paginator' => $paginator,
 		) );
 		return $view;
 	}

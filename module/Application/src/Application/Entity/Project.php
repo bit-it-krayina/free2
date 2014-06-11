@@ -5,10 +5,11 @@ namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
 
+
 /**
  * A project data
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Application\Entity\Repository\ProjectRepository")
  * @ORM\Table(name="projects")
  */
 class Project

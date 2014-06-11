@@ -66,9 +66,13 @@ return array (
 			'project' => array (
 				'type' => 'Segment',
 				'options' => array (
-					'route' => '/project/[:action]',
+					'route' => '/project[/:action][/:id][/page/:page][/order_by/:order_by][/:order]',
 					'constraints' => array (
-						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+						'action' => '(?!\border_by\b)[a-zA-Z][a-zA-Z0-9_-]*',
+						'id'     => '[0-9]+',
+						'page' => '[0-9]+',
+                        'order_by' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'order' => 'asc|desc',
 					),
 					'defaults' => array (
 						'controller' => 'Application\Controller\Projects',

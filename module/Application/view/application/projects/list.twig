@@ -9,8 +9,9 @@
 				<div class="row">
 					<h2>{{ translate ('List of projects') }}</h2>
 					<a href="{{ url('project', {'action' : 'import'})}}">Import</a>
+					{#<a href="{{ url('project', { 'action' : 'list', 'order_by' : 'id', 'order' : 'desc'} ) }}">sort by id </a>#}
 				</div>
-				{% include 'application/projects/list_block'  %}
+				{% include 'application/projects/list_block' with { paginator : projects }  %}
 				</div>
 
 			</div>
