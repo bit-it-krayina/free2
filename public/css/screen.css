@@ -87,25 +87,35 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill { -we
 .promo-page .col-md-6 { padding-left: 25px; padding-right: 25px; }
 .promo-page h1 { font-weight: 100; }
 
-.panel-authorization { margin-bottom: 0; }
-.panel-authorization .pull-right { float: right; }
-.panel-authorization .text-devider { line-height: 44px; }
-.panel-authorization .form-group-btn { text-align: center; }
-.panel-authorization .form-group-btn:before, .panel-authorization .form-group-btn:after { content: " "; display: table; }
-.panel-authorization .form-group-btn:after { clear: both; }
-.panel-authorization .form-group-btn .btn:first-child { float: left; }
-.panel-authorization .form-group-btn .btn:last-child { float: right; }
-.panel-authorization .form-group-btn .btn-inverse { text-align: left; }
-.panel-authorization .checkbox { margin-right: 2px; }
-.panel-authorization .btn { line-height: 32px; }
+.panel-login { margin-bottom: 0; height: 346px; }
+.panel-login .form-group { margin-bottom: 22px; }
+.panel-login .pull-right { float: right; }
+.panel-login .text-devider { line-height: 44px; }
+.panel-login .form-group-btn { text-align: center; margin-bottom: 0; }
+.panel-login .form-group-btn:before, .panel-login .form-group-btn:after { content: " "; display: table; }
+.panel-login .form-group-btn:after { clear: both; }
+.panel-login .form-group-btn .btn:first-child { float: left; }
+.panel-login .form-group-btn .btn:last-child { float: right; }
+.panel-login .form-group-btn .btn-inverse { text-align: left; }
+.panel-login .checkbox { margin-right: 2px; }
+.panel-login .btn { line-height: 32px; }
+
+.login-tabs { border-bottom: 0; padding: 20px 21px 5px; }
+.login-tabs > li { text-transform: uppercase; font-weight: 100; font-size: 21px; margin: 0; }
+.login-tabs > li:nth-child(2n) { float: right; }
+.login-tabs > li > a { text-decoration: none; padding: 0; border-color: transparent; margin: 0; opacity: 0.55; line-height: 1.25; }
+.login-tabs > li > a:hover, .login-tabs > li > a:focus { background-color: inherit; border-color: transparent; border-color: transparent transparent #fff transparent; }
+.login-tabs > li.active > a, .login-tabs > li.active > a:hover, .login-tabs > li.active > a:focus { background: inherit; border-color: transparent transparent #fff transparent; opacity: 1; }
+
+.login-tabs-content { padding: 20px; }
+
+.login-auth .form-group-btn { margin-top: 41px; }
 
 .btn-auth { width: 40%; padding: 5px; }
 .btn-auth .icon-main-color-in { margin-right: 13px; }
 .btn-auth .icon-main-color-in:hover { color: #1179b9; background: #fff; }
 
-.form-group-reg { border-top: 10px solid #fff; margin: 0 -21px -21px; }
-
-.btn-reg { width: 100%; border-color: transparent; }
+.btn-reg { width: 100%; }
 
 .profile-header { padding: 0 0 32px; position: relative; min-height: 190px; }
 .profile-header:before, .profile-header:after { content: " "; display: table; }

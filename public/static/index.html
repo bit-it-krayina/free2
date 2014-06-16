@@ -32,29 +32,47 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<div class="panel block-main-color panel-authorization">
-					<div class="panel-body">
-						<h3 class="h3 headings-top-0">Авторизація</h3>
-						<form role="form">
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="E-mail">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Пароль">
-							</div>
-							<div class="checkbox">
-								<input type="checkbox" id="check-save"> 
-								<label for="check-save">Запам'ятати</label>
-								<a href="#" class="pull-right">Забули пароль?</a>
-							</div>
-							<div class="form-group">
-								<button type="submit" class="btn btn-inverse btn-auth">Увійти</button> <span class="text-devider">або</span> 
-								<button type="submit" class="btn btn-inverse btn-auth"><i class="icon-square icon-main-color fi-facebook"></i> Facebook</button>
-							</div>
-							<div class="form-group form-group-last">
-								<a href="#" class="btn btn-reg">Зареєструватися</a>
-							</div>
-						</form>
+				<div class="panel block-main-color panel-login">
+					<ul class="nav nav-tabs login-tabs">
+						<li class="active"><a href="#authorization" data-toggle="tab">Авторизація</a></li>
+						<li><a href="#registration" data-toggle="tab">Реєстрація</a></li>
+					</ul>
+					<div class="tab-content login-tabs-content">
+						<div class="tab-pane login-auth active" id="authorization">
+							<form role="form">
+								<div class="form-group">
+									<input type="email" class="form-control input-lg" placeholder="E-mail">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control input-lg" placeholder="Пароль">
+								</div>
+								<div class="checkbox">
+									<input type="checkbox" id="check-save"> 
+									<label for="check-save">Запам'ятати</label>
+									<a href="#" class="pull-right">Забули пароль?</a>
+								</div>
+								<div class="form-group form-group-btn">
+									<input type="submit" name="submit" class="btn btn-add-color btn-auth" value="Log In"> <span class="text-devider">або</span>
+									<a href="" class="btn btn-inverse btn-auth"><i class="icon-square icon-main-color-in fi-facebook"></i> Facebook</a>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane login-reg" id="registration">
+							<form role="form">
+								<div class="form-group">
+									<input type="email" class="form-control input-lg" placeholder="E-mail">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control input-lg" placeholder="Пароль">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control input-lg" placeholder="Пароль">
+								</div>
+								<div class="form-group form-group-btn">
+									<input type="submit" name="submit" class="btn btn-add-color btn-reg" value="Зареєструватися">
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
