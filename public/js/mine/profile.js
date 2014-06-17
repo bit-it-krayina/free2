@@ -16,6 +16,9 @@ function saveField($field) {
 $(document).ready(function(){
 	$('.js-tagsinput').tagsinput({
 		typeahead: {
+			hint: true,
+			highlight: true,
+			minLength: 1,
 			source: ['sql', 'symphony', 'mysql', 'mysqli']
 //			source: function(query) {
 //				console.log('123');
