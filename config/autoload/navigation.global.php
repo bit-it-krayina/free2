@@ -93,6 +93,14 @@ return array(
 						'privilege'  => 'login',
 					),
 					array (
+						'label' => 'Registration',
+						'route' => 'user-register',
+						'controller' => 'Registration',
+						'action'     => 'index',
+						'resource'	  => 'CsnUser\Controller\Registration',
+						'privilege'  => 'index',
+					),
+					array (
 						'label' => 'Profile',
 						'route' => 'user-index',
 						'controller' => 'Index',

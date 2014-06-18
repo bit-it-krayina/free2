@@ -8,6 +8,7 @@ use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
 use Application\Service\ControlUtils;
 use CsnUser\Entity\User;
+use CsnUser\Entity\Info\UserPrivate;
 
 use Zend\View\Model\JsonModel;
 
@@ -44,10 +45,23 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 						case 'location':
 						case 'resume':
 							$privateInfo = $user->getPrivateInfo();
+							if ( empty ( $privateInfo ) ) {
+								$privateInfo = new UserPrivate();
+								$entityManager->persist($privateInfo);
+								$entityManager->flush();
+								$user->setPrivateInfo($privateInfo);
+							}
+
 							$privateInfo->$key = $value;
 							break;
 						case 'birthDay':
 							$privateInfo = $user->getPrivateInfo();
+							if ( empty ( $privateInfo ) ) {
+								$privateInfo = new UserPrivate();
+								$entityManager->persist($privateInfo);
+								$entityManager->flush();
+								$user->setPrivateInfo($privateInfo);
+							}
 							$privateInfo->setBirthDay(new \DateTime($value));
 							break;
 						default:
@@ -56,13 +70,6 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 					}
 
 				}
-
-//                $phone1 = $this->params()->fromPost('phone1');
-//                $phone2 = $this->params()->fromPost('phone2');
-//                $user->setPhone1($phone1);
-//                $user->setPhone2($phone2);
-
-
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $message =  $this->getTranslatorHelper()->translate('Your profile has been edited');
@@ -80,7 +87,7 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 
 	public function getAvailableTagsAction()
 	{
-		
+
 		return \Zend\Json\Json::encode(['mysql, sql, zf2, zf, zend framework']);
 	}
 }

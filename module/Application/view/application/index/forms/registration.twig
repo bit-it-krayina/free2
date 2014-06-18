@@ -1,0 +1,19 @@
+{% if registrationForm is  not empty %}
+	{{ form().openTag(registrationForm) | raw }}
+		<div class="form-group">
+			{{ formElement(registrationForm.get('email'))| raw }}
+			{{ formElementErrors(registrationForm.get('email'))| raw }}
+		</div>
+		<div class="form-group">
+			{{ formElement(registrationForm.get('password'))| raw }}
+			{{ formElementErrors(registrationForm.get('password'))| raw }}
+		</div>
+		<div class="form-group">
+			{{ formElement(registrationForm.get('passwordVerify'))| raw }}
+			{{ formElementErrors(registrationForm.get('passwordVerify'))| raw }}
+		</div>
+		{{ formRow(registrationForm.get('submit'))| raw }}
+	{{ formElement(registrationForm.get('csrf'))| raw }}
+	{{ form().closeTag(registrationForm) | raw}}
+{% endif %}
+

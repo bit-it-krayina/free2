@@ -1,11 +1,15 @@
-{% extends 'layout/layout.twig' %}
+{% extends 'layout/layout1.twig' %}
 
 {% block content %}
 
-<div class="jumbotron">
-  <h2>
-    {{ translate('Thank you! Your registration has been confirmed.') | raw}}
-  </h2>
-</div>
+<section class="main promo-page">
+	<div class="container">
+		<div class="row">
+			<h2>
+			  {{ translate('Thank you! Your registration has been confirmed.') | raw}}
+			</h2>
+		</div>
+	</div>
+</section>
 
 {% endblock content %}

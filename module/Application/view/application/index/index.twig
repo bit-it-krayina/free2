@@ -6,7 +6,24 @@
 			<div class="row">
 			{% if identity is empty %}
 				<div class="col-md-6">
-					{% include 'application/index/forms/login' %}
+					<div class="panel block-main-color panel-login">
+						{% for message in messages %}
+						<div class="alert alert-warning">{{ message | raw}}</div>
+						{% endfor %}
+						<div class="alert alert-warning">{{ error | raw}}</div>
+						<ul class="nav nav-tabs login-tabs">
+							<li class="active"><a href="#authorization" data-toggle="tab">{{ translate('Authorization') }}</a></li>
+							<li><a href="#registration" data-toggle="tab">{{ translate('Registration')| raw }}</a></li>
+						</ul>
+						<div class="tab-content login-tabs-content">
+							<div class="tab-pane login-auth active" id="authorization">
+								{% include 'application/index/forms/login' %}
+							</div>
+							<div class="tab-pane login-reg" id="registration">
+								{% include 'application/index/forms/registration' %}
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<h1 class= "headings-top-0">Що таке <br>біржа волонтерів</h1>

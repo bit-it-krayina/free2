@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2014 at 08:06 AM
+-- Generation Time: Jun 18, 2014 at 03:43 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -612,18 +612,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `state_id` int(11) NOT NULL,
-  `question_id` int(11) NOT NULL,
+  `question_id` int(11) DEFAULT NULL,
   `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `first_name` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `last_name` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `answer` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `answer` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `registration_date` datetime DEFAULT NULL,
   `registration_token` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email_confirmed` tinyint(1) NOT NULL,
-  `qualification` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `qualification` varchar(100) COLLATE utf8_unicode_ci DEFAULT 'unknown',
   `employment_id` int(11) NOT NULL DEFAULT '1',
   `private_info_id` int(10) unsigned DEFAULT NULL,
   `skype` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -637,7 +637,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`),
   KEY `IDX_8D93D649D60322AC` (`role_id`),
-  KEY `IDX_8D93D64982F1BAF4` (`language_id`),
   KEY `IDX_8D93D6495D83CC1` (`state_id`),
   KEY `IDX_8D93D6491E27F6BF` (`question_id`),
   KEY `search_idx` (`username`,`first_name`,`last_name`,`email`),
@@ -646,7 +645,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `private_info_id` (`private_info_id`),
   KEY `skype` (`skype`,`phone1`,`phone2`),
   KEY `work_experience_id` (`work_experience_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `user`
@@ -655,7 +654,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `qualification`, `employment_id`, `private_info_id`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`, `work_experience_id`) VALUES
 (1, 3, 1, 2, 2, 'admin', 'test', 'test25', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'копірайтор', 2, 1, '123', '123', '123', '234', '345', '456', 4),
 (2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(5, 2, 0, 1, NULL, 'mice-2@mice.devoffice.com', NULL, NULL, 'mice-2@mice.devoffice.com', '$2y$10$lqgnYaURVW6DbgXhljqtye960HA6xVMqNq64E173E.PPgS5nTQSte', NULL, NULL, '2014-06-18 10:43:18', 'dbd9e56f0c62125f09b9e91caafee710', 0, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(6, 2, 0, 2, NULL, 'mice-3@mice.devoffice.com', 'test', '123', 'mice-3@mice.devoffice.com', '$2y$10$ktcUTRZj6UZWb1M5ed98DeNB7qSHCmcbyLID3Jy90xr2lmbfLsn.m', NULL, NULL, '2014-06-18 11:08:36', 'b162f71e5aa3df9e12fbd36369ce634d', 1, 'разработчик', 1, 2, NULL, '123123123', '', NULL, NULL, NULL, 1),
+(7, 2, 0, 2, NULL, 'mice-4@mice.devoffice.com', NULL, NULL, 'mice-4@mice.devoffice.com', '$2y$10$TfATVybnUA850jCDuXNFVOnnES.R5pCFCYgQeoev7RxFeTCl01/Ki', NULL, NULL, '2014-06-18 11:10:20', '71632f7d3eabb7ca4d3f04ab52427c01', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -666,19 +668,20 @@ INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `
 DROP TABLE IF EXISTS `user_info_private`;
 CREATE TABLE IF NOT EXISTS `user_info_private` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `birthDay` date NOT NULL,
-  `location` varchar(40) NOT NULL DEFAULT 'Ukraine, Kyiv',
-  `resume` varchar(255) NOT NULL,
+  `birthDay` date DEFAULT NULL,
+  `location` varchar(40) DEFAULT 'Ukraine, Kyiv',
+  `resume` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `location` (`location`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_info_private`
 --
 
 INSERT INTO `user_info_private` (`id`, `birthDay`, `location`, `resume`) VALUES
-(1, '1983-06-08', 'Ukraine, Kyiv, Shevchenko Avenu 16', '<p> Работаю со словом с 2012 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	</p> <p>Я люблю писать. Люблю учиться. Люблю цифры и факты. </p>');
+(1, '1983-06-08', 'Ukraine, Kyiv, Shevchenko Avenu 16', '<p> Работаю со словом с 2012 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	</p> <p>Я люблю писать. Люблю учиться. Люблю цифры и факты. </p>'),
+(2, '2010-02-02', NULL, 'что-то о себе');
 
 -- --------------------------------------------------------
 
@@ -905,76 +908,4 @@ CREATE TABLE IF NOT EXISTS `yas_teacher` (
 INSERT INTO `yas_teacher` (`id`, `name`, `description`, `imageUrl`, `urlName`) VALUES
 (1, 'Ярослава Солтивская', 'Преподаватель ВНЗ с 5-летним стажем. Учитель немецкого языка', 'img/yas/Soltivska_Foto.jpg', 'yaroslava-soltivskaja'),
 (2, 'Зоя Новикова', 'Преподаватель ВНЗ с 50-летним стажем', '', 'zoja-novikova');
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `article`
---
-ALTER TABLE `article`
-  ADD CONSTRAINT `FK_23A0E66727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `article` (`id`),
-  ADD CONSTRAINT `FK_23A0E6672DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`),
-  ADD CONSTRAINT `FK_23A0E6682F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`),
-  ADD CONSTRAINT `FK_23A0E6689329D25` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`id`),
-  ADD CONSTRAINT `FK_23A0E66A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `articles_categories`
---
-ALTER TABLE `articles_categories`
-  ADD CONSTRAINT `FK_DE004A0E12469DE2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
-  ADD CONSTRAINT `FK_DE004A0E7294869C` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`);
-
---
--- Constraints for table `category`
---
-ALTER TABLE `category`
-  ADD CONSTRAINT `FK_64C19C1A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `comment`
---
-ALTER TABLE `comment`
-  ADD CONSTRAINT `FK_9474526C7294869C` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
-  ADD CONSTRAINT `FK_9474526C82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`),
-  ADD CONSTRAINT `FK_9474526CA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `friends`
---
-ALTER TABLE `friends`
-  ADD CONSTRAINT `FK_21EE70696A5458E8` FOREIGN KEY (`friend_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `FK_21EE7069A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `privilege`
---
-ALTER TABLE `privilege`
-  ADD CONSTRAINT `FK_87209A8789329D25` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`id`),
-  ADD CONSTRAINT `FK_87209A87D60322AC` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
-
---
--- Constraints for table `roles_parents`
---
-ALTER TABLE `roles_parents`
-  ADD CONSTRAINT `FK_C70E6B91727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `role` (`id`),
-  ADD CONSTRAINT `FK_C70E6B91D60322AC` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `FK_8D93D6491E27F6BF` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`),
-  ADD CONSTRAINT `FK_8D93D6495D83CC1` FOREIGN KEY (`state_id`) REFERENCES `state` (`id`),
-  ADD CONSTRAINT `FK_8D93D64982F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`),
-  ADD CONSTRAINT `FK_8D93D649D60322AC` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
-
---
--- Constraints for table `votes_users`
---
-ALTER TABLE `votes_users`
-  ADD CONSTRAINT `FK_9A4168C772DCDAFC` FOREIGN KEY (`vote_id`) REFERENCES `vote` (`id`),
-  ADD CONSTRAINT `FK_9A4168C7A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 SET FOREIGN_KEY_CHECKS=1;

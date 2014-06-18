@@ -52,14 +52,16 @@ class RegistrationController extends AbstractActionController implements EntityM
         $user = new User;
         $form = $this->getUserFormHelper()->createUserForm($user, 'SignUp');
         if($this->getRequest()->isPost()) {
-            $form->setValidationGroup('username', 'email', 'firstName', 'lastName', 'password', 'passwordVerify', 'question', 'answer', 'csrf', 'location');
+            $form->setValidationGroup('email','password', 'passwordVerify', 'csrf');
             $form->setData($this->getRequest()->getPost());
             if($form->isValid()) {
                 $entityManager = $this->getEntityManager();
                 $user->setState($entityManager->find('CsnUser\Entity\State', 1));
+                $user->setUsername($user->getEmail());
+				$user -> setEmployment( $entityManager->find('CsnUser\Entity\Employment', 1));
+				$user -> setWorkExperience($entityManager->find('CsnUser\Entity\WorkExperience', 1));
                 $user->setRole($entityManager->find('CsnUser\Entity\Role', 2));
                 $user->setEmailConfirmed(false);
-                $user->setLanguage($entityManager->find('CsnUser\Entity\Language', 1));
                 $user->setRegistrationDate(new \DateTime());
                 $user->setRegistrationToken(md5(uniqid(mt_rand(), true)));
                 $user->setPassword(UserCredentialsService::encryptPassword($user->getPassword()));
@@ -76,7 +78,6 @@ class RegistrationController extends AbstractActionController implements EntityM
 
                     $viewModel = new ViewModel(array(
                         'email' => $user->getEmail(),
-                        'navMenu' => $this->getOptions()->getNavMenu()
                     ));
                     $viewModel->setTemplate('csn-user/registration/registration-success');
                     return $viewModel;
@@ -92,8 +93,7 @@ class RegistrationController extends AbstractActionController implements EntityM
         }
 
         $viewModel = new ViewModel(array(
-            'form' => $form,
-            'navMenu' => $this->getOptions()->getNavMenu()
+            'registrationForm' => $form,
         ));
         $viewModel->setTemplate('csn-user/registration/registration');
         return $viewModel;
@@ -113,9 +113,12 @@ class RegistrationController extends AbstractActionController implements EntityM
         }
 
         $form = $this->getUserFormHelper()->createUserForm($user, 'EditProfile');
-		$form->setData(['birthDay' => $user->getPrivateInfo()->getBirthDay()]);
-		$form->setData(['location' => $user->getPrivateInfo()->getLocation()]);
-		$form->setData(['resume' => $user->getPrivateInfo()->getResume()]);
+
+		if ($user->getPrivateInfo()) {
+			$form->setData(['birthDay' => $user->getPrivateInfo()->getBirthDay(),
+				'location' => $user->getPrivateInfo()->getLocation(),
+				'resume' => $user->getPrivateInfo()->getResume()]);
+		}
 		$tags = array_map(function ( $tag ) { return $tag->getTag();}, $user->getTags()->toArray());
 		$form->setData(['userTags' => implode(',', $tags)]);
 
@@ -139,7 +142,6 @@ class RegistrationController extends AbstractActionController implements EntityM
 
         return new ViewModel(array(
             'form' => $form,
-            'securityQuestion' => $user->getQuestion()->getQuestion(),
             'message' => $message,
             'navMenu' => $this->getOptions()->getNavMenu()
         ));

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2014-06-09 14:34+0300\n"
+"PO-Revision-Date: 2014-06-18 10:15+0300\n"
 "Last-Translator: irina <imychkova@gmail.com>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: en_US\n"
@@ -123,8 +123,8 @@ msgstr "Вихід"
 msgid "LOG IN"
 msgstr "Логін"
 
-msgid "SIGN UP"
-msgstr "Регістрація"
+msgid "Registration"
+msgstr "Реєстрація"
 
 msgid "Remember me"
 msgstr "Запам`ятати"
@@ -143,6 +143,13 @@ msgstr "або"
 
 msgid "Authorization"
 msgstr "Авторизація"
+
+#registration form
+msgid "SIGN UP"
+msgstr "Зареєструватися"
+
+msgid "Confirm Password"
+msgstr "Пароль"
 
 # Edit profile form
 msgid "First Name"

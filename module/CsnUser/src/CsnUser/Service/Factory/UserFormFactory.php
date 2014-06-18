@@ -94,28 +94,11 @@ class UserFormFactory implements FactoryInterface
 				$this -> form -> setAttributes ( array (
 					'class' => 'form'
 				) );
-				$this -> form -> get ( 'username' ) -> setAttributes ( array (
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Username' )
-				) );
-
-				$this -> form -> get ( 'firstName' ) -> setAttributes ( array (
-					'required' => 'false',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'First Name' )
-				) );
-
-				$this -> form -> get ( 'lastName' ) -> setAttributes ( array (
-					'required' => 'false',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Last Name' )
-				) );
 
 				$this -> form -> get ( 'email' ) -> setAttributes ( array (
 					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Your Email' )
+					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Email' )
 				) );
-
 
 				$this -> form -> get ( 'password' ) -> setAttributes ( array (
 					'class' => 'form-control input-lg',
@@ -127,32 +110,10 @@ class UserFormFactory implements FactoryInterface
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Confirm Password' )
 				) );
 
-
-				$this -> form -> get ( 'question' ) -> setAttributes ( array (
-					'class' => 'form-control input-lg',
-				) );
-
-				$this -> form -> get ( 'answer' ) -> setAttributes ( array (
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Type Your Answer' )
-				) );
-
-				$this -> form -> get ( 'location' ) -> setAttributes ( array (
-					'required' => 'false',
-					'class' => 'form-control input-lg',
-					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Location' )
-				) );
-
 				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
-					'class' => 'btn btn btn-success btn-lg',
-					'value' => $this -> getTranslatorHelper () -> translate ( 'Sign Up' )
+					'class' => 'btn btn-add-color btn-reg',
+					'value' => $this -> getTranslatorHelper () -> translate ( 'SIGN UP' )
 				) );
-
-				$this -> form -> get ( 'login' ) -> setAttributes ( array (
-					'class' => 'btn btn btn-warning btn-lg',
-					'label' => $this -> getTranslatorHelper () -> translate ( 'Sign In' )
-				) );
-
 
 				break;
 
