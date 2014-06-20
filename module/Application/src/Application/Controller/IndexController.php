@@ -39,6 +39,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
         return $this->createViewModel('application/index/index',
 			array(
 				'loginForm'	=> $form,
+				'lastProjects' => $this -> getLastProjects(),
 				'registrationForm'	=> $registrationForm,
 			));
 

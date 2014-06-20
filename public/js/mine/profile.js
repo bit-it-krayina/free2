@@ -73,7 +73,7 @@ $(document).ready(function(){
 	var myTags = new Bloodhound({
 		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tags'),
 		queryTokenizer: Bloodhound.tokenizers.whitespace,
-		prefetch: 'js/countries.json'
+		prefetch: '/js/countries.json'
 	});
 
 	myTags.initialize();
@@ -95,11 +95,29 @@ $(document).ready(function(){
 			saveField($(this));
 		}).data('datepicker');
 	});
-});
 
 /**
  * редактирование поля формы юзера
  */
 $('.js-profile-form-field').not('.js-datepicker').focusout(function(){
 	saveField($(this));
+});
+
+
+$('.profile-header').on('click', '.js-dropdown-item', function () {
+	$.ajax({
+		url:'/profile-ajax/changeStatus',
+		cache: false,
+		data: 'user=' + $(this).data('user') + '&status=' + $(this).data('status'),
+		dataType: 'json',
+		method: 'post',
+		success: function(data, status) {
+			if ( typeof  data.profileDropdownBlock != 'undefined') {
+				$('#profileDropdownBlock').replaceWith( data.profileDropdownBlock)
+			}
+		}
+	});
+});
+
+
 });

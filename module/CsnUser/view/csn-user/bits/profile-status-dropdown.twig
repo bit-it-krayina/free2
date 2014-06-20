@@ -1,0 +1,12 @@
+<div class="btn-group profile-status" id="profileDropdownBlock">
+	<button class="btn {{ user.employment.class}} btn-xs profile-status-btn dropdown-toggle" type="button" data-toggle="dropdown">
+		{{ user.employment.employment}} <span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" aria-labelledby="profileDropdownBlock" role="menu">
+		{% for employment in employments %}
+			{% if employment.employment != user.employment.employment %}
+			<li class="{{ employment.class}} js-dropdown-item" data-status="{{employment.id}}" data-user="{{user.id}}">{{employment.employment}}</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>

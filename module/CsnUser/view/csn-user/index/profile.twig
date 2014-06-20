@@ -10,18 +10,8 @@
 						<div class="profile-photo profile-photo-free">
 							<img src="/img/photo.jpg" alt="">
 						</div>
-						<div class="btn-group profile-status">
-							<button class="btn {{ user.employment.class}} btn-xs profile-status-btn dropdown-toggle" type="button" data-toggle="dropdown">
-								{{ user.employment.employment}} <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								{% for employment in employments %}
-									{% if employment.employment != user.employment.employment %}
-										<li class="{{ employment.class}}">{{employment.employment}}</li>
-									{% endif %}
-								{% endfor %}
-							</ul>
-						</div>
+						{% include 'csn-user/bits/profile-status-dropdown'%}
+
 						<div class="profile-header-info">
 							<h1><span>{{ user.firstName}}</span>
 								<span>{{ user.lastName}}</span>

@@ -55,10 +55,7 @@ trait ControlUtils
 
 			$view -> setVariables ( array (
 				'user' => $this -> getAuthenticationService () -> getIdentity (),
-				'someVar' => 'yoyoyo',
-				'identity' => $this -> getAuthenticationService () -> getIdentity (),
-				'loggedUser' => $this -> getLoggedUser (),
-				'lastProjects' => $this -> getLastProjects(),
+//				'identity' => $this -> getAuthenticationService () -> getIdentity (),
 				'facebookAuthUrl' => "https://www.facebook.com/dialog/oauth?client_id=".$facebookAuth['apiId']."&redirect_uri=".$this->url()->fromRoute('facebook', ['action' => 'login'], array('force_canonical' => true))
 			) );
 		} );

@@ -77,10 +77,35 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
         }
 
         return new JsonModel(array(
-			'valid' => $form->isValid(),
-			'post' => $this->getRequest()->getPost(),
             'form' => $form,
             'message' => $message,
+        ));
+	}
+
+
+	public function changeStatusAction()
+	{
+		if(!$user = $this->identity())
+		{
+			return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
+		}
+
+		$params = $this->getRequest()->getPost();
+		$entityManager = $this->getEntityManager();
+		$user -> setEmployment($entityManager->find('\CsnUser\Entity\Employment',$params->status ));
+		$entityManager->persist($user);
+		$entityManager->flush();
+		$employments = $entityManager
+			-> getRepository ( 'CsnUser\Entity\Employment' )
+			-> findAll ();
+		$viewHtml = $this->getServiceLocator ()
+						->get ('ZfcTwigRenderer')
+						->render ($this->createViewModel('csn-user/bits/profile-status-dropdown', [
+							'user' => $user,
+							'employments' =>$employments
+						]));
+		return new JsonModel(array(
+				'profileDropdownBlock' => $viewHtml,
         ));
 	}
 
