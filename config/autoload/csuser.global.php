@@ -48,7 +48,7 @@ return array(
          * Default value: 'no-reply@example.com'
          * Accepted values:  A valid email address
          */
-        'sender_email_adress' => 'no-reply@example.com',
+        'sender_email_adress' => 'beta0@peep.in.ua',
 
         /**
          * Visibility of navigation menu
