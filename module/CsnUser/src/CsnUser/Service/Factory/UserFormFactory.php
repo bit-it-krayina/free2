@@ -83,6 +83,34 @@ class UserFormFactory implements FactoryInterface
 
 		switch ( $formName )
 		{
+			case 'UploadForm' :
+
+				$this -> form -> setAttributes ( array (
+					'enctype' => "multipart/form-data",
+					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register', ['action' => 'edit-profile'] ),
+//					'action' => $this -> getUrlPlugin () -> fromRoute ( 'testImage' ),
+					'name' => 'upload-file',
+				) );
+				$this -> form -> add ( array (
+					'name' => 'picture',
+					'type' => 'Zend\Form\Element\File',
+					'attributes' => array (
+//					'onchange' => 'savePicture(this.form)'
+					'onchange' => 'this.form.submit()'
+						)
+				) );
+				$this -> form -> add ( array (
+					'name' => 'MAX_FILE_SIZE',
+					'type' => 'Zend\Form\Element\Hidden',
+				) );
+
+				$this->form->get('MAX_FILE_SIZE')->setValue(1024*500);
+
+				$this -> form -> get ( 'submit' ) -> setAttributes ( array (
+					'class' => 'btn btn-primary pull-right',
+					'value' => $this -> getTranslatorHelper () -> translate ( 'Upload' )
+				) );
+				break;
 			case 'SignUp':
 				$this -> addSignUpFields ();
 				$this -> addSignUpFilters ();

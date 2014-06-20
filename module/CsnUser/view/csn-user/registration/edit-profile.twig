@@ -9,11 +9,16 @@
 			<div class="col-md-9">
 				<div class="profile profile-edit">
 					<div class="profile-header ">
+						{{ path }}
 						<div class="profile-photo">
 							<img src="/img/photo.jpg" alt="">
 							<div class="fi-cancel profile-photo-delete"></div>
 						</div>
-						<div class="btn btn-primary btn-xs photo-btn">завантажити<input type="file"></div>
+						{{ form().openTag(uploadForm) | raw }}
+							<div class="btn btn-primary btn-xs photo-btn">завантажити{{ formElement(uploadForm.get('picture') )|raw }}</div>
+							{{ formElement(uploadForm.get('csrf'))| raw }}
+							{{ formRow(uploadForm.get('MAX_FILE_SIZE'))| raw }}
+						{{ form().closeTag(uploadForm) | raw}}
 
 						{{ _forms._wrappedInput(form.get('csrf')) }}
 						<div class="profile-header-info">

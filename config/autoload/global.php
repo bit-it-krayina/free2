@@ -26,5 +26,6 @@ return array(
 					'driverOptions' => array(
 							1002=>'SET NAMES utf8'
 					)
-		) ) ) )
+		) ) ) ),
+	'profile_photos_dir' => getcwd().'/public/profile_photos'
 );

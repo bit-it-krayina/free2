@@ -1,0 +1,17 @@
+{% extends 'layout/layout1.twig' %}
+
+{% block content %}
+<section class="main promo-page">
+	<div class="container">
+			<div class="row">
+
+			{{ form().openTag(uploadForm) | raw }}
+				{{ formFile(uploadForm.get('picture'))| raw }}
+				{{ formRow(uploadForm.get('MAX_FILE_SIZE'))| raw }}
+			{{ form().closeTag(uploadForm) | raw}}
+			</div>
+
+	</div>
+</section>
+
+{% endblock content %}

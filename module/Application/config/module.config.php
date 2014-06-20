@@ -40,6 +40,16 @@ return array (
 			),
 
 
+			'testImage' => array (
+				'type' => 'Zend\Mvc\Router\Http\Literal',
+				'options' => array (
+					'route' => '/test-image',
+					'defaults' => array (
+						'controller' => 'Application\Controller\Index',
+						'action' => 'testImage',
+					),
+				),
+			),
 			'home' => array (
 				'type' => 'Zend\Mvc\Router\Http\Literal',
 				'options' => array (

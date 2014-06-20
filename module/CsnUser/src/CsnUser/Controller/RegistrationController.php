@@ -19,6 +19,7 @@ use Zend\View\Model\ViewModel;
 use Zend\Mail\Message;
 use Zend\Validator\Identical as IdenticalValidator;
 
+use Zend\Validator\File\Size;
 use CsnUser\Entity\User;
 use CsnUser\Options\ModuleOptions;
 use CsnUser\Service\UserService as UserCredentialsService;
@@ -123,26 +124,49 @@ class RegistrationController extends AbstractActionController implements EntityM
 		$form->setData(['userTags' => implode(',', $tags)]);
 
         $message = null;
-        if($this->getRequest()->isPost()) {
-//            $form->setValidationGroup('firstName', 'lastName', 'csrf', 'phone1','phone2','skype','facebookUrl', 'twitterUrl', 'linkedInUrl');
-            $form->setValidationGroup('firstName', 'lastName', 'csrf');
-            $form->setData($this->getRequest()->getPost());
-            if($form->isValid()) {
-                $phone1 = $this->params()->fromPost('phone1');
-                $phone2 = $this->params()->fromPost('phone2');
-                $user->setPhone1($phone1);
-                $user->setPhone2($phone2);
+		$error = array();
+		$uploadForm = $this->getUserFormHelper()->createUserForm($user, 'UploadForm');
+        if($this->getRequest()->isPost())
+		{
+			$post = array_merge_recursive(
+				$this->getRequest()->getPost()->toArray(),
+				$this->getRequest()->getFiles()->toArray()
+			);
+			$uploadForm->setValidationGroup( 'csrf');
+            $uploadForm->setData($post);
+            if($uploadForm->isValid()) {
+				$size = new Size(array('max'=>1024*500)); //max bytes filesize
 
-                $entityManager = $this->getEntityManager();
-                $entityManager->persist($user);
-                $entityManager->flush();
-                $message =  $this->getTranslatorHelper()->translate('Your profile has been edited');
-            }
-        }
+				$adapter = new \Zend\File\Transfer\Adapter\Http();
+				//validator can be more than one...
+				$File = $this->params()->fromFiles('picture');
+				$adapter->setValidators(array($size), $File['name']);
+
+				if (!$adapter->isValid()){
+					$dataError = $adapter->getMessages();
+
+					foreach($dataError as $key=>$row)
+					{
+						$error[] = $row;
+					}
+					$uploadForm->setMessages(array('picture'=>$error ));
+				} else {
+					;
+					$adapter->setDestination($this->getServiceLocator()->get('config')['profile_photos_dir']);
+					if ($adapter->receive($File['name'])) {
+						$entityManager = $this->getEntityManager();
+						$user->setPicture();
+						$entityManager->persist($user);
+						$entityManager->flush();
+					}
+				}
+			}
+		}
 
         return new ViewModel(array(
             'form' => $form,
-            'message' => $message,
+			'uploadForm' => $uploadForm,
+            'message' => $error,
             'navMenu' => $this->getOptions()->getNavMenu()
         ));
     }

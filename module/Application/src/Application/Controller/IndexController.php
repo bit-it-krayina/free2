@@ -11,7 +11,7 @@ use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
 use Application\Service\MenuTrait;
 use Application\Service\ControlUtils;
-
+use Zend\Form\Form;
 
 use CsnUser\Entity\User;
 use CsnUser\Options\ModuleOptions;
@@ -62,22 +62,6 @@ class IndexController extends AbstractActionController implements EntityManagerA
 		return new ViewModel();
 	}
 
-	/**
-	 * @deprecated since version number
-	 */
-	public function contactsAction ()
-	{
-		return new ViewModel();
-	}
-
-	/**
-	 * @deprecated since version number
-	 */
-	public function servicesAction ()
-	{
-		return new ViewModel();
-	}
-
 	public function thanksAction ()
 	{
 		$result = $this -> params () -> fromRoute ( 'result' );
@@ -103,19 +87,47 @@ class IndexController extends AbstractActionController implements EntityManagerA
 		) );
 	}
 
-	/**
-	 * @deprecated since version number
-	 */
-	public function profileAction ()
+	public function testImageAction ()
 	{
-		return new ViewModel();
+		if(!$user = $this->identity()) {
+            return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
+        }
+
+//		$file = new \Zend\Form\Element\File('picture');
+//		$send = new \Zend\Form\Element\Submit('submit');
+//		$hid = new \Zend\Form\Element\Hidden('MAX_FILE_SIZE');
+//		$hid->setValue(30000);
+//
+//		$send->setValue('Send');
+//
+//		$form = new Form('upload-file');
+//		$form->setAttributes ( array (
+//					'action' => '/test-image',
+//					'name' => 'upload-file',
+//					'enctype' => "multipart/form-data",
+//				) );
+//		$form->add($file)->add($send) -> add($hid);
+
+		$form = $this->getUserFormHelper()->createUserForm($user, 'UploadForm');
+		if ( $this -> getRequest () -> isPost () )
+		{
+			$post = array_merge_recursive (
+				$this -> getRequest () -> getPost () -> toArray (),
+				$this -> getRequest () -> getFiles () -> toArray ()
+			);
+			$form->setData($this -> getRequest () -> getPost ());
+			print_r($post);
+			if ( $form -> isValid () )
+			{
+				$data = $form -> getData ();
+
+			}
+		}
+
+		return new ViewModel(array(
+			'uploadForm' => $form,
+        ));
+
 	}
 
-	/**
-	 * @deprecated since version number
-	 */
-	public function userManagementAction ()
-	{
-		return new ViewModel();
-	}
 }

@@ -12,6 +12,19 @@ function saveField($field) {
 	});
 }
 
+function savePicture(form) {
+	$.ajax({
+		url:'/profile-ajax/saveFile',
+		cache: false,
+		data: $(form).serialize() ,
+		dataType: 'json',
+		method: 'post',
+		success: function(data, status) {
+			console.log(data);
+		}
+	});
+}
+
 $(document).ready(function(){
 //	$('.js-tagsinput').tagsinput({
 //		typeahead{
