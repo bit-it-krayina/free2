@@ -155,7 +155,7 @@ class RegistrationController extends AbstractActionController implements EntityM
 					$adapter->setDestination($this->getServiceLocator()->get('config')['profile_photos_dir']);
 					if ($adapter->receive($File['name'])) {
 						$entityManager = $this->getEntityManager();
-						$user->setPicture();
+						$user->setPicture('/profile_photos/' .$File['name'] );
 						$entityManager->persist($user);
 						$entityManager->flush();
 					}
@@ -165,6 +165,7 @@ class RegistrationController extends AbstractActionController implements EntityM
 
         return new ViewModel(array(
             'form' => $form,
+			'user' => $user,
 			'uploadForm' => $uploadForm,
             'message' => $error,
             'navMenu' => $this->getOptions()->getNavMenu()

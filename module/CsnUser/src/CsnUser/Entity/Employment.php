@@ -35,6 +35,13 @@ class Employment
      */
     protected $class;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="profile_class", type="string", length=20, nullable=false)
+     */
+    protected $profile_class;
+
 
 
 
@@ -88,6 +95,27 @@ class Employment
 	public function setClass ( $class )
 	{
 		$this -> class = $class;
+
+		return $this;
+
+	}
+	/**
+	 *
+	 * @return string
+	 */
+	public function getProfileClass ()
+	{
+		return $this -> profile_class;
+
+	}
+
+	/**
+	 *
+	 * @return Employment Description
+	 */
+	public function setProfileClass ( $profile_class )
+	{
+		$this -> profile_class = $profile_class;
 
 		return $this;
 

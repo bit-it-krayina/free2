@@ -100,7 +100,7 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 			-> findAll ();
 		$viewHtml = $this->getServiceLocator ()
 						->get ('ZfcTwigRenderer')
-						->render ($this->createViewModel('csn-user/bits/profile-status-dropdown', [
+						->render ($this->createViewModel('csn-user/bits/profile/status-dropdown', [
 							'user' => $user,
 							'employments' =>$employments
 						]));
@@ -114,5 +114,31 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 	{
 
 		return \Zend\Json\Json::encode(['mysql, sql, zf2, zf, zend framework']);
+	}
+
+	public function deletePhotoAction()
+	{
+		if(!$user = $this->identity())
+		{
+			return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
+		}
+
+		$params = $this->getRequest()->getPost();
+		$entityManager = $this->getEntityManager();
+		$user = $entityManager->find('\CsnUser\Entity\User',$params->user );
+		$user -> setPicture('');
+		$entityManager->persist($user);
+		$entityManager->flush();
+
+		$viewHtml = $this->getServiceLocator ()
+						->get ('ZfcTwigRenderer')
+						->render ($this->createViewModel('csn-user/bits/profile/photo', [
+							'user_id' => $user->getId(),
+							'picture' => $user->getPicture()
+						]));
+
+		return new JsonModel(array(
+				'photo_block' => $viewHtml,
+        ));
 	}
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 18, 2014 at 09:14 AM
+-- Generation Time: Jun 23, 2014 at 06:28 AM
 -- Server version: 5.5.6
 -- PHP Version: 5.2.17-0.dotdeb.0
 
@@ -134,6 +134,7 @@ CREATE TABLE IF NOT EXISTS `employment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `employment` varchar(20) NOT NULL DEFAULT '',
   `class` varchar(50) NOT NULL,
+  `profile_class` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `employment` (`employment`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -142,9 +143,9 @@ CREATE TABLE IF NOT EXISTS `employment` (
 -- Dumping data for table `employment`
 --
 
-INSERT INTO `employment` (`id`, `employment`, `class`) VALUES
-(1, 'buzy', 'btn-danger'),
-(2, 'free', 'btn-success');
+INSERT INTO `employment` (`id`, `employment`, `class`, `profile_class`) VALUES
+(1, 'buzy', 'btn-danger', 'profile-photo-busy'),
+(2, 'free', 'btn-success', 'profile-photo-free');
 
 -- --------------------------------------------------------
 
@@ -610,7 +611,6 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role_id` int(11) NOT NULL,
-  `language_id` int(11) NOT NULL,
   `state_id` int(11) NOT NULL,
   `question_id` int(11) DEFAULT NULL,
   `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -651,13 +651,13 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `role_id`, `language_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `qualification`, `employment_id`, `private_info_id`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`, `work_experience_id`) VALUES
-(1, 3, 1, 2, 2, 'admin', 'test', 'test25', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', NULL, '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'копірайтор', 2, 1, '123', '123', '123', '234', '345', '456', 4),
-(2, 2, 1, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(3, 3, 1, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(5, 2, 0, 1, NULL, 'mice-2@mice.devoffice.com', NULL, NULL, 'mice-2@mice.devoffice.com', '$2y$10$lqgnYaURVW6DbgXhljqtye960HA6xVMqNq64E173E.PPgS5nTQSte', NULL, NULL, '2014-06-18 10:43:18', 'dbd9e56f0c62125f09b9e91caafee710', 0, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(6, 2, 0, 2, NULL, 'mice-3@mice.devoffice.com', 'test', '123', 'mice-3@mice.devoffice.com', '$2y$10$ktcUTRZj6UZWb1M5ed98DeNB7qSHCmcbyLID3Jy90xr2lmbfLsn.m', NULL, NULL, '2014-06-18 11:08:36', 'b162f71e5aa3df9e12fbd36369ce634d', 1, 'разработчик', 1, 2, NULL, '123123123', '', NULL, NULL, NULL, 1),
-(7, 2, 0, 2, NULL, 'mice-4@mice.devoffice.com', NULL, NULL, 'mice-4@mice.devoffice.com', '$2y$10$TfATVybnUA850jCDuXNFVOnnES.R5pCFCYgQeoev7RxFeTCl01/Ki', NULL, NULL, '2014-06-18 11:10:20', '71632f7d3eabb7ca4d3f04ab52427c01', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `role_id`, `state_id`, `question_id`, `username`, `first_name`, `last_name`, `email`, `password`, `answer`, `picture`, `registration_date`, `registration_token`, `email_confirmed`, `qualification`, `employment_id`, `private_info_id`, `skype`, `phone1`, `phone2`, `facebook_url`, `twitter_url`, `linkedin_url`, `work_experience_id`) VALUES
+(1, 3, 2, 2, 'admin', 'test', 'test25', 'imychkova@gmail.com', '$2y$10$PhIWP8ZCNEmZZK1aXbxSpe3t/PV8/Rd1FeoMycTTL.cykGMd.8Ndu', 'testtest', '', '2014-05-13 15:34:36', 'e2393ea89c92e8f4b9e61927425aeaa7', 1, 'копірайтор', 2, 1, '123', '123', '123', '234', '345', '456', 4),
+(2, 2, 2, 3, 'tester', 'tester', 'mice', 'mice@devoffice.com', '$2y$10$2ei/cvXyHHkAEA5s0q3THuO6Kq.xnx8Y9sFKtIvOZkgr4YNEGmBRO', 'testtest', NULL, '2014-05-13 15:38:09', '92bd40079b63f35f4da18613862fbe6b', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(3, 3, 2, 3, 'admin1', 'test', 'test', 'mice-1@mice.devoffice.com', '$2y$10$KaV3ahP.V/I3vEnQ0mWT8O7YkBbv7dsnbJMZxiPDUj10Ao.gk9cNW', 'testtest', NULL, '2014-05-13 19:06:44', 'bb33af45f693110cbc2abe696d81c1ea', 1, '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(5, 2, 1, NULL, 'mice-2@mice.devoffice.com', NULL, NULL, 'mice-2@mice.devoffice.com', '$2y$10$lqgnYaURVW6DbgXhljqtye960HA6xVMqNq64E173E.PPgS5nTQSte', NULL, NULL, '2014-06-18 10:43:18', 'dbd9e56f0c62125f09b9e91caafee710', 0, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(6, 2, 2, NULL, 'mice-3@mice.devoffice.com', 'test', '123', 'mice-3@mice.devoffice.com', '$2y$10$ktcUTRZj6UZWb1M5ed98DeNB7qSHCmcbyLID3Jy90xr2lmbfLsn.m', NULL, NULL, '2014-06-18 11:08:36', 'b162f71e5aa3df9e12fbd36369ce634d', 1, 'разработчик', 1, 2, NULL, '123123123', '', NULL, NULL, NULL, 1),
+(7, 2, 2, NULL, 'mice-4@mice.devoffice.com', NULL, NULL, 'mice-4@mice.devoffice.com', '$2y$10$TfATVybnUA850jCDuXNFVOnnES.R5pCFCYgQeoev7RxFeTCl01/Ki', NULL, NULL, '2014-06-18 11:10:20', '71632f7d3eabb7ca4d3f04ab52427c01', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 

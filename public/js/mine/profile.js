@@ -109,28 +109,42 @@ $(document).ready(function(){
 		}).data('datepicker');
 	});
 
-/**
- * редактирование поля формы юзера
- */
-$('.js-profile-form-field').not('.js-datepicker').focusout(function(){
-	saveField($(this));
-});
-
-
-$('.profile-header').on('click', '.js-dropdown-item', function () {
-	$.ajax({
-		url:'/profile-ajax/changeStatus',
-		cache: false,
-		data: 'user=' + $(this).data('user') + '&status=' + $(this).data('status'),
-		dataType: 'json',
-		method: 'post',
-		success: function(data, status) {
-			if ( typeof  data.profileDropdownBlock != 'undefined') {
-				$('#profileDropdownBlock').replaceWith( data.profileDropdownBlock)
-			}
-		}
+	/**
+	 * редактирование поля формы юзера
+	 */
+	$('.js-profile-form-field').not('.js-datepicker').focusout(function(){
+		saveField($(this));
 	});
-});
 
+
+	$('.profile-header').on('click', '.js-dropdown-item', function () {
+		$.ajax({
+			url:'/profile-ajax/changeStatus',
+			cache: false,
+			data: 'user=' + $(this).data('user') + '&status=' + $(this).data('status'),
+			dataType: 'json',
+			method: 'post',
+			success: function(data, status) {
+				if ( typeof  data.profileDropdownBlock != 'undefined') {
+					$('#profileDropdownBlock').replaceWith( data.profileDropdownBlock)
+				}
+			}
+		});
+	});
+
+	$('.profile-photo-delete').on('click', function(){
+		$.ajax({
+			url:'/profile-ajax/deletePhoto',
+			cache: false,
+			data: 'user=' + $(this).data('user') ,
+			dataType: 'json',
+			method: 'post',
+			success: function(data, status) {
+				if ( typeof data.photo_block != 'undefined') {
+					$('.profile-photo').replaceWith( data.photo_block);
+				}
+			}
+		});
+	});
 
 });

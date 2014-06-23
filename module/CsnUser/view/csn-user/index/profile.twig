@@ -7,10 +7,13 @@
 			<div class="col-md-9">
 				<div class="profile">
 					<div class="profile-header ">
-						<div class="profile-photo profile-photo-free">
-							<img src="/img/photo.jpg" alt="">
-						</div>
-						{% include 'csn-user/bits/profile-status-dropdown'%}
+						{% include 'csn-user/bits/profile/photo' with {
+							'picture' : user.picture,
+							'custom_class' : user.employment.profileClass,
+							'user_id' : user.id
+							 }%}
+
+						{% include 'csn-user/bits/profile/status-dropdown'%}
 
 						<div class="profile-header-info">
 							<h1><span>{{ user.firstName}}</span>

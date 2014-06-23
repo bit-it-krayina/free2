@@ -128,7 +128,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill { -we
 .change-profile { position: absolute; bottom: -40px; z-index: 2; right: 0; }
 .change-profile .icon-square { height: 39px; width: 39px; line-height: 39px; text-align: center; font-size: 21px; }
 
-.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 35px; background: #f8f8f8 url(../img/no-avatar.png); position: relative; }
+.profile-photo { float: left; height: 130px; width: 130px; background: #fff; border: 5px solid #1179b9; margin-right: 20px; overflow: hidden; margin-bottom: 35px; background: #f8f8f8 url(../profile_photos/no-avatar.png); position: relative; }
 .profile-photo img { max-width: 130px; }
 
 .profile-photo-delete { position: absolute; top: 0; right: 0; cursor: pointer; height: 24px; width: 24px; line-height: 24px; text-align: center; font-size: 15px; color: #1179b9; background-color: rgba(102, 102, 103, 0.5); color: #fff; color: rgba(255, 255, 255, 0.7); }

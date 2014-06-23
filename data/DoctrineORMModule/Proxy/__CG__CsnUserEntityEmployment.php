@@ -64,10 +64,10 @@ class Employment extends \CsnUser\Entity\Employment implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'employment', 'class');
+            return array('__isInitialized__', 'id', 'employment', 'class', 'profile_class');
         }
 
-        return array('__isInitialized__', 'id', 'employment', 'class');
+        return array('__isInitialized__', 'id', 'employment', 'class', 'profile_class');
     }
 
     /**
@@ -230,6 +230,28 @@ class Employment extends \CsnUser\Entity\Employment implements \Doctrine\ORM\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClass', array($class));
 
         return parent::setClass($class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProfileClass()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProfileClass', array());
+
+        return parent::getProfileClass();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setProfileClass($profile_class)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProfileClass', array($profile_class));
+
+        return parent::setProfileClass($profile_class);
     }
 
 }
