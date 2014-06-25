@@ -2,15 +2,25 @@
 
 {% block content %}
 <section class="main promo-page">
+	<div class="alert-messages">
+		<div class="container">
+			{% for message in messages %}
+			<div class="alert alert-warning">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				{{ message | raw}}
+			</div>
+			{% endfor %}
+			<div class="alert alert-warning">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<strong>Перепрошую</strong>, у формі, що знаходиться нижче Ви зробили помилку
+			</div>
+		</div>
+	</div>
 	<div class="container">
 			<div class="row">
 			{% if identity is empty %}
 				<div class="col-md-6">
 					<div class="panel block-main-color panel-login">
-						{% for message in messages %}
-						<div class="alert alert-warning">{{ message | raw}}</div>
-						{% endfor %}
-						<div class="alert alert-warning">{{ error | raw}}</div>
 						<ul class="nav nav-tabs login-tabs">
 							<li class="active"><a href="#authorization" data-toggle="tab">{{ translate('Authorization') }}</a></li>
 							<li><a href="#registration" data-toggle="tab">{{ translate('Registration')| raw }}</a></li>

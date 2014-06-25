@@ -10,7 +10,7 @@ body {
 .main {
   padding: ($navbar-height + 45px) 0 ($navbar-height + 20px);
   .container {
-    width: 940px;
+    max-width: 940px;
   }
 }
 
@@ -291,4 +291,15 @@ body {
 
 .footer .navbar-text.navbar-right:last-child {
   margin-right: $navbar-padding-horizontal;
+}
+
+.alert-messages {
+  position: fixed;
+  top: $navbar-height;
+  left: 0;
+  width: 100%;
+  
+  .container {
+    padding: 0 25px;
+  }
 }
