@@ -28,41 +28,49 @@ function savePicture(form) {
 $(document).ready(function(){
 
 	/**
-	 * автодополнение тегов
+	 * Редактирование навыков
 	 */
-	var substringMatcher = function(strs) {
-		return function findMatches(q, cb) {
-			var matches, substringRegex;
-
-			matches = [];
-			substrRegex = new RegExp(q, 'i');
-
-			$.each(strs, function(i, str) {
-				if (substrRegex.test(str)) {
-					matches.push({ value: str });
-				}
-			});
-
-			cb(matches);
-		};
-	};
-
-	var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-	  'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-	  'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-	  'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-	  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-	  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-	  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-	  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-	  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-	];
-
-
-	$('.js-tagsinput').tagsinput();
-	$('.bootstrap-tagsinput input').typeahead({} ,{
-		source: substringMatcher(states)
+	/**
+	 * Init Bloodhound
+	 * @type {Bloodhound}
+	 */
+	var skills = new Bloodhound({
+		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+		queryTokenizer: Bloodhound.tokenizers.whitespace,
+		prefetch: '/profile-ajax/getavailabletags'
 	});
+
+	//TODO: убрать очистку кеша.
+	skills.clearPrefetchCache();
+	skills.initialize();
+
+	/**
+	 * Init Tag Input
+	 * @type {*|jQuery|HTMLElement}
+	 */
+	var $allInOne = $('.skills-typehead-together');
+	$allInOne.tagsinput({
+		itemValue: 'id',
+		itemText: 'text'
+	});
+	var $tagsInputEl = $allInOne.tagsinput('input');
+
+	/**
+	 * Init Typehead
+	 */
+	$tagsInputEl.typeahead({}, {
+		displayKey: 'text',
+		source: skills.ttAdapter()
+	});
+
+	$tagsInputEl.bind('typeahead:selected', function(obj, datum) {
+		$allInOne.tagsinput('add', datum);
+		//$tagsInputEl.typeahead('close');
+		//$tagsInputEl.typeahead('setQuery', '');
+		console.log($allInOne.val());
+	});
+
+
 
 
 
@@ -70,7 +78,7 @@ $(document).ready(function(){
 		$(this).attr('data-date', $(this).val() );
 		$(this).datepicker({
 			format: 'yyyy-mm-dd',
-			viewMode: 'years',
+			viewMode: 'years'
 		}).on('hide', function(ev) {
 			saveField($(this));
 		}).data('datepicker');

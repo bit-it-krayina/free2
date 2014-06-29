@@ -7,7 +7,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
 use Application\Service\ControlUtils;
-use CsnUser\Entity\User;
+use Zend\Json\Json;
 use CsnUser\Entity\Info\UserPrivate;
 
 use Zend\View\Model\JsonModel;
@@ -109,11 +109,31 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
         ));
 	}
 
-
+	/**
+	 * Вывод тегов в тестовом режиме.
+	 *
+	 * @return mixed
+	 */
 	public function getAvailableTagsAction()
 	{
+		$data = array(
+			array(
+				'text' => 'mysql',
+				'id' => 1
+			),
+			array(
+				'text' => 'zf',
+				'id' => 2
+			),
+			array(
+				'text' => 'php',
+				'id' => 3
+			),
+		);
+		$response = $this->getResponse();
+		$response->getHeaders()->addHeaderLine('Content-Type', 'application/json');
 
-		return \Zend\Json\Json::encode(['mysql, sql, zf2, zf, zend framework']);
+		return $response->setContent(Json::encode($data));
 	}
 
 	public function deletePhotoAction()

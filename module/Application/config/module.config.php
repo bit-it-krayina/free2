@@ -170,6 +170,7 @@ return array (
 		'display_exceptions' => true,
 		'strategies' => array (
 			'ZfcTwigViewStrategy',
+			'ViewJsonStrategy',
 		),
 		'doctype' => 'HTML5',
 		'not_found_template' => 'error/404',
@@ -184,9 +185,6 @@ return array (
 		),
 		'template_path_stack' => array (
 			__DIR__ . '/../view',
-		),
-		'strategies' => array(
-			'ViewJsonStrategy',
 		),
 	),
 	// Placeholder for console routes

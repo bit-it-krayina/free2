@@ -77,7 +77,15 @@
 										{% endfor %}
 									</dd>
 								</dl>
-							{% endif %}
+
+                                <input type="text" class="skills-typehead-together" value="
+                                {% for tag in user.tags %}
+                                    {{ tag.tag|escape }},
+                                {% endfor %}
+                                " placeholder="Add skills" />
+
+
+                            {% endif %}
 							{% if user.privateInfo  %}
 								<div class="profile-text">
 									{{ user.privateInfo.resume|raw}}
