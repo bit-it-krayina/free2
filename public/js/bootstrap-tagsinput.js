@@ -350,6 +350,8 @@
 				if (value.length) {
 					self.$element.trigger($.Event('stringInputAttempt', { value: value }));
 				}
+                $input.val('');
+                event.preventDefault();
 			}
         }
 

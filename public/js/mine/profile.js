@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 	$tagsInputEl.bind('typeahead:selected', function(obj, datum) {
 		$tagInput.tagsinput('add', datum);
-		$tagsInputEl.val('');
+        $tagsInputEl.typeahead('val', '');
 	});
 
     /**
@@ -98,8 +98,8 @@ $(document).ready(function() {
 			$tagInput.tagsinput('add', object);
 		}
 
-        $tagsInputEl.val('').trigger('change');
         $tagsInputEl.typeahead('close');
+        $tagsInputEl.typeahead('val', '');
 	});
 
     userSkillsInput.$tagsInput = $tagInput;
