@@ -61,6 +61,7 @@ $(document).ready(function() {
 	 */
 	$tagsInputEl.typeahead({}, {
 		displayKey: 'text',
+        highlight: true,
 		source: skills.ttAdapter()
 	});
 
@@ -77,16 +78,28 @@ $(document).ready(function() {
 	$tagInput.bind('stringInputAttempt', function(event) {
 		var value = event.value;
 		var totalSuggs = 0;
+        var exactSuggestion = null;
 		skills.get(value, function(suggestions) {
 			totalSuggs = suggestions.length;
+            $.each(suggestions, function(index, suggestion) {
+                if (suggestion.text.toLowerCase() === value.toLowerCase()) {
+                    exactSuggestion = suggestion;
+                    return false;
+                }
+            });
 		});
 
-		if (totalSuggs == 0) {
+        if (exactSuggestion) {
+            $tagInput.tagsinput('add', exactSuggestion);
+
+        } else {
 			var object = {id: '_'+ value, text: value};
 			skills.add([object]);
 			$tagInput.tagsinput('add', object);
-			$tagsInputEl.val('');
 		}
+
+        $tagsInputEl.val('').trigger('change');
+        $tagsInputEl.typeahead('close');
 	});
 
     userSkillsInput.$tagsInput = $tagInput;
