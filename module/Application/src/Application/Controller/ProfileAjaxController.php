@@ -110,26 +110,27 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 	}
 
 	/**
-	 * Вывод тегов в тестовом режиме.
+	 * Вывод тегов в json.
 	 *
 	 * @return mixed
 	 */
-	public function getAvailableTagsAction()
+	public function getAvailableSkillsAction()
 	{
-		$data = array(
-			array(
-				'text' => 'mysql',
-				'id' => 1
-			),
-			array(
-				'text' => 'zf',
-				'id' => 2
-			),
-			array(
-				'text' => 'php',
-				'id' => 3
-			),
-		);
+        $entityManager = $this->getEntityManager();
+        $tagsRepo = $entityManager->getRepository('\CsnUser\Entity\Info\Tag');
+        $tags = $tagsRepo->findAll();
+
+        /**
+         * @var \CsnUser\Entity\Info\Tag $tag
+         */
+        $data = array();
+        foreach ($tags as $tag) {
+            $data[] = array(
+                'id' => $tag->getId(),
+                'text' => $tag->getTag()
+            );
+        }
+
 		$response = $this->getResponse();
 		$response->getHeaders()->addHeaderLine('Content-Type', 'application/json');
 

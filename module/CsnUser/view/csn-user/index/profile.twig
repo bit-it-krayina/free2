@@ -68,24 +68,21 @@
 									</dl>
 								</div>
 							</div>
-							{% if user.tags|length > 0 %}
-								<dl class="profile-info">
-									<dt class="profile-title">Професійні навики: </dt>
-									<dd class="skill-tags">
-										{% for tag in user.tags %}
-											<span>{{ tag.tag }}</span>
-										{% endfor %}
-									</dd>
-								</dl>
 
-                                <input type="text" class="skills-typehead-together" value="
-                                {% for tag in user.tags %}
-                                    {{ tag.tag|escape }},
-                                {% endfor %}
-                                " placeholder="Add skills" />
+                            <dl class="profile-info">
+                                <dt class="profile-title">Професійні навички: </dt>
+                                <dd>
+                                    <input type="text" class="skills-tag-input" value="" placeholder="Додати навичку" />
+                                    <script>
+                                        $(userSkillsInput).bind('load', function() {
+                                            {% for tag in user.tags %}
+                                            userSkillsInput.$tagsInput.tagsinput('add', {text: '{{ tag.tag }}', id: {{ tag.id }}});
+                                            {% endfor %}
+                                        });
+                                    </script>
+                                </dd>
+                            </dl>
 
-
-                            {% endif %}
 							{% if user.privateInfo  %}
 								<div class="profile-text">
 									{{ user.privateInfo.resume|raw}}

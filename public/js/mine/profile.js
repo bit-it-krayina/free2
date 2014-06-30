@@ -25,7 +25,8 @@ function savePicture(form) {
 	});
 }
 
-$(document).ready(function(){
+var userSkillsInput = {};
+$(document).ready(function() {
 
 	/**
 	 * Редактирование навыков
@@ -37,10 +38,10 @@ $(document).ready(function(){
 	var skills = new Bloodhound({
 		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
 		queryTokenizer: Bloodhound.tokenizers.whitespace,
-		prefetch: '/profile-ajax/getavailabletags'
+		prefetch: '/profile-ajax/getavailableskills'
 	});
 
-	//TODO: убрать очистку кеша.
+	//TODO-yevgen-grytsay: убрать очистку кеша.
 	skills.clearPrefetchCache();
 	skills.initialize();
 
@@ -48,15 +49,15 @@ $(document).ready(function(){
 	 * Init Tag Input
 	 * @type {*|jQuery|HTMLElement}
 	 */
-	var $allInOne = $('.skills-typehead-together');
-	$allInOne.tagsinput({
+	var $tagInput = $('.skills-tag-input');
+	$tagInput.tagsinput({
 		itemValue: 'id',
 		itemText: 'text'
 	});
-	var $tagsInputEl = $allInOne.tagsinput('input');
+	var $tagsInputEl = $tagInput.tagsinput('input');
 
 	/**
-	 * Init Typehead
+	 * Init Typeahead
 	 */
 	$tagsInputEl.typeahead({}, {
 		displayKey: 'text',
@@ -64,13 +65,32 @@ $(document).ready(function(){
 	});
 
 	$tagsInputEl.bind('typeahead:selected', function(obj, datum) {
-		$allInOne.tagsinput('add', datum);
-		//$tagsInputEl.typeahead('close');
-		//$tagsInputEl.typeahead('setQuery', '');
-		console.log($allInOne.val());
+		$tagInput.tagsinput('add', datum);
+		$tagsInputEl.val('');
 	});
 
+    /**
+     * Добавление произвольного тега, когда freeInput отключен.
+     * Пришлось немного модифицировать bootstrap-tagsinput.js
+     * (https://github.com/yevgen-grytsay/bootstrap-tagsinput)
+     */
+	$tagInput.bind('stringInputAttempt', function(event) {
+		var value = event.value;
+		var totalSuggs = 0;
+		skills.get(value, function(suggestions) {
+			totalSuggs = suggestions.length;
+		});
 
+		if (totalSuggs == 0) {
+			var object = {id: '_'+ value, text: value};
+			skills.add([object]);
+			$tagInput.tagsinput('add', object);
+			$tagsInputEl.val('');
+		}
+	});
+
+    userSkillsInput.$tagsInput = $tagInput;
+    $(userSkillsInput).trigger('load');
 
 
 
