@@ -27,8 +27,44 @@ function savePicture(form) {
 
 $(document).ready(function(){
 
-	/**
+	/*
+	 * список волонтеров
+	 */
+	$('.user-item-content').each(function() {
+		if( $(this).height() > 130 ) {
+			$(this).parent().children('.see-more-btn').show();
+		}
+	});
+
+	$('.see-more-btn').click(function() {
+		var UserItem = $(this).parent();
+		var UserItemHeight = UserItem.children('.user-item-content').height() + 20;
+
+		if ( UserItem.hasClass('user-item-full') )
+			UserItem.removeClass('user-item-full').height(130);
+		else {
+			UserItem.addClass('user-item-full').height(UserItemHeight);
+		}
+	});
+
+
+	/*
+	 * календарь
+	 */
+	$('.js-datepicker').each(function(){
+		$(this).attr('data-date', $(this).val() );
+		$(this).datepicker({
+			format: 'yyyy-mm-dd',
+			viewMode: 'years',
+		}).on('hide', function(ev) {
+			saveField($(this));
+		}).data('datepicker');
+	});
+
+
+	/*
 	 * автодополнение тегов
+	 * надо переделать подключение словаря.
 	 */
 	var substringMatcher = function(strs) {
 		return function findMatches(q, cb) {
@@ -65,18 +101,7 @@ $(document).ready(function(){
 	});
 
 
-
-	$('.js-datepicker').each(function(){
-		$(this).attr('data-date', $(this).val() );
-		$(this).datepicker({
-			format: 'yyyy-mm-dd',
-			viewMode: 'years',
-		}).on('hide', function(ev) {
-			saveField($(this));
-		}).data('datepicker');
-	});
-
-	/**
+	/*
 	 * редактирование поля формы юзера
 	 */
 	$('.js-profile-form-field').not('.js-datepicker').focusout(function(){
@@ -93,13 +118,13 @@ $(document).ready(function(){
 			method: 'post',
 			success: function(data, status) {
 				if ( typeof  data.profileDropdownBlock != 'undefined') {
-					$('#profileDropdownBlock').replaceWith( data.profileDropdownBlock)
+					$('#profileDropdownBlock').replaceWith( data.profileDropdownBlock);
 				}
 			}
 		});
 	});
 
-	$('.profile-photo-delete').on('click', function(){
+	$('.user-photo-delete').on('click', function(){
 		$.ajax({
 			url:'/profile-ajax/deletePhoto',
 			cache: false,
@@ -108,7 +133,7 @@ $(document).ready(function(){
 			method: 'post',
 			success: function(data, status) {
 				if ( typeof data.photo_block != 'undefined') {
-					$('.profile-photo').replaceWith( data.photo_block);
+					$('.user-photo').replaceWith( data.photo_block);
 				}
 			}
 		});

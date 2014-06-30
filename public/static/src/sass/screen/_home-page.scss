@@ -53,6 +53,13 @@
   .btn {
     line-height: 32px;
   }
+
+  .radio,
+  .checkbox {
+  input + label:before {
+      border-color: $main-color;
+    }
+  }
 }
 
 .login-tabs {

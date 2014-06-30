@@ -144,8 +144,8 @@ CREATE TABLE IF NOT EXISTS `employment` (
 --
 
 INSERT INTO `employment` (`id`, `employment`, `class`, `profile_class`) VALUES
-(1, 'buzy', 'btn-danger', 'profile-photo-busy'),
-(2, 'free', 'btn-success', 'profile-photo-free');
+(1, 'buzy', 'btn-danger', 'user-photo-busy'),
+(2, 'free', 'btn-success', 'user-photo-free');
 
 -- --------------------------------------------------------
 

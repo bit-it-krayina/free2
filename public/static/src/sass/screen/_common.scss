@@ -1,3 +1,6 @@
+html {
+  overflow-y: scroll;
+}
 html,
 body {
   height: 100%;
@@ -46,7 +49,7 @@ body {
     &:checked + label {
       &:before {
         box-shadow: 0 0 0 3px #fff inset;
-        background: $add-color;
+        background: $main-color-light;
       }
     }
   }
@@ -61,6 +64,7 @@ body {
       height: 15px;
       width: 15px;
       background: #fff;
+      border: 1px solid #ccc;
     }
   }
 }

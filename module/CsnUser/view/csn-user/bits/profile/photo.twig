@@ -1,6 +1,6 @@
-<div class="profile-photo {{ custom_class }} ">
+<div class="user-photo {{ custom_class }} ">
 	<img src="{{ picture }}" alt="">
 	{% if picture is not empty and custom_class is empty %}
-		<div class="fi-cancel profile-photo-delete" data-user="{{ user_id }}"></div>
+		<div class="fi-cancel user-photo-delete" data-user="{{ user_id }}"></div>
 	{% endif %}
 </div>

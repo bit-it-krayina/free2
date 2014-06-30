@@ -88,11 +88,11 @@
 						{% if user.offers %}
 						<div class="tab-pane " id="projects">
 							{% for offer in user.offers %}
-								<div class="profile-info profile-info_project">
+								<div class="profile-info profile-info-project">
 									<h3 class="profile-title"><a href="{{ offer.project.url }}">{{ offer.project.header }}</a><span class="profile-role">{{ offer.role }}</span></h3>
 									<p class="profile-text profile-date">{{ offer.startDate|date("d.m.Y") }} - {{ offer.finishDate|date("d.m.Y") }}</p>
 									<p class="profile-text">{{ offer.resume }}</p>
-									<p class="skill-tags  skill-tags_gray">
+									<p class="skill-tags  skill-tags-gray">
 										{% for tag in offer.tags %}
 											<span>{{ tag.tag }}</span>
 										{% endfor %}
