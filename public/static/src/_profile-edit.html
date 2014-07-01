@@ -4,138 +4,103 @@
 			<div class="col-md-9">
 				<div class="profile profile-edit">
 					<div class="profile-header ">
-						<div class="user-photo">
-							<img src="img/photo.jpg" alt="">
-						</div>
+						<form action="/user/register/edit-profile" method="post" name="upload-file" enctype="multipart/form-data" id="upload-file">
+							<div class="user-photo  ">
+								<img src="/profile_photos/avatar.jpg" alt="">
+								<div class="fi-cancel user-photo-delete" data-user="1"></div>
+							</div>
+
+							<div class="btn btn-primary btn-xs photo-btn">завантажити<input type="file" name="picture" onchange="this.form.submit()"></div>
+							<input type="hidden" name="csrf" value="b64fc4420722fb4f590fa311ab0ee723-0562c7e3865d9a117144bd8bf9072e64">
+							<input type="hidden" name="MAX_FILE_SIZE" value="512000">
+						</form>
+
+
 						<div class="profile-header-info">
-							<form role="form form-horizontal">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Ім'я">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Фамілія">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Телефон">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Skype">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Facebook">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Twitter">
-								</div>
-								<div class="form-group">
-									<button type="button" class="btn btn-primary pull-right">Зерегти</button>
-								</div>
-							</form>
+							<div class="form-group">
+								<label class="profile-title" for="firstName">Ім'я:</label>
+								<input type="text" name="firstName" id="firstName" value="test" placeholder="Ім'я" required="required" class="form-control js-profile-form-field">
+							</div>
+
+							<div class="form-group">
+								<label class="profile-title" for="lastName">Прізвище:</label>
+								<input type="text" name="lastName" id="lastName" value="test25" placeholder="Прізвище" class="form-control js-profile-form-field">
+							</div>
 						</div>
+						<a href="/user/profile" class="change-profile"><i class="icon-square btn-success fi-ok"></i></a>
 					</div>
 					<ul class="nav nav-tabs profile-tabs">
-					 	<li><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
-						<li class="active"><a href="#professional" data-toggle="tab">Професійна інформація</a></li>
+						<li class="active"><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
 						<li><a href="#projects" data-toggle="tab">Проекти</a></li>
+						<li><a href="#contacts" data-toggle="tab">Контакты</a></li>
 					</ul>
 
 					<div class="tab-content profile-tabs-content">
-						<div class="tab-pane" id="personal">
-							<div class="tab-pane active" id="personal">
+						<div class="tab-pane active" id="personal">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="profile-title" for="">Cпеціальність</label>
-										<input type="text" class="form-control" placeholder="">
+										<label class="profile-title" for="qualification">Cпеціальність:</label>
+										<input type="text" name="qualification" id="qualification" value="копірайтор" placeholder="Cпеціальність" class="form-control js-profile-form-field">
 									</div>
 									<div class="form-group">
-										<label class="profile-title" for="">Cтаж роботи</label>
-										<select name="" id="">
-											<option value="">менше року</option>
-											<option value="">більше року </option>
-											<option value="">більше трьох років</option>
-											<option value="">більше п'яти років</option>
-											<option value="">більше 10 років</option>
+										<label class="profile-title" for="workExperience">Cтаж роботи:</label>
+										<select name="workExperience" required="required" class="form-control js-profile-form-field">
+											<option value="5">більше 10 років</option>
+											<option value="4" selected="selected">більше п'яти років</option>
+											<option value="2">більше року</option>
+											<option value="3">більше трьох років</option>
+											<option value="1">менше року</option>
 										</select>
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="profile-title" for="">Дата народження</label>
-										<input type="text" class="form-control" placeholder="">
+										<label class="profile-title" for="location">Місцезнаходження:</label>
+										<input type="text" name="location" id="location" value="Ukraine, Kyiv, Shevchenko Avenu 16" placeholder="Місцезнаходження" class="form-control js-profile-form-field">
 									</div>
 									<div class="form-group">
-										<label class="profile-title" for="">Місцезнаходження</label>
-										<input type="text" class="form-control" placeholder="">
+										<label class="profile-title" for="birthDay">Дата народження:</label>
+										<input type="date" name="birthDay" class="form-control js-profile-form-field js-datepicker" value="1983-06-08" data-date="1983-06-08">
 									</div>
 								</div>
 							</div>
-							<dl class="profile-info">
-								<dt class="profile-title">Професійні навики </dt>
-								<dd class="skill-tags">
-									<span>копірайтинг</span>
-									<span>одностранічнікі</span>
-									<span>pr-тексти</span>
-									<span>Комерційна пропозиція</span>
-									<span>ведення груп в соц.мережах</span>
-								</dd>
-							</dl>
-
-							<div class="profile-text">
-								<p>
-									Оказываю услуги по бизнес-анализу и документированию программного обеспечения (настольных, мобильных и веб-приложений), прототипированию пользовательских интерфейсов, тестированию программного обеспечению, разработке веб-сайтов на платформах WordPress и Moodle, а также разработке учебных курсов.
-								</p>
+							<div class="form-group">
+								<label class="profile-title" for="userTags">Професійні навики:</label>
+								<input type="text" name="userTags" id="userTags" value="ведення груп в соц.мережах,php" placeholder="" class="form-control js-profile-form-field js-tagsinput" >
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="resume">Про себе:</label>
+									<textarea name="resume" id="resume" class="form-control js-profile-form-field" value="" rows="10" colls="30">Работаю со словом с 2012 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	Я люблю писать. Люблю учиться. Люблю цифры и факты. </textarea>
 							</div>
 						</div>
-							<form role="form form-horizontal">
-								
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Місцезнаходження">
-								</div>
-								<div class="form-group">
-									<textarea name="" id="" cols="30" rows="10"  class="form-control" placeholder="Про себе"></textarea>
-								</div>
-							</form>
-						</div>
-						<div class="tab-pane active" id="professional">
-							<form role="form form-horizontal">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Cпеціальність">
-								</div>
-								<div class="form-group">
-									<label for="">Cтаж роботи:</label>
-									
-								</div>
-								<div class="form-group">
-									<label for="">Професійні навики:</label>
-									<input type="text" class="form-control" data-role="tagsinput" value="Word">
-								</div>
-								<div class="form-group">
-									<textarea name="" id="" cols="30" rows="10"  class="form-control" placeholder="Додаткова інформація"></textarea>
-								</div>
-							</form>
-						</div>
-						<div class="tab-pane" id="projects">
-							<a href="" class="icon-edit"><i class="icon-square icon-gray fi-pencil"></i></a>
-							<h3 class="profile-title"><a href="">MediaPlazm</a></h3>
-							<dl>
-								<dt class="profile-title profile-title-left">Роль:</dt>
-								<dd class="profile-text">учасник</dd>
-								<dt class="profile-title profile-title-left">Дати роботи:</dt>
-								<dd class="profile-text">7.06.2014 - 15.11.2014</dd>
-								<dt class="profile-title">Відгук:</dt>
-								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
-							</dl>
-							<h3 class="profile-title"><a href="">MediaPlazm 2</a></h3>
-							<dl>
-								<dt class="profile-title profile-title-left">Роль:</dt>
-								<dd class="profile-text">учасник</dd>
-								<dt class="profile-title profile-title-left">Дати роботи:</dt>
-								<dd class="profile-text">7.06.2014 - 15.11.2014</dd>
-								<dt class="profile-title">Відгук:</dt>
-								<dd class="profile-text">Дуже задоволений роботою Кості. Завжди креативно підійде до вирішення завдання і підкаже як краще зробити;) Рекомендую!</dd>
-							</dl>
+						<div class="tab-pane" id="projects"></div>
+						<div class="tab-pane" id="contacts">
+							<div class="form-group">
+								<label class="profile-title" for="phone1">Tелефон:</label>
+								<input type="tel" name="phone1" required="required" class="form-control js-profile-form-field" value="123">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="phone2">Додатковий телефон:</label>
+								<input type="tel" name="phone2" required="required" class="form-control js-profile-form-field" value="123">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="skype">Skype:</label>
+								<input type="text" name="skype" id="skype" value="123" placeholder="" class="form-control js-profile-form-field">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="facebookUrl">Facebook:</label>
+								<input type="text" name="facebookUrl" id="facebookUrl" value="234" placeholder="" class="form-control js-profile-form-field">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="twitterUrl">Twitter:</label>
+								<input type="text" name="twitterUrl" id="twitterUrl" value="345" placeholder="" class="form-control js-profile-form-field">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="linkedInUrl">Linkedin:</label>
+								<input type="text" name="linkedInUrl" id="linkedInUrl" value="456" placeholder="" class="form-control js-profile-form-field">
+							</div>
 						</div>
 					</div>
 				</div>
