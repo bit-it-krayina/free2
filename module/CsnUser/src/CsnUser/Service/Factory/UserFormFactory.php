@@ -26,7 +26,7 @@ class UserFormFactory implements FactoryInterface
 {
 
 	/**
-	 * @var Zend\Form\Form
+	 * @var \Zend\Form\Form
 	 */
 	private $form;
 
@@ -36,22 +36,22 @@ class UserFormFactory implements FactoryInterface
 	private $serviceLocator;
 
 	/**
-	 * @var ModuleOptions
+	 * @var \ModuleOptions
 	 */
 	protected $options;
 
 	/**
-	 * @var Doctrine\ORM\EntityManager
+	 * @var \Doctrine\ORM\EntityManager
 	 */
 	protected $entityManager;
 
 	/**
-	 * @var Zend\Mvc\I18n\Translator
+	 * @var \Zend\Mvc\I18n\Translator
 	 */
 	protected $translatorHelper;
 
 	/**
-	 * @var Zend\Mvc\I18n\Translator
+	 * @var \Zend\Mvc\I18n\Translator
 	 */
 	protected $url;
 
@@ -67,7 +67,7 @@ class UserFormFactory implements FactoryInterface
 	 *
 	 * Method to create the Doctrine ORM user form for edit/create users
 	 *
-	 * @return Zend\Form\Form
+	 * @return \Zend\Form\Form
 	 */
 	public function createUserForm ( $userEntity, $formName = 'LogIn' )
 	{
@@ -539,9 +539,9 @@ class UserFormFactory implements FactoryInterface
 			'type' => 'Zend\Form\Element\Text',
 			'attributes' => array (
 				'required' => false,
-				'class' => 'form-control js-profile-form-field js-tagsinput',
+				'class' => 'form-control js-profile-form-field skills-tag-input',
 				'label' => $this -> getTranslatorHelper () -> translate ( 'Professional skils' ),
-//				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Professional skils' )
+				'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Add skill' )
 			),
 		) );
 
@@ -958,7 +958,7 @@ class UserFormFactory implements FactoryInterface
 	/**
 	 * get options
 	 *
-	 * @return ModuleOptions
+	 * @return \ModuleOptions
 	 */
 	private function getOptions ()
 	{
@@ -974,7 +974,7 @@ class UserFormFactory implements FactoryInterface
 	/**
 	 * get entityManager
 	 *
-	 * @return Doctrine\ORM\EntityManager
+	 * @return \Doctrine\ORM\EntityManager
 	 */
 	private function getEntityManager ()
 	{
@@ -990,7 +990,7 @@ class UserFormFactory implements FactoryInterface
 	/**
 	 * get translatorHelper
 	 *
-	 * @return  Zend\Mvc\I18n\Translator
+	 * @return  \Zend\Mvc\I18n\Translator
 	 */
 	private function getTranslatorHelper ()
 	{
@@ -1006,7 +1006,7 @@ class UserFormFactory implements FactoryInterface
 	/**
 	 * get urlPlugin
 	 *
-	 * @return  Zend\Mvc\Controller\Plugin\Url
+	 * @return  \Zend\Mvc\Controller\Plugin\Url
 	 */
 	private function getUrlPlugin ()
 	{

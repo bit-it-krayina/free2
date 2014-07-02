@@ -69,5 +69,13 @@
 	</div>
 </section>
 
+    <script>
+        $(userSkillsInput).bind('load', function() {
+            {% for tag in user.tags %}
+            userSkillsInput.$tagsInput.tagsinput('add', {text: '{{ tag.tag }}', id: {{ tag.id }}});
+            {% endfor %}
+        });
+    </script>
+
 
 {% endblock content %}
