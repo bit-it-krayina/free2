@@ -10,19 +10,19 @@ use Zend\Log\LoggerInterface;
 use NetglueLog\Model\LogTable;
 
 class LogController extends AbstractActionController {
-	
+
 	/**
 	 * Log Table
 	 * @var LogTable
 	 */
 	protected $table;
-	
+
 	/**
 	 * Default Max Age in Days
 	 * @var int
 	 */
 	protected $maxAgeInDays = 30;
-	
+
 	/**
 	 * Log Dashboard...
 	 * @return ViewModel
@@ -38,7 +38,7 @@ class LogController extends AbstractActionController {
 		$view->records = $rs;
 		return $view;
 	}
-	
+
 	/**
 	 * View a single log record in isolation
 	 * @return ViewModel
@@ -58,10 +58,10 @@ class LogController extends AbstractActionController {
 			$view->byRequest = $rs = $this->table->findByRequestId($req);
 			$rs->buffer();
 		}
-		
+
 		return $view;
 	}
-	
+
 	/**
 	 * List all log records for the given day. Shows todays logs by default
 	 * @return ViewModel
@@ -77,7 +77,7 @@ class LogController extends AbstractActionController {
 			'records' => $rs,
 		));
 	}
-	
+
 	/**
 	 * List log records for a particular request
 	 * @return ViewModel
@@ -94,15 +94,15 @@ class LogController extends AbstractActionController {
 			'records' => $rs,
 		));
 	}
-	
+
 	/**
 	 * Truncate/Empty the log table
 	 * @return void
 	 */
 	public function emptyAction() {
-		
+
 	}
-	
+
 	/**
 	 * Delete log records older than the given number of days or older than the configured number of days
 	 * @return void
@@ -121,7 +121,7 @@ class LogController extends AbstractActionController {
 		}
 		return $this->redirect()->toRoute('netglue_log');
 	}
-	
+
 	/**
 	 * Set Log Table
 	 * @param LogTable $table
@@ -131,7 +131,7 @@ class LogController extends AbstractActionController {
 		$this->table = $table;
 		return $this;
 	}
-	
+
 	/**
 	 * Set the max age in days for keeping log records when we deleted aged records
 	 * @param int $days
@@ -144,7 +144,7 @@ class LogController extends AbstractActionController {
 		}
 		return $this;
 	}
-	
+
 	/**
 	 * Return max log record age in days
 	 * @return int
@@ -152,5 +152,5 @@ class LogController extends AbstractActionController {
 	public function getMaxAgeInDays() {
 		return $this->maxAgeInDays;
 	}
-	
+
 }
