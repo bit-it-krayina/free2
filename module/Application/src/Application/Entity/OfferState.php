@@ -42,7 +42,7 @@ class OfferState
      * Set state
      *
      * @param  string   $state
-     * @return Language
+     * @return OfferState
      */
     public function setState($state)
     {

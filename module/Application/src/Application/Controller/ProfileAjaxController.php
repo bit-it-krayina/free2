@@ -7,6 +7,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
 use Application\Service\ControlUtils;
+use Application\Model\User as UserModel;
 use CsnUser\Entity\User;
 use CsnUser\Entity\Info\UserPrivate;
 
@@ -26,6 +27,8 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 		}
 
 		$form = $this->getUserFormHelper()->createUserForm($user, 'EditProfile');
+
+		$userModel = new UserModel($user);
 
         $message = null;
         if($this->getRequest()->isPost()) {

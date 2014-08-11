@@ -31,25 +31,12 @@ class IndexController extends AbstractActionController
 
 	use ControlUtils;
 
-    /**
-     * @var ModuleOptions
-     */
-    protected $options;
 
     /**
      * @var Doctrine\ORM\EntityManager
      */
     protected $entityManager;
 
-    /**
-     * @var Zend\Mvc\I18n\Translator
-     */
-    protected $translatorHelper;
-
-    /**
-     * @var Zend\Form\Form
-     */
-    protected $userFormHelper;
 
     /**
      * Index action
@@ -181,7 +168,7 @@ class IndexController extends AbstractActionController
 		{
 			$currentFirstName = $user -> getFirstName ();
 			$currentLastName = $user -> getLastName ();
-			$form -> setValidationGroup ( 'firstName', 'lastName', 'language', 'csrf', 'location' );
+			$form -> setValidationGroup ( 'firstName', 'lastName', 'csrf', 'location' );
 			$form -> setData ( $this -> getRequest () -> getPost () );
 			if ( $form -> isValid () )
 			{

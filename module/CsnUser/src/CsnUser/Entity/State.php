@@ -1,7 +1,7 @@
 <?php
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -39,7 +39,7 @@ class State
      * @ORM\Column(name="state", type="string", length=50, nullable=false, unique=true)
      */
     protected $state;
-    
+
     /**
      * Get id
      *
@@ -54,7 +54,7 @@ class State
      * Set state
      *
      * @param  string   $state
-     * @return Language
+     * @return State
      */
     public function setState($state)
     {

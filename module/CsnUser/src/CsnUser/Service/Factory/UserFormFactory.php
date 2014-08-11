@@ -133,7 +133,7 @@ class UserFormFactory implements FactoryInterface
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Password' )
 				) );
 
-				$this -> form -> get ( 'passwordVerify' ) -> setAttributes ( array (
+				$this -> form -> get ( 'password_verify' ) -> setAttributes ( array (
 					'class' => 'form-control input-lg',
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Confirm Password' )
 				) );
@@ -356,10 +356,6 @@ class UserFormFactory implements FactoryInterface
 					'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Your Email' )
 				) );
 
-				$this -> form -> get ( 'language' ) -> setAttributes ( array (
-					'required' => 'true',
-					'class' => 'form-control input-lg',
-				) );
 
 				$this -> form -> get ( 'state' ) -> setAttributes ( array (
 					'required' => 'true',
@@ -570,7 +566,7 @@ class UserFormFactory implements FactoryInterface
 	private function addSignUpFields ()
 	{
 		$this -> form -> add ( array (
-			'name' => 'passwordVerify',
+			'name' => 'password_verify',
 			'type' => 'Zend\Form\Element\Password',
 			'attributes' => array (
 				'required' => true,
@@ -670,7 +666,7 @@ class UserFormFactory implements FactoryInterface
 	private function addCreateUserFields ()
 	{
 		$this -> form -> add ( array (
-			'name' => 'passwordVerify',
+			'name' => 'password_verify',
 			'type' => 'Zend\Form\Element\Password',
 			'attributes' => array (
 				'required' => true,
@@ -715,15 +711,11 @@ class UserFormFactory implements FactoryInterface
 			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Password' )
 		) );
 
-		$this -> form -> get ( 'passwordVerify' ) -> setAttributes ( array (
+		$this -> form -> get ( 'password_verify' ) -> setAttributes ( array (
 			'class' => 'form-control input-lg',
 			'placeholder' => $this -> getTranslatorHelper () -> translate ( 'Confirm Password' )
 		) );
 
-		$this -> form -> get ( 'language' ) -> setAttributes ( array (
-			'required' => 'true',
-			'class' => 'form-control input-lg',
-		) );
 
 		$this -> form -> get ( 'role' ) -> setAttributes ( array (
 			'required' => 'true',
@@ -930,7 +922,7 @@ class UserFormFactory implements FactoryInterface
 	private function addCreateUserFilters ()
 	{
 		$this -> form -> getInputFilter () -> add ( $this -> form -> getInputFilter () -> getFactory () -> createInput ( array (
-			'name' => 'passwordVerify',
+			'name' => 'password_verify',
 			'filters' => array (
 				array ( 'name' => 'StripTags' ),
 				array ( 'name' => 'StringTrim' ),

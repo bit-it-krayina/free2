@@ -32,7 +32,7 @@ use CsnUser\Entity\Extras\MagicTrait;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User implements MagicInterface
+class UserNew implements MagicInterface
 {
 	use MagicTrait;
 

@@ -27,7 +27,8 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
 	public function indexAction ()
 	{
-
+		ini_set('display_errors', 1); error_reporting(E_ALL & ~E_NOTICE);
+		
 		if ($user = $this->identity()) {
             $this->createViewModel('application/index/index');
         }
@@ -36,6 +37,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
         $form = $this->getUserFormHelper()->createUserForm($user, 'login');
         $registrationForm = $this->getUserFormHelper()->createUserForm($user, 'SignUp');
         $messages = null;
+
         return $this->createViewModel('application/index/index',
 			array(
 				'loginForm'	=> $form,

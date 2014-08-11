@@ -13,12 +13,12 @@
 				{{ formElementErrors(form.get('username'))| raw }}
             <div class="row">
               <div class="col-xs-6 col-md-6">
-				{{ formElement(form.get('firstName'))| raw }}
-				{{ formElementErrors(form.get('firstName'))| raw }}
+				{{ formElement(form.get('first_name'))| raw }}
+				{{ formElementErrors(form.get('first_name'))| raw }}
               </div>
               <div class="col-xs-6 col-md-6">
-				{{ formElement(form.get('lastName'))| raw }}
-				{{ formElementErrors(form.get('lastName'))| raw }}
+				{{ formElement(form.get('last_name'))| raw }}
+				{{ formElementErrors(form.get('last_name'))| raw }}
               </div>
             </div>
 				{{ formElement(form.get('email'))| raw }}
@@ -29,12 +29,11 @@
 				{{ formElementErrors(form.get('password'))| raw }}
               </div>
               <div class="col-xs-6 col-md-6">
-				{{ formElement(form.get('passwordVerify'))| raw }}
-				{{ formElementErrors(form.get('passwordVerify'))| raw }}
+				{{ formElement(form.get('password_verify'))| raw }}
+				{{ formElementErrors(form.get('password_verify'))| raw }}
               </div>
             </div>
-				{{ formElement(form.get('language'))| raw }}
-				{{ formElementErrors(form.get('language'))| raw }}
+
             <div class="row">
               <div class="col-xs-6 col-md-6">
 				{{ formElement(form.get('role'))| raw }}

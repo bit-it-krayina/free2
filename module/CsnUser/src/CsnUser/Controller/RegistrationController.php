@@ -20,12 +20,13 @@ use Zend\Mail\Message;
 use Zend\Validator\Identical as IdenticalValidator;
 
 use Zend\Validator\File\Size;
-use CsnUser\Entity\User;
 use CsnUser\Options\ModuleOptions;
 use CsnUser\Service\UserService as UserCredentialsService;
 use Application\Service\ControlUtils;
 use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
+use CsnUser\Entity\Info\UserPrivate;
+use CsnUser\Entity\User;
 
 /**
  * Registration controller
@@ -50,22 +51,23 @@ class RegistrationController extends AbstractActionController implements EntityM
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
 
-        $user = new User;
+        $user = new User();
         $form = $this->getUserFormHelper()->createUserForm($user, 'SignUp');
         if($this->getRequest()->isPost()) {
-            $form->setValidationGroup('email','password', 'passwordVerify', 'csrf');
+            $form->setValidationGroup('email','password', 'password_verify', 'csrf');
             $form->setData($this->getRequest()->getPost());
             if($form->isValid()) {
                 $entityManager = $this->getEntityManager();
                 $user->setState($entityManager->find('CsnUser\Entity\State', 1));
                 $user->setUsername($user->getEmail());
-				$user -> setEmployment( $entityManager->find('CsnUser\Entity\Employment', 1));
-				$user -> setWorkExperience($entityManager->find('CsnUser\Entity\WorkExperience', 1));
                 $user->setRole($entityManager->find('CsnUser\Entity\Role', 2));
-                $user->setEmailConfirmed(false);
+				$user->setEmployment( $entityManager->find('CsnUser\Entity\Employment', 1));
+				$user->setWorkExperience($entityManager->find('CsnUser\Entity\WorkExperience', 1));
+                $user->setEmailConfirmed(0);
                 $user->setRegistrationDate(new \DateTime());
                 $user->setRegistrationToken(md5(uniqid(mt_rand(), true)));
                 $user->setPassword(UserCredentialsService::encryptPassword($user->getPassword()));
+
 
     		    try {
     		        $fullLink = $this->getBaseUrl() . $this->url()->fromRoute('user-register', array('action' => 'confirm-email', 'id' => $user->getRegistrationToken()));

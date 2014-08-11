@@ -9,8 +9,8 @@
 			{{ formElementErrors(registrationForm.get('password'))| raw }}
 		</div>
 		<div class="form-group">
-			{{ formElement(registrationForm.get('passwordVerify'))| raw }}
-			{{ formElementErrors(registrationForm.get('passwordVerify'))| raw }}
+			{{ formElement(registrationForm.get('password_verify'))| raw }}
+			{{ formElementErrors(registrationForm.get('password_verify'))| raw }}
 		</div>
 		{{ formRow(registrationForm.get('submit'))| raw }}
 	{{ formElement(registrationForm.get('csrf'))| raw }}
