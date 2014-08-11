@@ -71,16 +71,6 @@ $dbDriver = array(
 	'database' => __DIR__ . '/../data/netglue-log.sqlite',
 );
 
-//$dbDriver = array(
-//	'driver' => 'Pdo_Mysql',
-//	'database' => 'peep_db',
-//	'hostname' => 'peep.mysql.ukraine.com.ua',
-//	'port' => '3306',
-//	'username' => 'peep_db',
-//	'password' => 'MjErEhJB',
-//	'charset' => 'utf8',
-//);
-
 /**
  * Router Config
  */
