@@ -82,6 +82,7 @@ class RegistrationController extends AbstractActionController implements EntityM
                     $viewModel = new ViewModel(array(
                         'email' => $user->getEmail(),
                     ));
+					$this->logger()->info('User Registered '. $user->getEmail());
                     $viewModel->setTemplate('csn-user/registration/registration-success');
                     return $viewModel;
     		    } catch (\Exception $e) {

@@ -1,0 +1,150 @@
+<?php
+/**
+ * Single Log Record
+ */
+
+$log = $this->record;
+
+$id = $log->getId();
+
+$title = 'Log Record: '.$id;
+$this->headTitle($title);
+
+$date = $log->getDateTime();
+$byDay = $this->url('netglue_log/by-day', array(
+	'year' => $date->format("Y"),
+	'month' => $date->format("n"),
+	'day' => $date->format("j"),
+));
+
+?>
+
+<div class="container">
+<div class="page-header">
+	<h1><?php echo $this->escapeHtml($title); ?></h1>
+</div>
+
+<div class="well well-large">
+	
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Date/Time</th>
+				<td><a href="<?php echo $byDay; ?>"><?php echo $log->getDateTime()->format("l jS F Y H:i:s"); ?></a></td>
+			</tr>
+			<tr>
+				<th>Priority</th>
+				<td><?php echo $this->logLevelLabel($log->getPriority()); ?> <code><?php echo $this->escapeHtml($log->getPriorityName()).'/'.$log->getPriority(); ?></code></td>
+			</tr>
+			<tr>
+				<th>Message</th>
+				<td><?php echo $this->escapeHtml($log->getMessage()); ?></td>
+			</tr>
+			<tr>
+				<th>Type</th>
+				<td><?php echo $this->escapeHtml($log->getLogType()); ?></td>
+			</tr>
+			<tr>
+				<th>IP Address</th>
+				<td><code><?php echo $this->escapeHtml($log->getIpAddress()); ?></code></td>
+			</tr>
+			<tr>
+				<th>Request ID</th>
+				<td>
+				<code>
+					<a href="<?php echo $this->url('netglue_log/by-request', array('request' => $log->getRequestId())); ?>"
+						title="Filter logs records from this request"
+						><?php echo $this->escapeHtml(substr($log->getRequestId(), 0, 5)); ?>&hellip;</a>
+				</code></td>
+			</tr>
+			<tr>
+				<th>Error Code</th>
+				<td><code><?php echo $this->escapeHtml( NULL === $log->getErrorCode() ? 'NULL' : $log->getErrorCode()); ?></code></td>
+			</tr>
+			<tr>
+				<th>Exception Class</th>
+				<td><code><?php echo $this->escapeHtml( NULL === $log->getExceptionClass() ? 'NULL' : $log->getExceptionClass()); ?></code></td>
+			</tr>
+			<tr>
+				<th>Triggered in Function</th>
+				<td><code><?php echo $this->escapeHtml( NULL === $log->getFunction() ? 'NULL' : $log->getFunction()); ?></code></td>
+			</tr>
+			<tr>
+				<th>Triggered in File</th>
+				<td><code><?php echo $this->escapeHtml( NULL === $log->getFile() ? 'NULL' : $log->getFile()); ?></code></td>
+			</tr>
+			<tr>
+				<th>Triggered on Line</th>
+				<td><code><?php echo $this->escapeHtml( NULL === $log->getLine() ? 'NULL' : $log->getLine()); ?></code></td>
+			</tr>
+			<tr>
+				<th>Trace</th>
+				<?php
+				$trace = $log->getTrace();
+				if(!empty($trace)) {
+					$trace = json_decode($trace, true);
+					?>
+					<td>
+					<?php
+					foreach($trace as $step) {
+						echo '<code>';
+						if(isset($step['file']) && isset($step['line'])) {
+							echo sprintf('...%s(%d): ',
+								$this->escapeHtml(substr($step['file'], -60)),
+								$step['line']
+							);
+						}
+						$args = '';
+						if(isset($step['class']) && isset($step['function']) && isset($step['type'])) {
+							echo sprintf('%s%s%s(%s)',
+								$step['class'],
+								$this->escapeHtml($step['type']),
+								$step['function'],
+								'args...'
+							);
+						}
+						
+						echo '</code><br>';
+						/*} else {
+							var_dump($step);
+						}*/
+						/*foreach($step as $key => $line) {
+							echo "\n" . '<li><span class="label">'.$this->escapeHtml($key).'</span>';
+							if(is_scalar($line)) {
+								echo '<code>'.$this->escapeHtml($line).'</code></li>';
+							} else {
+								var_dump($line);
+							}
+						}*/
+					}
+					?></td>
+					<?php
+				} else {
+					?>
+					<td><em class="muted">No trace found</em></td>
+					<?php
+				}
+				?>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	<?php var_dump(json_decode($log->getTrace())); ?>
+	
+</div>
+
+<?php
+if(count($this->byRequest) > 1):
+?>
+<h3>Log Records for Request: <?php echo $this->escapeHtml($log->getRequestId()); ?></h3>
+<?php echo $this->partial('netglue-log/log/log-table.phtml', array('records' => $this->byRequest)); ?>
+
+<?php
+endif;
+
+
+?>
+<p><a class="btn btn-primary btn-small" href="<?php echo $byDay; ?>"><i class="icon-circle-arrow-left icon-white"></i> Back to <?php echo $date->format("l jS F Y"); ?></a></p>
+
+</div>

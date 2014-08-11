@@ -1,0 +1,39 @@
+<?php
+/**
+ * Logs
+ */
+// throw new \Exception('foo');
+$this->headTitle('Logs');
+?>
+
+<div class="container">
+	<div class="page-header">
+		<h1>Logs</h1>
+	
+		<a class="btn" href="<?php echo $this->url('netglue_log/by-day'); ?>" title="Today's logs in full">Today's Logs</a>
+		
+		<div class="btn-group">
+			<a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#" title="Delete old logs">
+				Delete logs
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="<?php echo $this->url('netglue_log/delete-aged', array('days' => 60)); ?>">Older than 60 days</a></li>
+				<li><a href="<?php echo $this->url('netglue_log/delete-aged', array('days' => 30)); ?>">Older than 30 days</a></li>
+				<li><a href="<?php echo $this->url('netglue_log/delete-aged', array('days' => 7)); ?>">Older than 7 days</a></li>
+				<li class="divider"></li>
+				<li><a href="<?php echo $this->url('netglue_log/empty'); ?>">Delete All</a></li>
+			</ul>
+		</div>
+	
+	</div>
+
+	<div class="row">
+		<div class="span12">
+			<?php echo $this->partial('netglue-log/log/_flash.phtml'); ?>
+		
+			<?php echo $this->partial('netglue-log/log/log-table.phtml', array('records' => $this->records)); ?>
+		</div>
+	</div>
+
+</div>

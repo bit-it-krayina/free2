@@ -1,0 +1,72 @@
+<?php
+
+
+
+/**
+ * Service Manager Config Specific to the NetglueLog Module
+ */
+$serviceManager => array(
+	
+	'factories' => array(
+		/**
+		 * In order to override the logging specific adapter configured by default
+		 * and use a single adapter application wide, you would change the following
+		 * alias to point to the Zend Db Adapter Factory like this...
+		 * Assuming that you have setup config properly for the Zend Factory
+		 * and the database you're using has the logging table correctly setup and ready to use
+		 * You might also override the factory that provides the adapter to the logging service for other reasons...?
+		 */
+		//'NetglueLog\Service\DbAdapterFactory' => 'Zend\Db\Adapter\AdapterServiceFactory',
+	),
+);
+
+
+/**
+ * Database Adapter Config
+ * 
+ * The default config for the db adapter will point to an sqlite database in the
+ * vendor/netglue/zf2-log-module/data directory. At the least, you'll want to put your
+ * sqlite log database in your top level application data directory or somewhere
+ * that the webserver has write access.
+ * 
+ * The adapter config is simply passed to \Zend\Db\Adapter\Adapter::__construct()
+ * so you can specify a MySQL db and connection params or whatever else to use as
+ * the adapter for log records
+ */
+$netglueLogDbAdapterConfig = array(
+	// Assuming this file is in /approot/config/autoload
+	'database' => __DIR__.'/../../data/logs.sqlite',
+);
+
+/**
+ * Logging Table Configuration
+ * 
+ */
+$netglueLogTableConfig = array(
+	'tableName' => 'ng_log',
+	'idFieldName' => 'id',
+	'timestampFieldName' => 'timestamp',
+	'levelNameFieldName' => 'level_name',
+	'levelFieldName' => 'level',
+	'messageFieldName' => 'message',
+	'logTypeFieldName' => 'type', // Log, PHP Error or Exception
+	'errorCodeFieldName' => 'error_code', // PHP or Exception Code
+	'exceptionClassFieldName' => 'exception_class', // String exception class
+	'filePathFieldName' => 'file_path',
+	'lineFieldName' => 'line',
+	'traceFieldName' => 'trace', // Json Encoded Trace
+	'ipAddressFieldName' => 'ip_address', // If possible, store remote address
+);
+
+
+// Aggregate config arrays in correct keys and return
+return array(
+	
+	'service_manager' => $serviceManager,
+	
+	'netglue_log' => array(
+		
+		'db' => $netglueLogDbAdapterConfig,
+		
+	),
+);

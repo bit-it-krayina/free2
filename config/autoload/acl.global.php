@@ -125,6 +125,11 @@ return array(
 					'list'   => 'guest',
 					'import'   => 'admin',
 				),
+				'NetglueLog\Controller\LogController' => array(
+					'all' => 'admin',
+				),
+
+
 				// for CMS articles
                 'all' => array(
 					'view'	=> 'guest',
@@ -138,6 +143,8 @@ return array(
 				'admin Resource' => array(
 					'view'	=> 'admin',
 				),
+
+
             ),
             'deny' => array(
 				'CsnUser\Controller\Index' => array (

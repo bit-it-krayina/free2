@@ -1,0 +1,43 @@
+
+<table class="table table-hover table-striped log-table">
+	<thead>
+		<tr>
+			<th>Time</th>
+			<th>Priority</th>
+			<th>Message</th>
+			<th>Type</th>
+			<th>IP</th>
+			<th>Request ID</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php
+if($this->records->count() >= 1):
+	foreach($this->records as $log):
+		$viewUrl = $this->url('netglue_log/view', array('id' => $log->getId()));
+?>
+		<tr>
+			<td><?php echo $log->getDateTime()->format('H:i:s'); ?></td>
+			<td><?php echo $this->logLevelLabel($log->getPriority()); ?></td>
+			<td><a href="<?php echo $viewUrl; ?>"><?php echo $this->escapeHtml($log->getMessage()); ?></a></td>
+			<td><?php echo $this->escapeHtml($log->getLogType()); ?></td>
+			<td><?php echo $this->escapeHtml($log->getIpAddress()); ?></td>
+			<td>
+				<code>
+					<a href="<?php echo $this->url('netglue_log/by-request', array('request' => $log->getRequestId())); ?>"
+						title="Filter logs records from this request"
+						><?php echo $this->escapeHtml(substr($log->getRequestId(), 0, 5)); ?>&hellip;</a>
+				</code></td>
+		</tr>
+<?php
+	endforeach;
+else:
+?>
+		<tr class="warning">
+			<td colspan="6">No Log Records Found</td>
+		</tr>
+<?php
+endif;
+?>
+	</tbody>
+</table>

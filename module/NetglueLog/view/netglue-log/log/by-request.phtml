@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * \DateTime : $this->date
+ * ResultSet : $this->records
+ */
+
+$title = sprintf('Logs for Request ID: %s', $this->request);
+$this->headTitle($title);
+
+?>
+<div class="container">
+<div class="page-header">
+	<h1>Request Id: <small><?php echo $this->escapeHtml($this->request); ?></small></h1>
+</div>
+
+
+
+<?php echo $this->partial('netglue-log/log/log-table.phtml', array('records' => $this->records)); ?>
+
+
+<?php
+if($this->records instanceof \Iterator && $this->records->count()) {
+	$this->records->rewind();
+	$log = $this->records->current();
+	$date = $log->getDateTime();
+	$byDay = $this->url('netglue_log/by-day', array(
+		'year' => $date->format("Y"),
+		'month' => $date->format("n"),
+		'day' => $date->format("j"),
+	));
+	?>
+	<p><a class="btn btn-primary btn-small" href="<?php echo $byDay; ?>"><i class="icon-circle-arrow-left icon-white"></i> Back to <?php echo $date->format("l jS F Y"); ?></a></p>
+	<?php
+}
+?>
+</div>

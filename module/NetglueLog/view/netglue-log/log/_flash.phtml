@@ -1,0 +1,26 @@
+<?php
+
+
+$helper = $this->flashMessenger();
+$plugin = $helper->getPluginFlashMessenger();
+
+$helper->setMessageOpenFormat("<div%s>\n<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n");
+$helper->setMessageCloseString("</div>\n");
+$helper->setMessageSeparatorString("<br>\n");
+
+if($helper->hasInfoMessages()) {
+	echo $helper->render($plugin::NAMESPACE_INFO, array('alert alert-info'));
+}
+
+if($helper->hasSuccessMessages()) {
+	echo $helper->render($plugin::NAMESPACE_SUCCESS, array('alert alert-success'));
+}
+
+if($helper->hasErrorMessages()) {
+	echo $helper->render($plugin::NAMESPACE_ERROR, array('alert alert-error'));
+}
+
+if($helper->hasMessages()) {
+	echo $helper->render($plugin::NAMESPACE_DEFAULT, array('alert'));
+}
+
