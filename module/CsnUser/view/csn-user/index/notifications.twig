@@ -1,0 +1,24 @@
+{% extends 'layout/layout1.twig' %}
+
+{% block content %}
+<section class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				{% if user.notifications is not empty %}
+					{% for notification in user.notifications %}
+					<div class="alert alert-{{notification.type}}">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+						<a href="{{notification.fixUrl}}"><strong>{{ notification.title ~ ' ' }}</strong>{{ notification.message }}</a>
+					</div>
+					{% endfor %}
+				{% endif %}
+			</div>
+			<div class="col-md-3">
+				<img src="/img/banner.jpg" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

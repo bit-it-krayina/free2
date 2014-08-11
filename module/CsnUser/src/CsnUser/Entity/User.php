@@ -351,6 +351,12 @@ class User implements MagicInterface
 	 */
 	private $offers;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="Application\Entity\Notification", mappedBy="user")
+	 */
+	private $notifications;
+
+
 
 
 	/**
@@ -378,6 +384,7 @@ class User implements MagicInterface
 	{
 		$this -> tags = new ArrayCollection();
 		$this -> offers = new ArrayCollection();
+		$this -> notifications = new ArrayCollection();
 
 	}
 
@@ -930,6 +937,20 @@ class User implements MagicInterface
 	public function setOffers ( $offers )
 	{
 		$this -> offers = $offers;
+
+		return $this;
+
+	}
+
+	public function getNotifications ()
+	{
+		return $this -> notifications;
+
+	}
+
+	public function setNotifications ( $notifications )
+	{
+		$this -> notifications = $notifications;
 
 		return $this;
 

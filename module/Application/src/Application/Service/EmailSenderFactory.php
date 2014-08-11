@@ -19,16 +19,16 @@ class EmailSenderFactory implements FactoryInterface
 	    'password' => 'a14$BB6#',
 	    'ssl'      => 'tls',
 	),
-    
-	
-    
+
+
+
     );
-    
+
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-	$emailConfig = new Config($this ->emailSettings);
-	$options = new SmtpOptions($this ->emailSettings);
-	$transport = new Smtp($options);
-	return new EmailSender($transport);
+		$emailConfig = new Config($this ->emailSettings);
+		$options = new SmtpOptions($this ->emailSettings);
+		$transport = new Smtp($options);
+		return new EmailSender($transport);
     }
 }

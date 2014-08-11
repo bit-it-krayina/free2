@@ -75,6 +75,7 @@ return array(
 					'login'   => 'guest',
 					'logout'  => 'volunteer',
 					'profile'  => 'volunteer',
+					'notifications' => 'volunteer',
 					'index' => 'guest',
 				),
 				'CsnUser\Controller\Admin' => array(

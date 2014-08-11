@@ -131,6 +131,7 @@ return array (
 		),
 		'factories' => array (
 			'mailer' => 'Application\Service\EmailSenderFactory',
+			'Application\Notification\Service' => 'Application\Service\Notification\Factory',
 			'Zend\Authentication\AuthenticationService' => 'Application\Service\AuthServiceFactory'
 		),
 		'aliases' => array (

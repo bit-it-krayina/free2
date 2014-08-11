@@ -197,6 +197,23 @@ class IndexController extends AbstractActionController
 
 	}
 
+	public function notificationsAction()
+	{
+		if ( !$user = $this -> identity () )
+		{
+			return $this -> redirect () -> toRoute ( $this -> getOptions () -> getLoginRedirectRoute () );
+		}
+
+		$notificationService = $this -> getServiceLocator () -> get('Application\Notification\Service');
+
+		return $this->createViewModel('csn-user/index/notifications', array(
+			'user' => $user,
+		));
+
+	}
+
+
+
 
 
     /**

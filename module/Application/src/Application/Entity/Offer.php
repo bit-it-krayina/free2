@@ -260,7 +260,7 @@ class Offer
 
 	}
 
-	public function setProject ( Application\Entity\OfferState $project )
+	public function setProject ( Project $project )
 	{
 		$this -> project = $project;
 

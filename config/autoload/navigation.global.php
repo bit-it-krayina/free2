@@ -68,18 +68,29 @@ return array(
 
              ),
 			 array(
-				'label' => '<span class="fi-bell-alt"></span><span class="badge badge-notif">2</span>',
+				'label' => '<span class="fi-bell-alt"></span><span class="badge badge-notif"></span>',
 				'uri'	=> '#',
-				'pages' => array(
-					array (
-						'label' => 'Запрошення до "Ua roads"',
-						'uri'	=> '#',
-					),
-					array (
-						'label' => 'Новий відгук від "Ua elections"',
-						'uri'	=> '#',
-					),
-				),
+				'route' => 'user-index',
+				'action' => 'notifications',
+				'resource' => 'CsnUser\Controller\Index',
+				'privilege' => 'notifications',
+//				'pages' => array(
+//					array (
+//						'label' => 'Notification',
+//						'route' => 'user-index',
+//						'action' => 'notifications',
+//						'resource' => 'CsnUser\Controller\Index',
+//						'privilege' => 'notifications',
+//					),
+//					array (
+//						'label' => 'Запрошення до "Ua roads"',
+//						'uri'	=> '#',
+//					),
+//					array (
+//						'label' => 'Новий відгук від "Ua elections"',
+//						'uri'	=> '#',
+//					),
+//				),
 
              ),
 			 array(
