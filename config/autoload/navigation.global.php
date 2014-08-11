@@ -18,6 +18,13 @@ return array(
 //				 'privilege' => 'index',
 //             ),
 			 array(
+                 'label' => 'Logs',
+                 'route' => 'netglue_log',
+				 'action'     => 'index',
+				 'resource'	  => 'NetglueLog\Controller\LogController',
+				 'privilege'  => 'index',
+             ),
+			 array(
                  'label' => 'Projects',
                  'route' => 'project',
 				 'action'     => 'list',
