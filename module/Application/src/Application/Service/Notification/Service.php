@@ -6,15 +6,17 @@ use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
 use CsnUser\Entity\User;
 use Application\Entity\Notification;
+use Zend\EventManager\ListenerAggregateInterface;
+use Zend\EventManager\ListenerAggregateTrait;
+use Zend\EventManager\Event;
 
-
-class Service implements EntityManagerAwareInterface
+class Service implements EntityManagerAwareInterface, ListenerAggregateInterface
 {
-
-	use EntityManagerAwareTrait;
+	use EntityManagerAwareTrait, ListenerAggregateTrait;
 
 	const NOTIFICATION_TYPE_INFO = 'info';
 
+	const EVENT_USER_INFO_UPDATE = 'update_user_info';
 
 	/**
 	 * @var Notification
@@ -27,7 +29,7 @@ class Service implements EntityManagerAwareInterface
 		$this->setEntityManager($entityManager);
 	}
 
-	public function addNotification(User $user, $title = '', $message = '', $fixUrl = '')
+	public function addNotification(User $user, $action, $title = '', $message = '', $fixUrl = '')
 	{
 		$notification = new Notification();
 		$notification->setUser($user)
@@ -35,6 +37,7 @@ class Service implements EntityManagerAwareInterface
 			->setType(self::NOTIFICATION_TYPE_INFO)
 			->setMessage($message)
 			->setFixUrl($fixUrl)
+			->setAction($action)
 		;
 
 		$this->getEntityManager()->persist($notification);
@@ -51,5 +54,30 @@ class Service implements EntityManagerAwareInterface
 		return $this->notification;
 	}
 
+
+
+	public function attach ( \Zend\EventManager\EventManagerInterface $events )
+	{
+		$this->listeners [] = $events->attach (self::EVENT_USER_INFO_UPDATE, [
+			$this,
+			'updateUserInfo'
+		]);
+	}
+
+	public function updateUserInfo(Event $event)
+	{
+		/**
+		 * @var User Description
+		 */
+		$userEntity = $event->getTarget();
+		error_log(
+			print_r(
+				array(
+					'Something **********************************',
+					$userEntity->getEmail()
+
+			), true));
+
+	}
 
 }

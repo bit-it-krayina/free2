@@ -1,0 +1,35 @@
+<table class="table table-hover table-striped log-table">
+	<thead>
+		<tr>
+			<th>Time</th>
+			<th>Priority</th>
+			<th>Message</th>
+			<th>Type</th>
+			<th>IP</th>
+			<th>Request ID</th>
+		</tr>
+	</thead>
+	<tbody>
+{% if records|length >= 1 %}
+	{% for log in records %}
+		<tr>
+			<td>{{ log.dateTime.format('H:i:s') }}</td>
+			<td>{{ logLevelLabel( log.getPriority() ) }}</td>
+			<td><a href="{{ url('netglue_log/view', {'id' : log.id } ) }}">{{ escapeHtml( log.getMessage()) }}</a></td>
+			<td>{{ escapeHtml( log.getLogType() ) }}</td>
+			<td>{{ escapeHtml( log.getIpAddress() ) }}</td>
+			<td>
+				<code>
+					<a href="{{ url('netglue_log/by-request', {'request' : log.getRequestId() } ) }}"
+						title="Filter logs records from this request"
+						>{{  this.escapeHtml(log.getRequestId()) }}&hellip;</a>
+				</code></td>
+		</tr>
+	{% endfor %}
+	{% else %}
+		<tr class="warning">
+			<td colspan="6">No Log Records Found</td>
+		</tr>
+	{% endif %}
+	</tbody>
+</table>

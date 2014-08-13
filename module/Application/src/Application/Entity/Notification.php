@@ -104,6 +104,22 @@ class Notification
 	protected $user;
 
 
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="action", type="string", length=255, nullable=false)
+	 * @Annotation\Type("Zend\Form\Element\Text")
+	 * @Annotation\Filter({"name":"StringTrim"})
+	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "max":255}})
+	 * @Annotation\Required(true)
+	 * @Annotation\Attributes({
+	 *   "type":"text",
+	 *   "required":"false"
+	 * })
+	 */
+	protected $action;
+
+
 
 	public function getId ()
 	{
@@ -136,6 +152,27 @@ class Notification
 
 	}
 
+
+	public function getAction ()
+	{
+		return $this -> action;
+
+	}
+
+
+	public function getUser ()
+	{
+		return $this -> user;
+
+	}
+
+	public function setUser ( \CsnUser\Entity\User $user )
+	{
+		$this -> user = $user;
+		return $this;
+
+	}
+
 	public function setTitle ( $title )
 	{
 		$this -> title = $title;
@@ -165,18 +202,11 @@ class Notification
 		return $this;
 	}
 
-
-	public function getUser ()
+	public function setAction ( $action )
 	{
-		return $this -> user;
+		$this -> action = $action;
 
-	}
-
-	public function setUser ( \CsnUser\Entity\User $user )
-	{
-		$this -> user = $user;
 		return $this;
-
 	}
 
 }

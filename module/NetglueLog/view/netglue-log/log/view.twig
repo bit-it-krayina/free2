@@ -1,0 +1,78 @@
+{% extends 'layout/layout1.twig' %}
+
+{% block content %}
+
+<section class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row">
+					<h1>{{ escapeHtml(title) }}</h1>
+				</div>
+
+				<div class="row">
+
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>Date/Time</th>
+								<td><a href="{{ url('netglue_log/by-day', byDay ) }}">{{ log.dateTime|date("l jS F Y H:i:s") }}</a></td>
+							</tr>
+							<tr>
+								<th>Priority</th>
+								<td>{{ logLevelLabel( log.priority) }}
+									<code>{{ escapeHtml( log.priorityName ) ~ '/' ~ log.priority }}</code>
+								</td>
+							</tr>
+							<tr>
+								<th>Message</th>
+								<td>{{ escapeHtml( log.message) }}</td>
+							</tr>
+							{% if log.hasProject() %}
+							<tr>
+								<th>Project</th>
+								<td>{{ log.getExtra().project_id }}</td>
+							</tr>
+							<tr>
+								<th>Type</th>
+								<td>{{ escapeHtml( log.logType) }}</td>
+							</tr>
+							{% endif %}
+							<tr>
+								<th>IP Address</th>
+								<td>
+									<code>{{ escapeHtml( log.ipAddress ) }}</code>
+								</td>
+							</tr>
+							<tr>
+								<th>Request ID</th>
+								<td>
+									<code>
+										<a href="{{ url('netglue_log/by-request', {'request' : log.requestId } ) }}"
+										   title="Filter logs records from this request"
+										   >{{ escapeHtml( log.getRequestId() ) }}&hellip;</a>
+									</code></td>
+							</tr>
+
+						</tbody>
+					</table>
+
+
+				</div>
+
+				{% if byRequest|length > 1 %}
+					<h3>Log Records for Request: {{ escapeHtml( log.requestId ) }}</h3>
+					{{ partial('netglue-log/log/log-table.phtml', {'records' : byRequest } ) }}
+				{% endif %}
+
+				<p><a class="btn btn-primary btn-small" href="{{ url('netglue_log/by-day', byDay ) }}">
+						<i class="icon-circle-arrow-left icon-white"></i> Back to {{ date|date("l jS F Y") }}</a></p>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+</section>
+
+{% endblock content %}

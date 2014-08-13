@@ -7,10 +7,9 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
 use Application\Service\ControlUtils;
-use Application\Model\User as UserModel;
 use CsnUser\Entity\User;
 use CsnUser\Entity\Info\UserPrivate;
-
+use Application\Service\Notification\Service as NotificationService;
 use Zend\View\Model\JsonModel;
 
 class ProfileAjaxController extends AbstractActionController implements EntityManagerAwareInterface
@@ -27,8 +26,6 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 		}
 
 		$form = $this->getUserFormHelper()->createUserForm($user, 'EditProfile');
-
-		$userModel = new UserModel($user);
 
         $message = null;
         if($this->getRequest()->isPost()) {
@@ -75,7 +72,10 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 				}
                 $entityManager->persist($user);
                 $entityManager->flush();
-                $message =  $this->getTranslatorHelper()->translate('Your profile has been edited');
+
+				$this->getEventManager()->trigger(NotificationService::EVENT_USER_INFO_UPDATE, $user);
+
+				$message =  $this->getTranslatorHelper()->translate('Your profile has been edited');
             }
         }
 

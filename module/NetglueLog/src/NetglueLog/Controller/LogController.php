@@ -50,9 +50,20 @@ class LogController extends AbstractActionController {
 			$this->flashMessenger()->addErrorMessage(sprintf('No log record could be found with the id "%s"', $params['id']));
 			return $this->redirect()->toRoute('netglue_log');
 		}
+
 		$view = new ViewModel;
 		$view->record = $record;
+		$view->log = $record;
 		$view->byRequest = array();
+		$view -> title = 'Log Record: '.$record->getId();
+		$date = $record->getDateTime();
+		$view -> byDay = array(
+			'year' => $date->format("Y"),
+			'month' => $date->format("n"),
+			'day' => $date->format("j"),
+		);
+
+
 		$req = $record->getRequestId();
 		if(!empty($req)) {
 			$view->byRequest = $rs = $this->table->findByRequestId($req);
@@ -72,9 +83,51 @@ class LogController extends AbstractActionController {
 		$date->setDate($params['year'], $params['month'], $params['day']);
 		$rs = $this->table->findByDate($date);
 		$rs->buffer();
+
+		$title = sprintf('Logs for %s', $date->format("l jS F Y"));
+
+		$y = clone($date);
+		$y->sub(new \DateInterval('P1D'));
+		$yesterday =  array(
+			'year' => $y->format("Y"),
+			'month' => $y->format("n"),
+			'day' => $y->format("j"),
+		);
+
+		$t = clone($date);
+		$t->add(new \DateInterval('P1D'));
+		$tomorrow = array(
+			'year' => $t->format("Y"),
+			'month' => $t->format("n"),
+			'day' => $t->format("j"),
+		);
+
+
+		$p1w = clone($date);
+		$p1w->add(new\DateInterval('P7D'));
+		$nextWeek = array(
+			'year' => $p1w->format("Y"),
+			'month' => $p1w->format("n"),
+			'day' => $p1w->format("j"),
+		);
+
+		$s1w = clone($date);
+		$s1w->sub(new\DateInterval('P7D'));
+		$lastWeek = array(
+			'year' => $s1w->format("Y"),
+			'month' => $s1w->format("n"),
+			'day' => $s1w->format("j"),
+		);
+
 		return new ViewModel(array(
 			'date' => $date,
 			'records' => $rs,
+			'title' => $title,
+			'yesterday' => $yesterday,
+			'tomorrow' => $tomorrow,
+			'nextWeek' => $nextWeek,
+			'lastWeek' => $lastWeek,
+
 		));
 	}
 

@@ -85,7 +85,7 @@ class RegistrationController extends AbstractActionController implements EntityM
 					$notificationService = $this -> getServiceLocator () -> get('Application\Notification\Service');
 
 					$url = $this->url()->fromRoute('user-register', ['action'=>'edit-profile']);
-					$notificationService->addNotification($user, 'Your Profile is Empty', 'Please, fill profile', $url);
+					$notificationService->addNotification($user, 'registration', 'Your Profile is Empty', 'Please, fill profile', $url);
 
                     $viewModel = new ViewModel(array(
                         'email' => $user->getEmail(),
