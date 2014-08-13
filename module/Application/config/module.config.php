@@ -141,6 +141,7 @@ return array (
 			'importer' => 'Application\Service\Importer\Service',
 			'userForm' => 'Application\Form\User',
 			'userFormFilter' => 'Application\Form\UserFilter',
+			'UserInfoChecker' => 'Application\Service\Notification\Checker\UserInfoChecker',
 		),
 	),
 	'translator' => array (

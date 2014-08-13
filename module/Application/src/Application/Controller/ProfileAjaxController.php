@@ -10,6 +10,7 @@ use Application\Service\ControlUtils;
 use CsnUser\Entity\User;
 use CsnUser\Entity\Info\UserPrivate;
 use Application\Service\Notification\Service as NotificationService;
+
 use Zend\View\Model\JsonModel;
 
 class ProfileAjaxController extends AbstractActionController implements EntityManagerAwareInterface
@@ -73,7 +74,8 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
                 $entityManager->persist($user);
                 $entityManager->flush();
 
-				$this->getEventManager()->trigger(NotificationService::EVENT_USER_INFO_UPDATE, $user);
+				$notificationService = $this -> getServiceLocator () -> get('Application\Notification\Service');
+				$notificationService->trigger(NotificationService::EVENT_USER_INFO_UPDATE, $user);
 
 				$message =  $this->getTranslatorHelper()->translate('Your profile has been edited');
             }

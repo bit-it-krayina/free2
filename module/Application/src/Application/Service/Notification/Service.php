@@ -9,10 +9,12 @@ use Application\Entity\Notification;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
 use Zend\EventManager\Event;
+use Zend\EventManager\EventManagerAwareInterface;
+use Zend\EventManager\EventManagerAwareTrait;
 
-class Service implements EntityManagerAwareInterface, ListenerAggregateInterface
+class Service implements EntityManagerAwareInterface, EventManagerAwareInterface
 {
-	use EntityManagerAwareTrait, ListenerAggregateTrait;
+	use EntityManagerAwareTrait, EventManagerAwareTrait;
 
 	const NOTIFICATION_TYPE_INFO = 'info';
 
@@ -24,9 +26,10 @@ class Service implements EntityManagerAwareInterface, ListenerAggregateInterface
 	protected $notification;
 
 
-	public function __construct ( $entityManager = null )
+	public function __construct ( $entityManager = null, $events = null )
 	{
 		$this->setEntityManager($entityManager);
+		$this->setEventManager($events);
 	}
 
 	public function addNotification(User $user, $action, $title = '', $message = '', $fixUrl = '')
@@ -45,39 +48,10 @@ class Service implements EntityManagerAwareInterface, ListenerAggregateInterface
 
 	}
 
-	/**
-	 *
-	 * @return Notification
-	 */
-	protected function getNotification()
+	public function trigger ( $event, $tagret = null)
 	{
-		return $this->notification;
+		$this->getEventManager()->trigger($event, $tagret);
 	}
 
-
-
-	public function attach ( \Zend\EventManager\EventManagerInterface $events )
-	{
-		$this->listeners [] = $events->attach (self::EVENT_USER_INFO_UPDATE, [
-			$this,
-			'updateUserInfo'
-		]);
-	}
-
-	public function updateUserInfo(Event $event)
-	{
-		/**
-		 * @var User Description
-		 */
-		$userEntity = $event->getTarget();
-		error_log(
-			print_r(
-				array(
-					'Something **********************************',
-					$userEntity->getEmail()
-
-			), true));
-
-	}
 
 }
