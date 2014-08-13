@@ -114,6 +114,7 @@ class UserFormFactory implements FactoryInterface
 			case 'SignUp':
 				$this -> addSignUpFields ();
 				$this -> addSignUpFilters ();
+				$this -> addCreateUserFilters();
 				$this -> form -> setAttributes ( array (
 					'action' => $this -> getUrlPlugin () -> fromRoute ( 'user-register' ),
 					'name' => 'register'
