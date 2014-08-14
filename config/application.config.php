@@ -7,7 +7,7 @@ return array (
 		'ZfcTwig',
 		'DoctrineModule',
 		'DoctrineORMModule',
-		'CsnUser',
+
 		'CsnAuthorization',
 		'NetglueLog',
 //		'ZendDeveloperTools'
