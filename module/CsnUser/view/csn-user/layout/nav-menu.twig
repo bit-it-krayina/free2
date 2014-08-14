@@ -2,12 +2,12 @@
 	{% if user %}
 		<a href="{{ url('user-register', {'action' : 'edit-profile'}) }}" class="btn btn-success">
 			{{ translate('Edit Profile') }}
-		</a> 
-		<a href="{{ url('user-index', {'action' : 'logout'}) }}" class="btn btn-success">
+		</a>
+		<a href="{{ url('index', {'action' : 'logout'}) }}" class="btn btn-success">
 			{{ translate('Log Out') }}
 		</a>
 	  {% else %}
-		<a href="{{ url('user-index', {'action' : 'login'}) }}" class="btn btn-success">
+		<a href="{{ url('index', {'action' : 'login'}) }}" class="btn btn-success">
 		{{ translate('Log in') }}
 		</a>
 		<a href="{{ url('user-register') }}" class="btn btn-success">

@@ -86,9 +86,9 @@ class Notification
 
 
 	/**
-	 * @var \CsnUser\Entity\User
+	 * @var \Application\Entity\User
 	 *
-	 * @ORM\ManyToOne(targetEntity="\CsnUser\Entity\User")
+	 * @ORM\ManyToOne(targetEntity="\Application\Entity\User")
 	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
 	 * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
 	 * @Annotation\Filter({"name":"StripTags"})
@@ -97,7 +97,7 @@ class Notification
 	 * @Annotation\Required(true)
 	 * @Annotation\Options({
 	 *   "required":"true",
-	 *   "target_class":"\CsnUser\Entity\User",
+	 *   "target_class":"\Application\Entity\User",
 	 *   "property": "user"
 	 * })
 	 */
@@ -166,7 +166,7 @@ class Notification
 
 	}
 
-	public function setUser ( \CsnUser\Entity\User $user )
+	public function setUser ( \Application\Entity\User $user )
 	{
 		$this -> user = $user;
 		return $this;

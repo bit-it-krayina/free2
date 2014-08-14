@@ -4,7 +4,7 @@ namespace Application\Service\Notification;
 
 use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
-use CsnUser\Entity\User;
+use Application\Entity\User;
 use Application\Entity\Notification;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;

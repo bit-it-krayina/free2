@@ -19,8 +19,8 @@ use Zend\View\Model\ViewModel;
 use Zend\Session\SessionManager;
 use Zend\Session\Config\StandardConfig;
 
-use CsnUser\Entity\User;
-use CsnUser\Options\ModuleOptions;
+use Application\Entity\User;
+use Application\Options\ModuleOptions;
 use Application\Service\ControlUtils;
 
 /**
@@ -77,7 +77,7 @@ class IndexController extends AbstractActionController
                 $usernameOrEmail = $this->params()->fromPost('usernameOrEmail');
 
                 try {
-                    $user = $this->getEntityManager()->createQuery("SELECT u FROM CsnUser\Entity\User u WHERE u.email = '$usernameOrEmail' OR u.username = '$usernameOrEmail'")->getResult(\Doctrine\ORM\Query::HYDRATE_OBJECT);
+                    $user = $this->getEntityManager()->createQuery("SELECT u FROM Application\Entity\User u WHERE u.email = '$usernameOrEmail' OR u.username = '$usernameOrEmail'")->getResult(\Doctrine\ORM\Query::HYDRATE_OBJECT);
                     $user = $user[0];
 
                     if(!isset($user)) {
@@ -134,83 +134,7 @@ class IndexController extends AbstractActionController
         ));
     }
 
-    /**
-     * Log out action
-     *
-     * The method destroys session for a logged user
-     *
-     * @return redirect to specific action
-     */
-    public function logoutAction()
-    {
-        $auth = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
-        if ($auth->hasIdentity()) {
-            $auth->clearIdentity();
-            $sessionManager = new SessionManager();
-            $sessionManager->forgetMe();
-        }
 
-        return $this->redirect()->toRoute($this->getOptions()->getLogoutRedirectRoute());
-    }
-
-	public function profileAction ()
-	{
-		if ( !$user = $this -> identity () )
-		{
-			return $this -> redirect () -> toRoute ( $this -> getOptions () -> getLoginRedirectRoute () );
-		}
-
-		$form = $this -> getUserFormHelper () -> createUserForm ( $user, 'EditProfile' );
-		$email = $user -> getEmail ();
-		$username = $user -> getUsername ();
-		$message = null;
-		if ( $this -> getRequest () -> isPost () )
-		{
-			$currentFirstName = $user -> getFirstName ();
-			$currentLastName = $user -> getLastName ();
-			$form -> setValidationGroup ( 'firstName', 'lastName', 'csrf', 'location' );
-			$form -> setData ( $this -> getRequest () -> getPost () );
-			if ( $form -> isValid () )
-			{
-				$firstName = $this -> params () -> fromPost ( 'firstName' );
-				$lastName = $this -> params () -> fromPost ( 'lastName' );
-				$user -> setFirstName ( $firstName );
-				$user -> setLastName ( $lastName );
-				$entityManager = $this -> getEntityManager ();
-				$entityManager -> persist ( $user );
-				$entityManager -> flush ();
-				$message = $this -> getTranslatorHelper () -> translate ( 'Your profile has been edited' );
-			}
-		}
-
-
-		$employments = $this
-						-> getEntityManager ()
-						-> getRepository ( 'CsnUser\Entity\Employment' )
-						-> findAll ();
-
-		return $this->createViewModel('csn-user/index/profile', array(
-			'user' => $user,
-			'employments' => $employments,
-		));
-
-
-	}
-
-	public function notificationsAction()
-	{
-		if ( !$user = $this -> identity () )
-		{
-			return $this -> redirect () -> toRoute ( $this -> getOptions () -> getLoginRedirectRoute () );
-		}
-
-		$notificationService = $this -> getServiceLocator () -> get('Application\Notification\Service');
-
-		return $this->createViewModel('csn-user/index/notifications', array(
-			'user' => $user,
-		));
-
-	}
 
 
 

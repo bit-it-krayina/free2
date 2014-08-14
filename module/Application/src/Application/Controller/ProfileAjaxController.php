@@ -7,8 +7,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
 use Application\Service\ControlUtils;
-use CsnUser\Entity\User;
-use CsnUser\Entity\Info\UserPrivate;
+use Application\Entity\User;
+use Application\Entity\Info\UserPrivate;
 use Application\Service\Notification\Service as NotificationService;
 
 use Zend\View\Model\JsonModel;
@@ -40,7 +40,7 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 				{
 					switch ($key) {
 						case 'workExperience':
-							$workExperience = $entityManager->find('CsnUser\Entity\WorkExperience', $value);
+							$workExperience = $entityManager->find('Application\Entity\WorkExperience', $value);
 							$user->$key = $workExperience;
 							break;
 						case 'location':
@@ -97,15 +97,15 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 
 		$params = $this->getRequest()->getPost();
 		$entityManager = $this->getEntityManager();
-		$user -> setEmployment($entityManager->find('\CsnUser\Entity\Employment',$params->status ));
+		$user -> setEmployment($entityManager->find('\Application\Entity\Employment',$params->status ));
 		$entityManager->persist($user);
 		$entityManager->flush();
 		$employments = $entityManager
-			-> getRepository ( 'CsnUser\Entity\Employment' )
+			-> getRepository ( 'Application\Entity\Employment' )
 			-> findAll ();
 		$viewHtml = $this->getServiceLocator ()
 						->get ('ZfcTwigRenderer')
-						->render ($this->createViewModel('csn-user/bits/profile/status-dropdown', [
+						->render ($this->createViewModel('application/bits/profile/status-dropdown', [
 							'user' => $user,
 							'employments' =>$employments
 						]));
@@ -130,14 +130,14 @@ class ProfileAjaxController extends AbstractActionController implements EntityMa
 
 		$params = $this->getRequest()->getPost();
 		$entityManager = $this->getEntityManager();
-		$user = $entityManager->find('\CsnUser\Entity\User',$params->user );
+		$user = $entityManager->find('\Application\Entity\User',$params->user );
 		$user -> setPicture('');
 		$entityManager->persist($user);
 		$entityManager->flush();
 
 		$viewHtml = $this->getServiceLocator ()
 						->get ('ZfcTwigRenderer')
-						->render ($this->createViewModel('csn-user/bits/profile/photo', [
+						->render ($this->createViewModel('appplication/bits/profile/photo', [
 							'user_id' => $user->getId(),
 							'picture' => $user->getPicture()
 						]));

@@ -10,7 +10,7 @@
 				<div class="profile profile-edit">
 					<div class="profile-header ">
 						{{ form().openTag(uploadForm) | raw }}
-							{% include 'csn-user/bits/profile/photo' with {  'picture' : user.picture, 'user_id' : user.id}%}
+							{% include 'application/bits/profile/photo' with {  'picture' : user.picture, 'user_id' : user.id}%}
 
 
 							<div class="btn btn-primary btn-xs photo-btn">завантажити{{ formElement(uploadForm.get('picture') )|raw }}</div>

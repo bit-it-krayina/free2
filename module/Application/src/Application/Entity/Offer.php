@@ -118,9 +118,9 @@ class Offer
 	protected $project;
 
 	/**
-	 * @var CsnUser\Entity\User
+	 * @var Application\Entity\User
 	 *
-	 * @ORM\ManyToOne(targetEntity="CsnUser\Entity\User", inversedBy="offers")
+	 * @ORM\ManyToOne(targetEntity="Application\Entity\User", inversedBy="offers")
 	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
 	 * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
 	 * @Annotation\Filter({"name":"StripTags"})
@@ -129,14 +129,14 @@ class Offer
 	 * @Annotation\Required(true)
 	 * @Annotation\Options({
 	 *   "required":"true",
-	 *   "target_class":"CsnUser\Entity\User",
+	 *   "target_class":"Application\Entity\User",
 	 *   "property": "username"
 	 * })
 	 */
 	protected $user;
 
 	/**
-	 * @ORM\ManyToMany(targetEntity="CsnUser\Entity\Info\Tag", inversedBy="offers")
+	 * @ORM\ManyToMany(targetEntity="Application\Entity\Info\Tag", inversedBy="offers")
 	 * @ORM\JoinTable(name="offer_tag",
 	 *      joinColumns={@ORM\JoinColumn(name="offer_id", referencedColumnName="id")},
 	 *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
@@ -274,7 +274,7 @@ class Offer
 
 	}
 
-	public function setUser ( CsnUser\Entity\User $user )
+	public function setUser ( Application\Entity\User $user )
 	{
 		$this -> user = $user;
 

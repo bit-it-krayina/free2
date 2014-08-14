@@ -1,7 +1,7 @@
 <?php
 namespace Application\Service\Notification\Checker;
 
-use CsnUser\Entity\User;
+use Application\Entity\User;
 use Zend\EventManager\Event;
 use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;

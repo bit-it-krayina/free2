@@ -42,7 +42,11 @@ trait ControlUtils
 		$this -> setLoginForm ( new Login () );
 
 		$viewHelperManager = $this->getServiceLocator()->get('viewHelperManager');
-		$viewHelperManager->get('navigation')->setAcl($e -> getApplication () ->getServiceManager()->get('acl'))->setRole($this -> getRole());
+		$viewHelperManager->get('navigation')->setAcl(
+				$e -> getApplication () ->getServiceManager()->get('acl')
+			)->setRole(
+					$this -> getRole()
+				);
 
 		/**
 		 * Было бы хорошо конечно, но это ещё не совсем работает

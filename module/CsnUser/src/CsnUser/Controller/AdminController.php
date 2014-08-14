@@ -18,9 +18,9 @@ namespace CsnUser\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use CsnUser\Entity\User;
-use CsnUser\Options\ModuleOptions;
-use CsnUser\Service\UserService as UserCredentialsService;
+use Application\Entity\User;
+use Application\Options\ModuleOptions;
+use Application\Service\UserService as UserCredentialsService;
 use Application\Service\ControlUtils;
 /**
  * Admn controller
@@ -62,7 +62,7 @@ class AdminController extends AbstractActionController
 			return $this -> redirect () -> toRoute ( $this -> getOptions () -> getLoginRedirectRoute () );
 		}
 
-		$users = $this -> getEntityManager () -> getRepository ( 'CsnUser\Entity\User' ) -> findall ();
+		$users = $this -> getEntityManager () -> getRepository ( 'Application\Entity\User' ) -> findall ();
 		return $this -> createViewModel ( 'csn-user/admin/index', array (
 			'users' => $users,
 			'navMenu' => $this->getOptions()->getNavMenu()
@@ -149,7 +149,7 @@ class AdminController extends AbstractActionController
 			}
 
 			$entityManager = $this -> getEntityManager ();
-			$user = $entityManager -> getRepository ( 'CsnUser\Entity\User' ) -> find ( $id );
+			$user = $entityManager -> getRepository ( 'Application\Entity\User' ) -> find ( $id );
 
 			$form = $this -> getUserFormHelper () -> createUserForm ( $user, 'EditUser' );
 
@@ -213,7 +213,7 @@ class AdminController extends AbstractActionController
 		try
 		{
 			$entityManager = $this -> getEntityManager ();
-			$user = $entityManager -> getRepository ( 'CsnUser\Entity\User' ) -> find ( $id );
+			$user = $entityManager -> getRepository ( 'Application\Entity\User' ) -> find ( $id );
 			$entityManager -> remove ( $user );
 			$entityManager -> flush ();
 			$this -> flashMessenger () -> addSuccessMessage ( $this -> getTranslatorHelper () -> translate ( 'User Deleted Successfully' ) );
@@ -255,8 +255,8 @@ class AdminController extends AbstractActionController
 		try
 		{
 			$entityManager = $this -> getEntityManager ();
-			$user = $entityManager -> getRepository ( 'CsnUser\Entity\User' ) -> find ( $id );
-			$user -> setState ( $entityManager -> find ( 'CsnUser\Entity\State', $state ) );
+			$user = $entityManager -> getRepository ( 'Application\Entity\User' ) -> find ( $id );
+			$user -> setState ( $entityManager -> find ( 'Application\Entity\State', $state ) );
 			$entityManager -> persist ( $user );
 			$entityManager -> flush ();
 			$this -> flashMessenger () -> addSuccessMessage ( $this -> getTranslatorHelper () -> translate ( 'User Updated Successfully' ) );

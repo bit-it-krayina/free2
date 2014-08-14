@@ -14,7 +14,7 @@
 
 namespace CsnUserTest\Entity;
 
-use CsnUser\Entity\Language;
+use Application\Entity\Language;
 use PHPUnit_Framework_TestCase;
 
 class LanguageTest extends PHPUnit_Framework_TestCase

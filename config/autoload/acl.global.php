@@ -61,6 +61,21 @@ return array(
 				'Application\Controller\ProfileAjax' => array(
 					'all'   => 'volunteer',
 				),
+				'Application\Controller\Index' => array(
+					'notifications' => 'volunteer',
+					'logout'  => 'volunteer',
+					'profile'  => 'volunteer',
+
+					'home'   => 'guest',
+					'index' => 'guest',
+					'login'   => 'guest',
+					'all' => 'guest',
+				),
+				'Application\Controller\Projects' => array(
+					'index'   => 'guest',
+					'list'   => 'guest',
+					'import'   => 'admin',
+				),
 				'CsnUser\Controller\Registration' => array(
 					'index'	=> 'guest',
 					'change-password' => 'volunteer',
@@ -71,44 +86,8 @@ return array(
 					'confirm-email' => 'guest',
 					'registration-success' => 'guest',
 				),
-				'CsnUser\Controller\Index' => array(
-					'login'   => 'guest',
-					'logout'  => 'volunteer',
-					'profile'  => 'volunteer',
-					'notifications' => 'volunteer',
-					'index' => 'guest',
-				),
 				'CsnUser\Controller\Admin' => array(
 					'all' => 'admin',
-				),
-				'CsnCms\Controller\Index' => array(
-						'all' => 'guest'
-				),
-				'CsnCms\Controller\Article' => array(
-					'view'	=> 'guest',
-					'vote'  => 'volunteer',
-					'index' => 'admin',
-					'add'	=> 'admin',
-					'edit'  => 'admin',
-					'delete'=> 'admin',
-				),
-				'CsnCms\Controller\Translation' => array(
-					'index' => 'admin',
-					'add'	=> 'admin',
-					'edit'  => 'admin',
-					'delete'=> 'admin',
-				),
-				'CsnCms\Controller\Comment' => array(
-					'index' => 'volunteer',
-					'add'	=> 'volunteer',
-					'edit'  => 'volunteer',
-					'delete'=> 'volunteer',
-				),
-				'CsnCms\Controller\Category' => array(
-					'index' => 'admin',
-					'add'	=> 'admin',
-					'edit'  => 'admin',
-					'delete'=> 'admin',
 				),
 				'CsnFileManager\Controller\Index' => array(
 					'all' => 'volunteer',
@@ -116,43 +95,25 @@ return array(
 				'Zend' => array(
 					'uri'   => 'volunteer'
 				),
-				'Application\Controller\Index' => array(
-					'index'   => 'guest',
-					'home'   => 'guest',
-					'all' => 'guest',
-				),
-				'Application\Controller\Projects' => array(
-					'index'   => 'guest',
-					'list'   => 'guest',
-					'import'   => 'admin',
-				),
 				'NetglueLog\Controller\LogController' => array(
 					'all' => 'admin',
 				),
 
 
-				// for CMS articles
-                'all' => array(
-					'view'	=> 'guest',
-				),
-				'Public Resource' => array(
-					'view'	=> 'guest',
-				),
-				'Private Resource' => array(
-					'view'	=> 'volunteer',
-				),
-				'admin Resource' => array(
-					'view'	=> 'admin',
-				),
+
 
 
             ),
             'deny' => array(
-				'CsnUser\Controller\Index' => array (
+				'Application\Controller\Index' => array (
 					'login' => 'volunteer',
+					'profile' => 'guest',
+					'logout' => 'guest',
+					'notifications' => 'guest',
 				),
 				'CsnUser\Controller\Registration' => array (
 					'index' => 'volunteer',
+					'edit-profile' => 'guest',
 				),
             )
         )

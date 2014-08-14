@@ -6,6 +6,7 @@
 				$page->setClass('dropdown-toggle');
 				echo '<a href="'.$page->getHref().'" class="'.$page->getClass().'" data-toggle="dropdown">' .  $translate->getTranslator()->translate($page->getLabel())  .'</a>';
 				?>
+
 					<ul class="dropdown-menu">
 					<?php foreach ( $page->getPages() as $child ) :
 						renderPage($child, $navigation, $translate);
@@ -17,6 +18,8 @@
 		</li>
 	<?php endif; ?>
 <?php } ?>
+
+
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">

@@ -2,7 +2,7 @@
 
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -22,24 +22,24 @@ return array (
 	),
 	'router' => array (
 		'routes' => array (
-			'user-index' => array (
-				'type' => 'Segment',
-				'options' => array (
-					'route' => '/user[/:action]',
-					'constraints' => array (
-						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-					),
-					'defaults' => array (
-						'controller' => 'CsnUser\Controller\Index',
-						'action' => 'index',
-					),
-				),
-				'may_terminate' => true,
-			),
+//			'user-index' => array (
+//				'type' => 'Segment',
+//				'options' => array (
+//					'route' => '/user[/:action]',
+//					'constraints' => array (
+//						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+//					),
+//					'defaults' => array (
+//						'controller' => 'CsnUser\Controller\Index',
+//						'action' => 'index',
+//					),
+//				),
+//				'may_terminate' => true,
+//			),
 			'user-register' => array (
 				'type' => 'Segment',
 				'options' => array (
-					'route' => '/user/register[/:action][/:id]',
+					'route' => '/register[/:action][/:id]',
 					'constraints' => array (
 						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
 						'id' => '[a-zA-Z0-9]*',
@@ -54,7 +54,7 @@ return array (
 			'user-admin' => array (
 				'type' => 'Segment',
 				'options' => array (
-					'route' => '/user/admin[/:action][/:id][/:state]',
+					'route' => '/admin[/:action][/:id][/:state]',
 					'constraints' => array (
 						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
 						'id' => '[0-9]+',
@@ -80,11 +80,11 @@ return array (
 	),
 	'service_manager' => array (
 		'factories' => array (
-			'Zend\Authentication\AuthenticationService' => 'CsnUser\Service\Factory\AuthenticationFactory',
-			'mail.transport' => 'CsnUser\Service\Factory\MailTransportFactory',
-			'csnuser_module_options' => 'CsnUser\Service\Factory\ModuleOptionsFactory',
-			'csnuser_error_view' => 'CsnUser\Service\Factory\ErrorViewFactory',
-			'csnuser_user_form' => 'CsnUser\Service\Factory\UserFormFactory',
+			'Zend\Authentication\AuthenticationService' => 'Application\Service\Factory\AuthenticationFactory',
+			'mail.transport' => 'Application\Service\Factory\MailTransportFactory',
+			'csnuser_module_options' => 'Application\Service\Factory\ModuleOptionsFactory',
+			'csnuser_error_view' => 'Application\Service\Factory\ErrorViewFactory',
+			'csnuser_user_form' => 'Application\Service\Factory\UserFormFactory',
 		),
 	),
 	'doctrine' => array (
@@ -96,10 +96,10 @@ return array (
 		'authentication' => array (
 			'orm_default' => array (
 				'object_manager' => 'Doctrine\ORM\EntityManager',
-				'identity_class' => 'CsnUser\Entity\User',
+				'identity_class' => 'Application\Entity\User',
 				'identity_property' => 'username',
 				'credential_property' => 'password',
-				'credential_callable' => 'CsnUser\Service\UserService::verifyHashedPassword',
+				'credential_callable' => 'Application\Service\UserService::verifyHashedPassword',
 			),
 		),
 		'driver' => array (
@@ -112,7 +112,7 @@ return array (
 			),
 			'orm_default' => array (
 				'drivers' => array (
-					'CsnUser\Entity' => 'csnuser_driver',
+					'Application\Entity' => 'csnuser_driver',
 				),
 			),
 		),

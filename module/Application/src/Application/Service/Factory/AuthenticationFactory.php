@@ -12,24 +12,15 @@
  * @author Martin Briglia <martin@mgscreativa.com>
  */
 
-namespace CsnUserTest\Entity;
+namespace Application\Service\Factory;
 
-use Application\Entity\Role;
-use PHPUnit_Framework_TestCase;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class RoleTest extends PHPUnit_Framework_TestCase
+class AuthenticationFactory implements FactoryInterface
 {
-    public function testRoleInitialState()
+    public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $user = new Role();
-
-        $this->assertNull(
-            $user->getId(),
-            '"id" should initially be null'
-        );
-        $this->assertNull(
-            $user->getName(),
-            '"name" should initially be null'
-        );
+        return $serviceLocator->get('doctrine.authenticationservice.orm_default');
     }
 }

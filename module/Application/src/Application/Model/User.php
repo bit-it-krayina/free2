@@ -2,7 +2,7 @@
 
 namespace Application\Model;
 
-use CsnUser\Entity\User as UserEntity;
+use Application\Entity\User as UserEntity;
 use Zend\Stdlib\Hydrator\ClassMethods as ClassMethodsHydrator;
 
 /**
@@ -43,7 +43,7 @@ class User
 			switch ( $key )
 			{
 				case 'workExperience':
-					$workExperience = $entityManager -> find ( 'CsnUser\Entity\WorkExperience', $value );
+					$workExperience = $entityManager -> find ( 'Application\Entity\WorkExperience', $value );
 					$user -> $key = $workExperience;
 					break;
 				case 'location':

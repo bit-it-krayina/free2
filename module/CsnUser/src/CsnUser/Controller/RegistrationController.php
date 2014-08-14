@@ -20,13 +20,13 @@ use Zend\Mail\Message;
 use Zend\Validator\Identical as IdenticalValidator;
 
 use Zend\Validator\File\Size;
-use CsnUser\Options\ModuleOptions;
-use CsnUser\Service\UserService as UserCredentialsService;
+use Application\Options\ModuleOptions;
+use Application\Service\UserService as UserCredentialsService;
 use Application\Service\ControlUtils;
 use Application\Service\EntityManagerAwareInterface;
 use Application\Service\EntityManagerAwareTrait;
-use CsnUser\Entity\Info\UserPrivate;
-use CsnUser\Entity\User;
+use Application\Entity\Info\UserPrivate;
+use Application\Entity\User;
 
 /**
  * Registration controller
@@ -58,11 +58,11 @@ class RegistrationController extends AbstractActionController implements EntityM
             $form->setData($this->getRequest()->getPost());
             if($form->isValid()) {
                 $entityManager = $this->getEntityManager();
-                $user->setState($entityManager->find('CsnUser\Entity\State', 1));
+                $user->setState($entityManager->find('Application\Entity\State', 1));
                 $user->setUsername($user->getEmail());
-                $user->setRole($entityManager->find('CsnUser\Entity\Role', 2));
-				$user->setEmployment( $entityManager->find('CsnUser\Entity\Employment', 1));
-				$user->setWorkExperience($entityManager->find('CsnUser\Entity\WorkExperience', 1));
+                $user->setRole($entityManager->find('Application\Entity\Role', 2));
+				$user->setEmployment( $entityManager->find('Application\Entity\Employment', 1));
+				$user->setWorkExperience($entityManager->find('Application\Entity\WorkExperience', 1));
                 $user->setEmailConfirmed(0);
                 $user->setRegistrationDate(new \DateTime());
                 $user->setRegistrationToken(md5(uniqid(mt_rand(), true)));
@@ -246,7 +246,7 @@ class RegistrationController extends AbstractActionController implements EntityM
                 $data = $form->getData();
                 $usernameOrEmail = $this->params()->fromPost('usernameOrEmail');
                 $entityManager = $this->getEntityManager();
-                $user = $entityManager->createQuery("SELECT u FROM CsnUser\Entity\User u WHERE u.email = '$usernameOrEmail' OR u.username = '$usernameOrEmail'")->getResult(\Doctrine\ORM\Query::HYDRATE_OBJECT);
+                $user = $entityManager->createQuery("SELECT u FROM Application\Entity\User u WHERE u.email = '$usernameOrEmail' OR u.username = '$usernameOrEmail'")->getResult(\Doctrine\ORM\Query::HYDRATE_OBJECT);
                 $user = $user[0];
 
                 if(isset($user)) {
@@ -381,9 +381,9 @@ class RegistrationController extends AbstractActionController implements EntityM
         $token = $this->params()->fromRoute('id');
         try {
             $entityManager = $this->getEntityManager();
-            if($token !== '' && $user = $entityManager->getRepository('CsnUser\Entity\User')->findOneBy(array('registrationToken' => $token))) {
+            if($token !== '' && $user = $entityManager->getRepository('Application\Entity\User')->findOneBy(array('registrationToken' => $token))) {
                 $user->setRegistrationToken(md5(uniqid(mt_rand(), true)));
-                $user->setState($entityManager->find('CsnUser\Entity\State', 2));
+                $user->setState($entityManager->find('Application\Entity\State', 2));
                 $user->setEmailConfirmed(1);
                 $entityManager->persist($user);
                 $entityManager->flush();
@@ -394,7 +394,7 @@ class RegistrationController extends AbstractActionController implements EntityM
                 $viewModel->setTemplate('csn-user/registration/confirm-email-success');
                 return $viewModel;
             } else {
-                return $this->redirect()->toRoute('user-index', array('action' => 'login'));
+                return $this->redirect()->toRoute('index', array('action' => 'login'));
             }
         } catch (\Exception $e) {
             return $this->getServiceLocator()->get('csnuser_error_view')->createErrorView(
@@ -418,12 +418,12 @@ class RegistrationController extends AbstractActionController implements EntityM
       $token = $this->params()->fromRoute('id');
       try {
         $entityManager = $this->getEntityManager();
-        if($token !== '' && $user = $entityManager->getRepository('CsnUser\Entity\User')->findOneBy(array('registrationToken' => $token))) {
+        if($token !== '' && $user = $entityManager->getRepository('Application\Entity\User')->findOneBy(array('registrationToken' => $token))) {
           $user->setRegistrationToken(md5(uniqid(mt_rand(), true)));
           $password = $this->generatePassword();
           $user->setPassword(UserCredentialsService::encryptPassword($password));
           $email = $user->getEmail();
-          $fullLink = $this->getBaseUrl() . $this->url()->fromRoute('user-index', array( 'action' => 'login'));
+          $fullLink = $this->getBaseUrl() . $this->url()->fromRoute('index', array( 'action' => 'login'));
           $this->sendEmail(
               $user->getEmail(),
               'Your password has been changed!',
@@ -439,7 +439,7 @@ class RegistrationController extends AbstractActionController implements EntityM
           ));
           return $viewModel;
         } else {
-          return $this->redirect()->toRoute('user-index');
+          return $this->redirect()->toRoute('index');
         }
       } catch (\Exception $e) {
         return $this->getServiceLocator()->get('csnuser_error_view')->createErrorView(

@@ -83,7 +83,7 @@ class Project
 	private $outerId;
 
 	/**
-	 * @ORM\ManyToMany(targetEntity="CsnUser\Entity\Info\Tag", inversedBy="users")
+	 * @ORM\ManyToMany(targetEntity="Application\Entity\Info\Tag", inversedBy="users")
 	 * @ORM\JoinTable(name="project_tag",
 	 *      joinColumns={@ORM\JoinColumn(name="project_id", referencedColumnName="id")},
 	 *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}

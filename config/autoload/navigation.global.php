@@ -70,9 +70,9 @@ return array(
 			 array(
 				'label' => '<span class="fi-bell-alt"></span><span class="badge badge-notif"></span>',
 				'uri'	=> '#',
-				'route' => 'user-index',
+				'route' => 'index',
 				'action' => 'notifications',
-				'resource' => 'CsnUser\Controller\Index',
+				'resource' => 'Application\Controller\Index',
 				'privilege' => 'notifications',
 //				'pages' => array(
 //					array (
@@ -104,10 +104,10 @@ return array(
 				'pages' => array(
 					array (
 						'label' => 'LOG IN',
-						'route' => 'user-index',
+						'route' => 'index',
 						'controller' => 'Index',
 						'action'     => 'login',
-						'resource'	  => 'CsnUser\Controller\Index',
+						'resource'	  => 'Application\Controller\Index',
 						'privilege'  => 'login',
 					),
 					array (
@@ -120,10 +120,10 @@ return array(
 					),
 					array (
 						'label' => 'Profile',
-						'route' => 'user-index',
+						'route' => 'index',
 						'controller' => 'Index',
 						'action'     => 'profile',
-						'resource'	  => 'CsnUser\Controller\Index',
+						'resource'	  => 'Application\Controller\Index',
 						'privilege'  => 'profile',
 					),
 					array (
@@ -137,10 +137,10 @@ return array(
 
 					array (
 						'label' => 'Logout',
-						'route' => 'user-index',
+						'route' => 'index',
 						'controller' => 'Index',
 						'action'     => 'logout',
-						'resource'	  => 'CsnUser\Controller\Index',
+						'resource'	  => 'Application\Controller\Index',
 						'privilege'  => 'logout'
 					),
 				),

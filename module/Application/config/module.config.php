@@ -91,6 +91,20 @@ return array (
 				),
 			),
 
+			'index' => array (
+				'type' => 'Segment',
+				'options' => array (
+					'route' => '/user[/:action]',
+					'constraints' => array (
+						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+					),
+					'defaults' => array (
+						'controller' => 'Application\Controller\Index',
+						'action' => 'index',
+					),
+				),
+				'may_terminate' => true,
+			),
 
 			// The following is a route to simplify getting started creating
 			// new controllers and actions without needing to create a new
