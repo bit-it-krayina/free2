@@ -86,7 +86,7 @@ class User implements MagicInterface
 	 * @Annotation\Filter({"name":"StripTags"})
 	 * @Annotation\Filter({"name":"StringTrim"})
 	 * @Annotation\Validator({"name":"StringLength", "options":{"encoding":"UTF-8", "min":6, "max":30}})
-	 * @Annotation\Validator({"name":"Regex", "options":{"pattern":"/^[ña-zÑA-Z][ña-zÑA-Z0-9\_\-]+$/"}})
+	 * @Annotation\Validator({"name":"Regex", "options":{"pattern":"/^[a-zA-Z][a-zA-Z0-9\_\-]+$/"}})
 	 * @Annotation\Required(true)
 	 * @Annotation\Attributes({
 	 *   "type":"text",
@@ -223,7 +223,6 @@ class User implements MagicInterface
 	 * @Annotation\Required(true)
 	 * @Annotation\Options({
 	 *   "required":"true",
-	 *   "empty_option": "User Role",
 	 *   "target_class":"Application\Entity\Role",
 	 *   "property": "name"
 	 * })
@@ -243,7 +242,6 @@ class User implements MagicInterface
 	 * @Annotation\Required(true)
 	 * @Annotation\Options({
 	 *   "required":"true",
-	 *   "empty_option": "User State",
 	 *   "target_class":"Application\Entity\State",
 	 *   "property": "state"
 	 * })
@@ -251,9 +249,9 @@ class User implements MagicInterface
 	protected $state;
 
 	/**
-	 * @var Application\Entity\Language
+	 * @var Application\Entity\Question
 	 *
-	 * @ORM\ManyToOne(targetEntity="Application\Entity\Language")
+	 * @ORM\ManyToOne(targetEntity="Application\Entity\Question")
 	 * @ORM\JoinColumn(name="question_id", referencedColumnName="id", nullable=true)
 	 * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
 	 * @Annotation\Filter({"name":"StripTags"})
@@ -263,7 +261,7 @@ class User implements MagicInterface
 	 * @Annotation\Options({
 	 *   "required":"true",
 	 *   "empty_option": "Security Question",
-	 *   "target_class":"Application\Entity\Language",
+	 *   "target_class":"Application\Entity\Question",
 	 *   "property": "question"
 	 * })
 	 */
