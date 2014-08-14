@@ -12,7 +12,7 @@
  * @author Martin Briglia <martin@mgscreativa.com>
  */
 
-namespace CsnUser\Controller;
+namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -91,7 +91,7 @@ class RegistrationController extends AbstractActionController implements EntityM
                         'email' => $user->getEmail(),
                     ));
 					$this->logger()->info('User Registered '. $user->getEmail(), ['project_id' => 0]);
-                    $viewModel->setTemplate('csn-user/registration/registration-success');
+                    $viewModel->setTemplate('application/registration/registration-success');
                     return $viewModel;
     		    } catch (\Exception $e) {
                     return $this->getServiceLocator()->get('csnuser_error_view')->createErrorView(
@@ -107,7 +107,7 @@ class RegistrationController extends AbstractActionController implements EntityM
         $viewModel = new ViewModel(array(
             'registrationForm' => $form,
         ));
-        $viewModel->setTemplate('csn-user/registration/registration');
+        $viewModel->setTemplate('application/registration/registration');
         return $viewModel;
     }
 
@@ -212,7 +212,7 @@ class RegistrationController extends AbstractActionController implements EntityM
                     $entityManager->flush();
 
                     $viewModel = new ViewModel(array('navMenu' => $this->getOptions()->getNavMenu()));
-                    $viewModel->setTemplate('csn-user/registration/change-password-success');
+                    $viewModel->setTemplate('application/registration/change-password-success');
                     return $viewModel;
                 } else {
                     $message = $this->getTranslatorHelper()->translate('Your answer is wrong. Please provide the correct answer.');
@@ -266,7 +266,7 @@ class RegistrationController extends AbstractActionController implements EntityM
                             'navMenu' => $this->getOptions()->getNavMenu()
                         ));
 
-                        $viewModel->setTemplate('csn-user/registration/password-change-success');
+                        $viewModel->setTemplate('application/registration/password-change-success');
                         return $viewModel;
                     } catch (\Exception $e) {
                         return $this->getServiceLocator()->get('csnuser_error_view')->createErrorView(
@@ -318,7 +318,7 @@ class RegistrationController extends AbstractActionController implements EntityM
                         'email' => $newMail,
                         'navMenu' => $this->getOptions()->getNavMenu()
                     ));
-                    $viewModel->setTemplate('csn-user/registration/change-email-success');
+                    $viewModel->setTemplate('application/registration/change-email-success');
                     return $viewModel;
                 } else {
                     $message = $this->getTranslatorHelper()->translate('Your current password is not correct.');
@@ -358,7 +358,7 @@ class RegistrationController extends AbstractActionController implements EntityM
               $entityManager->flush();
 
               $viewModel = new ViewModel(array('navMenu' => $this->getOptions()->getNavMenu()));
-              $viewModel->setTemplate('csn-user/registration/change-security-question-success');
+              $viewModel->setTemplate('application/registration/change-security-question-success');
               return $viewModel;
             } else {
               $message = $this->getTranslatorHelper()->translate('Your password is wrong. Please provide the correct password.');
@@ -391,7 +391,7 @@ class RegistrationController extends AbstractActionController implements EntityM
                 $viewModel = new ViewModel(array(
                     'navMenu' => $this->getOptions()->getNavMenu(),
                 ));
-                $viewModel->setTemplate('csn-user/registration/confirm-email-success');
+                $viewModel->setTemplate('application/registration/confirm-email-success');
                 return $viewModel;
             } else {
                 return $this->redirect()->toRoute('index', array('action' => 'login'));

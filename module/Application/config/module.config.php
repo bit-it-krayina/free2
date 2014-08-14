@@ -105,6 +105,38 @@ return array (
 				),
 				'may_terminate' => true,
 			),
+			'user-register' => array (
+				'type' => 'Segment',
+				'options' => array (
+					'route' => '/register[/:action][/:id]',
+					'constraints' => array (
+						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+						'id' => '[a-zA-Z0-9]*',
+					),
+					'defaults' => array (
+						'controller' => 'Application\Controller\Registration',
+						'action' => 'index',
+					),
+				),
+				'may_terminate' => true,
+			),
+
+			'user-admin' => array (
+				'type' => 'Segment',
+				'options' => array (
+					'route' => '/admin[/:action][/:id][/:state]',
+					'constraints' => array (
+						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+						'id' => '[0-9]+',
+						'state' => '[0-9]',
+					),
+					'defaults' => array (
+						'controller' => 'Application\Controller\Admin',
+						'action' => 'index',
+					),
+				),
+				'may_terminate' => true,
+			),
 
 			// The following is a route to simplify getting started creating
 			// new controllers and actions without needing to create a new
@@ -146,7 +178,12 @@ return array (
 		'factories' => array (
 			'mailer' => 'Application\Service\EmailSenderFactory',
 			'Application\Notification\Service' => 'Application\Service\Notification\Factory',
-			'Zend\Authentication\AuthenticationService' => 'Application\Service\AuthServiceFactory'
+//			'Zend\Authentication\AuthenticationService' => 'Application\Service\AuthServiceFactory',
+			'Zend\Authentication\AuthenticationService' => 'Application\Service\Factory\AuthenticationFactory',
+			'mail.transport' => 'Application\Service\Factory\MailTransportFactory',
+			'csnuser_module_options' => 'Application\Service\Factory\ModuleOptionsFactory',
+			'csnuser_error_view' => 'Application\Service\Factory\ErrorViewFactory',
+			'csnuser_user_form' => 'Application\Service\Factory\UserFormFactory',
 		),
 		'aliases' => array (
 			'translator' => 'MvcTranslator',
@@ -172,6 +209,8 @@ return array (
 	'controllers' => array (
 		'invokables' => array (
 			'Application\Controller\Index' => 'Application\Controller\IndexController',
+			'Application\Controller\Registration' => 'Application\Controller\RegistrationController',
+			'Application\Controller\Admin' => 'Application\Controller\AdminController',
 			'Application\Controller\Projects' => 'Application\Controller\ProjectsController',
 			'Application\Controller\ProfileAjax' => 'Application\Controller\ProfileAjaxController',
 			'Application\Controller\Facebook' => 'Application\Controller\FacebookController',

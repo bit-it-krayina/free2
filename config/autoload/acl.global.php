@@ -76,7 +76,7 @@ return array(
 					'list'   => 'guest',
 					'import'   => 'admin',
 				),
-				'CsnUser\Controller\Registration' => array(
+				'Application\Controller\Registration' => array(
 					'index'	=> 'guest',
 					'change-password' => 'volunteer',
 					'change-security-question' => 'volunteer',
@@ -86,7 +86,7 @@ return array(
 					'confirm-email' => 'guest',
 					'registration-success' => 'guest',
 				),
-				'CsnUser\Controller\Admin' => array(
+				'Application\Controller\Admin' => array(
 					'all' => 'admin',
 				),
 				'CsnFileManager\Controller\Index' => array(
@@ -111,7 +111,7 @@ return array(
 					'logout' => 'guest',
 					'notifications' => 'guest',
 				),
-				'CsnUser\Controller\Registration' => array (
+				'Application\Controller\Registration' => array (
 					'index' => 'volunteer',
 					'edit-profile' => 'guest',
 				),

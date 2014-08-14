@@ -38,7 +38,7 @@ return array(
                  'route' => 'registration', 
 				 'controller' => 'Registration',
 				 'action'     => 'index',
-				 'resource'	  => 'CsnUser\Controller\Registration',
+				 'resource'	  => 'Application\Controller\Registration',
 				 'privilege'  => 'index',
 				 'title'	  => 'Registration Form'
              ),
@@ -47,7 +47,7 @@ return array(
                  'route' => 'editProfile', 
 				 'controller' => 'Registration',
 				 'action'     => 'editProfile',
-				 'resource'	  => 'CsnUser\Controller\Registration',
+				 'resource'	  => 'Application\Controller\Registration',
 				 'privilege'  => 'editProfile',
              ),
 			array(

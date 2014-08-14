@@ -1,7 +1,7 @@
 <?php
 /**
  * CsnUser - Coolcsn Zend Framework 2 User Module
- * 
+ *
  * @link https://github.com/coolcsn/CsnUser for the canonical source repository
  * @copyright Copyright (c) 2005-2013 LightSoft 2005 Ltd. Bulgaria
  * @license https://github.com/coolcsn/CsnUser/blob/master/LICENSE BSDLicense
@@ -21,13 +21,13 @@ use Zend\View\Model\ViewModel;
 class ErrorViewFactory implements FactoryInterface
 {
     private $serviceLocator;
-  
+
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $this->serviceLocator = $serviceLocator;
         return $this;
     }
-    
+
     /**
      * Create error view
      *
@@ -43,7 +43,7 @@ class ErrorViewFactory implements FactoryInterface
           'errorMessage' => $errorMessage,
           'exception' => $exception,
       ));
-      $viewModel->setTemplate('csn-user/error/error');
+      $viewModel->setTemplate('application/error/error');
       return $viewModel;
     }
 }

@@ -36,7 +36,7 @@ return array(
 				'uri'	=> '#',
 				'route' => 'user-admin',
 				'action' => 'index',
-				'resource' => 'CsnUser\Controller\Admin',
+				'resource' => 'Application\Controller\Admin',
 				'privilege' => 'index',
 				'class' => '',
 				'pages' => array(
@@ -44,13 +44,13 @@ return array(
 						'label' => 'List',
 						'route' => 'user-admin',
 						'action' => 'index',
-						'resource' => 'CsnUser\Controller\Admin',
+						'resource' => 'Application\Controller\Admin',
 						'privilege' => 'index',
 					),
 					array (
 						'label' => 'Add',
 						'route' => 'user-admin',
-						'resource' => 'CsnUser\Controller\Admin',
+						'resource' => 'Application\Controller\Admin',
 						'privilege' => 'index',
 						'action' => 'create-user',
 					),
@@ -99,7 +99,7 @@ return array(
 //				'route' => 'home',
 //				'controller' => 'Registration',
 //				'action'     => 'edit-profile',
-//				'resource'	  => 'CsnUser\Controller\Registration',
+//				'resource'	  => 'Application\Controller\Registration',
 //				'privilege'  => 'edit-profile',
 				'pages' => array(
 					array (
@@ -115,7 +115,7 @@ return array(
 						'route' => 'user-register',
 						'controller' => 'Registration',
 						'action'     => 'index',
-						'resource'	  => 'CsnUser\Controller\Registration',
+						'resource'	  => 'Application\Controller\Registration',
 						'privilege'  => 'index',
 					),
 					array (
@@ -131,7 +131,7 @@ return array(
 						'route' => 'user-register',
 						'controller' => 'Registration',
 						'action'     => 'edit-profile',
-						'resource'	  => 'CsnUser\Controller\Registration',
+						'resource'	  => 'Application\Controller\Registration',
 						'privilege'  => 'edit-profile',
 					),
 

@@ -12,7 +12,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<h1>{{ translate('Users Admin Table') }}</h1>
-			{% include  'csn-user/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} %}
+			{% include  'application/layout/nav-menu' with { 'navMenu' : navMenu, 'user' : identity()} %}
 			<a class="btn btn-success" href="{{ url('user-admin', {'action' : 'create-user'}) }}">
 				{{ translate('Create User') }}
 			</a>
@@ -40,15 +40,15 @@
 						<td>{{ user.getEmail() }}</td>
 						<td>
 							{{ translate(user.getState().getState()) }}
-						</td> 
+						</td>
 						<td class="delete-cell">
 							<a href="{{ url('user-admin', {'action' : 'set-user-state', 'id' : user.getId(), 'state' : (user.getState().getId() == 1) ? 2 : 1}) }}">
 								{{ translate((user.getState().getId() == 1) ? 'Enable' : 'Disable') }}
-							</a> | 
+							</a> |
 							<a href="{{ url('user-admin', {'action' : 'edit-user', 'id' : user.getId()}) }}">
 								{{ translate('Edit') }}
-							</a> | 
-							<a href="{{ url('user-admin', {'action' : 'delete-user', 'id' : user.getId()}) }}" 
+							</a> |
+							<a href="{{ url('user-admin', {'action' : 'delete-user', 'id' : user.getId()}) }}"
 							   onclick="return confirm('{{ translate('Do you really want to delete this user?') }}')">
 									{{ translate('Delete') }}
 							</a>
