@@ -1,0 +1,66 @@
+@import "bootstrap/variables";
+
+// darken();
+// lighten();
+// hsl($hue, $saturation, $lightness)
+// saturate($color, $amount)
+// desaturate($color, $amount)
+// grayscale($color)
+// complement($color)
+// invert($color)
+
+
+
+.colors {
+	border-collapse: collapse;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	td {
+		width: 50px;
+		height: 50px;
+	}
+}
+
+.c1-1 {background: $gray-darker;}
+.c1-2 {background: $gray-dark;}
+.c1-3 {background: $gray;}
+.c1-4 {background: $gray-light;}
+.c1-5 {background: $gray-lighter;}
+
+.c2 {
+	color: lighten(#000, 50%);
+	border: 10px solid $main-color;
+	border-width: 10px 0;
+	border-bottom-color: $add-color;
+}
+
+.c2-1 {background: lighten(#000, 91%);}
+.c2-2 {background: lighten(#000, 93%);}
+.c2-3 {background: lighten(#000, 95%);}
+.c2-4 {background: lighten(#000, 97%);}
+.c2-5 {background: lighten(#000, 99%);}
+
+.c3-1 {background: $main-color-darker;}
+.c3-2 {background: $main-color-dark;}
+.c3-3 {background: $main-color;}
+.c3-4 {background: $main-color-light;}
+.c3-5 {background: $main-color-lighter;}
+
+.c4 {
+	color: $add-color-text;
+}
+
+.c4-1 {background: $add-color-darker;}
+.c4-2 {background: $add-color-dark;}
+.c4-3 {background: $add-color;}
+.c4-4 {background: $add-color-light;}
+.c4-5 {background: $add-color-lighter;}
+
+.c5-1 {background: $brand-primary;}
+.c5-2 {background: $brand-success;}
+.c5-3 {background: $brand-info;}
+.c5-4 {background: $brand-warning;}
+.c5-5 {background: $brand-danger;}
+

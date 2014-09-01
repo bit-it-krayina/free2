@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Template</title>
+	<meta name="viewport" content="width=device-width"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500italic,500,700,700italic,900,900italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" media="screen" href="../css/bootstrap.css" >
+	<link rel="stylesheet" media="screen" href="../css/fonts-icons.css" >
+	<link rel="stylesheet" media="screen" href="../css/screen.css" >
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-tagsinput.min.js"></script>
+	<script src="../js/typeahead.bundle.min.js"></script>
+	<script src="../js/mine/profile.js"></script>
+
+</head>
+<body>
+<div class="wrap">
+<header class="header">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><i class="fi-cog"></i> <span>Біржа волонтерів України</span></a>
+			</div>
+			<div class="navbar-collapse navbar-inverse-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Проекти</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<section class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<form>
+					<div class="form-group">
+						<label class="profile-title">Країна:</label>
+						<input type="text" value="Україна" placeholder="Країна" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="profile-title">Місто:</label>
+						<input type="text" value="Київ" placeholder="Місто" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="profile-title">Стаж:</label>
+						<select name="workExperience" required="required" class="form-control js-profile-form-field">
+							<option value="5">більше 10 років</option>
+							<option value="4" selected="selected">більше п'яти років</option>
+							<option value="2">більше року</option>
+							<option value="3">більше трьох років</option>
+							<option value="1">менше року</option>
+						</select>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" id="check-show" value="1">
+						<label for="check-show">Показати лише вільних</label>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-9">
+				<div class="user-list">
+					<div class="user-item">
+						<div class="user-photo user-photo-free">
+							<a href="#"><img src="img/photo.jpg" alt=""></a>
+						</div>
+
+						<div class="user-item-content">
+							<div class="user-item-name"><a href="#">Константин Константинопольский</a></div>
+							<div class="user-item-prof">Копирайтер</div>
+
+							<div class="skill-tags skill-tags-gray">
+								<span>копірайтинг</span>
+								<span>одностранічнікі</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>Комерційна пропозиція</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>Комерційна пропозиція</span>
+								<span>Комерційна пропозиція</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>Комерційна пропозиція</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>Комерційна пропозиція</span>
+								<span>Комерційна пропозиція</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+							</div>
+							<div class="user-item-text">
+								<p> Работаю со словом с 2012 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	</p>
+							</div>
+						</div>
+						<a href='#' class='see-more-btn'>
+							<i class="fi-down-open"></i>
+							<i class="fi-up-open"></i>
+						</a>
+					</div><!-- /user-item -->
+
+					<div class="user-item">
+						<div class="user-photo user-photo-free">
+							<a href="#"><img src="img/photo.jpg" alt=""></a>
+						</div>
+
+						<div class="user-item-content">
+							<div class="user-item-name"><a href="#">Андрей Вольный</a></div>
+							<div class="user-item-prof">Програмист</div>
+
+							<div class="skill-tags skill-tags-gray">
+								<span>копірайтинг</span>
+								<span>одностранічнікі</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>ведення груп в соц.мережах</span>
+								<span>pr-тексти</span>
+								<span>копірайтинг</span>
+								<span>одностранічнікі</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>ведення груп в соц.мережах</span>
+								<span>pr-тексти</span>
+							</div>
+						</div>
+						<a href='#' class='see-more-btn'>
+							<i class="fi-down-open"></i>
+							<i class="fi-up-open"></i>
+						</a>
+					</div><!-- /user-item -->
+
+					<div class="user-item">
+						<div class="user-photo user-photo-busy">
+							<a href="#"><img src="img/photo.jpg" alt=""></a>
+						</div>
+
+						<div class="user-item-content">
+							<div class="user-item-name"><a href="#">Валерий Викинг</a></div>
+							<div class="user-item-prof">Тестировщик</div>
+
+							<div class="skill-tags skill-tags-gray">
+								<span>копірайтинг</span>
+								<span>одностранічнікі</span>
+								<span>pr-тексти</span>
+								<span>Комерційна пропозиція</span>
+								<span>ведення груп в соц.мережах</span>
+								<span>pr-тексти</span>
+							</div>
+						</div>
+						<a href='#' class='see-more-btn'>
+							<i class="fi-down-open"></i>
+							<i class="fi-up-open"></i>
+						</a>
+					</div><!-- /user-item -->
+
+				</div><!-- /user-list -->
+			</div>
+			
+		</div>
+	</div>
+</section>
+</div>
+<footer class="footer">
+	<div class="navbar navbar-default">
+		<div class="container">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Про біржу</a></li>
+				<li><a href="#">Зворотній зв'язок</a></li>
+			</ul>
+			<div class="navbar-text navbar-right">2014 &copy; створено спільнотою <a href="http://www.it-krayina.org.ua/">IT-Країна</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
