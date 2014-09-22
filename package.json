@@ -9,5 +9,7 @@
     "grunt-contrib-compass": "~0.7.2",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-csso": "^0.6.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-include-replace": "~1.2.0"
   }
 }

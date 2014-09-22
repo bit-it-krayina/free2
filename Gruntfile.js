@@ -32,10 +32,27 @@ grunt.initConfig({
 		}
 	},
 
+	includereplace: {
+		dist: {
+			files: [
+				{src: '*.html', dest: 'public/static/', expand: true, cwd: 'public/static/src/'},
+			]
+		}
+	},
+
+	clean: {
+		html: ["public/static/_*.html"],
+	},
+
+
 	watch: {
 		scss: {
 			files: 'public/static/src/sass/**/*.scss',
 			tasks: ['compass', 'autoprefixer'],
+		},
+		html: {
+			files: 'public/static/src/*.html',
+			tasks: ['includereplace', 'clean:html'],
 		},
 	},
 });
@@ -43,8 +60,10 @@ grunt.initConfig({
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-csso');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-include-replace');
 
 	grunt.registerTask( 'default', ['watch']);
-	grunt.registerTask( 'release', ['compass', 'autoprefixer', 'csso']);
+	grunt.registerTask( 'release', ['compass', 'autoprefixer', 'csso', 'includereplace', 'clean:html']);
 
-};
+ };
