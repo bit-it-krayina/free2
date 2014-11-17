@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Template</title>
+	<meta name="viewport" content="width=device-width"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500italic,500,700,700italic,900,900italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" media="screen" href="../css/bootstrap.css" >
+	<link rel="stylesheet" media="screen" href="../css/fonts-icons.css" >
+	<link rel="stylesheet" media="screen" href="../css/screen.css" >
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-tagsinput.min.js"></script>
+	<script src="../js/typeahead.bundle.min.js"></script>
+	<script src="../js/mine/profile.js"></script>
+
+</head>
+<body>
+	<div class="wrap">
+<header class="header">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><i class="fi-cog"></i> <span>Біржа волонтерів України</span></a>
+			</div>
+			<div class="navbar-collapse navbar-inverse-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Проекти</a></li>
+					<li><a href="#">Волонтери</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-search"></span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Скоро тут буде гарна форма пошуку</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-bell-alt"></span><span class="badge badge-notif">2</span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Запрошення до "Ua roads"</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Новий відгук від "Ua elections"</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fi-user"></span></a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Профіль</a></li>
+						<li><a href="#">Налаштування</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Вихід</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<section class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="profile profile-edit">
+					<div class="profile-header ">
+						<form action="/user/register/edit-profile" method="post" name="upload-file" enctype="multipart/form-data" id="upload-file">
+							<div class="user-photo  ">
+								<img src="/profile_photos/avatar.jpg" alt="">
+								<div class="fi-cancel user-photo-delete" data-user="1"></div>
+							</div>
+
+							<div class="btn btn-primary btn-xs photo-btn">завантажити<input type="file" name="picture" onchange="this.form.submit()"></div>
+							<input type="hidden" name="csrf" value="b64fc4420722fb4f590fa311ab0ee723-0562c7e3865d9a117144bd8bf9072e64">
+							<input type="hidden" name="MAX_FILE_SIZE" value="512000">
+						</form>
+
+
+						<div class="profile-header-info">
+							<div class="form-group">
+								<label class="profile-title" for="firstName">Ім'я:</label>
+								<input type="text" name="firstName" id="firstName" value="test" placeholder="Ім'я" required="required" class="form-control js-profile-form-field">
+							</div>
+
+							<div class="form-group">
+								<label class="profile-title" for="lastName">Прізвище:</label>
+								<input type="text" name="lastName" id="lastName" value="test25" placeholder="Прізвище" class="form-control js-profile-form-field">
+							</div>
+						</div>
+						<a href="/user/profile" class="change-profile"><i class="icon-square btn-success fi-ok"></i></a>
+					</div>
+					<ul class="nav nav-tabs profile-tabs">
+						<li class="active"><a href="#personal" data-toggle="tab">Особиста інформація</a></li>
+						<li><a href="#projects" data-toggle="tab">Проекти</a></li>
+						<li><a href="#contacts" data-toggle="tab">Контакты</a></li>
+					</ul>
+
+					<div class="tab-content profile-tabs-content">
+						<div class="tab-pane active" id="personal">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="profile-title" for="qualification">Cпеціальність:</label>
+										<input type="text" name="qualification" id="qualification" value="копірайтор" placeholder="Cпеціальність" class="form-control js-profile-form-field">
+									</div>
+									<div class="form-group">
+										<label class="profile-title" for="workExperience">Cтаж роботи:</label>
+										<select name="workExperience" required="required" class="form-control js-profile-form-field">
+											<option value="5">більше 10 років</option>
+											<option value="4" selected="selected">більше п'яти років</option>
+											<option value="2">більше року</option>
+											<option value="3">більше трьох років</option>
+											<option value="1">менше року</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="profile-title" for="location">Місцезнаходження:</label>
+										<input type="text" name="location" id="location" value="Ukraine, Kyiv, Shevchenko Avenu 16" placeholder="Місцезнаходження" class="form-control js-profile-form-field">
+									</div>
+									<div class="form-group">
+										<label class="profile-title" for="birthDay">Дата народження:</label>
+										<input type="date" name="birthDay" class="form-control js-profile-form-field js-datepicker" value="1983-06-08" data-date="1983-06-08">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="userTags">Професійні навики:</label>
+								<input type="text" name="userTags" id="userTags" value="ведення груп в соц.мережах,php" placeholder="" class="form-control js-profile-form-field js-tagsinput" >
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="resume">Про себе:</label>
+									<textarea name="resume" id="resume" class="form-control js-profile-form-field" value="" rows="10" colls="30">Работаю со словом с 2012 года. Начинал с городских печатных СМИ, затем ушл в «вольное плавание». За плечами дюжина тренингов, десятки довольных заказчиков, сотни текстов…	Я люблю писать. Люблю учиться. Люблю цифры и факты. </textarea>
+							</div>
+						</div>
+						<div class="tab-pane" id="projects"></div>
+						<div class="tab-pane" id="contacts">
+							<div class="form-group">
+								<label class="profile-title" for="phone1">Tелефон:</label>
+								<input type="tel" name="phone1" required="required" class="form-control js-profile-form-field" value="123">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="phone2">Додатковий телефон:</label>
+								<input type="tel" name="phone2" required="required" class="form-control js-profile-form-field" value="123">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="skype">Skype:</label>
+								<input type="text" name="skype" id="skype" value="123" placeholder="" class="form-control js-profile-form-field">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="facebookUrl">Facebook:</label>
+								<input type="text" name="facebookUrl" id="facebookUrl" value="234" placeholder="" class="form-control js-profile-form-field">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="twitterUrl">Twitter:</label>
+								<input type="text" name="twitterUrl" id="twitterUrl" value="345" placeholder="" class="form-control js-profile-form-field">
+							</div>
+							<div class="form-group">
+								<label class="profile-title" for="linkedInUrl">Linkedin:</label>
+								<input type="text" name="linkedInUrl" id="linkedInUrl" value="456" placeholder="" class="form-control js-profile-form-field">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<img src="img/banner.jpg" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+	</div>
+<footer class="footer">
+	<div class="navbar navbar-default">
+		<div class="container">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Про біржу</a></li>
+				<li><a href="#">Зворотній зв'язок</a></li>
+			</ul>
+			<div class="navbar-text navbar-right">2014 &copy; створено спільнотою <a href="http://www.it-krayina.org.ua/">IT-Країна</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

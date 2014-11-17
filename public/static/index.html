@@ -5,107 +5,64 @@
 	<title>Template</title>
 	<meta name="viewport" content="width=device-width"/>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500italic,500,700,700italic,900,900italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" media="screen" href="../css/bootstrap.css" >
-	<link rel="stylesheet" media="screen" href="../css/fonts-icons.css" >
 	<link rel="stylesheet" media="screen" href="../css/screen.css" >
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/bootstrap-tagsinput.min.js"></script>
-	<script src="../js/typeahead.bundle.min.js"></script>
-	<script src="../js/mine/profile.js"></script>
-
+	<!-- <script src="../js/jquery.min.js"></script> -->
 </head>
 <body>
 	<div class="wrap">
-<header class="header">
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#"><i class="fi-cog"></i> <span>Біржа волонтерів України</span></a>
-			</div>
-			<div class="navbar-collapse navbar-inverse-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Проекти</a></li>
-				</ul>
-			</div>
+		<header class="header">
+	<div class="in">
+		<div class="col_3">
+			<strong class="logo"><a href="#">Біржа Волонтерів України</a></strong>
+		</div>
+		<div class="col_9">
+			<ul class="nav nav_left">
+				<li><a href="#">Проекти</a></li>
+				<li><a href="#">Волонтери</a></li>
+				<li><a href="#">Про біржу</a></li>
+			</ul>
+			<ul class="nav nav_right">
+				<li><a href="#">Пошук</a></li>
+				<li><a href="#">Сповіщення</a></li>
+				<li><a href="#">Константин</a></li>
+				<li><a href="#">Вийти</a></li>
+			</ul>
 		</div>
 	</div>
 </header>
-<section class="main promo-page">
-	<div class="alert-messages">
-		<div class="container">
-			<div class="alert alert-warning">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<strong>Перепрошую</strong>, у формі, що знаходиться нижче Ви зробили помилку
-			</div>
-		</div>
+		<main class="main">
+			<div class="in">
+				<div class="col_3">
+					<aside class="sidebar">
+	<nav class="control-nav">
+		<a href="#">Додати проект</a>
+		<a href="#">Знайти проект</a>
+		<a href="#">Написати новину</a>
+	</nav>
+	<div class="project-nav">
+		<div class="project-nav__title">+ Мої проекти - 2</div>
+		<ul class="project-nav__list">
+			<li class="project-nav__item project-nav__item_active"><a href="#">Система для обліку підписів, які збираються для...</a></li>
+			<li class="project-nav__item"><a href="#">Електронна школа</a></li>
+			<li class="project-nav__item"><a href="#">Архів проектів</a></li>
+		</ul>
 	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="panel block-main-color panel-login">
-					<ul class="nav nav-tabs login-tabs">
-						<li class="active"><a href="#authorization" data-toggle="tab">Авторизація</a></li>
-						<li><a href="#registration" data-toggle="tab">Реєстрація</a></li>
-					</ul>
-					<div class="tab-content login-tabs-content">
-						<div class="tab-pane login-auth active" id="authorization">
-							<form role="form">
-								<div class="form-group">
-									<input type="email" class="form-control input-lg" placeholder="E-mail">
-								</div>
-								<div class="form-group">
-									<input type="password" class="form-control input-lg" placeholder="Пароль">
-								</div>
-								<div class="checkbox">
-									<input type="checkbox" id="check-save"> 
-									<label for="check-save">Запам'ятати</label>
-									<a href="#" class="pull-right">Забули пароль?</a>
-								</div>
-								<div class="form-group form-group-btn">
-									<input type="submit" name="submit" class="btn btn-add-color btn-auth" value="Log In"> <span class="text-devider">або</span>
-									<a href="" class="btn btn-inverse btn-auth"><i class="icon-square icon-main-color-in fi-facebook"></i> Facebook</a>
-								</div>
-							</form>
-						</div>
-						<div class="tab-pane login-reg" id="registration">
-							<form role="form">
-								<div class="form-group">
-									<input type="email" class="form-control input-lg" placeholder="E-mail">
-								</div>
-								<div class="form-group">
-									<input type="password" class="form-control input-lg" placeholder="Пароль">
-								</div>
-								<div class="form-group">
-									<input type="password" class="form-control input-lg" placeholder="Пароль">
-								</div>
-								<div class="form-group form-group-btn">
-									<input type="submit" name="submit" class="btn btn-add-color btn-reg" value="Зареєструватися">
-								</div>
-							</form>
-						</div>
-					</div>
+	<div class="project-nav">
+		<div class="project-nav__title">+ Я - учасник проектів - 2</div>
+		<ul class="project-nav__list">
+			<li class="project-nav__item"><a href="#">Система для обліку підписів, які збираються для...</a></li>
+			<li class="project-nav__item"><a href="#">Електронна школа</a></li>
+			<li class="project-nav__item"><a href="#">Архів проектів</a></li>
+		</ul>
+	</div>
+</aside>
 				</div>
+				<div class="col_9"></div>
 			</div>
-			<div class="col-md-6">
-				<h1 class= "headings-top-0">Що таке <br>біржа волонтерів</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo quis est et malesuada. Donec mauris orci, posuere ut posuere sed, laoreet feugiat magna. </p>
-				<p>Quisque eros mi, lobortis ut massa nec, volutpat sollicitudin ante. Suspendisse vulputate rhoncus dui id dapibus. Vivamus cursus ornare ante. Donec dictum a urna id lobortis. Vivamus leo quam, convallis ac eros et, lacinia sollicitudin nulla. Nullam malesuada euismod molestie. Integer in mattis tellus. Vestibulum eget mi eget ante euismod dignissim.</p>
-			</div>
-		</div>
-	</div>
-</section>
+		</main>
 	</div>
 <footer class="footer">
-	<div class="navbar navbar-default">
-		<div class="container">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Про біржу</a></li>
-				<li><a href="#">Зворотній зв'язок</a></li>
-			</ul>
-			<div class="navbar-text navbar-right">2014 &copy; створено спільнотою <a href="http://www.it-krayina.org.ua/">IT-Країна</a></div>
-		</div>
-	</div>
+
 </footer>
 
 </body>

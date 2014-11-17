@@ -39,6 +39,7 @@ grunt.initConfig({
 			]
 		}
 	},
+
 	clean: {
 		html: ["public/static/_*.html"],
 	},
@@ -65,4 +66,4 @@ grunt.initConfig({
 	grunt.registerTask( 'default', ['watch']);
 	grunt.registerTask( 'release', ['compass', 'autoprefixer', 'csso', 'includereplace', 'clean:html']);
 
-};
+ };
