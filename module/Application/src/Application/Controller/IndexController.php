@@ -15,6 +15,8 @@ use Zend\Form\Form;
 
 use Application\Entity\User;
 use Application\Options\ModuleOptions;
+use Zend\Cache\StorageFactory;
+
 
 class IndexController extends AbstractActionController implements EntityManagerAwareInterface
 {
@@ -68,6 +70,31 @@ class IndexController extends AbstractActionController implements EntityManagerA
 		if ( !$user = $this -> identity () )
 		{
 			return $this -> redirect () -> toRoute ( $this -> getOptions () -> getLoginRedirectRoute () );
+		}
+
+
+		$redis = $this->getServiceLocator () -> get('Cache\Redis');
+
+		if ($redis->hasItem ('user'))
+		{
+			$value = $redis->getItem ('user');
+			error_log(
+	print_r(
+		array(
+			'1',
+			$value
+
+	), true));
+		} else {
+			$redis->setItem('user', 1111111);
+			$value = $redis->getItem ('user');
+			error_log(
+	print_r(
+		array(
+			'2',
+			$value,
+
+	), true));
 		}
 
 		$form = $this -> getUserFormHelper () -> createUserForm ( $user, 'EditProfile' );

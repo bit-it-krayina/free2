@@ -54,6 +54,9 @@ return array(
         ),
         'resources' => array(
             'allow' => array(
+				'REST\Projects' => array(
+					'all' => 'guest',
+				),
 				'Application\Controller\Facebook' => array(
 					'login'   => 'guest',
 					'index' => 'guest',

@@ -26,5 +26,25 @@ return array(
 					'driverOptions' => array(
 							1002=>'SET NAMES utf8'
 					)
-		) ) ) )
+		) ) ) ),
+	'redis' =>array(
+		'cloud' => 'AWS/us-east-1',
+		'resource_name' =>  'beta0',
+		'pass' => 'SFghrcv4#2SCrrtte@#ikfaw5vb',
+		'endpoint' => 'pub-redis-17933.us-east-1-3.1.ec2.garantiadata.com:17933'
+	),
+	'my-redis-cache' => array (
+            'adapter' => array (
+                    'name' => 'redis',
+                    'options' => array (
+						'persistent_id' => 'beta0',
+						'server' => [
+								'host' => 'pub-redis-17933.us-east-1-3.1.ec2.garantiadata.com',
+								'port' => 17933,
+								'persistent_id' => 'beta0',
+								'password' => 'SFghrcv4#2SCrrtte@#ikfaw5vb'
+						]
+                    )
+            ),
+    )
 );

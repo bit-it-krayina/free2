@@ -137,7 +137,21 @@ return array (
 				),
 				'may_terminate' => true,
 			),
+			'project-rest' => array (
+				'type' => 'Segment',
+				'options' => array (
+					'route' => '/projects[/:id]',
+					'constraints' => array (
+						'id'     => '[0-9]+',
+					),
+					'defaults' => array (
+						'controller' => 'REST\Projects',
+					),
+				),
+			),
 
+			
+			
 			// The following is a route to simplify getting started creating
 			// new controllers and actions without needing to create a new
 			// module. Simply drop new controllers in, and you can access them
@@ -177,6 +191,7 @@ return array (
 		),
 		'factories' => array (
 			'mailer' => 'Application\Service\EmailSenderFactory',
+			'Cache\Redis' => 'Application\Service\Factory\RedisCacheFactory',
 			'Application\Notification\Service' => 'Application\Service\Notification\Factory',
 //			'Zend\Authentication\AuthenticationService' => 'Application\Service\AuthServiceFactory',
 			'Zend\Authentication\AuthenticationService' => 'Application\Service\Factory\AuthenticationFactory',
@@ -216,7 +231,11 @@ return array (
 			'Application\Controller\Facebook' => 'Application\Controller\FacebookController',
 			'Application\Controller\Auth' => 'Application\Controller\AuthController',
 			'Application\Controller\Ajax' => 'Application\Controller\AjaxController',
-			'Application\Controller\Teachers' => 'Application\Controller\TeachersController'
+			'Application\Controller\Teachers' => 'Application\Controller\TeachersController',
+			/**
+			 * REST
+			 */
+			'REST\Projects' => 'Application\Controller\REST\ProjectsController',
 		),
 	),
 
