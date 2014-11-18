@@ -170,7 +170,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
         $user = new User;
         $form = $this->getUserFormHelper()->createUserForm($user, 'login');
-        $messages = null;
+        $messages = [];
         if ($this->getRequest()->isPost()) {
             $form->setValidationGroup('usernameOrEmail', 'password', 'rememberme', 'csrf');
             $form->setData($this->getRequest()->getPost());
