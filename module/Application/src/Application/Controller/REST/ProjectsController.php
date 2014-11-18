@@ -90,10 +90,6 @@ class ProjectsController extends AbstractRestfulController implements EntityMana
     }
 	
 	
-	
-	
-	
-	
 	private function createView($data)
 	{
 		return new JsonModel(['data' => $data]);
