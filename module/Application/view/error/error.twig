@@ -4,7 +4,7 @@
 
 <div class="jumbotron">
 <br />
-<h2>{{ errorMessage }}</h2>
+<h2>{{ errorMessage | raw}}</h2>
 <br />
 </div>
 {% include 'error/index' with {

@@ -1,2 +1,3 @@
 local.php
 *.local.php
+mail.config.global.php

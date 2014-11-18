@@ -30,7 +30,7 @@ trait ControlUtils
 		if ( empty ( $this -> authService ) )
 		{
 			$this -> authService = $this -> getServiceLocator ()
-					-> get ( 'Zend\Authentication\AuthenticationService' );
+					-> get ( 'AuthenticationService' );
 		}
 
 		return $this -> authService;
@@ -40,13 +40,13 @@ trait ControlUtils
 	{
 
 		$this -> setLoginForm ( new Login () );
-
+//		print_r( $this -> getRole() ); die();
 		$viewHelperManager = $this->getServiceLocator()->get('viewHelperManager');
 		$viewHelperManager->get('navigation')->setAcl(
 				$e -> getApplication () ->getServiceManager()->get('acl')
 			)->setRole(
-					$this -> getRole()
-				);
+			$this -> getRole()
+		);
 
 		/**
 		 * Было бы хорошо конечно, но это ещё не совсем работает
@@ -162,9 +162,9 @@ trait ControlUtils
 	public function getLastProjects()
 	{
 		return $this
-						-> getEntityManager ()
-						-> getRepository ( 'Application\Entity\Project' )
-						-> findBy( [], ['outerId' => 'DESC'], 3);
+			-> getEntityManager ()
+			-> getRepository ( 'Application\Entity\Project' )
+			-> findBy( [], ['outerId' => 'DESC'], 3);
 	}
 
 

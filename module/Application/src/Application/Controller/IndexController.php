@@ -29,22 +29,21 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
 	public function indexAction ()
 	{
-		ini_set('display_errors', 1); error_reporting(E_ALL & ~E_NOTICE);
 
 		if ($user = $this->identity()) {
             $this->createViewModel('application/index/index');
         }
 
         $user = new User;
-        $form = $this->getUserFormHelper()->createUserForm($user, 'login');
-        $registrationForm = $this->getUserFormHelper()->createUserForm($user, 'SignUp');
+//        $form = $this->getUserFormHelper()->createUserForm($user, 'login');
+//        $registrationForm = $this->getUserFormHelper()->createUserForm($user, 'SignUp');
         $messages = null;
 
         return $this->createViewModel('application/index/index',
 			array(
-				'loginForm'	=> $form,
+//				'loginForm'	=> $form,
 				'lastProjects' => $this -> getLastProjects(),
-				'registrationForm'	=> $registrationForm,
+//				'registrationForm'	=> $registrationForm,
 			));
 
 	}
@@ -73,29 +72,16 @@ class IndexController extends AbstractActionController implements EntityManagerA
 		}
 
 
-		$redis = $this->getServiceLocator () -> get('Cache\Redis');
-
-		if ($redis->hasItem ('user'))
-		{
-			$value = $redis->getItem ('user');
-			error_log(
-	print_r(
-		array(
-			'1',
-			$value
-
-	), true));
-		} else {
-			$redis->setItem('user', 1111111);
-			$value = $redis->getItem ('user');
-			error_log(
-	print_r(
-		array(
-			'2',
-			$value,
-
-	), true));
-		}
+//		$redis = $this->getServiceLocator () -> get('Cache\Redis');
+//
+//		if ($redis->hasItem ('user'))
+//		{
+//			$value = $redis->getItem ('user');
+//
+//		} else {
+//			$redis->setItem('user', 1111111);
+//			$value = $redis->getItem ('user');
+//		}
 
 		$form = $this -> getUserFormHelper () -> createUserForm ( $user, 'EditProfile' );
 		$email = $user -> getEmail ();
@@ -144,7 +130,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
      */
     public function logoutAction()
     {
-        $auth = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+        $auth = $this->getServiceLocator()->get('AuthenticationService');
         if ($auth->hasIdentity()) {
             $auth->clearIdentity();
             $sessionManager = new SessionManager();
@@ -176,12 +162,13 @@ class IndexController extends AbstractActionController implements EntityManagerA
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
                 $data = $form->getData();
-                $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+                $authService = $this->getServiceLocator()->get('AuthenticationService');
                 $adapter = $authService->getAdapter();
                 $usernameOrEmail = $this->params()->fromPost('usernameOrEmail');
 
                 try {
-                    $user = $this->getEntityManager()->createQuery("SELECT u FROM Application\Entity\User u WHERE u.email = '$usernameOrEmail' OR u.username = '$usernameOrEmail'")->getResult(\Doctrine\ORM\Query::HYDRATE_OBJECT);
+                    $user = $this->getEntityManager()->createQuery("SELECT u FROM Application\Entity\User u WHERE u.email = '$usernameOrEmail' OR u.username = '$usernameOrEmail'")
+							->getResult(\Doctrine\ORM\Query::HYDRATE_OBJECT);
                     $user = $user[0];
 
                     if(!isset($user)) {
@@ -204,7 +191,7 @@ class IndexController extends AbstractActionController implements EntityManagerA
 
                     $adapter->setIdentityValue($user->getUsername());
                     $adapter->setCredentialValue($this->params()->fromPost('password'));
-
+				
                     $authResult = $authService->authenticate();
                     if ($authResult->isValid()) {
                         $identity = $authResult->getIdentity();

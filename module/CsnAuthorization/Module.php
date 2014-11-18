@@ -39,7 +39,7 @@ class Module {
         $application = $e->getApplication();
         $routeMatch = $e->getRouteMatch();
         $sm = $application->getServiceManager();
-        $auth = $sm->get('Zend\Authentication\AuthenticationService');
+        $auth = $sm->get('AuthenticationService');
         $acl = $sm->get('acl');
         // everyone is guest until logging in
         $role = Acl::DEFAULT_ROLE; // The default role is guest $acl
@@ -55,7 +55,6 @@ class Module {
         if (!$acl->hasResource($controller)) {
             throw new \Exception('Resource ' . $controller . ' not defined');
         }
-
 		if (!$acl->isAllowed($role, $controller, $action)) {
             $response = $e->getResponse();
             $config = $sm->get('config');
