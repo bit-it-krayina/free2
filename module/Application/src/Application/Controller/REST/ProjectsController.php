@@ -13,14 +13,6 @@ class ProjectsController extends AbstractRestfulController implements EntityMana
 
 	use EntityManagerAwareTrait	;
 	
-	
-//	protected $contentTypes = array(
-//        self::CONTENT_TYPE_JSON => array(
-//            'application/hal+json',
-//            'application/json; charset=utf-8'
-//        )
-//    );
-	
 	public function getList()
     {
 		$projects = array_map( function ($p) {
@@ -39,6 +31,10 @@ class ProjectsController extends AbstractRestfulController implements EntityMana
 		$project = $this-> getEntityManager ()
 			-> getRepository ( 'Application\Entity\Project' )
 			-> find($id);
+		if ( empty( $project) ) 
+		{
+			return $this->createView(['error' => 'Project with id = '. $id . ' not exists.']);
+		}
 		$projectPresenter = new \Application\Presenter\Project($project);
 		return $this->createView($projectPresenter->__toArray());
     }
@@ -62,6 +58,12 @@ class ProjectsController extends AbstractRestfulController implements EntityMana
 		$project = $this-> getEntityManager ()
 			-> getRepository ( 'Application\Entity\Project' )
 			-> find($id);
+		
+		if ( empty( $project) )
+		{
+			return $this->createView(['error' => 'Project with id = '. $id . ' not exists.']);
+		}
+		
 		$project -> setHeader($data['header'])
 			->setDescription($data['description'])
 			->setOuterId($data['outer_id'])
@@ -75,11 +77,22 @@ class ProjectsController extends AbstractRestfulController implements EntityMana
     public function delete($id)
     {
         $entityManager = $this -> getEntityManager ();
-		$user = $entityManager -> getRepository ( 'Application\Entity\Project' ) -> find ( $id );
-		$entityManager -> remove ( $user );
+		$project = $entityManager -> getRepository ( 'Application\Entity\Project' ) -> find ( $id );
+		
+		if ( empty( $project ) )
+		{
+			return $this->createView(['error' => 'Project with id = '. $id . ' not exists.']);
+		}
+		
+		$entityManager -> remove ( $project );
 		$entityManager -> flush ();
 		return $this->createView('deleted');
     }
+	
+	
+	
+	
+	
 	
 	private function createView($data)
 	{
