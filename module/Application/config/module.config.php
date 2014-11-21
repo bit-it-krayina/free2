@@ -12,6 +12,20 @@ namespace Application;
 return array (
 	'router' => array (
 		'routes' => array (
+			'index' => array (
+				'type' => 'Segment',
+				'options' => array (
+					'route' => '/:action',
+					'constraints' => array (
+						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+					),
+					'defaults' => array (
+						'controller' => 'Application\Controller\Index',
+						'action' => 'index',
+					),
+				),
+				'may_terminate' => true,
+			),
 			'static' => array (
 				'type' => 'Zend\Mvc\Router\Http\Segment',
 				'options' => array (
@@ -91,20 +105,6 @@ return array (
 				),
 			),
 
-			'index' => array (
-				'type' => 'Segment',
-				'options' => array (
-					'route' => '/user[/:action]',
-					'constraints' => array (
-						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-					),
-					'defaults' => array (
-						'controller' => 'Application\Controller\Index',
-						'action' => 'index',
-					),
-				),
-				'may_terminate' => true,
-			),
 			'user-register' => array (
 				'type' => 'Segment',
 				'options' => array (
@@ -193,8 +193,8 @@ return array (
 			'mailer' => 'Application\Service\EmailSenderFactory',
 			'Cache\Redis' => 'Application\Service\Factory\RedisCacheFactory',
 			'Application\Notification\Service' => 'Application\Service\Notification\Factory',
-//			'Zend\Authentication\AuthenticationService' => 'Application\Service\AuthServiceFactory',
 			'Zend\Authentication\AuthenticationService' => 'Application\Service\Factory\AuthenticationFactory',
+			'AuthenticationService' => 'Application\Service\Factory\AuthenticationFactory',
 			'mail.transport' => 'Application\Service\Factory\MailTransportFactory',
 			'csnuser_module_options' => 'Application\Service\Factory\ModuleOptionsFactory',
 			'csnuser_error_view' => 'Application\Service\Factory\ErrorViewFactory',
@@ -244,6 +244,7 @@ return array (
 		'display_exceptions' => true,
 		'strategies' => array (
 			'ZfcTwigViewStrategy',
+//			'ViewJsonStrategy',
 		),
 		'doctype' => 'HTML5',
 		'not_found_template' => 'error/404',
@@ -258,9 +259,6 @@ return array (
 		),
 		'template_path_stack' => array (
 			__DIR__ . '/../view',
-		),
-		'strategies' => array(
-			'ViewJsonStrategy',
 		),
 	),
 	// Placeholder for console routes
@@ -292,7 +290,7 @@ return array (
 				'credential_property' => 'password',
 				'credential_callable' => function(Entity\User $user, $passwordGiven)
 				{
-					return $user -> getPassword () == md5 ( $passwordGiven );
+					return Service\UserService::verifyHashedPassword($user, $passwordGiven);
 				},
 			),
 		),

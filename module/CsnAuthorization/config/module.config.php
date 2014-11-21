@@ -38,7 +38,7 @@ return array(
         'factories' => array(
             'isAllowed' => function($sm) {
               $sm = $sm->getServiceLocator(); // $sm was the view helper's locator
-              $auth = $sm->get('Zend\Authentication\AuthenticationService');
+              $auth = $sm->get('AuthenticationService');
               $acl = $sm->get('acl');
 
               $helper = new \CsnAuthorization\View\Helper\IsAllowed($auth, $acl);
@@ -50,7 +50,7 @@ return array(
         'factories' => array(
             'isAllowed' => function($sm) {
               $sm = $sm->getServiceLocator(); // $sm was the view helper's locator
-              $auth = $sm->get('Zend\Authentication\AuthenticationService');
+              $auth = $sm->get('AuthenticationService');
               $acl = $sm->get('acl');
 
               $plugin = new \CsnAuthorization\Controller\Plugin\IsAllowed($auth, $acl);

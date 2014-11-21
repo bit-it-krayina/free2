@@ -79,6 +79,7 @@ return array(
 					'change-email' => 'volunteer',
 					'reset-password' => 'guest',
 					'confirm-email' => 'guest',
+					'confirm-email-change-password' => 'guest',
 					'registration-success' => 'guest',
 				),
 				'Application\Controller\Admin' => array(

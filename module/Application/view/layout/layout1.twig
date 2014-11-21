@@ -30,8 +30,10 @@
 			<header class="header">
 				{{ navigation('navigation').menu().setPartial('application/bits/menu-template.phtml')|raw }}
 			</header>
+			{% include 'application/bits/clear' %}
 			{% block content %}{{ content|raw }}{% endblock content %}
 
+			{% include 'application/bits/clear' %}
 		</div>
 		<footer class="footer">
 			<div class="navbar navbar-default">
