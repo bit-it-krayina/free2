@@ -1,0 +1,44 @@
+.icon {
+	font-family: 'icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon_done:before {
+	content: "\e601";
+}
+.icon_notifications:before {
+	content: "\e609";
+}
+.icon_user:before {
+	content: "\e600";
+}
+.icon_power:before {
+	content: "\e602";
+}
+.icon_phone:before {
+	content: "\e603";
+}
+.icon_skype:before {
+	content: "\e604";
+}
+.icon_mail:before {
+	content: "\e605";
+}
+.icon_social-tw:before {
+	content: "\e606";
+}
+.icon_social-in:before {
+	content: "\e607";
+}
+.icon_social-fb:before {
+	content: "\e608";
+}

@@ -13,7 +13,7 @@ $user-bottom-margin: 20px;
 			margin: 0 4px 0 7px;
 		}
 
-		&:last-child:before {
+		&:last-child:after {
 			display: none;
 		}
 	}
@@ -28,13 +28,16 @@ $user-bottom-margin: 20px;
 	float: left;
 	list-style: none;
 	width: 25%;
-	padding: 0 45px 0 25px;
+	padding: 0 30px 0 20px;
 	position: relative;
 
 	&__icon {
 		position: absolute;
 		left: 0;
 		top: 0;
+		font-size: 18px;
+		text-align: center;
+		width: 20px;
 	}
 	&__info {
 		display: block;
@@ -51,7 +54,7 @@ $user-bottom-margin: 20px;
 }
 
 .user-profile {
-	padding: 55px 0 0;
+	padding: 35px 0 0;
 	&__header {
 		
 	}

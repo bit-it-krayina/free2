@@ -1,5 +1,5 @@
 .header {
-	height: $navbar-height;
+	min-height: $navbar-height;
 	background: #349BD5;
 	@include clearfix();
 }
