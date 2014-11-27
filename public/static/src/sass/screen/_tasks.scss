@@ -1,0 +1,60 @@
+//
+// Tasks
+//
+
+.task{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	
+	&__item {
+		background: $task-bg;
+		border: 1px solid $task-border;
+		border-top-width: 0;
+		padding: $padding-base-vertical 20px $padding-base-vertical 40px;
+		position: relative;
+		color: $task-color;
+
+		&:first-child {
+			border-top-width: 1px;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			width: 5px;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			background: $task-marker;
+		}
+
+		&_made {
+			background: $task-made-bg;
+			color: $task-made-color;
+			
+			&:after {
+				background: $task-made-marker;
+			}
+		}
+
+		&_my {
+			background: $task-my-bg;
+			
+			&:after {
+				background: $task-my-marker;
+			}
+		}
+
+		&_hot {
+			font-weight: bold;
+			
+			&:before {
+				content: '!';
+				color: #FF4C4C;
+				margin-right: 10px;
+			}
+		}
+		
+	}
+}

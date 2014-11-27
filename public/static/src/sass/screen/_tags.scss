@@ -1,0 +1,31 @@
+//
+// Tags
+//
+
+.tag {
+	list-style: none;
+
+	&__item {
+		display: inline-block;
+		white-space: nowrap;
+		cursor: default;
+		color: $tag-color;
+		font-size: $tag-font-size;
+		font-weight: $tag-font-weight;
+		background: $tag-bg;
+		padding: $padding-base-vertical $padding-base-horizontal;
+		margin: 0 1px 6px 0;
+	}
+}
+
+a.tag__item {
+	cursor: pointer;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: $tag-color;
+		text-decoration: none;
+		background: $tag-bg-hover;
+	}
+}
