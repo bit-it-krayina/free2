@@ -13,7 +13,7 @@
 		> li {
 			text-transform: uppercase;
 			float: left;
-			margin: 0 20px;
+			margin: 0 $padding-large-horizontal;
 			margin-bottom: -1px;
 			height: $tabs-height;
 			line-height: $tabs-height;
@@ -45,7 +45,9 @@
 		}
 	}
 
-	&__content {}
+	&__content {
+		padding: $padding-large-horizontal;
+	}
 
 	&__pane {}
 }

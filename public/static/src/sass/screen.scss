@@ -14,13 +14,14 @@
 @import "screen/type";
 @import "screen/grid";
 @import "screen/font-icons";
-//@import "screen/forms";
-//@import "screen/buttons";
+@import "screen/forms";
+@import "screen/buttons";
 
 // Components
 @import "screen/common";
 @import "screen/tabs";
-//@import "screen/tasks";
+@import "screen/tags";
+@import "screen/tasks";
 @import "screen/header";
 @import "screen/sidebar";
 
