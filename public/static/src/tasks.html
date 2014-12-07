@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+@@include('_page-head.html')
+</head>
+<body>
+	<div class="wrap">
+		@@include('_header.html')
+		<main class="main in">
+			<div class="row">
+				<div class="col_3">
+					@@include('_sidebar.html')
+				</div>
+				<div class="col_9">
+					<h1>Простой список задач</h1>
+					<table class="task-list">
+						<tr class="task task_my task_hot">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+						</tr>
+						<tr class="task">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+						</tr>
+						<tr class="task task_made">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+						</tr>
+					</table>
+
+					<h1>Cписок задач в редактировании проекта</h1>
+					<table class="task-list">
+						<tr class="task task_my task_hot">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+							<td class="task__assignee">
+								<div>Константин Константинопольский</div>
+							</td>
+							<td class="task__date">22.05.2014</td>
+							<td class="task__manage">
+								<button class="icon-btn"><i></i></button>
+								<button class="icon-btn"><i></i></button>
+								<button class="icon-btn"><i></i></button>
+								<button class="icon-btn"><i></i></button>
+							</td>
+						</tr>
+						<tr class="task">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+							<td class="task__assignee">
+								<div>Константин Константинопольский</div>
+							</td>
+							<td class="task__date">22.05.2014</td>
+							<td class="task__manage">
+								<button class="icon-btn"><i></i></button>
+								<button class="icon-btn"><i></i></button>
+								<button class="icon-btn"><i></i></button>
+								<button class="icon-btn"><i></i></button>
+							</td>
+						</tr>
+						<tr class="task task_made">
+							<td class="task__name"><div class="task__name-hold">Формування концепції</div></td>
+							<td class="task__assignee">
+								<div>Константин Константинопольский</div>
+								<div>Антон Родионов</div>
+							</td>
+							<td class="task__date">22.05.2014</td>
+							<td class="task__manage">
+								<button class="icon-btn"><i></i></button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</main>
+	</div>
+@@include('_footer.html')
+
+</body>
+</html>

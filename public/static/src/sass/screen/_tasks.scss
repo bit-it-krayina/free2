@@ -2,59 +2,75 @@
 // Tasks
 //
 
-.task{
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	
-	&__item {
-		background: $task-bg;
-		border: 1px solid $task-border;
-		border-top-width: 0;
-		padding: $padding-base-vertical 20px $padding-base-vertical 40px;
-		position: relative;
-		color: $task-color;
-
-		&:first-child {
-			border-top-width: 1px;
-		}
-
-		&:after {
-			content: "";
-			position: absolute;
-			width: 5px;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			background: $task-marker;
-		}
-
-		&_made {
-			background: $task-made-bg;
-			color: $task-made-color;
-			
-			&:after {
-				background: $task-made-marker;
-			}
-		}
-
-		&_my {
-			background: $task-my-bg;
-			
-			&:after {
-				background: $task-my-marker;
-			}
-		}
-
-		&_hot {
-			font-weight: bold;
-			
-			&:before {
-				content: '!';
-				color: #FF4C4C;
-				margin-right: 10px;
-			}
-		}
-		
-	}
+.task-list {
+    border-collapse: initial;
+    width: 100%;
+    border-spacing: 0 1px;
+    background: $task-border;
+    border-right: 1px solid $task-border;
 }
+
+.task{
+    background: $task-bg;
+    color: $task-color;
+    
+    %td {
+        padding: $padding-base-vertical 10px;
+    }
+    
+    &__name {
+        border-left: 5px solid $task-marker;
+        padding: $padding-base-vertical 10px
+                 $padding-base-vertical 20px;
+    }
+
+    &__assignee {
+        @extend %td;
+    }
+
+    &__date {
+        @extend %td;
+        color: #a1a1a1;
+    }
+
+    &__manage {
+        text-align: right;
+        padding: $padding-base-vertical $padding-base-vertical
+                 $padding-base-vertical 10px;
+
+        .icon-btn {
+            margin-left: 3px;
+        }
+    }
+
+    &_made {
+        background: $task-made-bg;
+        color: $task-made-color;
+        
+        .task__name {
+            border-left-color: $task-made-marker;
+        }
+    }
+
+    &_my {
+        background: $task-my-bg;
+        
+        .task__name {
+            border-left-color: $task-my-marker;
+        }
+    }
+
+    &_hot {
+        .task__name {
+            font-weight: bold;
+        }
+
+        .task__name-hold:before {
+            content: '!';
+            color: #FF4C4C;
+            margin-right: 10px;
+        }
+    }   
+
+}
+

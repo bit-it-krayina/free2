@@ -1,4 +1,4 @@
-<div class="user-profile">
+<div class="user-profile user">
 	<div class="user-profile__header">
 		<div class="user__photo">
 			<img src="img/user-photo.png" alt="">
@@ -6,30 +6,30 @@
 		<div class="user__info">
 			<h1 class="user__name h1">Іван Іванов</h1>
 			<div class="user__specialty">копірайтер</div>
-			<ul class="user__meta meta-info">
-				<li><strong>Київ</strong>, Україна</li>
-				<li><strong>Куратор, координатор, менеджер, виконавець</strong></li>
-				<li><strong>Медицина, ІТ</strong></li>
-				<li>Проекти: <strong>3 активних, 1 завершений</strong></li>
+			<ul class="user__meta metadata">
+				<li class="metadata__item"><strong>Київ</strong>, Україна</li>
+				<li class="metadata__item"><strong>Куратор, координатор, менеджер, виконавець</strong></li>
+				<li class="metadata__item"><strong>Медицина, ІТ</strong></li>
+				<li class="metadata__item">Проекти: <strong>3 активних, 1 завершений</strong></li>
 			</ul>
 			<ul class="user__contacts contacts">
 				<li class="contact">
-					<i class="contact__icon icon icon icon_phone"></i>
+					<i class="contact__icon icon icon_phone"></i>
 					<span class="contact__info">+38 (096) 346-23-45</span>
 					<span class="contact__info">+38 (096) 346-23-45</span>
 				</li>
 				<li class="contact">
-					<i class="contact__icon icon icon icon_mail"></i>
+					<i class="contact__icon icon icon_mail"></i>
 					<span class="contact__info"><a href="">mail@mail.com</a></span>
 				</li>
 				<li class="contact">
-					<i class="contact__icon icon icon icon_skype"></i>
+					<i class="contact__icon icon icon_skype"></i>
 					<span class="contact__info">kostya.kostya</a>
 				</li>
 				<li class="contact contact_social">
-					<a href="#"><i class="social-links icon icon icon_social-fb"></i></a>
-					<a href="#"><i class="social-links icon icon icon_social-in"></i></a>
-					<a href="#"><i class="social-links icon icon icon_social-tw"></i></a>
+					<a href="#"><i class="social-links icon icon_social-fb"></i></a>
+					<a href="#"><i class="social-links icon icon_social-in"></i></a>
+					<a href="#"><i class="social-links icon icon_social-tw"></i></a>
 				</li>
 			</ul>
 		</div>
@@ -125,11 +125,23 @@
 				</h2>
 				<section class="user-profile__section">
 					<h3 class="h3">Система для обліку підписів, які збираються для створення територіальної громади</h3>
-					<ul class="task">
-						<li class="task__item task__item_my task__item_hot">Формування концепції</li>
-						<li class="task__item task__item_my">Формування концепції</li>
-						<li class="task__item task__item_made">Формування концепції</li>
-					</ul>
+					<table class="task-list">
+						<tr class="task task_my task_hot">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+						</tr>
+						<tr class="task task_my">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+						</tr>
+						<tr class="task task_made">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+						</tr>
+					</table>
 				</section>
 			</div>
 		</div>

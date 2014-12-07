@@ -1,64 +1,64 @@
 .header {
-	min-height: $navbar-height;
-	background: #349BD5;
-	@include clearfix();
+    min-height: $navbar-height;
+    background: #349BD5;
+    @include clearfix();
 }
 
 .logo {
-	float: left;
-	color: #FFF;
-	line-height: $navbar-height;
-	
-	> a {
-		color: #FFF;
-		text-decoration: none;
-	}
+    float: left;
+    color: #FFF;
+    line-height: $navbar-height;
+    
+    > a {
+        color: #FFF;
+        text-decoration: none;
+    }
 }
 
 .nav {
-	margin-bottom: 0;
-	padding-left: 0;
-	list-style: none;
-	@include clearfix();
-	
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    @include clearfix();
+    
+    &_right {
+        float: right;
+    }
 
-	> li {
-		float: left;
-		position: relative;
-		
-		
-		> a {
-			color: $navbar-default-link-color;
-			text-decoration: none;
-			padding: $nav-link-padding;
-			position: relative;
-			line-height: $navbar-height;
-			height: $navbar-height;
-			font-weight: bold;
-			
-			&:hover,
-			&:focus {
-				text-decoration: none;
-				color: $navbar-default-link-hover-color;
-        		background-color: $navbar-default-link-hover-bg;
-			}
-		}
-	}
+    &__link {
+        color: $navbar-default-link-color;
+        text-decoration: none;
+        padding: $nav-link-padding;
+        position: relative;
+        line-height: $navbar-height;
+        height: $navbar-height;
+        font-weight: bold;
+        display: block;
+        
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: $navbar-default-link-hover-color;
+            background-color: $navbar-default-link-hover-bg;
+        }
 
-	> .active > a {
-		&,
-		&:hover,
-		&:focus {
-			color: $navbar-default-link-active-color;
-			background-color: $navbar-default-link-active-bg;
-		}
-	}
+        &_active{
+            &,
+            &:hover,
+            &:focus {
+                color: $navbar-default-link-active-color;
+                background-color: $navbar-default-link-active-bg;
+            }
+        }
+    }
 
-	&_right {
-		float: right;
-	}
+    &_left {
+        float: left;
+    }
+    
 
-	&_left {
-		float: left;
-	}
+    &__item {
+        float: left;
+        position: relative;
+    }
 }
