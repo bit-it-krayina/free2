@@ -13,6 +13,7 @@
 				</div>
 				<div class="col_9">
 					<h1>Простой список задач</h1>
+					<!-- BEGIN Task list -->
 					<table class="task-list">
 						<tr class="task task_my task_hot">
 							<td class="task__name">
@@ -30,15 +31,17 @@
 							</td>
 						</tr>
 					</table>
+					<!-- END Task list -->
 
-					<h1>Cписок задач в редактировании проекта</h1>
+					<h1>Cписок задач в редактировании проекта автором</h1>
+					<!-- BEGIN Task list -->
 					<table class="task-list">
 						<tr class="task task_my task_hot">
 							<td class="task__name">
 								<div class="task__name-hold">Формування концепції</div>
 							</td>
 							<td class="task__assignee">
-								<div>Константин Константинопольский</div>
+								<div class="task__user">Константин Константинопольский</div>
 							</td>
 							<td class="task__date">22.05.2014</td>
 							<td class="task__manage">
@@ -53,7 +56,7 @@
 								<div class="task__name-hold">Формування концепції</div>
 							</td>
 							<td class="task__assignee">
-								<div>Константин Константинопольский</div>
+								<div class="task__user">Константин Константинопольский</div>
 							</td>
 							<td class="task__date">22.05.2014</td>
 							<td class="task__manage">
@@ -66,8 +69,8 @@
 						<tr class="task task_made">
 							<td class="task__name"><div class="task__name-hold">Формування концепції</div></td>
 							<td class="task__assignee">
-								<div>Константин Константинопольский</div>
-								<div>Антон Родионов</div>
+								<div class="task__user">Константин Константинопольский</div>
+								<div class="task__user">Антон Родионов</div>
 							</td>
 							<td class="task__date">22.05.2014</td>
 							<td class="task__manage">
@@ -75,6 +78,37 @@
 							</td>
 						</tr>
 					</table>
+					<!-- END Task list -->
+
+					<h1>Cписок задач в проекте для волонтера</h1>
+					<!-- BEGIN Task list -->
+					<table class="task-list">
+						<tr class="task task_my task_hot">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+							<td class="task__assignee">
+								<div class="task__user">Константин Константинопольский</div>
+							</td>
+							<td class="task__date">22.05.2014</td>
+							<td class="task__manage">
+								<button class="btn btn_sm">- Зняти задачу</button>
+							</td>
+						</tr>
+						<tr class="task">
+							<td class="task__name">
+								<div class="task__name-hold">Формування концепції</div>
+							</td>
+							<td class="task__assignee">
+								<div class="task__user">Константин Константинопольский</div>
+							</td>
+							<td class="task__date">22.05.2014</td>
+							<td class="task__manage">
+								<button class="btn btn_sm">+ Взяти задачу</button>
+							</td>
+						</tr>
+					</table>
+					<!-- END Task list -->
 				</div>
 			</div>
 		</main>

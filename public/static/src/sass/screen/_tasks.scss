@@ -28,6 +28,12 @@
         @extend %td;
     }
 
+    &__user {
+        font-size: 13px;
+        font-weight: bold;
+        color: #000;
+    }
+
     &__date {
         @extend %td;
         color: #a1a1a1;

@@ -326,6 +326,7 @@ a.tag__item:hover, a.tag__item:active, a.tag__item:focus { color: #515151; text-
 .task { background: #FEFEFE; color: #363636; }
 .task .task__assignee, .task .task__date { padding: 6px 10px; }
 .task__name { border-left: 5px solid #009DD9; padding: 6px 10px 6px 20px; }
+.task__user { font-size: 13px; font-weight: bold; color: #000; }
 .task__date { color: #a1a1a1; }
 .task__manage { text-align: right; padding: 6px 6px 6px 10px; }
 .task__manage .icon-btn { margin-left: 3px; }
