@@ -1,53 +1,53 @@
 .header {
-    min-height: $navbar-height;
-    background: #349BD5;
     @include clearfix();
+    min-height: $navbar-height;
+    background: #349bd5;
 }
 
 .logo {
     float: left;
-    color: #FFF;
+    color: #fff;
     line-height: $navbar-height;
-    
-    > a {
-        color: #FFF;
+
+    a {
         text-decoration: none;
+        color: #fff;
     }
 }
 
 .nav {
+    @include clearfix();
     margin-bottom: 0;
     padding-left: 0;
     list-style: none;
-    @include clearfix();
-    
+
     &_right {
         float: right;
     }
 
     &__link {
-        color: $navbar-default-link-color;
-        text-decoration: none;
-        padding: $nav-link-padding;
         position: relative;
-        line-height: $navbar-height;
-        height: $navbar-height;
-        font-weight: bold;
         display: block;
-        
+        height: $navbar-height;
+        padding: $navbar-link-padding;
+        text-decoration: none;
+        color: $navbar-link-color;
+        font-weight: bold;
+        line-height: $navbar-height;
+
         &:hover,
         &:focus {
             text-decoration: none;
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-link-hover-bg;
+            color: $navbar-link-hover-color;
+            background-color: $navbar-link-hover-bg;
         }
 
-        &_active{
+        &_active {
             &,
             &:hover,
             &:focus {
-                color: $navbar-default-link-active-color;
-                background-color: $navbar-default-link-active-bg;
+                color: $navbar-link-active-color;
+                background-color: $navbar-link-active-bg;
             }
         }
     }
@@ -55,10 +55,10 @@
     &_left {
         float: left;
     }
-    
+
 
     &__item {
-        float: left;
         position: relative;
+        float: left;
     }
 }

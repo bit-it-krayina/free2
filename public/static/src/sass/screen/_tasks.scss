@@ -1,27 +1,22 @@
-//
-// Tasks
-//
-
 .task-list {
-    border-collapse: initial;
     width: 100%;
     border-spacing: 0 1px;
-    background: $task-border;
+    border-collapse: initial;
     border-right: 1px solid $task-border;
+    background: $task-border;
 }
 
-.task{
-    background: $task-bg;
+.task {
     color: $task-color;
-    
+    background: $task-bg;
+
     %td {
         padding: $padding-base-vertical 10px;
     }
-    
+
     &__name {
+        padding: $padding-base-vertical 10px $padding-base-vertical 20px;
         border-left: 5px solid $task-marker;
-        padding: $padding-base-vertical 10px
-                 $padding-base-vertical 20px;
     }
 
     &__assignee {
@@ -29,9 +24,9 @@
     }
 
     &__user {
+        color: #000;
         font-size: 13px;
         font-weight: bold;
-        color: #000;
     }
 
     &__date {
@@ -40,9 +35,9 @@
     }
 
     &__manage {
-        text-align: right;
         padding: $padding-base-vertical $padding-base-vertical
-                 $padding-base-vertical 10px;
+        $padding-base-vertical 10px;
+        text-align: right;
 
         .icon-btn {
             margin-left: 3px;
@@ -50,9 +45,9 @@
     }
 
     &_made {
-        background: $task-made-bg;
         color: $task-made-color;
-        
+        background: $task-made-bg;
+
         .task__name {
             border-left-color: $task-made-marker;
         }
@@ -60,7 +55,7 @@
 
     &_my {
         background: $task-my-bg;
-        
+
         .task__name {
             border-left-color: $task-my-marker;
         }
@@ -72,11 +67,9 @@
         }
 
         .task__name-hold:before {
-            content: '!';
-            color: #FF4C4C;
             margin-right: 10px;
+            content: '!';
+            color: #ff4c4c;
         }
-    }   
-
+    }
 }
-

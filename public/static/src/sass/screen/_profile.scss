@@ -1,116 +1,113 @@
 .metadata {
-	padding: 0;
-	margin-bottom: $line-height-computed;
+    margin-bottom: $line-height-computed;
+    padding: 0;
 
-	&__item {
-		display: inline-block;
-		list-style: none;
-		
-		&:after {
-			content: "|";
-			margin: 0 4px 0 7px;
-		}
+    &__item {
+        display: inline-block;
+        list-style: none;
 
-		&:last-child:after {
-			display: none;
-		}
-	}
+        &:after {
+            margin: 0 4px 0 7px;
+            content: '|';
+        }
+
+        &:last-child:after {
+            display: none;
+        }
+    }
 }
 
 .contacts {
-	padding: 0;
-	@include clearfix();
+    @include clearfix();
+    padding: 0;
 }
 
 .contact {
-	float: left;
-	list-style: none;
-	width: 25%;
-	padding: 0 30px 0 20px;
-	position: relative;
+    position: relative;
+    float: left;
+    width: 25%;
+    padding: 0 30px 0 20px;
+    list-style: none;
 
-	&__icon {
-		position: absolute;
-		left: 0;
-		top: 0;
-		font-size: 18px;
-		text-align: center;
-		width: 20px;
-		color: #696969;
-	}
+    &__icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        text-align: center;
+        color: #696969;
+        font-size: 18px;
+    }
 
-	&__info {
-		display: block;
-	}
+    &__info {
+        display: block;
+    }
 }
 
 .contact_social {
-	text-align: right;
-	
-	.icon {
-		color: #696969;
-		margin-right: 10px;
-		top: -10px;
-		
-		&:hover {
-			color: #000;
-		}
-	}
+    text-align: right;
+
+    .icon {
+        top: -10px;
+        margin-right: 10px;
+        color: #696969;
+
+        &:hover {
+            color: #000;
+        }
+    }
 }
 
 .social-links {
-	font-size: 35px;
+    font-size: 35px;
 }
 
 .user-profile {
-	padding: 35px 0 0;
-	&__header {
-		
-	}
+    padding: 35px 0 0;
 }
 
 .user-profile__header {
-	@include clearfix();
-	margin-bottom: 30px;
+    @include clearfix();
+    margin-bottom: 30px;
 }
 
 .user-profile__btn-edit {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .user-profile__section {
-	margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .user__photo {
-	float: left;
-	width: 130px;
-	
-	img {
-		vertical-align: top;
-		max-width: 130px;
-	}	
+    float: left;
+    width: 130px;
+
+    img {
+        max-width: 130px;
+        vertical-align: top;
+    }
 }
 
 .user__info {
-	margin-left: 150px;
+    margin-left: 150px;
 }
 
 .user__name {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 .user__specialty {
-	margin-bottom: $line-height-computed;
+    margin-bottom: $line-height-computed;
 }
 
 .user__meta {
-	margin-bottom: $line-height-computed;
+    margin-bottom: $line-height-computed;
 }
 
 .user__detail-info {
-	list-style: none;
-	padding: 0;
-	margin-bottom: 30px;
-	line-height: 2em;
+    margin-bottom: 30px;
+    padding: 0;
+    list-style: none;
+    line-height: 2em;
 }

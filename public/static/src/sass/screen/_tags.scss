@@ -1,31 +1,27 @@
-//
-// Tags
-//
-
 .tag {
-	list-style: none;
+    list-style: none;
 
-	&__item {
-		display: inline-block;
-		white-space: nowrap;
-		cursor: default;
-		color: $tag-color;
-		font-size: $tag-font-size;
-		font-weight: $tag-font-weight;
-		background: $tag-bg;
-		padding: $padding-base-vertical $padding-base-horizontal;
-		margin: 0 1px 6px 0;
-	}
+    &__item {
+        display: inline-block;
+        margin: 0 1px 6px 0;
+        padding: $padding-base-vertical $padding-base-horizontal;
+        cursor: default;
+        white-space: nowrap;
+        color: $tag-color;
+        background: $tag-bg;
+        font-size: $tag-font-size;
+        font-weight: $tag-font-weight;
+    }
 }
 
 a.tag__item {
-	cursor: pointer;
+    cursor: pointer;
 
-	&:hover,
-	&:active,
-	&:focus {
-		color: $tag-color;
-		text-decoration: none;
-		background: $tag-bg-hover;
-	}
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+        color: $tag-color;
+        background: $tag-bg-hover;
+    }
 }

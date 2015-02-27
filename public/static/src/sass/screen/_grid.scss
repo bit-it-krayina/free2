@@ -3,16 +3,16 @@
 //
 
 .in {
-  @include container-fixed();
-  width: 100%;
+    @include container-fixed();
+    width: 100%;
 
-  @media (min-width: $screen-lg-min) {
-    width: $container-lg;
-  }
+    @media (min-width: $screen-lg-min) {
+        width: $screen-lg-min;
+    }
 }
 
 .row {
-  @include make-row();
+    @include make-row();
 }
 
 @include make-grid-columns();

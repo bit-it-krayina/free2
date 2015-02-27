@@ -1,53 +1,45 @@
-//
-// Tabs
-//
-
 .tab {
-	&__nav {
-		border-bottom: 1px solid $tabs-border-color;
-		@include clearfix();
-		list-style: none;
-		padding: 0;
-		margin: 0;
+    &__nav {
+        @include clearfix();
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid $tabs-border-color;
 
-		> li {
-			text-transform: uppercase;
-			float: left;
-			margin: 0 $padding-large-horizontal;
-			margin-bottom: -1px;
-			height: $tabs-height;
-			line-height: $tabs-height;
-			
-			
-			> a {
-				display: block;
-				text-decoration: none;
-				color: $tabs-link-color;
-				box-sizing: border-box;
-				padding: 0 2px;
-				line-height: $tabs-height - 6px;
-				border: 3px solid transparent;
-				border-width: 3px 0;
-				font-weight: bold;
-				
-				&:hover {
-					color: $tabs-active-link-hover-color;
-					border-bottom-color: $tabs-active-link-hover-border-color;
-				}
-			}
-		}
+        li {
+            float: left;
+            height: $tabs-height;
+            margin: 0 $padding-large-horizontal -1px;
+            text-transform: uppercase;
+            line-height: $tabs-height;
 
-		.active {
-			> a {
-				color: $tabs-active-link-hover-color;
-				border-bottom: 3px solid $tabs-active-link-hover-border-color;
-			}
-		}
-	}
+            a {
+                display: block;
+                box-sizing: border-box;
+                padding: 0 2px;
+                text-decoration: none;
+                color: $tabs-link-color;
+                border: 3px solid transparent;
+                border-width: 3px 0;
+                font-weight: bold;
+                line-height: $tabs-height - 6px;
 
-	&__content {
-		padding: $padding-large-horizontal;
-	}
+                &:hover {
+                    color: $tabs-active-link-hover-color;
+                    border-bottom-color: $tabs-active-link-hover-border-color;
+                }
+            }
+        }
 
-	&__pane {}
+        .active {
+            a {
+                color: $tabs-active-link-hover-color;
+                border-bottom: 3px solid $tabs-active-link-hover-border-color;
+            }
+        }
+    }
+
+    &__content {
+        padding: $padding-large-horizontal;
+    }
 }
