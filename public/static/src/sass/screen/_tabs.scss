@@ -1,3 +1,13 @@
+//== Varibles
+
+$tabs-border-color: #ddd;
+$tabs-link-color: $gray-light;
+$tabs-height: 50px;
+
+$tabs-active-link-hover-color: $color-blue;
+$tabs-active-link-hover-border-color: $color-blue;
+
+
 .tab {
     &__nav {
         @include clearfix();

@@ -1,17 +1,34 @@
+//== Varibles
+$header-bg: $color-blue;
+
+$navbar-height: 50px;
+
+$navbar-link-color: #fff;
+$navbar-link-hover-color: $color-yellow;
+$navbar-link-hover-bg: transparent;
+$navbar-link-active-color: $color-yellow;
+$navbar-link-active-bg: darken(#777, 6.5%);
+$navbar-link-padding: 0 15px;
+
+
 .header {
     @include clearfix();
     min-height: $navbar-height;
-    background: #349bd5;
+    background: $header-bg;
 }
 
 .logo {
     float: left;
+    min-width: 25%;
     color: #fff;
     line-height: $navbar-height;
 
     a {
         text-decoration: none;
         color: #fff;
+        &:hover {
+            color: $color-yellow;
+        }
     }
 }
 

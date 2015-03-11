@@ -1,3 +1,42 @@
 .main {
     padding: 0;
 }
+
+.block-header {
+    @include clearfix;
+    margin: 10px 0 25px;
+
+    .h1, .h2, .h3 {
+        float: left;
+        margin: 0;
+    }
+}
+
+.indicator {
+    float: left;
+    margin: 10px 0 0 30px;
+    padding: 0;
+    list-style: none;
+    color: $gray;
+    font-size: 14px;
+
+    &__item {
+        float: left;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    &__num {
+        font-weight: normal;
+    }
+}
+
+.user-role {
+    display: inline-block;
+    padding: $padding-base-vertical $padding-base-horizontal;
+    white-space: nowrap;
+    color: $gray;
+    background: $gray-lighter;
+    font-size: 12px;
+    font-weight: bold;
+}

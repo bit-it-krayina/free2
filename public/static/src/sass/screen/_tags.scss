@@ -1,3 +1,11 @@
+//== Varibles
+
+$tag-bg: $gray-lighter;
+$tag-bg-hover: darken($tag-bg, 5%);
+$tag-color: $gray;
+$tag-font-size: 12px;
+$tag-font-weight: bold;
+
 .tag {
     list-style: none;
 

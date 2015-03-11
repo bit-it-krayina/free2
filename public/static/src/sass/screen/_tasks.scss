@@ -1,3 +1,19 @@
+//== Varibles
+
+$task-bg: #fefefe;
+$task-border: darken($task-bg, 15%);
+$task-marker-color: #009dd9;
+$task-text-color: #363636;
+
+$task-made-bg: #f8f8f8;
+$task-made-marker-color: #aeaeae;
+$task-made-text-color: #868686;
+
+$task-my-bg: #f3f9f3;
+$task-my-marker-color: #393;
+
+//== Styles
+
 .task-list {
     width: 100%;
     border-spacing: 0 1px;
@@ -7,7 +23,7 @@
 }
 
 .task {
-    color: $task-color;
+    color: $task-text-color;
     background: $task-bg;
 
     %td {
@@ -16,7 +32,7 @@
 
     &__name {
         padding: $padding-base-vertical 10px $padding-base-vertical 20px;
-        border-left: 5px solid $task-marker;
+        border-left: 5px solid $task-marker-color;
     }
 
     &__assignee {
@@ -26,7 +42,6 @@
     &__user {
         color: #000;
         font-size: 13px;
-        font-weight: bold;
     }
 
     &__date {
@@ -45,19 +60,19 @@
     }
 
     &_made {
-        color: $task-made-color;
+        color: $task-made-text-color;
         background: $task-made-bg;
 
         .task__name {
-            border-left-color: $task-made-marker;
+            border-left-color: $task-made-marker-color;
         }
     }
 
-    &_my {
+    &_in-progress {
         background: $task-my-bg;
 
         .task__name {
-            border-left-color: $task-my-marker;
+            border-left-color: $task-my-marker-color;
         }
     }
 
@@ -67,7 +82,7 @@
         }
 
         .task__name-hold:before {
-            margin-right: 10px;
+            margin-right: 5px;
             content: '!';
             color: #ff4c4c;
         }

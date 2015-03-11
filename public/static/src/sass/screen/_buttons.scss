@@ -1,3 +1,40 @@
+//== Buttons
+
+$btn-padding-vertical: 10px;
+$btn-padding-horizontal: 15px;
+$btn-font-size: 14px;
+$btn-line-height: 20px;
+
+$btn-font-weight: bold;
+
+$btn-default-color: #fff;
+$btn-default-bg: $gray-light;
+$btn-default-bg-hover: lighten($gray-light, 10%);
+
+
+
+// $btn-primary-color: #fff;
+// $btn-primary-bg: $brand-primary;
+// $btn-primary-border: darken($btn-primary-bg, 5%);
+
+// $btn-success-color: #fff;
+// $btn-success-bg: $brand-success;
+// $btn-success-border: darken($btn-success-bg, 5%);
+
+// $btn-info-color: #fff;
+// $btn-info-bg: $brand-info;
+// $btn-info-border: darken($btn-info-bg, 5%);
+
+// $btn-warning-color: #fff;
+// $btn-warning-bg: $brand-warning;
+// $btn-warning-border: darken($btn-warning-bg, 5%);
+
+// $btn-danger-color: #fff;
+// $btn-danger-bg: $brand-danger;
+// $btn-danger-border: darken($btn-danger-bg, 5%);
+
+$btn-link-disabled-color: $gray-light;
+
 .btn,
 .icon-btn {
     display: inline-block;
@@ -43,14 +80,32 @@
 }
 
 .btn {
-    // @include button-size($btn-padding-vertical, 
-    //             $btn-padding-horizontal, 
-    //             $btn-font-size, 
-    //             $btn-line-height, 
-    //             $border-radius-base);
     padding: $btn-padding-vertical $btn-padding-horizontal;
+    color: #fff;
+    background: $btn-default-bg;
     font-size: $btn-font-size;
     line-height: $btn-line-height;
+
+    &:hover {
+        background: $btn-default-bg-hover;
+    }
+
+    &_green {
+        background: $color-green;
+        &:hover {
+            background: lighten($color-green, 10%);
+        }
+    }
+
+    &_red {
+        color: #f00;
+        background: #fcc;
+    }
+
+    &_right {
+        float: right;
+        margin-left: 30px;
+    }
 }
 
 .icon-btn {
@@ -60,27 +115,27 @@
 }
 
 
-// Alternate buttons
+// // Alternate buttons
 
-.btn_default {
-    @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
-}
-.btn_primary {
-    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-}
-// Success appears as green
-.btn_success {
-    @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
-}
-// Info appears as blue-green
-.btn_info {
-    @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
-}
-// Warning appears as orange
-.btn_warning {
-    @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-}
-// Danger and error appear as red
-.btn_danger {
-    @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-}
+// .btn_default {
+//     @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+// }
+// .btn_primary {
+//     @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+// }
+// // Success appears as green
+// .btn_success {
+//     @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+// }
+// // Info appears as blue-green
+// .btn_info {
+//     @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+// }
+// // Warning appears as orange
+// .btn_warning {
+//     @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+// }
+// // Danger and error appear as red
+// .btn_danger {
+//     @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+// }

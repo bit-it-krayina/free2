@@ -1,5 +1,13 @@
+$sidebar-bg: #f6f6f6;
+
+$control-nav-height: 50px;
+$control-nav-link-bg: #e1e6f0;
+$control-nav-link-color: #333;
+$control-nav-link-hover-bg: #e9edf7;
+
+
 .sidebar {
-    background: #f6f6f6;
+    background: $sidebar-bg;
 }
 
 .control-nav {
@@ -7,17 +15,17 @@
 
     a {
         display: block;
-        height: 53px;
+        height: $control-nav-height;
         padding: 0 30px;
-        color: #333;
+        color: $control-nav-link-color;
         border-bottom: 2px solid #fff;
-        background: #e1e6f0;
+        background: $control-nav-link-bg;
         font-size: 15px;
-        line-height: 53px;
+        line-height: $control-nav-height;
 
         &:hover {
             text-decoration: none;
-            background: #e9edf7;
+            background: $control-nav-link-hover-bg;
         }
     }
 }
@@ -25,7 +33,7 @@
 .project-nav {
     &__title {
         display: block;
-        padding: 0 20px 10px;
+        padding: 0 $padding-large-horizontal $padding-large-vertical;
         color: #5e5e5e;
         font-size: 14px;
         font-weight: bold;

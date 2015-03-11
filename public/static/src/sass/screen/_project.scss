@@ -1,0 +1,102 @@
+.project {
+    margin-bottom: 70px;
+
+    &__header {
+        @include clearfix;
+
+        .btn {
+            margin-top: -10px;
+        }
+    }
+
+    &__meta {
+        @include clearfix;
+        line-height: 1.95em;
+
+        .metadata {
+            float: left;
+        }
+    }
+
+    &__content {
+        @include clearfix;
+    }
+
+    &__img {
+        float: left;
+        width: 150px;
+        height: 150px;
+        margin: 0 30px 30px 0;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &__desc {
+        margin-bottom: 30px;
+    }
+
+    &__desc-wrap {
+        @include clearfix;
+    }
+
+    &__date,
+    &__creator {
+        float: right;
+        margin-left: 15px;
+        color: $gray;
+    }
+
+    &__creator {
+        font-weight: bold;
+
+        &-img {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+            vertical-align: middle;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                vertical-align: top;
+            }
+        }
+    }
+
+    &__mark {
+        display: inline-block;
+        padding: 3px 5px;
+        vertical-align: text-bottom;
+        color: #fff;
+        font-size: 11px;
+
+        &_hot {
+            background: $color-red;
+        }
+    }
+
+    &_full {
+        padding: 25px 0 0;
+
+        .metadata {
+            font-size: 18px;
+        }
+
+        .project {
+            width: 100%;
+        }
+    }
+
+    &_short {
+        .project {
+            &__date,
+            &__creator {
+                font-size: 13px;
+            }
+        }
+    }
+}

@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Template</title>
+<meta charset="utf-8">
+<title>My Profile</title>
 	<meta name="viewport" content="width=device-width"/>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500italic,500,700,700italic,900,900italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" media="screen" href="../css/screen.css" >
@@ -12,36 +12,32 @@
 	<div class="wrap">
 		<header class="header">
 	<div class="in">
-		<div class="col_3">
-			<strong class="logo"><a href="#">Біржа Волонтерів України</a></strong>
-		</div>
-		<div class="col_9">
-			<ul class="nav nav_left">
-				<li class="nav__item">
-					<a class="nav__link" href="#">Проекти</a>
+		<strong class="logo"><a href="#">Біржа Волонтерів України</a></strong>
+		<ul class="nav nav_left">
+			<li class="nav__item">
+				<a class="nav__link" href="#">Проекти</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Волонтери</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Про біржу</a>
+			</li>
+		</ul>
+		<ul class="nav nav_right">
+			<li class="nav__item">
+				<a class="nav__link" href="#">Пошук</a>
 				</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Волонтери</a>
-				</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Про біржу</a>
-				</li>
-			</ul>
-			<ul class="nav nav_right">
-				<li class="nav__item">
-					<a class="nav__link" href="#">Пошук</a>
-					</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Сповіщення</a>
-				</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Константин</a>
-				</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Вийти</a>
-				</li>
-			</ul>
-		</div>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Сповіщення</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Константин</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Вийти</a>
+			</li>
+		</ul>
 	</div>
 </header>
 		<main class="main in">
@@ -75,7 +71,7 @@
 					<div class="user-profile user">
 	<div class="user-profile__header">
 		<div class="user__photo">
-			<img src="img/user-photo.png" alt="">
+			<img src="http://placehold.it/130x130" alt="">
 		</div>
 		<div class="user__info">
 			<h1 class="user__name h1">Іван Іванов</h1>
@@ -87,20 +83,20 @@
 				<li class="metadata__item">Проекти: <strong>3 активних, 1 завершений</strong></li>
 			</ul>
 			<ul class="user__contacts contacts">
-				<li class="contact">
-					<i class="contact__icon icon icon_phone"></i>
-					<span class="contact__info">+38 (096) 346-23-45</span>
-					<span class="contact__info">+38 (096) 346-23-45</span>
+				<li class="contacts__item">
+					<i class="contacts__icon icon icon_phone"></i>
+					<span class="contacts__info">+38 (096) 346-23-45</span>
+					<span class="contacts__info">+38 (096) 346-23-45</span>
 				</li>
-				<li class="contact">
-					<i class="contact__icon icon icon_mail"></i>
-					<span class="contact__info"><a href="">mail@mail.com</a></span>
+				<li class="contacts__item">
+					<i class="contacts__icon icon icon_mail"></i>
+					<span class="contacts__info"><a href="">mail@mail.com</a></span>
 				</li>
-				<li class="contact">
-					<i class="contact__icon icon icon_skype"></i>
-					<span class="contact__info">kostya.kostya</a>
+				<li class="contacts__item">
+					<i class="contacts__icon icon icon_skype"></i>
+					<span class="contacts__info">kostya.kostya</a>
 				</li>
-				<li class="contact contact_social">
+				<li class="contacts__item contacts_social">
 					<a href="#"><i class="social-links icon icon_social-fb"></i></a>
 					<a href="#"><i class="social-links icon icon_social-in"></i></a>
 					<a href="#"><i class="social-links icon icon_social-tw"></i></a>
@@ -108,7 +104,7 @@
 			</ul>
 		</div>
 	</div>
-	<a href="#" class="user-profile__btn-edit btn btn_success">Редагувати профіль</a>
+	<a href="#" class="user-profile__btn-edit btn btn_green">Редагувати профіль</a>
 	<div class="tab">
 		<ul class="tab__nav">
 			<li class="active">
@@ -123,13 +119,17 @@
 		</ul>
 		<div class="tab__content">
 			<div class="tab__pane">
-				<h2 class="h2">
-					Опис
-					<small class="small">
-						Перегляди 
-						<span class="num">100</span>
-					</small>
-				</h2>
+				<div class="block-header">
+					<h2 class="h2">
+						Опис
+					</h2>
+					<ul class="indicator">
+						<li class="indicator__item">
+							Перегляди
+							<span class="indicator__num">100</span>
+						</li>
+					</ul>
+				</div>
 
 				<section class="user-profile__section">
 					<h3 class="h3">
@@ -186,36 +186,175 @@
 			</div>
 			<div class="tab__pane"></div>
 			<div class="tab__pane">
-				<h2 class="h2">
-					Проекти
-					<small class="small">
-						Активні проекти 
-						<span class="num">3</span>
-					</small>
-					<small class="small">
-						Закриті проекти 
-						<span class="num">1</span>
-					</small>
-				</h2>
+				<div class="block-header">
+					<h2 class="h2">
+						Проекти
+					</h2>
+					<ul class="indicator">
+						<li class="indicator__item">
+							Активні проекти
+							<span class="indicator__num">3</span>
+						</li>
+						<li class="indicator__item">
+							Закриті проекти
+							<span class="indicator__num">1</span>
+						</li>
+					</ul>
+				</div>
 				<section class="user-profile__section">
-					<h3 class="h3">Система для обліку підписів, які збираються для створення територіальної громади</h3>
-					<table class="task-list">
-						<tr class="task task_my task_hot">
-							<td class="task__name">
-								<div class="task__name-hold">Формування концепції</div>
-							</td>
-						</tr>
-						<tr class="task task_my">
-							<td class="task__name">
-								<div class="task__name-hold">Формування концепції</div>
-							</td>
-						</tr>
-						<tr class="task task_made">
-							<td class="task__name">
-								<div class="task__name-hold">Формування концепції</div>
-							</td>
-						</tr>
-					</table>
+					<!-- BEGIN project -->
+					<div class="project project_short">
+						<div class="project__header">
+							<button class="btn btn_right">Відхилити участь</button>
+							<h3 class="h3">
+								<span class="project__mark project__mark_hot">терміново</span>
+								Система для обліку підписів, які збираються для створення територіальної громади
+								<div class="user-role">Ви - Виконавець</div>
+							</h3>
+						</div>
+						<div class="project__meta">
+							<ul class="metadata">
+								<li class="metadata__item"><strong>Київ</strong>, Україна</li>
+								<li class="metadata__item"><strong>4</strong> з 20</li>
+								<li class="metadata__item"><strong>Медицина, ІТ</strong></li>
+							</ul>
+							<div class="project__date">22.05.2014</div>
+							<div class="project__creator">
+								<div class="project__creator-img">
+									<img src="http://placehold.it/24x24" alt="">
+								</div>
+								Климентій Булигін
+							</div>
+						</div>
+						<table class="task-list">
+							<tr class="task task_in-progress task_hot">
+								<td class="task__name">
+									<div class="task__name-hold">Формування концепції</div>
+								</td>
+							</tr>
+							<tr class="task task_in-progress">
+								<td class="task__name">
+									<div class="task__name-hold">Формування концепції</div>
+								</td>
+							</tr>
+							<tr class="task task_made">
+								<td class="task__name">
+									<div class="task__name-hold">Формування концепції</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- END project -->
+
+					<!-- BEGIN project -->
+					<div class="project project_short">
+						<div class="project__header">
+							<button class="btn btn_right">Відхилити участь</button>
+							<h3 class="h3">
+								Електронна школа
+								<div class="user-role">Ви - Виконавець</div>
+
+							</h3>
+						</div>
+						<div class="project__meta">
+							<ul class="metadata">
+								<li class="metadata__item"><strong>Київ</strong>, Україна</li>
+								<li class="metadata__item"><strong>4</strong> з 20</li>
+								<li class="metadata__item"><strong>Медицина, ІТ</strong></li>
+							</ul>
+							<div class="project__date">22.05.2014</div>
+							<div class="project__creator">
+								<div class="project__creator-img">
+									<img src="http://placehold.it/24x24" alt="">
+								</div>
+								Воропаєв Ростислав
+							</div>
+						</div>
+						<table class="task-list">
+							<tr class="task task_in-progress task_hot">
+								<td class="task__name">
+									<div class="task__name-hold">Набір команди розробників</div>
+								</td>
+							</tr>
+							<tr class="task task_in-progress">
+								<td class="task__name">
+									<div class="task__name-hold">Складання таймінгу</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- END project -->
+
+					<!-- BEGIN project -->
+					<div class="project project_short">
+						<div class="project__header">
+							<button class="btn btn_right">Відхилити участь</button>
+							<h3 class="h3">
+								Open Data / Открытые данные
+								<div class="user-role">Ви - Виконавець</div>
+							</h3>
+						</div>
+						<div class="project__meta">
+							<ul class="metadata">
+								<li class="metadata__item"><strong>Київ</strong>, Україна</li>
+								<li class="metadata__item"><strong>4</strong> з 20</li>
+								<li class="metadata__item"><strong>Медицина, ІТ</strong></li>
+							</ul>
+							<div class="project__date">22.05.2014</div>
+							<div class="project__creator">
+								<div class="project__creator-img">
+									<img src="http://placehold.it/24x24" alt="">
+								</div>
+								Воропаєв Ростислав
+							</div>
+						</div>
+						<table class="task-list">
+							<tr class="task task_made">
+								<td class="task__name">
+									<div class="task__name-hold">Створення прототипу</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- END project -->
+
+					<!-- BEGIN project -->
+					<div class="project project_short">
+						<div class="project__header">
+							<button class="btn btn_right">Відхилити участь</button>
+							<h3 class="h3">
+								Дізнайся справжню ціну
+								<div class="user-role">Ви - Координатор</div>
+							</h3>
+						</div>
+						<div class="project__meta">
+							<ul class="metadata">
+								<li class="metadata__item"><strong>Київ</strong>, Україна</li>
+								<li class="metadata__item"><strong>4</strong> з 20</li>
+								<li class="metadata__item"><strong>Медицина, ІТ</strong></li>
+							</ul>
+							<div class="project__date">22.05.2014</div>
+							<div class="project__creator">
+								<div class="project__creator-img">
+									<img src="http://placehold.it/24x24" alt="">
+								</div>
+								Воропаєв Ростислав
+							</div>
+						</div>
+						<table class="task-list">
+							<tr class="task task_made">
+								<td class="task__name">
+									<div class="task__name-hold">Створення прототипу</div>
+								</td>
+							</tr>
+							<tr class="task task_made">
+								<td class="task__name">
+									<div class="task__name-hold">Складання таймінгу</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- END project -->
 				</section>
 			</div>
 		</div>

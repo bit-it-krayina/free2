@@ -19,11 +19,13 @@
 
 // Components
 @import "screen/common";
+@import "screen/header";
+@import "screen/sidebar";
 @import "screen/tabs";
 @import "screen/tags";
 @import "screen/tasks";
-@import "screen/header";
-@import "screen/sidebar";
+@import "screen/project";
+
 
 //Pages
 @import "screen/profile";

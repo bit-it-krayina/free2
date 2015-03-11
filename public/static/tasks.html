@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Template</title>
+<meta charset="utf-8">
+<title>Tasks</title>
 	<meta name="viewport" content="width=device-width"/>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500italic,500,700,700italic,900,900italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" media="screen" href="../css/screen.css" >
@@ -12,36 +12,32 @@
 	<div class="wrap">
 		<header class="header">
 	<div class="in">
-		<div class="col_3">
-			<strong class="logo"><a href="#">Біржа Волонтерів України</a></strong>
-		</div>
-		<div class="col_9">
-			<ul class="nav nav_left">
-				<li class="nav__item">
-					<a class="nav__link" href="#">Проекти</a>
+		<strong class="logo"><a href="#">Біржа Волонтерів України</a></strong>
+		<ul class="nav nav_left">
+			<li class="nav__item">
+				<a class="nav__link" href="#">Проекти</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Волонтери</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Про біржу</a>
+			</li>
+		</ul>
+		<ul class="nav nav_right">
+			<li class="nav__item">
+				<a class="nav__link" href="#">Пошук</a>
 				</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Волонтери</a>
-				</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Про біржу</a>
-				</li>
-			</ul>
-			<ul class="nav nav_right">
-				<li class="nav__item">
-					<a class="nav__link" href="#">Пошук</a>
-					</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Сповіщення</a>
-				</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Константин</a>
-				</li>
-				<li class="nav__item">
-					<a class="nav__link" href="#">Вийти</a>
-				</li>
-			</ul>
-		</div>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Сповіщення</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Константин</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link" href="#">Вийти</a>
+			</li>
+		</ul>
 	</div>
 </header>
 		<main class="main in">
@@ -75,7 +71,7 @@
 					<h1>Простой список задач</h1>
 					<!-- BEGIN Task list -->
 					<table class="task-list">
-						<tr class="task task_my task_hot">
+						<tr class="task task_in-progress task_hot">
 							<td class="task__name">
 								<div class="task__name-hold">Формування концепції</div>
 							</td>
@@ -96,12 +92,12 @@
 					<h1>Cписок задач в редактировании проекта автором</h1>
 					<!-- BEGIN Task list -->
 					<table class="task-list">
-						<tr class="task task_my task_hot">
+						<tr class="task task_in-progress task_hot">
 							<td class="task__name">
 								<div class="task__name-hold">Формування концепції</div>
 							</td>
 							<td class="task__assignee">
-								<div class="task__user">Константин Константинопольский</div>
+								<div class="task__user"><strong>Константин Константинопольский</strong></div>
 							</td>
 							<td class="task__date">22.05.2014</td>
 							<td class="task__manage">
@@ -116,7 +112,7 @@
 								<div class="task__name-hold">Формування концепції</div>
 							</td>
 							<td class="task__assignee">
-								<div class="task__user">Константин Константинопольский</div>
+								<div class="task__user"><strong>Константин Константинопольский</strong></div>
 							</td>
 							<td class="task__date">22.05.2014</td>
 							<td class="task__manage">
@@ -129,7 +125,7 @@
 						<tr class="task task_made">
 							<td class="task__name"><div class="task__name-hold">Формування концепції</div></td>
 							<td class="task__assignee">
-								<div class="task__user">Константин Константинопольский</div>
+								<div class="task__user"><strong>Константин Константинопольский</strong></div>
 								<div class="task__user">Антон Родионов</div>
 							</td>
 							<td class="task__date">22.05.2014</td>
@@ -143,12 +139,12 @@
 					<h1>Cписок задач в проекте для волонтера</h1>
 					<!-- BEGIN Task list -->
 					<table class="task-list">
-						<tr class="task task_my task_hot">
+						<tr class="task task_in-progress task_hot">
 							<td class="task__name">
 								<div class="task__name-hold">Формування концепції</div>
 							</td>
 							<td class="task__assignee">
-								<div class="task__user">Константин Константинопольский</div>
+								<div class="task__user"><strong>Константин Константинопольский</strong></div>
 							</td>
 							<td class="task__date">22.05.2014</td>
 							<td class="task__manage">
@@ -160,7 +156,7 @@
 								<div class="task__name-hold">Формування концепції</div>
 							</td>
 							<td class="task__assignee">
-								<div class="task__user">Константин Константинопольский</div>
+								<div class="task__user"><strong>Константин Константинопольский</strong></div>
 							</td>
 							<td class="task__date">22.05.2014</td>
 							<td class="task__manage">

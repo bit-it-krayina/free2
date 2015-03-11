@@ -1,6 +1,7 @@
 .metadata {
     margin-bottom: $line-height-computed;
     padding: 0;
+    line-height: 1.95em;
 
     &__item {
         display: inline-block;
@@ -20,14 +21,17 @@
 .contacts {
     @include clearfix();
     padding: 0;
-}
 
-.contact {
-    position: relative;
-    float: left;
-    width: 25%;
-    padding: 0 30px 0 20px;
-    list-style: none;
+    &__item {
+        position: relative;
+        display: inline-block;
+        width: 25%;
+        min-width: 200px;
+        margin: 10px -.3em 10px 0;
+        padding: 0 30px 0 20px;
+        list-style: none;
+        vertical-align: top;
+    }
 
     &__icon {
         position: absolute;
@@ -42,21 +46,23 @@
     &__info {
         display: block;
     }
-}
 
-.contact_social {
-    text-align: right;
+    &_social {
+        padding-left: 0;
+        .icon {
+            top: -10px;
+            margin-right: 10px;
+            color: #696969;
 
-    .icon {
-        top: -10px;
-        margin-right: 10px;
-        color: #696969;
-
-        &:hover {
-            color: #000;
+            &:hover {
+                text-decoration: none;
+                color: #000;
+            }
         }
     }
 }
+
+
 
 .social-links {
     font-size: 35px;
@@ -64,50 +70,63 @@
 
 .user-profile {
     padding: 35px 0 0;
-}
 
-.user-profile__header {
-    @include clearfix();
-    margin-bottom: 30px;
-}
+    &__header {
+        @include clearfix();
+        margin-bottom: 30px;
+    }
 
-.user-profile__btn-edit {
-    margin-bottom: 30px;
-}
+    &__btn-edit {
+        margin-bottom: 30px;
+    }
 
-.user-profile__section {
-    margin-bottom: 50px;
-}
-
-.user__photo {
-    float: left;
-    width: 130px;
-
-    img {
-        max-width: 130px;
-        vertical-align: top;
+    &__section {
+        margin-bottom: 50px;
     }
 }
 
-.user__info {
-    margin-left: 150px;
+.user {
+    &__photo {
+        float: left;
+        width: 130px;
+
+        img {
+            max-width: 130px;
+            vertical-align: top;
+        }
+    }
+
+
+    &__info {
+        margin-left: 150px;
+    }
+
+    &__name {
+        margin: -.32em 0 .32em;
+    }
+
+    &__specialty {
+        margin-bottom: $line-height-computed;
+        font-size: 18px;
+    }
+
+    &__meta {
+        margin-bottom: 10px;
+    }
+
+    &__detail-info {
+        margin-bottom: 30px;
+        padding: 0;
+        list-style: none;
+
+        li {
+            margin: .5em 0;
+        }
+    }
 }
 
-.user__name {
-    margin-top: 0;
-}
-
-.user__specialty {
-    margin-bottom: $line-height-computed;
-}
-
-.user__meta {
-    margin-bottom: $line-height-computed;
-}
-
-.user__detail-info {
-    margin-bottom: 30px;
+.user-list {
+    margin: 0;
     padding: 0;
     list-style: none;
-    line-height: 2em;
 }
